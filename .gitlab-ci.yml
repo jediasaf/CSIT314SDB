@@ -38,10 +38,9 @@ variables:
 # Run our tests
 # If Xdebug was installed you can generate a coverage report and see code coverage metrics.
 test:
-  script:
-    
+  script: echo "Testing"
 
 deploy:
   stage: deploy
-  script: echo "Define your deployment script!"
+  script: echo "Deploying"
   environment: production
