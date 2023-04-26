@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Add Show</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style type="text/css">
+
+body {
+color: #404E67;
+background: #F5F7FA;
+font-family: 'Open Sans', sans-serif;
+}
+
+.dropdown-menu {
+   position: relative;
+   display: inline-block;
+}
+.menu-content {
+   display: none;
+   position: absolute;
+   background-color: #017575;
+   min-width: 160px;
+   z-index: 1;
+}
+nav{
+    background-color: #1289dd;
+}
+nav ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    position: relative;
+}
+nav ul li{
+    display: inline-block;
+    background-color: #1289dd;
+}
+nav a{
+    display: block;
+    padding: 0 10px;
+    color: #fff;
+    line-height: 60px;
+    font-size: 15px;
+    text-decoration: none;
+}
+/* Hide Dropdown by Default*/
+nav ul ul {
+    display: none;
+    position: absolute;
+    top: 60px;
+}
+/* hover */
+nav a:hover{
+    background-color: #000000;
+}
+/* Display Dropdown on Hover */
+nav ul li:hover > ul {
+    display: inherit;
+}
+/* Fisrt Tier Dropdown */
+nav ul ul li{
+    width: 150px;
+    float: none;
+    display: list-item;
+    position: relative;
+
+}
+
+/* Change this in order to change the Dropdown symbol */
+li > a::after { content: ' +';}
+li > a:only-child::after {
+    content: '';
+}
+
+
+div.row {
+  margin: 5px 0;
+}
+
+div.row {
+  width: 80%;
+  display: inline-block;
+  float: left;
+  margin-left: 5%;
+}
+
+label {
+  display: block;
+  font-family: 'Nanum Gothic';
+  padding-bottom: 10px;
+  font-size: 1.25em;
+}
+
+input, select, textarea {
+  border-radius: 2px;
+  border: 2px solid #777;
+  box-sizing: border-box;
+  font-size: 1.25em;
+  font-family: 'Nanum Gothic';
+  width: 50%;
+  padding: 10px;
+}
+
+div.row {
+  width: 50%;
+  display: inline-block;
+}
+
+textarea {
+  height: 100px;
+}
+
+button[type=submit] {
+  background-color: #040008;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: left;
+}
+</style>
+
+<script type="text/javascript">
+var currentDateTime = new Date();
+var year = currentDateTime.getFullYear();
+var month = (currentDateTime.getMonth() + 1);
+var date = (currentDateTime.getDate() + 1);
+
+if(date < 10) {
+  date = '0' + date;
+}
+if(month < 10) {
+  month = '0' + month;
+}
+
+var dateTomorrow = year + "-" + month + "-" + date;
+var checkinElem = document.querySelector("#checkin-date");
+var checkoutElem = document.querySelector("#checkout-date");
+
+checkinElem.setAttribute("min", dateTomorrow);
+
+checkinElem.onchange = function () {
+    checkoutElem.setAttribute("min", this.value);
+}
+
+</script>
+</head>
+
+<body>
+<nav>
+        <ul>
+                <li><a href="">Home</a></li>
+				<li><a href="">About Us</a></li>
+                <li><a href="">Manage Movies</a>
+                <!--First Tier Drop Down-->
+                <ul>
+                    <li><a href="">Movies List</a></li>
+                    <li><a href="">Add Movie</a></li>
+                </ul>
+				<li><a href="">Manage Shows</a>
+                <!--First Tier Drop Down-->
+                <ul>
+                    <li><a href="">Shows List</a></li>
+                    <li><a href="">Add Show</a></li>
+                </ul>
+				<li><a href="">Manage Bookings</a>
+                <!--First Tier Drop Down-->
+                <ul>
+                    <li><a href="">Bookings List</a></li>
+                </ul>
+				<li><a href="">Reports</a>
+                <!--First Tier Drop Down-->
+                <ul>
+                    <li><a href="">Sales</a></li>
+                </ul>
+                <li><a href="">Change Password</a></li>
+                <li><a href="">Log Out</a></li>
+            </ul>
+        </nav>
+
+<form action="reservation.php" >
+
+  <div class="row">
+    <label for="name">Movie Name:</label>
+    <input type="text" id="name" name="visitor_name" placeholder="Movie Title" pattern=[A-Z\sa-z]{3,20} required>
+  </div>
+  
+  <div class="row">
+    <label for="email">Movie Duration:</label>
+    <input type="email" id="email" name="visitor_email" placeholder="132 Minutes" required>
+  </div>
+  
+  <hr>
+  <div class="row">
+    <label for="checkin-date">Release Date:</label>
+    <input type="date" id="checkin-date" name="checkin" required>
+  </div>
+  
+  <div class="row">
+    <label for="room-selection">Movie Genre:</label>
+    <select id="room-selection" name="room_preference" required>
+        <option value="">Choose from below</option>
+        <option value="connecting">Thriller</option>
+        <option value="adjoining">Adventure</option>
+        <option value="adjacent">Horror</option>
+    </select>
+  </div>
+  
+  <hr>
+  <div class="row">
+    <label for="message">Description:</label>
+    <textarea id="message" name="visitor_message" placeholder="Movie Synopsis." required></textarea>
+  </div>
+  <div class="row">
+  <button type="submit">Submit</button>
+  </div>
+</form>
+</body>
+
+</html>

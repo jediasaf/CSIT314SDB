@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Staff Order Food</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style type="text/css">
+
+body {
+color: #404E67;
+background: #F5F7FA;
+font-family: 'Open Sans', sans-serif;
+}
+
+.dropdown-menu {
+   position: relative;
+   display: inline-block;
+}
+.menu-content {
+   display: none;
+   position: absolute;
+   background-color: #017575;
+   min-width: 160px;
+   z-index: 1;
+}
+nav{
+    background-color: #1289dd;
+}
+nav ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    position: relative;
+}
+nav ul li{
+    display: inline-block;
+    background-color: #1289dd;
+}
+nav a{
+    display: block;
+    padding: 0 10px;
+    color: #fff;
+    line-height: 60px;
+    font-size: 15px;
+    text-decoration: none;
+}
+/* Hide Dropdown by Default*/
+nav ul ul {
+    display: none;
+    position: absolute;
+    top: 60px;
+}
+/* hover */
+nav a:hover{
+    background-color: #000000;
+}
+/* Display Dropdown on Hover */
+nav ul li:hover > ul {
+    display: inherit;
+}
+/* Fisrt Tier Dropdown */
+nav ul ul li{
+    width: 150px;
+    float: none;
+    display: list-item;
+    position: relative;
+
+}
+
+/* Change this in order to change the Dropdown symbol */
+li > a::after { content: ' +';}
+li > a:only-child::after {
+    content: '';
+}
+
+.input-number-group {
+  display: flex;
+  justify-content: center;
+
+  input[type=number]::-webkit-inner-spin-button,
+  input[type=number]::-webkit-outer-spin-button {
+    appearance: none;
+  }
+
+  .input-group-button {
+    line-height: calc(#{$input-number-size}/2 - 5px);
+  }
+
+  .input-number {
+    width: $input-number-size;
+    padding: 0 12px;
+    vertical-align: top;
+    text-align: center;
+    outline: none;
+    display: block;
+    margin: 0;
+  }
+
+  .input-number,
+  .input-number-decrement,
+  .input-number-increment {
+    border: 1px solid $medium-gray;
+    height: $input-number-size/2;
+    user-select: none;
+    border-radius: $global-radius;
+  }
+
+  .input-number-decrement,
+  .input-number-increment {
+    display: inline-block;
+    width: $input-number-size/2;
+    background: $light-gray;
+    color: $body-font-color;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 2rem;
+    font-weight: 400;
+  }
+
+  .input-number-decrement {
+    margin-right: 0.3rem;
+  }
+
+  .input-number-increment {
+    margin-left: 0.3rem;
+  }
+}
+
+div.row {
+  margin: 5px 0;
+}
+
+div.row {
+  width: 80%;
+  display: inline-block;
+  float: left;
+  margin-left: 5%;
+}
+
+label {
+  display: block;
+  font-family: 'Nanum Gothic';
+  padding-bottom: 10px;
+  font-size: 1.25em;
+}
+
+input, select, textarea {
+  border-radius: 2px;
+  border: 2px solid #777;
+  box-sizing: border-box;
+  font-size: 1.25em;
+  font-family: 'Nanum Gothic';
+  width: 50%;
+  padding: 10px;
+}
+
+div.row {
+  width: 50%;
+  display: inline-block;
+}
+
+textarea {
+  height: 100px;
+}
+
+button[type=submit] {
+  background-color: #040008;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: left;
+}
+</style>
+
+<script type="text/javascript">
+var currentDateTime = new Date();
+var year = currentDateTime.getFullYear();
+var month = (currentDateTime.getMonth() + 1);
+var date = (currentDateTime.getDate() + 1);
+
+if(date < 10) {
+  date = '0' + date;
+}
+if(month < 10) {
+  month = '0' + month;
+}
+
+var dateTomorrow = year + "-" + month + "-" + date;
+var checkinElem = document.querySelector("#checkin-date");
+var checkoutElem = document.querySelector("#checkout-date");
+
+checkinElem.setAttribute("min", dateTomorrow);
+
+checkinElem.onchange = function () {
+    checkoutElem.setAttribute("min", this.value);
+}
+$('.input-number-increment').click(function() {
+  var $input = $(this).parents('.input-number-group').find('.input-number');
+  var val = parseInt($input.val(), 10);
+  $input.val(val + 1);
+});
+
+$('.input-number-decrement').click(function() {
+  var $input = $(this).parents('.input-number-group').find('.input-number');
+  var val = parseInt($input.val(), 10);
+  $input.val(val - 1);
+})
+
+</script>
+</head>
+
+<body>
+<nav>
+        <ul><li><a href="">Home</a></li>
+				<li><a href="">About Us</a></li>
+				<li><a href="">Book Ticket</a></li>
+				<li><a href="">Customer Bookings</a></li>
+				<li><a href="">Order Food</a></li>
+				<li><a href="">My Profile</a></li>
+                <li><a href="">Change Password</a></li>
+                <li><a href="">Log Out</a></li>
+            </ul>
+        </nav>
+
+<div class="table-container">
+<div class="table-wrapper">
+<div class="table-title">
+<div class="row">
+<div class="col-sm-8"><h2><b>MOVIES</b></h2></div>
+
+</div>
+</div>
+<table class="table table-bordered">
+<thead>
+<tr>
+<th><img src="\xampp\htdocs\SDB\STAFF\Movies\AWhiskerAway2020.png" alt="apple" width="200"></th>
+<th><img src="\xampp\htdocs\SDB\STAFF\Movies\DarkPhoenix2019.png" alt="apple" width="200"></th>
+<th><img src="\xampp\htdocs\SDB\STAFF\Movies\Don'tWorryDarling2022.png" alt="apple" width="200"></th>
+<th><img src="\xampp\htdocs\SDB\STAFF\Movies\BorntoFly2023.png" alt="apple" width="200"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BOOK TICKET</td>
+<td>BOOK TICKET</td>
+<td>BOOK TICKET</td>
+<td>BOOK TICKET</td>
+</tr>
+
+</tbody>
+</table>
+</div>
+</div>
+
+</body>
+
+</html>
