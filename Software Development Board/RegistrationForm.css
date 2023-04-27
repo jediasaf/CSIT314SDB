@@ -1,0 +1,113 @@
+@charset "UTF-8";
+/* CSS Document */
+
+/* font family is added */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.container{
+	justify-content: center;
+	display: flex;
+	margin: 0 auto;
+	
+}
+
+.container img{
+	align-content: center;
+	margin: 0 auto;
+}
+.box-form .left .overlay {
+  padding: 30px;
+  width: 100%;
+  height: 100%;
+  background: #5961f9ad;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.box-form {
+  margin: 0 auto;
+  width: 500px;
+  background:#F8F8F8;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex: 1 1 100%;
+  align-items: stretch;
+  justify-content: space-between;
+  box-shadow: 0 0 10px 6px #090b6f85;
+}
+
+.box-form .left .overlay h1 {
+  font-size: 10vmax;
+  line-height: 1;
+  font-weight: 900;
+  margin: 0 auto;
+justify-content: center;
+}
+
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.box-form div {
+  height: 0 auto;
+	width: 0 auto;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 25vw;
+padding-top:10px ;
+	padding-left: 10px;
+	padding-bottom: 40px;
+}
+
+.container div{
+  height: auto;
+}
+
+h1, p {
+  text-align: center;
+}
+
+/* desired spacing for input fields */
+
+input {
+  margin: 0.25em 0em 1em 0em;
+  outline: none;
+  padding: 0.5em;
+  border: none;
+  background-color: rgb(225, 225, 225);
+  border-radius: 0.25em;
+  color: black;
+}
+
+/* styles for button */
+button {
+  padding: 0.75em;
+  border: none;
+  outline: none;
+  background-color:#282727;
+  color: white;
+  border-radius: 0.25em;
+	
+}
+
+body {
+  background-color: black;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: "Open Sans", sans-serif;
+  color: #333333;
+}
+/* hover functionality for button */
+button:hover {
+  cursor: pointer;
+  background-color: rgb(41, 4, 164);
+}
+@media (max-width: 760px){
+}
