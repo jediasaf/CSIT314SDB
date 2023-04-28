@@ -10,7 +10,13 @@
   box-sizing: border-box;
 }
 
-body { font-family: sans-serif; }
+.title{
+	background-color: antiquewhite;
+	margin: 0 auto;
+	justify-content: space-between;
+}
+
+body { font-family: Consolas, "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", Monaco, "Courier New", "monospace"; }
 
 .gallery {
   background: #EEE;
@@ -45,7 +51,7 @@ body { font-family: sans-serif; }
 
 body {
   background: rgb(250, 250, 250) url(http://lorempixel.com/1920/1080/nature/);
-  font-family: Lato, Helvetica, Arial, sans-serif;
+  font-family: Consolas, "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", Monaco, "Courier New", "monospace";
 }
 
 a {
@@ -203,13 +209,21 @@ a {
 	margin: 15px 0 10px;
 }
 
+.sub-menu p{
+	color: darkgray;
+	
+}
+
+.sub-menu span{
+	color: darkgray;
+}
 .sub-menu h3{
 	padding-left: 10px;
 	margin: 0 auto;
+	
 }
 
 .sub-menu h7{
-	
 	padding-right: 0;
 }
 
@@ -510,6 +524,9 @@ a {
             background-color: #308d46;
         }
 
+h2{
+	
+}
 .hero-container {
 	margin: auto;
 	display: flex;
@@ -518,9 +535,22 @@ a {
 .showingnow{
 	z-index: 999;
 	height: 620px;
+	position: absolute;
+	margin: 0 auto;
+}
+
+.showingnow h2{
+	margin:0 auto;
+	
 }
 .comingsoon{
+	margin-top:500px;
 	height: 620px;
+	position: inherit;
+}
+
+.foodbev{
+	p
 }
 
 .main-container {
@@ -829,7 +859,16 @@ a {
 	font-size: 0.6rem;
 	margin-bottom: 10px;
 	margin-left: 0;
+	margin-bottom: 5px;
+}
+
+.movie-detail__movie-duration{
+	color: #999;
+	font-size: 0.6rem;
 	margin-bottom: 10px;
+	margin-left: 0;
+	margin-bottom: 15px;
+	
 }
 
 .movie-detail__movie-rating{
@@ -837,7 +876,7 @@ a {
 	font-size: 1rem;
 	margin: 0 auto;
 	margin-left: 0;
-	margin-bottom: 10px;
+	margin-bottom: 5px;
 }
 
 .movie-detail__movie-actors-casts{
@@ -910,7 +949,8 @@ body{
 	align-content: center;
 }
 .movie-container {
-  margin: 20px 0;
+  margin: 0 auto;
+	padding-bottom: 20px; 
 }
 
 .movie-container select {
@@ -1080,6 +1120,8 @@ p{
 	padding-top: 20px;
 }
 
+.Heading header
+
 .Action{
 	font-size: 14px;
 	font-family: 'Open Sans';
@@ -1115,6 +1157,9 @@ p{
 	font-family: 'Open Sans';
 	font-weight: 800;
 	color: #202020;
+	border: dotted;
+	margin: 0 auto;
+	
 }
 .subtitle{
 	line-height: 10px;
@@ -1231,4 +1276,8 @@ hr{
 	color: #202020;
 }
 	
-
+.title small{
+	font-family: Consolas, "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", Monaco, "Courier New", "monospace";
+	justify-content: space-between;
+	margin: 0 auto;
+}
