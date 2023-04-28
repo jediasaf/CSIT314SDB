@@ -515,6 +515,14 @@ a {
 	display: flex;
 }
 
+.showingnow{
+	z-index: 999;
+	height: 620px;
+}
+.comingsoon{
+	height: 620px;
+}
+
 .main-container {
 	width: 270px;
 	height: 540px;
@@ -527,7 +535,7 @@ a {
 	position: absolute;
 	top: 0;
 	left: 20px;
-	z-index: 9999;
+	z-index: 9;
 }
 
 .poster {
@@ -557,7 +565,7 @@ a {
 .food-container {
 	background: #fff;
 	width: 270px;
-	height: 280px;
+	height: 300px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -717,7 +725,7 @@ a {
 	position: absolute;
 	top: 0;
 	left: 20px;
-	z-index: 9999;
+	z-index: 9;
 }
 
 .poster {
