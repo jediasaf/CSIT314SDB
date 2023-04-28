@@ -4,32 +4,28 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Manager Manage Bookings List</title>
+<title>Manager Manage Shows List</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style type="text/css">
+
 body {
 color: #404E67;
-background: #F5F7FA;
+background: #000000;
 font-family: 'Open Sans', sans-serif;
 }
 .dropdown-menu {
    position: relative;
    display: inline-block;
 }
-.menu-content {
-   display: none;
-   position: absolute;
-   background-color: #017575;
-   min-width: 160px;
-   z-index: 1;
-}
+
 nav{
-    background-color: #1289dd;
+    background-color: #F8F8F8;
 }
 nav ul {
     padding: 0;
@@ -39,12 +35,12 @@ nav ul {
 }
 nav ul li{
     display: inline-block;
-    background-color: #1289dd;
+    background-color: #F8F8F8;
 }
 nav a{
     display: block;
     padding: 0 10px;
-    color: #fff;
+    color: #000000;
     line-height: 60px;
     font-size: 15px;
     text-decoration: none;
@@ -57,7 +53,7 @@ nav ul ul {
 }
 /* hover */
 nav a:hover{
-    background-color: #000000;
+    background-color: #F8F8F8;
 }
 /* Display Dropdown on Hover */
 nav ul li:hover > ul {
@@ -78,92 +74,67 @@ li > a:only-child::after {
     content: '';
 }
 
-.table-container { 
-    width: 100% !important;
-    overflow-x: scroll; 
+#content h2 {
+  margin: 0 0 0 0;
+  font: 130% verdana, "Trebuchet MS", arial, tahoma, sans-serif;
+  padding: 5px;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  color: #F8F8F8;
+  background: inherit;
 }
-.table-wrapper {
-width: 1500px;
-margin: 100px auto;
-background: #fff;
-padding: 20px;
-box-shadow: 0 1px 1px rgba(0,0,0,.05);
 
+.form{
+background-color: #F8F8F8;
+margin: 0 5%;
+padding: 30px 60px;
+border-radius: 20px;
 }
-.table-title {
-padding-bottom: 10px;
-margin: 0 0 10px;
-}
-.table-title h2 {
-margin: 10px 0 0;
-font-size: 22px;
-}
-.table-title .add-new {
-float: right;
-height: 30px;
-font-weight: bold;
-font-size: 12px;
-text-shadow: none;
-min-width: 100px;
-border-radius: 50px;
-line-height: 13px;
-}
-.table-title .add-new i {
-margin-right: 4px;
-}
+
 table.table {
-table-layout: auto
-overflow: scroll;
+table-layout: fixed;
+border-radius: 25px;
+border-top: 2px solid black;
 }
 table.table tr th, table.table tr td {
-border-color: #e9e9e9;
+ border-left: 2px solid black;
+ border-right: 2px solid black;
+ border-bottom: 2px solid black;
+ border-radius: 55px;
 }
 table.table th i {
-font-size: 13px;
+font-size: 30px;
 margin: 0 5px;
 cursor: pointer;
 }
 table.table th:last-child {
-width: 100px;
+width: 150px;
 }
 table.table td a {
 cursor: pointer;
 display: inline-block;
 margin: 0 5px;
-min-width: 24px;
+min-width: 30px;
 }
-table.table td a.add {
-color: #27C46B;
-}
+
 table.table td a.edit {
-color: #FFC107;
+color: #000000;
 }
 table.table td a.delete {
 color: #E34724;
 }
+
+
 table.table td i {
-font-size: 19px;
+font-size: 25px;
 }
-table.table td a.add i {
-font-size: 24px;
-margin-right: -1px;
-position: relative;
-top: 3px;
-}
-table.table .form-control {
-height: 32px;
-line-height: 32px;
-box-shadow: none;
-border-radius: 2px;
-overflow: scroll;
-}
-table.table .form-control.error {
-border-color: #f50000;
-}
+
 table.table td .add {
 display: none;
 }
+
 </style>
+
 <script type="text/javascript">
 $(document).ready(function(){
 $('[data-toggle="tooltip"]').tooltip();
@@ -251,13 +222,21 @@ $(".add-new").removeAttr("disabled");
             </ul>
         </nav>
 
+		<center>
+        <div id="content">
+		<h2>Manage<span style="color:#F8F8F8;"> Bookings List</span></h2>
+		</div>
+ 
+        <div class="form">
+            <form action="">
+                <table class="table table-bordered">
+<thead>
+
 <div class="table-container">
 <div class="table-wrapper">
 <div class="table-title">
 <div class="row">
-<div class="col-sm-8"><h2><b>Manage Bookings List</b></h2></div>
 <div class="col-sm-4">
-<button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New Row</button>
 </div>
 </div>
 </div>
