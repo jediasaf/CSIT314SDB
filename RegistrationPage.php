@@ -1,6 +1,53 @@
+<?php 
+/*
+require_once("RegistrationPage.php");
+static $message = "";
+$username = $_POST['username'];
+$password = $_POST['pwd'];
+$passwordRepeat = $_POST['pwd-repeat'];
+$phoneNum = $_POST['phoneNo'];
+$email = $_POST['email'];
+$age = $_POST['age'];
+$genre = $_POST['role'];
+$seat = $_POST['seat'];
+
+include "dbFunctions.php";
+
+$result = $conn->query("select count(*) from userdb where username = '$username'");
+$row = $result->fetch_assoc();
+
+if($password != $passwordRepeat){
+  $message = "Password Do Not Match";
+}
+else if ($row['count']>0){ 
+  $message = "Username Already Taken :(";
+}
+else { 
+  
+
+  
+  
+}
+
+$conn->close();
+*/
+?>
+
 <!doctype html>
 <html>
 <head>
+  <script>
+    function checkPasswords() {
+      var password = document.getElementById("pwd").value;
+      var confirm_password = document.getElementById("pwd-repeat").value;
+      var submit_button = document.getElementById("submit_button");
+      if (password == confirm_password) {
+        submit_button.disabled = false;
+      } else {
+        submit_button.disabled = true;
+      }
+    }
+  </script>
 <meta charset="UTF-8">
 <title>RegistrationPage</title>
 	
@@ -13,7 +60,7 @@
 	
 	<body>
 		<div class="box-form">
-	 <form>
+	 <form action="" method="post">
       <div class="container">
        <img width="200px" src="Images/D.png">
 <h1>Register</h1>
@@ -62,6 +109,7 @@
           placeholder="Enter Password"
           name="pwd"
           id="pwd"
+          onkeyup="checkPasswords()"
           required
         />
 
@@ -71,6 +119,7 @@
           placeholder="Repeat Password"
           name="pwd-repeat"
           id="pwd-repeat"
+          onkeyup="checkPasswords()"
           required
         />
 		  <label for="Age"><b>Age</b></label>
@@ -101,11 +150,13 @@
 			</select>
 		  <br>
         <!-- submit button -->
-		  <a href="LoginPage.php">
-        <button type="submit">Register</button>
-		  </a>
+        <button type="submit" id="submit_button" disabled>Register</button>
+        <?php 
+        #echo $message;
+        ?>
       </div>
 	</form>
 			</div>
 </body>
+
 </html>

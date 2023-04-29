@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <title>Preferences</title>
 	<style type="text/css">
-@import url("css.Preferences.css");
+@import url("css/Preferences.css");
 </style>
 </head>
 	<div class="hero">
@@ -69,7 +69,7 @@
 <div class="box-form">
 	 <form class="edit-form">
       <div class="container">
-       <img width="200px" src="ImagesD.png">
+       <img width="200px" src="Images/D.png">
 <h1>Choose Your Preferences&nbsp;</h1>
 <h6>Kindly fill in this form to choose and change your movie preferences.</h6>
 		 <label for="Preferences"><b>Current Preferences</b></label> <br>

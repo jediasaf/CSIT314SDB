@@ -2,7 +2,6 @@
 class Registration{
   function display(){
     echo '
-
     <!doctype html>
     <html>
     <head>
@@ -118,6 +117,7 @@ class Registration{
   }
 }
 
+# Initialising a class and calling the class method display
 $display = new Registration();
 $display->display();
 
