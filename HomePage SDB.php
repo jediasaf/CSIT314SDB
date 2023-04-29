@@ -3,54 +3,54 @@
 <head>
 <meta charset="UTF-8">
 <title>HomePage</title>
-<link href="coba.css" rel="stylesheet" type="text/css">
+<link href="css/coba.css" rel="stylesheet" type="text/css">
 </head>
 <div class="hero">
 	  <nav id="navbar" class=""> 
 		<div class="logo">
 		<a href="#HomePage">
-		<img width= "50px" height="auto" src="D.png"/>
+		<img width= "50px" height="auto" src="Images/D.png"/>
 		</a>
 	    </div>
 
 	<ul id="menu">
-      <li><a href="HomePage SDB.html">Home</a></li><!--
-   --><li><a href="MoviePage.html">Movies</a></li><!--
-   --><li><a href="AboutUs.html">About Us</a></li><!--
-   --><li><a href="ContactUs.html">Contact Us</a></li>
+      <li><a href="HomePage SDB.php">Home</a></li><!--
+   --><li><a href="MoviePage.php">Movies</a></li><!--
+   --><li><a href="AboutUs.php">About Us</a></li><!--
+   --><li><a href="ContactUs.php">Contact Us</a></li>
     </ul>
 		  <div class="searchbar">
 		<form action="" class="search-bar">
 			<input type="text" placeholder="Search Movie" name="q">
-			<button type="submit"><img align-   width="15px" height="15px" src="search.png"width="10px" height="10px"></button>
+			<button type="submit"><img align-   width="15px" height="15px" src="Images/search.png"width="10px" height="10px"></button>
 				
 		</form>
 		</div>
-		  <a href="LoginPage.html">
+		  <a href="LoginPage.php">
 		  <button class="button-27" role="button" style="height:10px;width=20px" onClick="">Login/Sign Up</button>
 	    </a>
-	<img src="user.png" width="50" height="50" alt="" class="user-pic" onclick="toggleMenu()"/>
+	<img src="Images/user.png" width="50" height="50" alt="" class="user-pic" onclick="toggleMenu()"/>
 	    <div class="sub-menu-wrap" id="subMenu">
 		  	<div class="sub-menu">
-			  <div class="user-info"> <img src="user.png" width="50" height="50" alt="" class="user-pic"/>
+			  <div class="user-info"> <img src="Images/user.png" width="50" height="50" alt="" class="user-pic"/>
 				  <h3> Website Designer</h3>
 				  <div class="points">
 				  <h7>Loyalty Points: </h7>
 			    </div>
 			  </div>
 				<hr>
-				<a href="EditProfile.html" class="sub-menu-link">
-					<img src="profile.png"/> 
+				<a href="EditProfile.php" class="sub-menu-link">
+					<img src="Images/profile.png"/> 
 					<p>Edit Profile</p>
 					<span>></span>
 				</a>
-				<a href="Preferences.html" class="sub-menu-link">
-					<img src="setting.png" />
+				<a href="Preferences.php" class="sub-menu-link">
+					<img src="Images/setting.png" />
 					<p>Preferences</p>
 					<span>></span>
 				</a>
-				<a href="LogOut.html" class="sub-menu-link">
-					<img src="logout.png" />
+				<a href="LogOut.php" class="sub-menu-link">
+					<img src="Images/logout.png" />
 					<p>Logout</p>
 					<span>></span>
 				</a>
@@ -78,16 +78,16 @@
                 <!-- carousel wrapper which contains all images -->
                 <div class="slideshow-wrapper">
                     <div class="slide">
-                        <img class="slide-img" src="poster1.jpeg">
+                        <img class="slide-img" src="Images/poster1.jpeg">
                    	</div>
 <div class="slide">
-            <img class="slide-img" src="poster2.jpeg">
+            <img class="slide-img" src="Images/poster2.jpeg">
           </div>
                     <div class="slide">
-                        <img class="slide-img" src="poster3.jpeg">
+                        <img class="slide-img" src="Images/poster3.jpeg">
                     </div>
 					<div class="slide">
-                        <img class="slide-img" src="poster4.jpeg">
+                        <img class="slide-img" src="Images/poster4.jpeg">
                    	</div>
                 </div>
             </div>
@@ -100,7 +100,7 @@
 		<div class="hero-container">
 		<div class="main-container">
 			<div class="poster-container">
-				<a href="#"><img src="AWhiskerAway2020.png" class="poster" /></a>
+				<a href="#"><img src="Images/MovieImage/AWhiskerAway2020.png" class="poster" /></a>
 			</div>
 			<div class="ticket-container">
 				<div class="ticket__content">
@@ -110,7 +110,7 @@
 					</p>
 					<p class="ticket__current-price">$7.00</p>
 					<p class="ticket__old-price">$14.99</p>
-					<a href="Order.html">
+					<a href="Order.php">
 					<button class="ticket__buy-btn">Buy now</button>
 						</a>
 				</div>
@@ -119,7 +119,7 @@
 
 		<div class="main-container">
 			<div class="poster-container">
-				<a href="#"><img src="Bubble2022.png" class="poster" /></a>
+				<a href="#"><img src="Images/MovieImage/Bubble2022.png" class="poster" /></a>
 			</div>
 			<div class="ticket-container">
 				<div class="ticket__content">
@@ -127,7 +127,7 @@
 					<p class="ticket__movie-slogan">Bubble in the next world</p>
 					<p class="ticket__current-price">$10.75</p>
 					<p class="ticket__old-price">$20.99</p>
-					<a href="Order.html">
+					<a href="Order.php">
 					<button class="ticket__buy-btn">Buy now</button>
 						</a>
 				</div>
@@ -143,7 +143,7 @@
 		<div class="hero-container">
 		<div class="main-container">
 			<div class="poster-container">
-				<a href="#"><img src="DriftingHome2022.png" class="poster" /></a>
+				<a href="#"><img src="Images/MovieImage/DriftingHome2022.png" class="poster" /></a>
 			</div>
 			<div class="ticket-container">
 				<div class="ticket__content">
@@ -153,7 +153,7 @@
 					</p>
 					<p class="ticket__current-price">$8.00</p>
 					<p class="ticket__old-price">$14.99</p>
-					<a href="Order.html">
+					<a href="Order.php">
 					<button class="ticket__buy-btn">Buy now</button>
 						</a>
 				</div>
@@ -162,7 +162,7 @@
 
 		<div class="main-container">
 			<div class="poster-container">
-				<a href="#"><img src="Belle2021.png" class="poster" /></a>
+				<a href="#"><img src="Images/MovieImage/Belle2021.png" class="poster" /></a>
 			</div>
 			<div class="ticket-container">
 				<div class="ticket__content">
@@ -170,7 +170,7 @@
 					<p class="ticket__movie-slogan">When you can yourself as an AI</p>
 					<p class="ticket__current-price">$10.75</p>
 					<p class="ticket__old-price">$20.99</p>
-					<a href="Order.html">
+					<a href="Order.php">
 					<button class="ticket__buy-btn">Buy now</button>
 						</a>
 				</div>
@@ -186,7 +186,7 @@
 		<div class="hero-container">
 		<div class="main-container">
 			<div class="poster-container">
-				<a href="#"><img src="BurgerCombo.jpg" class="poster" /></a>
+				<a href="#"><img src="Images/Combo/BurgerCombo.jpg" class="poster" /></a>
 			</div>
 			<div class="food-container">
 				<div class="food__content">
@@ -196,7 +196,7 @@
 					</p>
 					<p class="food__current-price">$8.00</p>
 					<p class="food__old-price">$14.99</p>
-					<a href="Order.html">
+					<a href="Images/Order.php">
 					<button class="food__buy-btn">Buy a Ticket &amp;<br>Bundle it now</button>
 						</a>
 				</div>
@@ -205,7 +205,7 @@
 
 		<div class="main-container">
 			<div class="poster-container">
-				<a href="#"><img src="FriesCombo.jpg" class="poster" /></a>
+				<a href="#"><img src="Images/Combo/FriesCombo.jpg" class="poster" /></a>
 			</div>
 			<div class="food-container">
 				<div class="food__content">
@@ -213,7 +213,7 @@
 					<p class="food__movie-slogan">Fries combo</p>
 					<p class="food__current-price">$10.75</p>
 					<p class="food__old-price">$20.99</p>
-					<a href="Order.html">
+					<a href="Order.php">
 					<button class="food__buy-btn">Buy a Ticket &amp;<br>Bundle it now</button>
 						</a>
 				</div>

@@ -4,55 +4,55 @@
 <meta charset="UTF-8">
 <title>Edit Profile</title>
 <style type="text/css">
-@import url("EditProfile.css");
+@import url("css/EditProfile.css");
 </style>
 </head>
 <div class="hero">
 	  <nav id="navbar" class=""> 
 		<div class="logo">
 		<a href="#HomePage">
-		<img width= "50px" height="auto" src="D.png"/>
+		<img width= "50px" height="auto" src="Images/D.png"/>
 		</a>
 	    </div>
 
 	<ul id="menu">
-      <li><a href="HomePage SDB.html">Home</a></li><!--
-   --><li><a href="MoviePage.html">Movies</a></li><!--
-   --><li><a href="AboutUs.html">About Us</a></li><!--
-   --><li><a href="ContactUs.html">Contact Us</a></li>
+      <li><a href="HomePage SDB.php">Home</a></li><!--
+   --><li><a href="MoviePage.php">Movies</a></li><!--
+   --><li><a href="AboutUs.php">About Us</a></li><!--
+   --><li><a href="ContactUs.php">Contact Us</a></li>
     </ul>
 		  <div class="searchbar">
 		<form action="" class="search-bar">
 			<input type="text" placeholder="Search Movie" name="q">
-			<button type="submit"><img align-   width="15px" height="15px" src="search.png"width="10px" height="10px"></button>
+			<button type="submit"><img align-   width="15px" height="15px" src="Images/search.png"width="10px" height="10px"></button>
 				
 		</form>
 		</div>
-		  <a href="LoginPage.html">
+		  <a href="LoginPage.php">
 		  <button class="button-27" role="button" style="height:10px;width=20px" onClick="">Login/Sign Up</button>
 	    </a>
-	<img src="user.png" width="50" height="50" alt="" class="user-pic" onclick="toggleMenu()"/>
+	<img src="Images/user.png" width="50" height="50" alt="" class="user-pic" onclick="toggleMenu()"/>
 	    <div class="sub-menu-wrap" id="subMenu">
 		  	<div class="sub-menu">
-			  <div class="user-info"> <img src="user.png" width="50" height="50" alt="" class="user-pic"/>
+			  <div class="user-info"> <img src="Images/user.png" width="50" height="50" alt="" class="user-pic"/>
 				  <h3> Website Designer</h3>
 				  <div class="points">
 				  <h7>Loyalty Points: </h7>
 			    </div>
 			  </div>
 				<hr>
-				<a href="EditProfile.html" class="sub-menu-link">
-					<img src="profile.png"/> 
+				<a href="EditProfile.php" class="sub-menu-link">
+					<img src="Images/profile.png"/> 
 					<p>Edit Profile</p>
 					<span>></span>
 				</a>
-				<a href="Preferences.html" class="sub-menu-link">
-					<img src="setting.png" />
+				<a href="Preferences.php" class="sub-menu-link">
+					<img src="Images/setting.png" />
 					<p>Preferences</p>
 					<span>></span>
 				</a>
-				<a href="HomePage SDB.html" class="sub-menu-link">
-					<img src="logout.png" />
+				<a href="HomePage SDB.php" class="sub-menu-link">
+					<img src="Images/logout.png" />
 					<p>Logout</p>
 					<span>></span>
 				</a>
@@ -68,7 +68,7 @@
 	<div class="box-form">
 	 <form class="edit-form">
       <div class="container">
-       <img width="200px" src="D.png">
+       <img width="200px" src="Images/D.png">
 <h1>Edit Your Profile&nbsp;</h1>
 <h6>Kindly fill in this form to edit your profile.</h6>
 <label for="First Name"><b>First Name</b></label>
@@ -152,7 +152,7 @@
 			</select>
 		  <br>
         <!-- submit button -->
-		  <a href="LoginPage.html">
+		  <a href="LoginPage.php">
         <button type="submit">Register</button>
 		  </a>
       </div>

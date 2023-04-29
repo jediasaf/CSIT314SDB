@@ -7,15 +7,15 @@
 <style type="text/css">
 
 </style>
-<link href="RegistrationForm.css" rel="stylesheet" type="text/css">
-<link href="RegistrationForm.css" rel="stylesheet" type="text/css">
+<link href="css/RegistrationForm.css" rel="stylesheet" type="text/css">
+<!--<link href="RegistrationForm.css" rel="stylesheet" type="text/css">-->
 </head>
 	
 	<body>
 		<div class="box-form">
 	 <form>
       <div class="container">
-       <img width="200px" src="D.png">
+       <img width="200px" src="Images/D.png">
 <h1>Register</h1>
 <p>Kindly fill in this form to register.</p>
         
@@ -101,7 +101,7 @@
 			</select>
 		  <br>
         <!-- submit button -->
-		  <a href="LoginPage.html">
+		  <a href="LoginPage.php">
         <button type="submit">Register</button>
 		  </a>
       </div>

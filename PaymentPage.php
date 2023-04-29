@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <title>confirmation page</title>
 <style type="text/css">
-@import url("PaymentPage.css");
+@import url("css/PaymentPage.css");
 </style>
 </head>
 
@@ -12,7 +12,7 @@
       <div class="card">
         <div class="leftside">
           <img
-            src="D.png"
+            src="Images/D.png"
             class="product"
             alt="Shoes"
           />
@@ -43,7 +43,7 @@
             <input type="date" class="inputbox" name="exp_date" id="exp_date" required />
         </div>
             <p></p>
-			  <a href="HomePage SDB.html">
+			  <a href="HomePage SDB.php">
             <button type="submit" class="button">CheckOut</button>
 				  </a>
           </form>

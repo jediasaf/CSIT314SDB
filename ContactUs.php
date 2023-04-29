@@ -3,53 +3,53 @@
 <head>
 <meta charset="UTF-8">
 <title>Untitled Document</title>
-<link href="ContactUs.css" rel="stylesheet" type="text/css">
+<link href="css/ContactUs.css" rel="stylesheet" type="text/css">
 </head>
 	<nav id="navbar" class=""> 
 		<div class="logo">
 		<a href="#HomePage">
-		<img width= "50px" height="auto" src="D.png"/>
+		<img width= "50px" height="auto" src="Images/D.png"/>
 		</a>
 	    </div>
 
 	<ul id="menu">
-      <li><a href="HomePage SDB.html">Home</a></li><!--
-   --><li><a href="MoviePage.html">Movies</a></li><!--
-   --><li><a href="AboutUs.html">About Us</a></li><!--
-   --><li><a href="ContactUs.html">Contact Us</a></li>
+      <li><a href="HomePage SDB.php">Home</a></li><!--
+   --><li><a href="MoviePage.php">Movies</a></li><!--
+   --><li><a href="AboutUs.php">About Us</a></li><!--
+   --><li><a href="ContactUs.php">Contact Us</a></li>
     </ul>
 		  <div class="searchbar">
 		<form action="" class="search-bar">
 			<input type="text" placeholder="Search Movie" name="q">
-			<button type="submit"><img align-   width="15px" height="15px" src="search.png"width="10px" height="10px"></button>
+			<button type="submit"><img align-   width="15px" height="15px" src="Images/search.png"width="10px" height="10px"></button>
 				
 		</form>
 		</div>
-		  <a href="LoginPage.html">
+		  <a href="LoginPage.php">
 		  <button class="button-27" role="button" style="height:10px;width=20px" onClick="">Login/Sign Up</button>
 	    </a>
-	<img src="user.png" width="50" height="50" alt="" class="user-pic" onclick="toggleMenu()"/>
+	<img src="Images/user.png" width="50" height="50" alt="" class="user-pic" onclick="toggleMenu()"/>
 	    <div class="sub-menu-wrap" id="subMenu">
 		  	<div class="sub-menu">
-			  <div class="user-info"> <img src="user.png" width="50" height="50" alt="" class="user-pic"/>
+			  <div class="user-info"> <img src="Images/user.png" width="50" height="50" alt="" class="user-pic"/>
 				  <h3> Website Designer</h3>
 				  <div class="points">
 				  <h7>Loyalty Points: </h7>
 			    </div>
 			  </div>
 				<hr>
-				<a href="Edit Profile.html" class="sub-menu-link">
-					<img src="profile.png"/> 
+				<a href="Edit Profile.php" class="sub-menu-link">
+					<img src="Images/profile.png"/> 
 					<p>Edit Profile</p>
 					<span>></span>
 				</a>
 				<a href="#" class="sub-menu-link">
-					<img src="setting.png" />
+					<img src="Images/setting.png" />
 					<p>Preferences</p>
 					<span>></span>
 				</a>
 				<a href="#" class="sub-menu-link">
-					<img src="logout.png" />
+					<img src="Images/logout.png" />
 					<p>Logout</p>
 					<span>></span>
 				</a>
@@ -82,8 +82,8 @@
         <div class="email details">
           <i class="fas fa-envelope"></i>
           <div class="topic">Email</div>
-          <div class="text-one">SDB@gmail.com</div>
-          <div class="text-two">SDB@gmail.com</div>
+          <div class="text-one">CSIT314SDB@gmail.com</div>
+          <div class="text-two">CSIT314SDB@gmail.com</div>
         </div>
       </div>
       <div class="right-side">

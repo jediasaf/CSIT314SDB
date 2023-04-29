@@ -5,7 +5,7 @@
 	
 <title>buy now</title>
 <style type="text/css">
-@import url("coba.css");
+@import url("css/coba.css");
 	
 </style>
 	
@@ -20,43 +20,43 @@
 	    </div>
 
 	<ul id="menu">
-      <li><a href="HomePage SDB.html">Home</a></li><!--
-   --><li><a href="MoviePage.html">Movies</a></li><!--
-   --><li><a href="AboutUs.html">About Us</a></li><!--
-   --><li><a href="ContactUs.html">Contact Us</a></li>
+      <li><a href="HomePage SDB.php">Home</a></li><!--
+   --><li><a href="MoviePage.php">Movies</a></li><!--
+   --><li><a href="AboutUs.php">About Us</a></li><!--
+   --><li><a href="ContactUs.php">Contact Us</a></li>
     </ul>
 		  <div class="searchbar">
 		<form action="" class="search-bar">
 			<input type="text" placeholder="Search Movie" name="q">
-			<button type="submit"><img align-   width="15px" height="15px" src="search.png"width="10px" height="10px"></button>
+			<button type="submit"><img align-   width="15px" height="15px" src="Images/search.png"width="10px" height="10px"></button>
 				
 		</form>
 		</div>
-		  <a href="LoginPage.html">
+		  <a href="LoginPage.php">
 		  <button class="button-27" role="button" style="height:10px;width=20px" onClick="">Login/Sign Up</button>
 	    </a>
 	<img src="user.png" width="50" height="50" alt="" class="user-pic" onclick="toggleMenu()"/>
 	    <div class="sub-menu-wrap" id="subMenu">
 		  	<div class="sub-menu">
-			  <div class="user-info"> <img src="user.png" width="50" height="50" alt="" class="user-pic"/>
+			  <div class="user-info"> <img src="Images/user.png" width="50" height="50" alt="" class="user-pic"/>
 				  <h3> Website Designer</h3>
 				  <div class="points">
 				  <h7>Loyalty Points: </h7>
 			    </div>
 			  </div>
 				<hr>
-				<a href="EditProfile.html" class="sub-menu-link">
-					<img src="profile.png"/> 
+				<a href="EditProfile.php" class="sub-menu-link">
+					<img src="Images/profile.png"/> 
 					<p>Edit Profile</p>
 					<span>></span>
 				</a>
-				<a href="Preferences.html" class="sub-menu-link">
-					<img src="setting.png" />
+				<a href="Preferences.php" class="sub-menu-link">
+					<img src="Images/setting.png" />
 					<p>Preferences</p>
 					<span>></span>
 				</a>
-				<a href="LogOut.html" class="sub-menu-link">
-					<img src="logout.png" />
+				<a href="LogOut.php" class="sub-menu-link">
+					<img src="Images/logout.png" />
 					<p>Logout</p>
 					<span>></span>
 				</a>
@@ -83,7 +83,7 @@
 	<div class="hero-container">
 		<div class="main-container">
 			<div class="poster-container">
-				<a href="#"><img src="AWhiskerAway2020.png" class="poster" /></a>
+				<a href="#"><img src="Images/MovieImage/AWhiskerAway2020.png" class="poster" /></a>
 			</div>
 			<div class="movie-detail-container">
 				<div class="movie-detail__content">
@@ -212,7 +212,7 @@
 		<div class="hero-container">
 		<div class="main-container">
 			<div class="poster-container">
-				<a href="#"><img src="BurgerCombo.jpg" class="poster" /></a>
+				<a href="#"><img src="Images/Combo/BurgerCombo.jpg" class="poster" /></a>
 			</div>
 			<div class="food-container">
 				<div class="food__content">
@@ -229,7 +229,7 @@
 
 		<div class="main-container">
 			<div class="poster-container">
-				<a href="#"><img src="FriesCombo.jpg" class="poster" /></a>
+				<a href="#"><img src="Images/Combo/FriesCombo.jpg" class="poster" /></a>
 			</div>
 			<div class="food-container">
 				<div class="food__content">
@@ -255,7 +255,7 @@
 
    	   <div class="Cart-Items">
    	   	  <div class="image-box">
-   	   	  	<img src="AWhiskerAway2020.png" style={{ height="200px" }} />
+   	   	  	<img src="Images/MovieImage/AWhiskerAway2020.png" style={{ height="200px" }} />
    	   	  </div>
    	   	  <div class="about">
    	   	  	<h1 class="title">A Whisker Away</h1>
@@ -276,7 +276,7 @@
 
    	   <div class="Cart-Items">
    	   	  <div class="image-box">
-   	   	  	<img src="AWhiskerAway2020.png" style={{ height="200px" }} />
+   	   	  	<img src="Images/MovieImage/AWhiskerAway2020.png" style={{ height="200px" }} />
    	   	  </div>
    	   	  <div class="about">
    	   	  	<h1 class="title">A Whisker Away</h1>
@@ -303,7 +303,7 @@
    	 	</div>
    	 	<div class="total-amount">$6.18</div>
    	 </div>
-		 <a href="PaymentPage.html">
+		 <a href="PaymentPage.php">
    	 <button class="button">Checkout</button></div>
 		 </a>
    </div>

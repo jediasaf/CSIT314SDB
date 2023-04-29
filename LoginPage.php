@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Login Page</title>
   <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"><link rel="stylesheet" href="./styleLoginPage.css">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"><link rel="stylesheet" href="css/styleLoginPage.css">
 </head>
 <body>
 <div class="box-form">
@@ -21,7 +21,7 @@
 		<h5>Login</h5>
 		<p>Don't have an account?
 			<br>
-			<a href="RegistrationPage.html">Create Your Account</a> it takes less than a minute</p>
+			<a href="RegistrationPage.php">Create Your Account</a> it takes less than a minute</p>
 		<div class="inputs">
 			<p>What are you?</p>
 			<select name="role" id="role">
@@ -45,7 +45,7 @@
 	</label>
 			</div>
 			<br>
-			<button onclick="HomePage SDB.html">Login</button>
+			<button onclick="HomePage SDB.php">Login</button>
 	</div>
 	
 </div>
