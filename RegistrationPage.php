@@ -77,8 +77,8 @@ $conn->close();
         <input
           type="text"
           placeholder="Enter First Name"
-          name="first name"
-          id="firstname"
+          name="firstName"
+          id="firstName"
           required
         />
 		  
@@ -86,8 +86,8 @@ $conn->close();
         <input
           type="text"
           placeholder="Enter Last Name"
-          name="last name"
-          id="last name"
+          name="lastName"
+          id="lastName"
           required
         />
 		  <label for="username"><b>Username</b></label>
