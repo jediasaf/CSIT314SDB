@@ -15,7 +15,7 @@
 	  <nav id="navbar" class=""> 
 		<div class="logo">
 		<a href="#HomePage">
-		<img width= "50px" height="auto" src="D.png"/>
+		<img width= "50px" height="auto" src="Images/D.png"/>
 		</a>
 	    </div>
 
@@ -35,7 +35,7 @@
 		  <a href="LoginPage.php">
 		  <button class="button-27" role="button" style="height:10px;width=20px" onClick="">Login/Sign Up</button>
 	    </a>
-	<img src="user.png" width="50" height="50" alt="" class="user-pic" onclick="toggleMenu()"/>
+	<img src="Images/user.png" width="50" height="50" alt="" class="user-pic" onclick="toggleMenu()"/>
 	    <div class="sub-menu-wrap" id="subMenu">
 		  	<div class="sub-menu">
 			  <div class="user-info"> <img src="Images/user.png" width="50" height="50" alt="" class="user-pic"/>

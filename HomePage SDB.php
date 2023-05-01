@@ -1,3 +1,10 @@
+<?php 
+session_start();
+if(isset($_SESSION['username'])){
+	#echo $_SESSION['username'];
+}
+?>
+
 <!doctype html>
 <html>
 <head>
@@ -33,7 +40,9 @@
 	    <div class="sub-menu-wrap" id="subMenu">
 		  	<div class="sub-menu">
 			  <div class="user-info"> <img src="Images/user.png" width="50" height="50" alt="" class="user-pic"/>
-				  <h3> Website Designer</h3>
+				  <h3> <?php
+				  echo $_SESSION['username'];
+				 ?> </h3>
 				  <div class="points">
 				  <h7>Loyalty Points: </h7>
 			    </div>

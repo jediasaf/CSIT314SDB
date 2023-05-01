@@ -30,9 +30,9 @@
 			<option value="Manager">Manager</option>
 			<option value="Customer">Customer</option>
 			</select>
-			<input type="text" placeholder="user name">
+			<input name="username" type="text" placeholder="user name">
 			<br>
-			<input type="password" placeholder="password">
+			<input name="password" type="password" placeholder="password">
 		</div>
 			
 			<br><br>

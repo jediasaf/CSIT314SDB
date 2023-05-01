@@ -1,3 +1,6 @@
+<?php 
+session_start();
+?>
 <!doctype html>
 <html>
 <head>
@@ -38,7 +41,14 @@
 	    <div class="sub-menu-wrap" id="subMenu">
 		  	<div class="sub-menu">
 			  <div class="user-info"> <img src="Images/user.png" width="50" height="50" alt="" class="user-pic"/>
-				  <h3> Website Designer</h3>
+				  <h3><?php
+				  if(isset($_SESSION['username'])){
+					echo $_SESSION['username'];
+				  }
+				  else {
+					echo "Please Log In";
+				  }
+				  ?></h3>
 				  <div class="points">
 				  <h7>Loyalty Points: </h7>
 			    </div>
@@ -68,6 +78,11 @@
 		
 </div>
 <body>
+</div>
+<?php 
+echo $_SESSION['username'];
+?>
+</div>
 <div class="box">
         <a href="#popup-box"> 
             Logout Now?
@@ -75,6 +90,9 @@
     </div>
 <div id="popup-box" class="modal">
         <div class="content">
+			<?php
+			session_destroy();
+			?>
             <h1 style="color: gainsboro;">
                 Thank You for using our system!
             </h1>

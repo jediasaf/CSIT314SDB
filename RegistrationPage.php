@@ -1,6 +1,6 @@
 <?php 
-/*
-require_once("RegistrationPage.php");
+
+#require_once("RegistrationPage.php");
 static $message = "";
 $username = $_POST['username'];
 $password = $_POST['pwd'];
@@ -11,15 +11,18 @@ $age = $_POST['age'];
 $genre = $_POST['role'];
 $seat = $_POST['seat'];
 
+
+# To open the connection to DB
+# query to use $conn -> <insert method here>
+# method names and usage to be found here 
+# https://www.w3schools.com/php/php_ref_mysqli.asp
+
 include "dbFunctions.php";
 
 $result = $conn->query("select count(*) from userdb where username = '$username'");
 $row = $result->fetch_assoc();
 
-if($password != $passwordRepeat){
-  $message = "Password Do Not Match";
-}
-else if ($row['count']>0){ 
+if($row['count']>0){ 
   $message = "Username Already Taken :(";
 }
 else { 
@@ -29,8 +32,9 @@ else {
   
 }
 
+# To close the connection to DB
 $conn->close();
-*/
+
 ?>
 
 <!doctype html>
@@ -38,13 +42,15 @@ $conn->close();
 <head>
   <script>
     function checkPasswords() {
-      var password = document.getElementById("pwd").value;
-      var confirm_password = document.getElementById("pwd-repeat").value;
-      var submit_button = document.getElementById("submit_button");
-      if (password == confirm_password) {
-        submit_button.disabled = false;
+      if (document.getElementById("pwd").value == document.getElementById("pwd-repeat").value) {
+        document.getElementById("submit_button").disabled = false;
+        document.getElementById("message").style.color = "green";
+        document.getElementById("message").innerHTML = "matching";
       } else {
-        submit_button.disabled = true;
+        document.getElementById("submit_button").disabled = true;
+        document.getElementById("message").style.color = "red";
+        document.getElementById("message").innerHTML = "not matching";
+
       }
     }
   </script>
@@ -109,7 +115,7 @@ $conn->close();
           placeholder="Enter Password"
           name="pwd"
           id="pwd"
-          onkeyup="checkPasswords()"
+          onkeyup="checkPasswords();"
           required
         />
 
@@ -119,7 +125,7 @@ $conn->close();
           placeholder="Repeat Password"
           name="pwd-repeat"
           id="pwd-repeat"
-          onkeyup="checkPasswords()"
+          onkeyup="checkPasswords();"
           required
         />
 		  <label for="Age"><b>Age</b></label>
@@ -151,8 +157,9 @@ $conn->close();
 		  <br>
         <!-- submit button -->
         <button type="submit" id="submit_button" disabled>Register</button>
+        <span id="message"></span>
         <?php 
-        #echo $message;
+        echo $message;
         ?>
       </div>
 	</form>
