@@ -73,7 +73,7 @@ $conn->close();
 <p>Kindly fill in this form to register.</p>
         
 		  
-		  <label for="First Name"><b>First Name</b></label>
+		  <label for="firstName"><b>First Name</b></label>
         <input
           type="text"
           placeholder="Enter First Name"
@@ -82,7 +82,7 @@ $conn->close();
           required
         />
 		  
-		  <label for="Last Name"><b>Last Name</b></label>
+		  <label for="lastName"><b>Last Name</b></label>
         <input
           type="text"
           placeholder="Enter Last Name"
@@ -136,6 +136,14 @@ $conn->close();
           id="age"
           required
         />
+		  <label for="phoneNo"><b>Phone Number</b></label>
+        <input
+          type="number"
+          placeholder="Enter Your Phone Number"
+          name="phoneNo"
+          id="phoneNo"
+          required
+        />
 		 <label for="Preferences"><b>Preferences</b></label> <br>
 		  <select name="role" id="role">
 			<option value="No Preferences">Choose your preference</option>
@@ -155,6 +163,14 @@ $conn->close();
 			  <option value="Musical">Musical</option>
 			</select>
 		  <br>
+		  <label for="seatPref"><b> Seat Preferences</b></label> <br>
+		  <select name="role" id="role">
+			<option value="None">Choose your preference</option>
+			<option value="back">Back</option>
+			<option value="center">Center</option>
+			</select>
+		  <br>
+		  
         <!-- submit button -->
         <button type="submit" id="submit_button" disabled>Register</button>
         <span id="message"></span>
