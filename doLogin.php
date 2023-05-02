@@ -51,5 +51,4 @@ if(isset($_SESSION['username'])){
 
 ?>
 
-
-<
+<?php include('navbar.php');?>
