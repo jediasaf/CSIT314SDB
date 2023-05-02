@@ -6,14 +6,6 @@
 <link href="css/ContactUs.css" rel="stylesheet" type="text/css">
 </head>
 	<?php include('navbar.php');?>
-</nav>
-	<div class="menuIcon">
-  <span class="icon icon-bars"></span>
-  <span class="icon icon-bars overlay"></span>
-		
-</div>
-</div>
-
 <body>
 	 <div class="container">
     <div class="content">
