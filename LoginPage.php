@@ -35,15 +35,7 @@
 			<input name="password" type="password" placeholder="password">
 		</div>
 			
-			<br><br>
-			
-		<div class="remember-me--forget-password">
-				<!-- Angular -->
-	<label>
-		<input type="checkbox" name="item" checked/>
-		<span class="text-checkbox">Remember me</span>
-	</label>
-			</div>
+			<br>
 			<br>
 			<button onclick="HomePage SDB.php">Login</button>
 	</div>

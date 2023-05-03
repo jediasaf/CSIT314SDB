@@ -103,16 +103,7 @@ margin: 0 auto;
   outline: none;
   border-bottom: 2px solid #B0B3B9;
 }
-.box-form .right .remember-me--forget-password {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.box-form .right .remember-me--forget-password input {
-  margin: 0;
-  margin-right: 7px;
-  width: auto;
-}
+
 .box-form .right button {
   float: right;
   color: #fff;
