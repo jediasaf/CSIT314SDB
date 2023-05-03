@@ -1,10 +1,8 @@
 <?php
-session_start();
-#$username = $_POST['username'];
-#$role = $_POST['roles'];
-
-#$password = $_POST['password'];
-#$hashedPassword = hash("sha256","vGJtfNnY9F");
+$username = $_POST['username'];
+$role = $_POST['roles'];
+$password = $_POST['password'];
+$hashedPassword = hash("sha256","vGJtfNnY9F");
 
 
 
@@ -14,9 +12,9 @@ session_start();
 #$hashedPassword = hash("sha256",$password);
 #echo $password;
 
-$username = "acalafato1x";
-$password = "E1BQ8CU1e9";
-$hashedPassword = hash("sha256","E1BQ8CU1e9");
+#$username = "acalafato1x";
+#$password = "E1BQ8CU1e9";
+#$hashedPassword = hash("sha256","E1BQ8CU1e9");
 
 
 
@@ -25,7 +23,7 @@ include ("dbFunctions.php");
 #echo $username . "  " . $hashedPassword;
 $controller = new controller();
 $conn = $controller -> run();
-$result = $conn -> query("SELECT * from userdb where username = '$username' and hashedPassw = '$hashedPassword'");
+$result = $conn -> query("SELECT * from userdb where username = '$username' and hashedPassw = '$hashedPassword' and roles = '$role'");
 $row = $result -> fetch_assoc();
 $rowcount = $result -> num_rows;
 /*
@@ -60,7 +58,7 @@ else{
 
 ?>
 
-<?php include('navbar.php');?>
+<?php include("navbar.php");?>
 
 <html>
   <head>
@@ -110,14 +108,35 @@ else{
       }
     </style>
     <body>
-      <div class="card">
+    <?php if(isset($_SESSION['username'])){
+      echo '<div class="card">
       <div style="border-radius:200px; height:200px; width:200px; background: #F8FAF5; margin:0 auto;">
         <i class="checkmark">✓</i>
       </div>
-        <h1>Success</h1> 
-		  <h2>Dear, <?php echo $_SESSION['username']?></h2>
+      
+        <h1>Success</h1>
+        
+        <h2>Dear '.$_SESSION["username"].',</h2>
         <p>Welcome Back To SDB Pop-Up Cinema,<br/> looking forward to see u in the cinema!
       <br/>Redirecting to HomePage in 5 seconds.  </p>
+      </div>';}
+
+      #edit the following into a red cross
+      else{
+        echo '<div class="card">
+      <div style="border-radius:200px; height:200px; width:200px; background: #F8FAF5; margin:0 auto;">
+        <i class="checkmark">✓</i>
       </div>
+      
+        <h1>Success</h1>
+        
+        <h2>Dear User,</h2>
+        <p>Login Invalid. <br/> Please try again.
+      <br/>Redirecting to Login Page in 5 seconds.  </p>
+      </div>';
+      }
+        ?>
+         
+		   
     </body>
 </html>
