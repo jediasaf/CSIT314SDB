@@ -11,7 +11,7 @@ class EditProfile{
     </style>
     </head>
     <div class="hero">
-    <?php include('navbar.php');?>
+    <?php include("navbar.php");?>
     <body>
       <div class="box-form">
        <form class="edit-form">
