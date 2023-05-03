@@ -54,17 +54,15 @@ echo $rowcount;
 include ("dbFunctions.php");
 $controller = new controller();
 $run = $controller -> run();
-$result = $run -> validateUserLogin("acalafato1x","b322959e3d2762be6ad6c87a2ad821dca3424634e9759c8fdd6820db55aea3e8","Customer ");
-echo $result;
+$result = $run -> validateUserLogin("acalafato1x","b322959e3d2762be6ad6c87a2ad821dca3424634e9759c8fdd6820db55aea3e8","Customer");
+echo $result."<br>";
 
+
+# note that a fullstop . is used as a concatenator for php
+# so the following means that im just adding them together as a string
 
 $result2 = $run -> getMovie1();
 while($row2 = $result2 -> fetch_assoc()){
-    echo $row2['movieID'];
-    echo $row2['movieTitle'];
-    echo $row2['genres'];
-    echo $row2['duration'];
-    echo $row2['country'];
-
+    echo $row2['movieID']."----".$row2['movieTitle']."----". $row2['genres']."----". $row2['duration']."----". $row2['country']."----"."<br>";
 }
 ?>
