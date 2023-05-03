@@ -29,6 +29,7 @@ echo $_SESSION['username'];
         <div class="content">
 			<?php
 			session_destroy();
+            echo '<meta http-equiv="refresh" content="2; url='.'HomePage SDB.php'.'" />';
 			?>
             <h1 style="color: gainsboro;">
                 Thank You for using our system!

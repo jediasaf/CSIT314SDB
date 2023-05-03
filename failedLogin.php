@@ -1,4 +1,4 @@
-<?php include('../../Unnamed Site 2/navbar.php');?>
+<?php include('navbar.php');?>
 
 <html>
   <head>

@@ -26,18 +26,19 @@
    --><li><a href="ContactUs.php">Contact Us</a></li>
     </ul>
 		  <div class="searchbar">
-		<form action="" class="search-bar">
-			<input type="text" placeholder="Search Movie" name="q">
+		<form action="MoviePage.php" class="search-bar">
+			<input type="text" placeholder="Search Movie" name="name">
 			<button type="submit"><img align-   width="15px" height="15px" src="Images/search.png"width="10px" height="10px"></button>
 				
 		</form>
 		</div>
-		  <a href="LoginPage.php">
+		<?php
+		if(!isset($_SESSION['username'])){
+		echo'<a href="LoginPage.php">
 		  <button class="button-27" role="button" style="height:10px;width=20px" onClick="">Login/Sign Up</button>
-	    </a>
+	    </a>';
+		}
 
-		<?php 
-		
 		if(isset($_SESSION['username'])){
 				echo '<img src="Images/user.png" width="50" height="50" alt="" class="user-pic" onclick="toggleMenu()"/>
 				<div class="sub-menu-wrap" id="subMenu">

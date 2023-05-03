@@ -20,39 +20,41 @@ $role = "Customer";
 
 include "dbFunctions.php";
 $controller = new controller();
-$conn = $controller -> run();
-$result = $conn->query("select count(*) from userdb where username = '$username'");
-$row = $result->fetch_assoc();
+$run = $controller -> run();
+$result = $run->validateRegistration($username);
 
-if($row['count']>0){ 
+if($result>0){ 
   $message = "Username taken please try again
   <p><br/>Redirecting to Registration Page in 5 seconds.  </p>";
+  $redirect = '<meta http-equiv="refresh" content="5; url='.'RegistrationPage.php'.'" />';
 }
 else { 
     # insert query
     
-    $result = $conn->query("INSERT INTO myTable (phoneNo, username, hashedPassw, email, age, genrePref, loyaltyPts, roles, seatPref) 
-    VALUES (".$phoneNum.",".$username." , ".$hashedPassword.", ".$email.", ".$age.", ".$genre.", ".$loyaltypts.", ".$roles.", ".$seat.");");
-    $success = true;
+    $result = $run->processRegistration($phoneNum,$username,$hashedPassword,$email,$age,$genre,$loyaltypts,$roles,$seat);
+    if($result){
+      $redirect = '<meta http-equiv="refresh" content="5; url='.'HomePage SDB.php'.'" />';
 
 
-    $result = $conn -> query("SELECT * from userdb where username = '$username' and hashedPassw = '$hashedPassword'");
-    $row = $result -> fetch_assoc();
+      $row = $run -> fetchUserDetails($username,$hashedPassword);
+  
+      $_SESSION['username'] = $row['username'];
+      $_SESSION['roles'] = $row['roles'];
+      $_SESSION['loyaltypts'] = $row['loyaltyPts'];
+      $_SESSION['genrePref'] = $row['genrePref'];
+      $_SESSION['seatPref'] = $row['seatPref'];
+      $_SESSION['email'] = $row['email'];
+      $_SESSION['phoneNo'] = $row['phoneNo'];
+  
+      $message = "Success
+      <h2>Dear User</h2>
+  <p>Welcome Back To SDB Pop-Up Cinema,<br/> looking forward to see u in the cinema!
+  <br/>Redirecting to HomePage in 5 seconds.  </p>
+  ";
+    }
 
 
-    $_SESSION['username'] = $row['username'];
-    $_SESSION['roles'] = $row['roles'];
-    $_SESSION['loyaltypts'] = $row['loyaltyPts'];
-    $_SESSION['genrePref'] = $row['genrePref'];
-    $_SESSION['seatPref'] = $row['seatPref'];
-    $_SESSION['email'] = $row['email'];
-    $_SESSION['phoneNo'] = $row['phoneNo'];
-
-    $message = "Success
-    <h2>Dear User</h2>
-<p>Welcome Back To SDB Pop-Up Cinema,<br/> looking forward to see u in the cinema!
-<br/>Redirecting to HomePage in 5 seconds.  </p>
-";
+    
 }
 
 # To close the connection to DB
@@ -61,12 +63,8 @@ $conn->close();
 ?>
 <html>
   <head>
-	  <?php if($success){
-        echo '<meta http-equiv="refresh" content="5; url='.'HomePage SDB.php'.'" />';
-    }
-    else{
-        echo '<meta http-equiv="refresh" content="5; url='.'RegistrationPage.php'.'" />';
-    }
+	  <?php 
+    echo $redirect;
          ?>
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700,900&display=swap" rel="stylesheet">
   </head>
