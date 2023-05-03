@@ -27,8 +27,7 @@ include ("dbFunctions.php");
 #echo $username . "  " . $hashedPassword;
 $controller = new controller();
 $conn = $controller -> run();
-$result = $conn -> query("SELECT * from userdb where username = '$username' and hashedPassw = '$hashedPassword'");
-# and roles = '$role'
+$result = $conn -> query("SELECT * from userdb where username = '$username' and hashedPassw = '$hashedPassword' and roles = '$role'");
 $row = $result -> fetch_assoc();
 $rowcount = $result -> num_rows;
 

@@ -31,7 +31,7 @@ while($now = $result1 -> fetch_assoc()){
                 echo'<p class="ticket__movie-slogan">
                     '.$now['description'].'
                 </p>';
-                echo'<a href="Order.php?name="'.$now.'>';
+                echo'<a href="Order.php?name="'.$now["movieID"].'>';
                 echo'<button class="ticket__buy-btn">Buy now</button>';
                 echo' </a>';
                 echo'</div>';
@@ -60,6 +60,7 @@ while($now = $result1 -> fetch_assoc()){
                         echo'<p class="ticket__movie-slogan">
                             '.$cmg['description'].'
                         </p>';
+                        # remove link
                         echo'<a href="Order.php">';
                         echo'<button class="ticket__buy-btn">Buy now</button>';
                         echo' </a>';
