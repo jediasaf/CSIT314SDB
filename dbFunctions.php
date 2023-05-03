@@ -1,7 +1,7 @@
 <?php
 # controller class
 include ("entityClass.php");
-class controllerTestDB{
+class controller{
     function run(){
         $testDB = new testDB();
         return $testDB;
