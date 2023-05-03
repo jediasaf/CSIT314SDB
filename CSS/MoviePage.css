@@ -378,6 +378,7 @@ body { font-family: sans-serif; }
 	height: 540px;
 	position: relative;
 	margin: 0 20px;
+	display: inline;
 }
 
 .poster-container {
@@ -405,6 +406,7 @@ body { font-family: sans-serif; }
 	top: 20px;
 	box-shadow: 0 5px 20px 3px rgba(0, 0, 0, 0.6);
 	opacity: 0;
+
 }
 
 .main-container:hover .ticket-container {
