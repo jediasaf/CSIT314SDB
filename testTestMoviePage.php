@@ -4,8 +4,11 @@
 echo '<style type="text/css">
 @import url("css/MoviePage.css");
 </style>';
-include ("dbFunctions.php");
 
+# creating a controller class and then calling the entity class using the controller.
+include ("dbFunctions.php");
+$controller = new controller();
+$conn = $controller -> run();
 $result = $conn -> query("SELECT * FROM moviedb where yearReleased >= 2020");
 
 
