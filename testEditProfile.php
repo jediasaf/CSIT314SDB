@@ -1,4 +1,7 @@
 <?php
+
+# this page is meant for testing purposes only
+
 class EditProfile{
   function display(){
     echo'<!doctype html>
@@ -14,38 +17,12 @@ class EditProfile{
     <?php include("navbar.php");?>
     <body>
       <div class="box-form">
-       <form class="edit-form">
+      <!--made changes here-->
+       <form class="edit-form" method = "POST" action = "doEditProfile.php"> 
           <div class="container">
            <img width="200px" src="Images/D.png">
     <h1>Edit Your Profile&nbsp;</h1>
     <h6>Kindly fill in this form to edit your profile.</h6>
-    <label for="First Name"><b>First Name</b></label>
-            <input
-              type="text"
-              placeholder="Enter First Name"
-              name="first name"
-              id="firstname"
-              required
-            />
-          
-          <label for="Last Name"><b>Last Name</b></label>
-            <input
-              type="text"
-              placeholder="Enter Last Name"
-              name="last name"
-              id="last name"
-              required
-            />
-          <label for="username"><b>Username</b></label>
-            <input
-              type="text"
-              placeholder="Enter username"
-              name="username"
-              id="username"
-              required
-            />
-         
-    
             <label for="email"><b>Email</b></label>
             <input
               type="text"
@@ -101,7 +78,7 @@ class EditProfile{
           <br>
             <!-- submit button -->
           <a href="LoginPage.php">
-            <button type="submit">Register</button>
+            <button type="submit">Update</button>
           </a>
           </div>
       </form>
@@ -125,9 +102,5 @@ class EditProfile{
 # Initialising a class and calling the class method display
 $display = new EditProfile();
 $display->display();
-
-include ("dbFunctions.php");
-
-
 ?>
 
