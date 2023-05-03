@@ -17,6 +17,7 @@
 		</span>
 		</div>
 	</div>
+	<form>
 		<div class="right">
 		<h5>Login</h5>
 		<p>Don't have an account?
@@ -37,9 +38,9 @@
 			
 			<br>
 			<br>
-			<button onclick="HomePage SDB.php">Login</button>
+			<button class="button-27" onclick="HomePage SDB.php">Login</button>
 	</div>
-	
+	</form>
 </div>
 
 </body>
