@@ -1,4 +1,5 @@
 <?php
+session_start();
 $username = $_POST['username'];
 $role = $_POST['role'];
 $password = $_POST['password'];
@@ -38,7 +39,7 @@ $conn = $controller -> run();
 $result = $conn -> query("SELECT * from userdb where username = '$username' and hashedPassw = '$hashedPassword' and roles = '$role'");
 $row = $result -> fetch_assoc();
 $rowcount = $result -> num_rows;
-echo "query ran";
+#echo "query ran";
 /*
 while($row){
     echo $row['username'];
@@ -48,7 +49,7 @@ while($row){
     echo $row['roles'];
 
 }*/
-echo $rowcount;
+#echo $rowcount;
 if($rowcount == 1){
     $_SESSION['username'] = $row['username'];
     $_SESSION['roles'] = $row['roles'];
@@ -60,8 +61,8 @@ if($rowcount == 1){
 }
 
 if(isset($_SESSION['username'])){
-    echo $_SESSION['username'];
-    echo $_SESSION['roles'];
+    #echo $_SESSION['username'];
+    #echo $_SESSION['roles'];
     $message = '<div class="card">
     <div style="border-radius:200px; height:200px; width:200px; background: #F8FAF5; margin:0 auto;">
       <i class="checkmark">✓</i>
@@ -72,14 +73,14 @@ if(isset($_SESSION['username'])){
       <h2>Dear '.$_SESSION["username"].',</h2>
       <p>Welcome Back To SDB Pop-Up Cinema,<br/> looking forward to see u in the cinema!
     <br/>Redirecting to HomePage in 5 seconds.  </p>
-    </div>
-    <meta http-equiv="refresh" content="5; url='.'HomePage SDB.php'.'" />';
+    </div>';
+    #echo '<meta http-equiv="refresh" content="5; url='.'HomePage SDB.php'.'" />';
 }
 else{
   #might need to change to meta instead
   #echo "window.location.replace('LoginPage.php');";
   #edit the following into a red cross
-  '<div class="card">
+  $message = '<div class="card">
       <div style="border-radius:200px; height:200px; width:200px; background: #F8FAF5; margin:0 auto;">
         <i class="checkmark">✓</i>
       </div>
@@ -89,8 +90,8 @@ else{
         <h2>Dear User,</h2>
         <p>Login Invalid. <br/> Please try again.
       <br/>Redirecting to Login Page in 5 seconds.  </p>
-      </div>
-      <meta http-equiv="refresh" content="5; url='.'LoginPage.php'.'" />';
+      </div>';
+      #echo '<meta http-equiv="refresh" content="5; url='.'LoginPage.php'.'" />';
 }
 
 

@@ -1,5 +1,9 @@
-<?php session_start();?>
-
+<?php
+    if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    } 
+?>
 <!doctype html>
 <html>
 <head>
@@ -39,13 +43,26 @@
 				<div class="sub-menu-wrap" id="subMenu">
 					  <div class="sub-menu">
 					  <div class="user-info"> <img src="Images/user.png" width="50" height="50" alt="" class="user-pic"/>
-						  <h3> <?php
+						  <h3>';
+						  if(isset($_SESSION['username'])){
 							echo $_SESSION["username"];
-						 ?> </h3>
+						  }
+						  else{
+							echo 'Please Log In';
+						  }
+						echo' </h3>
 						  <div class="points">
-						  <h7>Loyalty Points: <?php 
-						  echo $_SESSION["loyaltypts"];
-						  ?></h7>
+						  <h7>Loyalty Points: ';
+						  
+						  if(isset($_SESSION['username'])){
+							echo $_SESSION["loyaltypts"];
+												  }
+						  else{
+							echo '0';
+						  }
+						  
+						  
+						 echo ' </h7>
 						</div>
 					  </div>
 						<hr>
@@ -78,3 +95,10 @@
 
 </div>
 </html>
+<script>
+		let subMenu = document.getElementById("subMenu");
+		
+		function toggleMenu(){
+			subMenu.classList.toggle("open-menu");
+		}
+	</script>
