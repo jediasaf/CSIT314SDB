@@ -1,8 +1,10 @@
+<?php include('navbar.php');?>
 <?php 
 #session_start();
 if(isset($_SESSION['username'])){
-	#echo $_SESSION['username'];
+	$message = $_SESSION['username'];
 }
+$message = "";
 ?>
 
 <!doctype html>
@@ -14,7 +16,7 @@ if(isset($_SESSION['username'])){
 </head>
 <div class="hero">
 	
-<?php include('navbar.php');?>
+
 
 </div>
 	<div class="container">
@@ -180,6 +182,7 @@ if(isset($_SESSION['username'])){
 <footer> 
 			<h3>Software Development Board 2023</h3><br>
 			<p>Pop-Up Cinema in Town</p>
+			<?php echo $message; ?>
 </footer>
 
 </html>

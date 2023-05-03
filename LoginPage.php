@@ -29,7 +29,7 @@
 			<option value="Admin">Admin</option>
 			<option value="Staff">Staff</option>
 			<option value="Manager">Manager</option>
-			<option value="Customer">Customer</option>
+			<option value="Customer ">Customer</option>
 			</select>
 			<input name="username" type="text" placeholder="user name">
 			<br>

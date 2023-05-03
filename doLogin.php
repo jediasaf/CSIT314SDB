@@ -1,8 +1,20 @@
 <?php
 $username = $_POST['username'];
-$role = $_POST['roles'];
+$role = $_POST['role'];
 $password = $_POST['password'];
-$hashedPassword = hash("sha256","vGJtfNnY9F");
+$hashedPassword = hash("sha256",$password);
+/*
+echo $hashedPassword;
+echo "<br>";
+echo "'".$hashedPassword."'";
+echo "<br>";
+echo $username;
+echo "<br>";
+echo $password;
+echo "<br>";
+echo "'".$role."'";
+echo "<br>";
+*/
 
 
 
@@ -26,6 +38,7 @@ $conn = $controller -> run();
 $result = $conn -> query("SELECT * from userdb where username = '$username' and hashedPassw = '$hashedPassword' and roles = '$role'");
 $row = $result -> fetch_assoc();
 $rowcount = $result -> num_rows;
+echo "query ran";
 /*
 while($row){
     echo $row['username'];
@@ -49,10 +62,35 @@ if($rowcount == 1){
 if(isset($_SESSION['username'])){
     echo $_SESSION['username'];
     echo $_SESSION['roles'];
+    $message = '<div class="card">
+    <div style="border-radius:200px; height:200px; width:200px; background: #F8FAF5; margin:0 auto;">
+      <i class="checkmark">✓</i>
+    </div>
+    
+      <h1>Success</h1>
+      
+      <h2>Dear '.$_SESSION["username"].',</h2>
+      <p>Welcome Back To SDB Pop-Up Cinema,<br/> looking forward to see u in the cinema!
+    <br/>Redirecting to HomePage in 5 seconds.  </p>
+    </div>
+    <meta http-equiv="refresh" content="5; url='.'HomePage SDB.php'.'" />';
 }
 else{
   #might need to change to meta instead
-  echo "window.location.replace('LoginPage.php');";
+  #echo "window.location.replace('LoginPage.php');";
+  #edit the following into a red cross
+  '<div class="card">
+      <div style="border-radius:200px; height:200px; width:200px; background: #F8FAF5; margin:0 auto;">
+        <i class="checkmark">✓</i>
+      </div>
+      
+        <h1>Failed</h1>
+        
+        <h2>Dear User,</h2>
+        <p>Login Invalid. <br/> Please try again.
+      <br/>Redirecting to Login Page in 5 seconds.  </p>
+      </div>
+      <meta http-equiv="refresh" content="5; url='.'LoginPage.php'.'" />';
 }
 
 
@@ -62,7 +100,7 @@ else{
 
 <html>
   <head>
-	  <meta http-equiv="refresh" content="5; url='HomePage SDB.php'" />
+	  <?php #<meta http-equiv="refresh" content="5; url='HomePage SDB.php'" /> ?>
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700,900&display=swap" rel="stylesheet">
   </head>
     <style>
@@ -108,33 +146,8 @@ else{
       }
     </style>
     <body>
-    <?php if(isset($_SESSION['username'])){
-      echo '<div class="card">
-      <div style="border-radius:200px; height:200px; width:200px; background: #F8FAF5; margin:0 auto;">
-        <i class="checkmark">✓</i>
-      </div>
-      
-        <h1>Success</h1>
-        
-        <h2>Dear '.$_SESSION["username"].',</h2>
-        <p>Welcome Back To SDB Pop-Up Cinema,<br/> looking forward to see u in the cinema!
-      <br/>Redirecting to HomePage in 5 seconds.  </p>
-      </div>';}
-
-      #edit the following into a red cross
-      else{
-        echo '<div class="card">
-      <div style="border-radius:200px; height:200px; width:200px; background: #F8FAF5; margin:0 auto;">
-        <i class="checkmark">✓</i>
-      </div>
-      
-        <h1>Success</h1>
-        
-        <h2>Dear User,</h2>
-        <p>Login Invalid. <br/> Please try again.
-      <br/>Redirecting to Login Page in 5 seconds.  </p>
-      </div>';
-      }
+    <?php 
+      echo $message;
         ?>
          
 		   

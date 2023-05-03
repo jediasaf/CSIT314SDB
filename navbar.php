@@ -1,3 +1,5 @@
+<?php session_start();?>
+
 <!doctype html>
 <html>
 <head>
@@ -31,7 +33,7 @@
 	    </a>
 
 		<?php 
-		session_start();
+		
 		if(isset($_SESSION['username'])){
 				echo '<img src="Images/user.png" width="50" height="50" alt="" class="user-pic" onclick="toggleMenu()"/>
 				<div class="sub-menu-wrap" id="subMenu">
