@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 #$username = $_POST['username'];
 #$role = $_POST['roles'];
 
@@ -20,9 +20,11 @@ $hashedPassword = hash("sha256","E1BQ8CU1e9");
 
 
 
-include "dbFunctions.php";
+include ("dbFunctions.php");
 
 #echo $username . "  " . $hashedPassword;
+$controller = new controller();
+$conn = $controller -> run();
 $result = $conn -> query("SELECT * from userdb where username = '$username' and hashedPassw = '$hashedPassword'");
 $row = $result -> fetch_assoc();
 $rowcount = $result -> num_rows;
@@ -37,15 +39,22 @@ while($row){
 }*/
 echo $rowcount;
 if($rowcount == 1){
-    session_start();
-    $_SESSION['username'] = $username;
+    $_SESSION['username'] = $row['username'];
     $_SESSION['roles'] = $row['roles'];
-    echo "<h1>SUCCESS</h1>";
+    $_SESSION['loyaltypts'] = $row['loyaltyPts'];
+    $_SESSION['genrePref'] = $row['genrePref'];
+    $_SESSION['seatPref'] = $row['seatPref'];
+    $_SESSION['email'] = $row['email'];
+    $_SESSION['phoneNo'] = $row['phoneNo'];
 }
 
 if(isset($_SESSION['username'])){
     echo $_SESSION['username'];
     echo $_SESSION['roles'];
+}
+else{
+  #might need to change to meta instead
+  echo "window.location.replace('LoginPage.php');";
 }
 
 
@@ -106,8 +115,9 @@ if(isset($_SESSION['username'])){
         <i class="checkmark">✓</i>
       </div>
         <h1>Success</h1> 
-		  <h2>Dear, Website Designer</h2>
-        <p>Welcome Back To SDB Pop-Up Cinema,<br/> looking forward to see u in the cinema!</p>
+		  <h2>Dear, <?php echo $_SESSION['username']?></h2>
+        <p>Welcome Back To SDB Pop-Up Cinema,<br/> looking forward to see u in the cinema!
+      <br/>Redirecting to HomePage in 5 seconds.  </p>
       </div>
     </body>
 </html>

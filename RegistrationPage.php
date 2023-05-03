@@ -1,41 +1,3 @@
-<?php 
-
-#require_once("RegistrationPage.php");
-static $message = "";
-$username = $_POST['username'];
-$password = $_POST['pwd'];
-$passwordRepeat = $_POST['pwd-repeat'];
-$phoneNum = $_POST['phoneNo'];
-$email = $_POST['email'];
-$age = $_POST['age'];
-$genre = $_POST['role'];
-$seat = $_POST['seat'];
-
-
-# To open the connection to DB
-# query to use $conn -> <insert method here>
-# method names and usage to be found here 
-# https://www.w3schools.com/php/php_ref_mysqli.asp
-
-include "dbFunctions.php";
-
-$result = $conn->query("select count(*) from userdb where username = '$username'");
-$row = $result->fetch_assoc();
-
-if($row['count']>0){ 
-  $message = "Username Already Taken :(";
-}
-else { 
-  
-
-  
-  
-}
-
-# To close the connection to DB
-$conn->close();
-
-?>
 
 <!doctype html>
 <html>
@@ -175,7 +137,7 @@ $conn->close();
         <button type="submit" id="submit_button" disabled>Register</button>
         <span id="message"></span>
         <?php 
-        echo $message;
+        #echo $message;
         ?>
       </div>
 	</form>

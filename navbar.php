@@ -29,35 +29,44 @@
 		  <a href="LoginPage.php">
 		  <button class="button-27" role="button" style="height:10px;width=20px" onClick="">Login/Sign Up</button>
 	    </a>
-	<img src="Images/user.png" width="50" height="50" alt="" class="user-pic" onclick="toggleMenu()"/>
-	    <div class="sub-menu-wrap" id="subMenu">
-		  	<div class="sub-menu">
-			  <div class="user-info"> <img src="Images/user.png" width="50" height="50" alt="" class="user-pic"/>
-				  <h3> <?php
-				  echo $_SESSION['username'];
-				 ?> </h3>
-				  <div class="points">
-				  <h7>Loyalty Points: </h7>
-			    </div>
-			  </div>
-				<hr>
-				<a href="EditProfile.php" class="sub-menu-link">
-					<img src="Images/profile.png"/> 
-					<p>Edit Profile</p>
-					<span>></span>
-				</a>
-				<a href="Preferences.php" class="sub-menu-link">
-					<img src="Images/setting.png" />
-					<p>Preferences</p>
-					<span>></span>
-				</a>
-				<a href="LogOut.php" class="sub-menu-link">
-					<img src="Images/logout.png" />
-					<p>Logout</p>
-					<span>></span>
-				</a>
-			</div>
-		</div>
+
+		<?php 
+		session_start();
+		if(isset($_SESSION['username'])){
+				echo '<img src="Images/user.png" width="50" height="50" alt="" class="user-pic" onclick="toggleMenu()"/>
+				<div class="sub-menu-wrap" id="subMenu">
+					  <div class="sub-menu">
+					  <div class="user-info"> <img src="Images/user.png" width="50" height="50" alt="" class="user-pic"/>
+						  <h3> <?php
+							echo $_SESSION["username"];
+						 ?> </h3>
+						  <div class="points">
+						  <h7>Loyalty Points: <?php 
+						  echo $_SESSION["loyaltypts"];
+						  ?></h7>
+						</div>
+					  </div>
+						<hr>
+						<a href="EditProfile.php" class="sub-menu-link">
+							<img src="Images/profile.png"/> 
+							<p>Edit Profile</p>
+							<span>></span>
+						</a>
+						<a href="Preferences.php" class="sub-menu-link">
+							<img src="Images/setting.png" />
+							<p>Preferences</p>
+							<span>></span>
+						</a>
+						<a href="LogOut.php" class="sub-menu-link">
+							<img src="Images/logout.png" />
+							<p>Logout</p>
+							<span>></span>
+						</a>
+					</div>
+				</div>';
+		}
+	
+		?>
 </nav>
 	<div class="menuIcon">
   <span class="icon icon-bars"></span>
