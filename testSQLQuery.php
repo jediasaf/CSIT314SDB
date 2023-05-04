@@ -1,13 +1,11 @@
 <?php
 
-
+/*
 $username = "acalafato1x";
 $role = "Customer ";
 $password = "E1BQ8CU1e9";
 $hashedPassword = hash("sha256",$password);
 
-
-/*
 echo $hashedPassword;
 echo "<br>";
 echo "'".$hashedPassword."'";
@@ -51,7 +49,9 @@ echo $rowcount;
 */
 
 
-include ("dbFunctions.php");
+include ("testdbFunctions.php");
+
+/*
 $controller = new controller();
 $run = $controller -> run();
 $result = $run -> validateUserLogin("acalafato1x","b322959e3d2762be6ad6c87a2ad821dca3424634e9759c8fdd6820db55aea3e8","Customer");
@@ -65,4 +65,14 @@ $result2 = $run -> getMovie1();
 while($row2 = $result2 -> fetch_assoc()){
     echo $row2['movieID']."----".$row2['movieTitle']."----". $row2['genres']."----". $row2['duration']."----". $row2['country']."----"."<br>";
 }
+*/
+
+
+$controller = new controller();
+$result = $controller->run("validateUserLogin","acalafato1x","b322959e3d2762be6ad6c87a2ad821dca3424634e9759c8fdd6820db55aea3e8","Customer");
+
+echo $result;
+
+
+
 ?>
