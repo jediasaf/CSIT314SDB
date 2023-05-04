@@ -13,15 +13,19 @@ $hashedPassword = hash("sha256",$password);
 # for connection and query to the database
 include ("dbFunctions.php");
 $controller = new controller();
-$conn = $controller -> run();
+$run = $controller -> run();
 
 # retrieve the record with the username that matches the username of the current session
-$result = $conn -> query("SELECT * from userdb where username = '$_SESSION['username']'");
+$result = $run -> retrieveUser($_SESSION['username']);
 $row = $result -> fetch_assoc();
 $rowcount = $result -> num_rows;
 echo "query ran";
 echo $rowcount;
+
+# if username exists in the database, update said records
 if($rowcount == 1){
-    $result = $conn -> query("UPDATE userdb SET email = '$email', hashedPassw = '$hashedPassword', age = '$age', genrePref = '$preferences' WHERE username = '$_SESSION['username']'");
+    $result = $run -> updateUserInfo($email, $hashedPassword, $age, $preferences, $_SESSION['username']);
 }
+
+$run->close();
 ?>

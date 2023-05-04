@@ -4,9 +4,24 @@
 
 class EditProfile{
   function display(){
-    echo'<!doctype html>
+    echo'
+    <!doctype html>
     <html>
     <head>
+      <script>
+        function checkPasswords() {
+          if (document.getElementById("pwd").value == document.getElementById("pwd-repeat").value) {
+            document.getElementById("submit_button").disabled = false;
+            document.getElementById("message").style.color = "green";
+            document.getElementById("message").innerHTML = "Passwords match";
+          } else {
+            document.getElementById("submit_button").disabled = true;
+            document.getElementById("message").style.color = "red";
+            document.getElementById("message").innerHTML = "Passwords do not match";
+
+          }
+        }
+      </script>
     <meta charset="UTF-8">
     <title>Edit Profile</title>
     <style type="text/css">
@@ -38,6 +53,7 @@ class EditProfile{
               placeholder="Enter Password"
               name="pwd"
               id="pwd"
+              onkeyup="checkPasswords();"
               required
             />
     
@@ -47,6 +63,7 @@ class EditProfile{
               placeholder="Repeat Password"
               name="pwd-repeat"
               id="pwd-repeat"
+              onkeyup="checkPasswords();"
               required
             />
           <label for="Age"><b>Age</b></label>
@@ -78,7 +95,7 @@ class EditProfile{
           <br>
             <!-- submit button -->
           <a href="LoginPage.php">
-            <button type="submit">Update</button>
+            <button id="submit_button" type="submit">Update</button>
           </a>
           </div>
       </form>

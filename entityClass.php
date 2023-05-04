@@ -70,7 +70,14 @@ class testDB{
 
 
     # Mayuri
+    function retrieveUser($username){
+        $result = $this->conn->query("SELECT * from userdb where username = '$username'");
+    }
 
+    function updateUserInfo($email, $hashedPassword, $age, $preferences, $username){
+        $result = $this->conn->query("UPDATE userdb SET email = '$email', hashedPassw = '$hashedPassword', age = '$age', genrePref = '$preferences' WHERE username = '$username'");
+        return $result;
+    }
 
 
 
