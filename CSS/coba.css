@@ -533,7 +533,6 @@ h2{
 	grid-gap: 10px;
  	grid-template-columns: repeat(auto-fit, minmax(min(100%/3, max(64px, 100%/5)), 1fr));
     max-width: 1000px;
-	
 }
 
 
@@ -741,11 +740,6 @@ h2{
 	border: 0;
 	border-bottom-left-radius: 5px;
 	border-bottom-right-radius: 5px;
-}
-
-.hero-container {
-	margin: auto;
-	display: grid;
 }
 	
 
