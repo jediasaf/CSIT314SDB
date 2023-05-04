@@ -7,7 +7,7 @@ session_start();
 <meta charset="UTF-8">
 <title>Untitled Document</title>
 	<style type="text/css">
-@import url("css/LogOut.css");
+@import url("CSS/LogOut.css");
 </style>
  <style>
        

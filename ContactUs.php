@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Untitled Document</title>
-<link href="css/ContactUs.css" rel="stylesheet" type="text/css">
+<link href="CSS/ContactUs.css" rel="stylesheet" type="text/css">
 </head>
 	<?php include('navbar.php');?>
 <body>

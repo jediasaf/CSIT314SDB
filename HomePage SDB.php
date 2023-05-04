@@ -12,7 +12,7 @@ $message = "";
 <head>
 <meta charset="UTF-8">
 <title>HomePage</title>
-<link href="css/coba.css" rel="stylesheet" type="text/css">
+<link href="CSS/coba.css" rel="stylesheet" type="text/css">
 </head>
 <div class="hero">
 	

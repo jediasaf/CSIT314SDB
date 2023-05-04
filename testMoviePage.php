@@ -11,7 +11,7 @@ echo'<head>';
 echo'<meta charset="UTF-8">';
 echo'<title>MovieList</title>';
 echo'<style type="text/css">';
-echo'@import url("css/MoviePage.css");';
+echo'@import url("CSS/MoviePage.css");';
 echo'</style>';
 echo'</head>';
 include("navbar.php");

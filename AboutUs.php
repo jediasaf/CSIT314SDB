@@ -6,7 +6,7 @@
 <style type="text/css">
 @import url("css/AboutUs.css");
 </style>
-<link href="css/MoviePage.css" rel="stylesheet" type="text/css">
+<link href="CSS/MoviePage.css" rel="stylesheet" type="text/css">
 </head>
 	<div class="hero">
 
