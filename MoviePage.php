@@ -1,112 +1,156 @@
-<!doctype html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>MovieList</title>
-<style type="text/css">
-@import url("CSS/MoviePage.css");
-</style>
-</head>
-	<?php include('navbar.php');?>
-	 
-<body>
-<h2>showing now.</h2>
-		<div class="hero-container">
-		<div class="main-container">
-			<div class="poster-container">
-				<a href="#"><img src="Images/MovieImage/AWhiskerAway2020.png" class="poster" /></a>
-			</div>
-			<div class="ticket-container">
-				<div class="ticket__content">
-					<h4 class="ticket__movie-title">A Whisker Away</h4>
-					<p class="ticket__movie-slogan">
-						The magic that brought us closer
-					</p>
-					<p class="ticket__current-price">$7.00</p>
-					<p class="ticket__old-price">$14.99</p>
-					<a href="Order.php">
-					<button class="ticket__buy-btn">Buy now</button>
-						</a>
-				</div>
-			</div>
-		</div>
 
-		<div class="main-container">
-			<div class="poster-container">
-				<a href="#"><img src="Images/MovieImage/Bubble2022.png" class="poster" /></a>
-			</div>
-			<div class="ticket-container">
-				<div class="ticket__content">
-					<h4 class="ticket__movie-title">Bubble</h4>
-					<p class="ticket__movie-slogan">Bubble in the next world</p>
-					<p class="ticket__current-price">$10.75</p>
-					<p class="ticket__old-price">$20.99</p>
-					<a href="Order.php">
-					<button class="ticket__buy-btn">Buy now</button>
-						</a>
-				</div>
-			</div>
-		</div>
-		</div>
-</body>
-	
-		<body>
-		<h2>coming soon.</h2>
-		<div class="hero-container">
-		<div class="main-container">
-			<div class="poster-container">
-				<a href="#"><img src="Images/MovieImage/DriftingHome2022.png" class="poster" /></a>
-			</div>
-			<div class="ticket-container">
-				<div class="ticket__content">
-					<h4 class="ticket__movie-title">Drifting Home</h4>
-					<p class="ticket__movie-slogan">
-						Moving house on the sea
-					</p>
-					<p class="ticket__current-price">$8.00</p>
-					<p class="ticket__old-price">$14.99</p>
-					<a href="Order.php">
-					<button class="ticket__buy-btn">Buy now</button>
-				  </a>
-				</div>
-			</div>
-		</div>
+<?php
 
-		<div class="main-container">
-			<div class="poster-container">
-				<a href="#"><img src="Images/MovieImage/Belle2021.png" class="poster" /></a>
-			</div>
-			<div class="ticket-container">
-				<div class="ticket__content">
-					<h4 class="ticket__movie-title">Belle</h4>
-					<p class="ticket__movie-slogan">When you can yourself as an AI</p>
-					<p class="ticket__current-price">$10.75</p>
-					<p class="ticket__old-price">$20.99</p>
-					<a href="Order.php">
-					<button class="ticket__buy-btn">Buy now</button>
-				  </a>
-				</div>
-			</div>
-		</div>
-		</div>
-</body>
-	
-<body>
-<h2 id="fh2">leave a movie review.</h2>
+class displayMoviePage{
+  function display(){
+    
+
+echo'<!doctype html>';
+echo'<html>';
+echo'<head>';
+echo'<meta charset="UTF-8">';
+echo'<title>MovieList</title>';
+echo'<style type="text/css">';
+echo'@import url("CSS/MoviePage.css");';
+echo'</style>';
+echo'</head>';
+include("navbar.php");
+include ("dbFunctions.php");
+$controller = new controller ();
+
+
+
+if(isset($_GET['name'])){
+  $result1 = $controller->run("searchMovies10",$_GET['name'],1);
+  $result0 = $controller->run("searchMovies10",$_GET['name'],0);
+  $result1Row = $controller->run("searchMovies10Num",$_GET['name'],1);
+  $result0Row = $controller->run("searchMovies10Num",$_GET['name'],0);
+
+  
+
+  if($result1Row > 0){
+    echo'<body>';
+  echo'<h2>showing now.</h2>';
+  echo'<div class="hero-container">';
+  for($i = 0; $i < sizeof($result1);$i++){
+      echo'<div class="main-container">';
+          echo'<div class="poster-container">';
+              echo'<a href="#"><img src="Images/MovieImage/'.$result1[$i]["moviePicName"].'" class="poster" /></a>';
+          echo'</div>';
+          echo'<div class="ticket-container">';
+              echo'<div class="ticket__content">';
+                  echo'<h4 class="ticket__movie-title">'.$result1[$i]["movieTitle"].'</h4>';
+                  echo'<p class="ticket__movie-slogan">
+                      '.$result1[$i]['description'].'
+                  </p>';
+                  echo'<a href="Order.php?name="'.$result1[$i]["movieID"].'>';
+                  echo'<button class="ticket__buy-btn">Buy now</button>';
+                  echo' </a>';
+                  echo'</div>';
+                  echo'</div>';
+                  echo' </div>';
+                  
+    }
+    echo'</div>';
+    echo'</body>';
+  }
+  if ($result0Row > 0){
+    echo'<body>';
+    echo'<h2>coming soon.</h2>';
+    echo'<div class="hero-container">';
+    for($i = 0; $i < sizeof($result0);$i++){
+      echo'<div class="main-container">';
+          echo'<div class="poster-container">';
+              echo'<a href="#"><img src="Images/MovieImage/'.$result0[$i]["moviePicName"].'" class="poster" /></a>';
+          echo'</div>';
+          echo'<div class="ticket-container">';
+              echo'<div class="ticket__content">';
+                  echo'<h4 class="ticket__movie-title">'.$result0[$i]["movieTitle"].'</h4>';
+                  echo'<p class="ticket__movie-slogan">
+                      '.$result0[$i]['description'].'
+                  </p>';
+                  // echo'<a href="Order.php?name="'.$row2["movieID"].'>';
+                  // echo'<button class="ticket__buy-btn">Buy now</button>';
+                  // echo' </a>';
+                  echo'</div>';
+                  echo'</div>';
+                  echo' </div>';
+    }
+    echo'</div>';
+    echo'</body>';
+
+  }
+}
+else{
+  echo'<body>';
+  echo'<h2>showing now.</h2>';
+  echo'<div class="hero-container">';
+  
+  $result1 = $controller -> run("getMovie1");
+  $result0 = $controller -> run("getMovie0");
+  
+  for($i = 0; $i < sizeof($result1);$i++){
+      echo'<div class="main-container">';
+          echo'<div class="poster-container">';
+              echo'<a href="#"><img src="Images/MovieImage/'.$result1[$i]["moviePicName"].'" class="poster" /></a>';
+          echo'</div>';
+          echo'<div class="ticket-container">';
+              echo'<div class="ticket__content">';
+                  echo'<h4 class="ticket__movie-title">'.$result1[$i]["movieTitle"].'</h4>';
+                  echo'<p class="ticket__movie-slogan">
+                      '.$result1[$i]['description'].'
+                  </p>';
+                  echo'<a href="Order.php?name="'.$result1[$i]["movieID"].'>';
+                  echo'<button class="ticket__buy-btn">Buy now</button>';
+                  echo' </a>';
+                  echo'</div>';
+                  echo'</div>';
+                  echo' </div>';
+                  #echo' </div>';
+  }
+  echo'</div>';
+  echo'</body>';
+    
+  echo'<body>';
+    echo'<h2>coming soon.</h2>';
+    echo'<div class="hero-container">';
+    for($i = 0; $i < sizeof($result0);$i++){
+              #echo '<div class="hero-container">';
+              echo'<div class="main-container">';
+                  echo'<div class="poster-container">';
+                      echo'<a href="#"><img src="Images/MovieImage/'.$result0[$i]["moviePicName"].'" class="poster" /></a>';
+                  echo'</div>';
+                  echo'<div class="ticket-container">';
+                      echo'<div class="ticket__content">';
+                          echo'<h4 class="ticket__movie-title">'.$result0[$i]["movieTitle"].'</h4>';
+                          echo'<p class="ticket__movie-slogan">
+                              '.$result0[$i]['description'].'
+                          </p>';
+                          # remove link
+                          /*
+                          echo'<a href="Order.php">';
+                          echo'<button class="ticket__buy-btn">Buy now</button>';
+                          echo' </a>';
+                          */
+                          echo'</div>';
+                          echo'</div>';
+                          echo' </div>';
+                          #echo' </div>';
+              }
+          
+         echo' </div>';
+  echo'</body>';
+}
+
+
+
+echo'<body>
+<h2 id="fh2">leave a cinema review.</h2>
 <h6 id="fh6">Your review will help other customer and us.</h6>
 
 
-<form id="feedback" action="">
+<form id="feedback" action="doReview.php" method="post">
   <div class="pinfo">Your personal info</div>
-  
-<div class="form-group">
-  <div class="col-md-4 inputGroupContainer">
-  <div class="input-group">
-  <span class="input-group-addon"><i class="fa fa-user"></i><img width="15px" height="15px"src="Images/users-alt.png"></span>
-  <input  name="name" placeholder="Your Name" class="form-control"  type="text">
-    </div>
-  </div>
-</div>
 
 <div class="form-group">
   <div class="col-md-4 inputGroupContainer">
@@ -123,7 +167,7 @@
   <div class="col-md-4 inputGroupContainer">
   <div class="input-group">
   <span class="input-group-addon"><i class="fa fa-globe"><img width="15px" height="15px"src="Images/icons8-movie-50.png"></i></span>
-  <input  name="movie title" placeholder="Movie Name" class="form-control"  type="text">
+  <input  name="movietitle" placeholder="Movie Name" class="form-control"  type="text">
     </div>
   </div>
 </div>
@@ -133,7 +177,7 @@
   <div class="col-md-4 inputGroupContainer">
   <div class="input-group">
   <span class="input-group-addon"><i class="fa fa-heart"><img width="15px" height="15px"src="Images/icons8-star-30.png"></i></span>
-   <select class="form-control" id="rate">
+   <select class="form-control" id="rate" name="star">
       <option value="1star">1</option>
       <option value="2stars">2</option>
       <option value="3stars">3</option>
@@ -151,7 +195,7 @@
   <div class="col-md-4 inputGroupContainer">
   <div class="input-group">
   <span class="input-group-addon"><i class="fa fa-pencil"><img width="15px" height="15px"src="Images/feedback.png"></i></span>
-  <textarea class="form-control" id="review" rows="3"></textarea>
+  <textarea class="form-control" id="review" rows="3" name="text"></textarea>
  
     </div>
   </div>
@@ -177,4 +221,11 @@
 		function toggleMenu(){
 			subMenu.classList.toggle("open-menu");
 		}
-	</script>
+	</script>';
+  }
+}
+
+$display = new displayMoviePage();
+$display->display();
+
+  ?>

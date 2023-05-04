@@ -47,10 +47,6 @@ $rowcount = $result -> num_rows;
 
 echo $rowcount;
 */
-
-
-include ("testdbFunctions.php");
-
 /*
 $controller = new controller();
 $run = $controller -> run();
@@ -68,11 +64,49 @@ while($row2 = $result2 -> fetch_assoc()){
 */
 
 
+include ("dbFunctions.php");
+
+
+
 $controller = new controller();
 $result = $controller->run("validateUserLogin","acalafato1x","b322959e3d2762be6ad6c87a2ad821dca3424634e9759c8fdd6820db55aea3e8","Customer");
 
+
+
 echo $result;
 
+$result1 = $controller->run("getMovie1");
+echo $result1;
 
+#check side of $result1
+echo sizeof($result1);
+
+for($i = 0;$i < sizeof($result1);$i++){
+    echo $result1[$i]['movieID'];
+    echo "<br>";
+    echo $result1[$i]['description'];
+    echo "<br>";
+    echo $result1[$i]['country'];
+    echo "<br>";
+    echo $result1[$i]['rantings'];
+    echo "<br>";
+
+}
+
+for($i = 0;$i < sizeof($result1);$i++){
+    echo $result1[$i][0];
+    echo "<br>";
+    echo $result1[$i][1];
+    echo "<br>";
+    echo $result1[$i][2];
+    echo "<br>";
+    echo $result1[$i][3];
+    echo "<br>";
+
+}
+
+
+$row = $controller -> run("fetchUserDetails","acalafato1x","b322959e3d2762be6ad6c87a2ad821dca3424634e9759c8fdd6820db55aea3e8");
+echo $row[0]['username']."<br>". $row[0]['roles']."<br>".$row[0]['loyaltyPts']."<br>".$row[0]['genrePref'] ."<br>".$row[0]['seatPref'] ."<br>".$row[0]['email']."<br>".$row[0]['phoneNo'];
 
 ?>

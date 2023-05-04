@@ -17,15 +17,14 @@ class testDB{
     # Bryan 
     function validateUserLogin($username, $hashedPassword,$role){
         $result = $this->conn -> query("SELECT * from userdb where username = '$username' and hashedPassw = '$hashedPassword' and roles = '$role'");
-        $row = $result -> fetch_assoc();
         $rowcount = $result -> num_rows;
         return $rowcount;
     }
 
-    function validateRegistration($username): int{
+    function validateRegistration($username){
         $result = $this->conn->query("select count(*) from userdb where username = '$username'");
-        $row = $result -> fetch_assoc();
-        return $row['count'];
+        $row = $result -> fetch_all(MYSQLI_BOTH);
+        return $row[0]['count'];
     }
 
     function processRegistration($phoneNum,$username,$hashedPassword,$email,$age,$genre,$loyaltypts,$roles,$seat){
@@ -36,54 +35,54 @@ class testDB{
 
     function getMovie1(){
             $result = $this->conn->query("SELECT * FROM moviedb where availability = 1");
-            return $result;
-
-
+            $row = $result -> fetch_all(MYSQLI_BOTH);
+            return $row;
     }
 
     function getMovie0(){
         $result = $this->conn->query("SELECT * FROM moviedb where availability = 0");
-        return $result;
+        $row = $result -> fetch_all(MYSQLI_BOTH);
+            return $row;
     }
 
     function fetchUserDetails($username,$hashedPassword){
         $result = $this->conn->query("SELECT * from userdb where username = '$username' and hashedPassw = '$hashedPassword'");
-        $row = $result->fetch_assoc();
+        $row = $result->fetch_all(MYSQLI_BOTH); # converts $result into a key-value pair arrray stored in $row
         return $row;
     }
 
     function searchMovies($search){
         $result = $this->conn->query("SELECT * from moviedb where movieTitle LIKE '%$search%'");
-        return $result;
+        $row = $result -> fetch_all(MYSQLI_BOTH);
+        return $row;
     }
 
     function searchMovies10($search,$availability){
         $result = $this->conn->query("SELECT * from moviedb where movieTitle LIKE '%$search%' and availability = '$availability'");
-        return $result;
+        $row = $result -> fetch_all(MYSQLI_BOTH);
+        return $row;
+    }
+
+    function searchMovies10Num($search,$availability){
+        $result = $this->conn->query("SELECT * from moviedb where movieTitle LIKE '%$search%' and availability = '$availability'");
+        $rowcount = $result -> num_rows;
+        return $rowcount;
     }
 
 
     # Darrel
-    function getMovieFromID(){
-
+    function getMovieFromID($movieID){
+        $result = $this->conn->query("SELECT * from moviedb where movieID = '$movieID'");
+        $row = $result->fetch_all(MYSQLI_BOTH);
+        return $row;
     }
 
 
     # Mayuri
-    function retrieveUser($username){
-        $result = $this->conn->query("SELECT * from userdb where username = '$username'");
-    }
 
-    function updateUserInfo($email, $hashedPassword, $age, $preferences, $username){
-        $result = $this->conn->query("UPDATE userdb SET email = '$email', hashedPassw = '$hashedPassword', age = '$age', genrePref = '$preferences' WHERE username = '$username'");
-        return $result;
-    }
 
-    function addReview($text, $stars){
-        $result = $this->conn->query("INSERT INTO reviewdb (reviewText, reviewStars) VALUES ('$text', '$stars')");
-    }
+
 
 }
-
 
 ?>

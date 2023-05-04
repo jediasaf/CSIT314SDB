@@ -41,8 +41,7 @@ class doLogin{
     
     #echo $username . "  " . $hashedPassword;
     $controller = new controller();
-    $run = $controller -> run();
-    $rowcount = $run -> validateUserLogin($username,$hashedPassword,$role);
+    $rowcount = $controller -> run("validateUserLogin",$username,$hashedPassword,$role);
     
     #echo "query ran";
     /*
@@ -56,14 +55,14 @@ class doLogin{
     }*/
     #echo $rowcount;
     if($rowcount == 1){
-        $row = $run -> fetchUserDetails($username,$hashedPassword);
-        $_SESSION['username'] = $row['username'];
-        $_SESSION['roles'] = $row['roles'];
-        $_SESSION['loyaltypts'] = $row['loyaltyPts'];
-        $_SESSION['genrePref'] = $row['genrePref'];
-        $_SESSION['seatPref'] = $row['seatPref'];
-        $_SESSION['email'] = $row['email'];
-        $_SESSION['phoneNo'] = $row['phoneNo'];
+        $row = $controller -> run("fetchUserDetails",$username,$hashedPassword);
+        $_SESSION['username'] = $row[0]['username'];
+        $_SESSION['roles'] = $row[0]['roles'];
+        $_SESSION['loyaltypts'] = $row[0]['loyaltyPts'];
+        $_SESSION['genrePref'] = $row[0]['genrePref'];
+        $_SESSION['seatPref'] = $row[0]['seatPref'];
+        $_SESSION['email'] = $row[0]['email'];
+        $_SESSION['phoneNo'] = $row[0]['phoneNo'];
     }
     
     if(isset($_SESSION['username'])){
@@ -87,16 +86,13 @@ class doLogin{
       #echo "window.location.replace('LoginPage.php');";
       #edit the following into a red cross
       $message = '<div class="card">
-          <div style="border-radius:200px; height:200px; width:200px; background: #F8FAF5; margin:0 auto;">
-            <i class="checkmark">✓</i>
-          </div>
-          
-            <h1>Failed</h1>
-            
-            <h2>Dear User,</h2>
-            <p>Login Invalid. <br/> Please try again.
-          <br/>Redirecting to Login Page in 5 seconds.  </p>
-          </div>';
+      <div style="border-radius:200px; height:200px; width:200px; background: #F8FAF5; margin:0 auto;">
+        <strong class="checkmark"><img width="200px" src="Images/forbidden.png"></strong>
+      </div>
+        <h1>Failed</h1> 
+		  <h2>Access Denied</h2>
+        <p>Your username or password is wrong,<br/> Please enter again!</p>
+      </div>';
           echo '<meta http-equiv="refresh" content="5; url='.'LoginPage.php'.'" />';
     }
     

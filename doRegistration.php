@@ -6,37 +6,56 @@ $hashedPassword = hash("sha256",$password);
 $phoneNum = $_POST['phoneNo'];
 $email = $_POST['email'];
 $age = $_POST['age'];
-$genre = $_POST['role'];
-$seat = $_POST['seatPref'];
+$genre = $_POST['genre'];
+$seat = $_POST['seat'];
 $success = false;
 $loyaltypts = 0;
-$role = "Customer";
+$roles = "Customer";
 
+
+
+echo'<h1>'.$username.'</h1>';
+echo'<h1>'.$password.'</h1>';
+echo'<h1>'.$hashedPassword.'</h1>';
+echo'<h1>'.$phoneNum.'</h1>';
+echo'<h1>'.$email.'</h1>';
+echo'<h1>'.$age.'</h1>';
+echo'<h1>'.$genre.'</h1>';
+echo'<h1>'.$seat.'</h1>';
+echo'<h1>'.$success.'</h1>';
+echo'<h1>'.$loyaltypts.'</h1>';
+echo'<h1>'.$roles.'</h1>';
 
 # To open the connection to DB
 # query to use $conn -> <insert method here>
 # method names and usage to be found here 
 # https://www.w3schools.com/php/php_ref_mysqli.asp
 
+/*
+
 include "dbFunctions.php";
 $controller = new controller();
-$run = $controller -> run();
-$result = $run->validateRegistration($username);
+$result = $controller->run("validateRegistration",$username);
 
 if($result>0){ 
-  $message = "Username taken please try again
-  <p><br/>Redirecting to Registration Page in 5 seconds.  </p>";
+  $message = "<div class="card">
+      <div style="border-radius:200px; height:200px; width:200px; background: #F8FAF5; margin:0 auto;">
+        <strong class="checkmark"><img width="200px" src="Images/forbidden.png"></strong>
+      </div>
+        <h1>Failed</h1> 
+        <p>Please enter again!</p>
+      </div>";
   $redirect = '<meta http-equiv="refresh" content="5; url='.'RegistrationPage.php'.'" />';
 }
 else { 
     # insert query
     
-    $result = $run->processRegistration($phoneNum,$username,$hashedPassword,$email,$age,$genre,$loyaltypts,$roles,$seat);
+    $result = $controller->run("processRegistration",$phoneNum,$username,$hashedPassword,$email,$age,$genre,$loyaltypts,$roles,$seat);
     if($result){
       $redirect = '<meta http-equiv="refresh" content="5; url='.'HomePage SDB.php'.'" />';
 
 
-      $row = $run -> fetchUserDetails($username,$hashedPassword);
+      $row = $controller -> run("fetchUserDetails",$username,$hashedPassword);
   
       $_SESSION['username'] = $row['username'];
       $_SESSION['roles'] = $row['roles'];
@@ -46,7 +65,9 @@ else {
       $_SESSION['email'] = $row['email'];
       $_SESSION['phoneNo'] = $row['phoneNo'];
   
-      $message = "Success
+      $message = "<div style="border-radius:200px; height:200px; width:200px; background: #F8FAF5; margin:0 auto;">
+        <i class="checkmark">✓</i>
+      </div><h1>Success</h1>
       <h2>Dear User</h2>
   <p>Welcome Back To SDB Pop-Up Cinema,<br/> looking forward to see u in the cinema!
   <br/>Redirecting to HomePage in 5 seconds.  </p>
@@ -56,9 +77,7 @@ else {
 
     
 }
-
-# To close the connection to DB
-$conn->close();
+*/
 
 ?>
 <html>
@@ -112,13 +131,11 @@ $conn->close();
     </style>
     <body>
       <div class="card">
-      <div style="border-radius:200px; height:200px; width:200px; background: #F8FAF5; margin:0 auto;">
-        <i class="checkmark">✓</i>
-      </div>
-        <h1><?php 
+      
+        <?php 
                 echo $message;
         
-            ?></h1> 
+            ?>
 		  
       </div>
     </body>

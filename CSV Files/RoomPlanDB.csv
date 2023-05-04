@@ -1,7 +1,7 @@
 ﻿roomID,rows,columns,capacity,movieID
-1,5,5,0,Belle2021
-2,8,8,0,Bubble2022
-3,11,11,0,DeepSea2023
-4,9,9,0,Scream2022
-5,13,13,0,ThePeanutsMovie2015
-6,10,10,0,WeHaveaGhost2023
+1,5,5,25,Belle2021
+2,7,7,49,Bubble2022
+3,10,10,100,DeepSea2023
+4,8,5,40,Scream2022
+5,9,9,81,ThePeanutsMovie2015
+6,10,7,70,WeHaveaGhost2023

@@ -28,7 +28,7 @@
 	
 	<body>
 		<div class="box-form">
-	 <form action="" method="post">
+	 <form action="doRegistration.php" method="post">
       <div class="container">
        <img width="200px" src="Images/D.png">
 <h1>Register</h1>
@@ -88,7 +88,7 @@
           required
         />
 		 <label for="Preferences"><b>Preferences</b></label> <br>
-		  <select name="role" id="role">
+		  <select name="genre" id="role">
 			<option value="No Preferences">Choose your preference</option>
 			<option value="Thriller">Thriller</option>
 			<option value="Adventure">Adventure</option>
@@ -107,7 +107,7 @@
 			</select>
 		  <br>
 		  <label for="seatPref"><b> Seat Preferences</b></label> <br>
-		  <select name="role" id="role">
+		  <select name="seat" id="role">
 			<option value="None">Choose your preference</option>
 			<option value="back">Back</option>
 			<option value="center">Center</option>

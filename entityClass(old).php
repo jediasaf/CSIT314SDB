@@ -22,7 +22,7 @@ class testDB{
         return $rowcount;
     }
 
-    function validateRegistration($username){
+    function validateRegistration($username): int{
         $result = $this->conn->query("select count(*) from userdb where username = '$username'");
         $row = $result -> fetch_assoc();
         return $row['count'];
@@ -37,6 +37,8 @@ class testDB{
     function getMovie1(){
             $result = $this->conn->query("SELECT * FROM moviedb where availability = 1");
             return $result;
+
+
     }
 
     function getMovie0(){
@@ -57,7 +59,6 @@ class testDB{
 
     function searchMovies10($search,$availability){
         $result = $this->conn->query("SELECT * from moviedb where movieTitle LIKE '%$search%' and availability = '$availability'");
-
         return $result;
     }
 
@@ -69,9 +70,18 @@ class testDB{
 
 
     # Mayuri
+    function retrieveUser($username){
+        $result = $this->conn->query("SELECT * from userdb where username = '$username'");
+    }
 
+    function updateUserInfo($email, $hashedPassword, $age, $preferences, $username){
+        $result = $this->conn->query("UPDATE userdb SET email = '$email', hashedPassw = '$hashedPassword', age = '$age', genrePref = '$preferences' WHERE username = '$username'");
+        return $result;
+    }
 
-
+    function addReview($text, $stars){
+        $result = $this->conn->query("INSERT INTO reviewdb (reviewText, reviewStars) VALUES ('$text', '$stars')");
+    }
 
 }
 

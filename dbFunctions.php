@@ -2,10 +2,65 @@
 # controller class
 include ("entityClass.php");
 class controller{
-    function run(){
-        $testDB = new testDB();
-        return $testDB;
+    private $testDB;
+    function __construct(){
+        $this->testDB = new testDB();
+    }   
+    function run($method,$var1=0,$var2=0,$var3=0,$var4=0,$var5=0,$var6=0,$var7=0,$var8=0,$var9=0){
+        
+        if($method == "validateUserLogin"){
+            $result = $this->testDB -> validateUserLogin($var1,$var2,$var3);
+        }
+        else if($method == "validateRegistration"){
+            $result = $this->testDB->validateRegistration($var1);
+        }
+        else if($method == "processRegistration"){
+            $result = $this->testDB->processRegistration($var1,$var2,$var3,$var4,$var5,$var6,$var7,$var8,$var9);
+        }
+        else if($method == "getMovie1"){
+            $result = $this->testDB->getMovie1();
+        }
+        else if($method == "getMovie0"){
+            $result = $this->testDB->getMovie0();
+        }
+        else if($method == "fetchUserDetails"){
+            $result = $this->testDB->fetchUserDetails($var1,$var2);
+        }
+        else if($method == "searchMovies"){
+            $result = $this->testDB->searchMovies($var1);
+        }
+        else if($method == "searchMovies10"){
+            $result = $this->testDB->searchMovies10($var1,$var2);
+        }
+        else if($method == "searchMovies10Num"){
+            $result = $this->testDB->searchMovies10Num($var1,$var2);
+        }
+        else if($method == "getMovieFromID"){
+            $result = $this->testDB->getMovieFromID($var1);
+        }
+
+    
+
+
+
+        #insert all the new method name above this line
+        /* below is a sample code that u can copy and paste
+
+        else if($method == "<replace with method name you created in entityClass"){
+            $result =$this->testDB->   <remove the spaces to the left and insert the method name as well as the variables needed>;
+        }
+
+        */
+        return $result;
    }
+
+
+   /*
+   function validateUserLogin($username,$hashedPassword,$role){
+    return $result = $this->validateUserLogin($username,$hashedPassword,$role);
+   }
+
+   */
 }
 
 
