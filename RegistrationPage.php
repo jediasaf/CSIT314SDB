@@ -33,25 +33,6 @@
        <img width="200px" src="Images/D.png">
 <h1>Register</h1>
 <p>Kindly fill in this form to register.</p>
-        
-		  
-		  <label for="firstName"><b>First Name</b></label>
-        <input
-          type="text"
-          placeholder="Enter First Name"
-          name="firstName"
-          id="firstName"
-          required
-        />
-		  
-		  <label for="lastName"><b>Last Name</b></label>
-        <input
-          type="text"
-          placeholder="Enter Last Name"
-          name="lastName"
-          id="lastName"
-          required
-        />
 		  <label for="username"><b>Username</b></label>
         <input
           type="text"

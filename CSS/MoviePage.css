@@ -370,14 +370,18 @@ body { font-family: sans-serif; }
 }
 .hero-container {
 	margin: auto;
-	display: flex;
+	display: grid;
+	display: grid;
+	grid-gap: 10px;
+	grid-template-columns: repeat(auto-fit, minmax(min(100%/3, max(64px, 100%/5)), 1fr));
+	max-width: 1000px;
 }
 
 .main-container {
 	width: 270px;
 	height: 540px;
 	position: relative;
-	margin: 0 20px;
+	margin: 0 30px;
 	display: inline;
 }
 

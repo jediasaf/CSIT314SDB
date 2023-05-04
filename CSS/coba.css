@@ -529,8 +529,13 @@ h2{
 }
 .hero-container {
 	margin: auto;
-	display: flex;
+	display: grid;
+	grid-gap: 10px;
+ 	grid-template-columns: repeat(auto-fit, minmax(min(100%/3, max(64px, 100%/5)), 1fr));
+    max-width: 1000px;
+	
 }
+
 
 .showingnow{
 	z-index: 999;
@@ -740,8 +745,9 @@ h2{
 
 .hero-container {
 	margin: auto;
-	display: flex;
+	display: grid;
 }
+	
 
 .main-container {
 	width: 270px;
