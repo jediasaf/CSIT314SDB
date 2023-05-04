@@ -11,7 +11,7 @@ class Registration{
     <style type="text/css">
     
     </style>
-    <link href="css/RegistrationForm.css" rel="stylesheet" type="text/css">
+    <link href="CSS/RegistrationForm.css" rel="stylesheet" type="text/css">
     <!--<link href="RegistrationForm.css" rel="stylesheet" type="text/css">-->
     </head>
         

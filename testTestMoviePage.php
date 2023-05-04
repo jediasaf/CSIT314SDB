@@ -2,7 +2,7 @@
 # this page is meant for testing purposes only.
 
 echo '<style type="text/css">
-@import url("css/MoviePage.css");
+@import url("CSS/MoviePage.css");
 </style>';
 
 # creating a controller class and then calling the entity class using the controller.

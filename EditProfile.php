@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <title>Edit Profile</title>
 <style type="text/css">
-@import url("css/EditProfile.css");
+@import url("CSS/EditProfile.css");
 </style>
 </head>
 <div class="hero">

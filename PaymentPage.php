@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <title>confirmation page</title>
 <style type="text/css">
-@import url("css/PaymentPage.css");
+@import url("CSS/PaymentPage.css");
 </style>
 </head>
 

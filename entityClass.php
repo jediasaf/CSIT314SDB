@@ -79,7 +79,9 @@ class testDB{
         return $result;
     }
 
-
+    function addReview($text, $stars){
+        $result = $this->conn->query("INSERT INTO reviewdb (reviewText, reviewStars) VALUES ('$text', '$stars')");
+    }
 
 }
 

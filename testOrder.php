@@ -28,7 +28,7 @@ echo $row['yearReleased'];
 	
 <title>buy now</title>
 <style type="text/css">
-@import url("css/coba.css");
+@import url("CSS/coba.css");
 	
 </style>
 	

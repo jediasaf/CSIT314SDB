@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <title>MovieList</title>
 <style type="text/css">
-@import url("css/MoviePage.css");
+@import url("CSS/MoviePage.css");
 </style>
 </head>
 	<?php include('navbar.php');?>

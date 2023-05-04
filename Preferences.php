@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <title>Preferences</title>
 	<style type="text/css">
-@import url("css/Preferences.css");
+@import url("CSS/Preferences.css");
 </style>
 </head>
 <?php include('navbar.php');?>
