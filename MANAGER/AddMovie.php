@@ -132,31 +132,21 @@ li > a:only-child::after {
 <body>
 <nav>
         <ul>
-                <li><a href="">Home</a></li>
+                <li><a href="ManageBookings.html">Home</a></li>
 				<li><a href="">About Us</a></li>
-                <li><a href="">Manage Movies</a>
+				
+                <li><a href="ManageMovies.html">Manage Movies</a>
                 <!--First Tier Drop Down-->
                 <ul>
-                    <li><a href="">Movies List</a></li>
-                    <li><a href="">Add Movie</a></li>
+                    <li><a href="AddMovie.html">Add Movie</a></li>
                 </ul>
-				<li><a href="">Manage Shows</a>
+				<li><a href="ManageShows">Manage Shows</a>
                 <!--First Tier Drop Down-->
                 <ul>
-                    <li><a href="">Shows List</a></li>
-                    <li><a href="">Add Show</a></li>
+                    <li><a href="AddShow.html">Add Show</a></li>
                 </ul>
-				<li><a href="">Manage Bookings</a>
-                <!--First Tier Drop Down-->
-                <ul>
-                    <li><a href="">Bookings List</a></li>
-                </ul>
-				<li><a href="">Reports</a>
-                <!--First Tier Drop Down-->
-                <ul>
-                    <li><a href="">Sales</a></li>
-                </ul>
-                <li><a href="">Change Password</a></li>
+				<li><a href="BookingReport">Reports</a>
+                <li><a href="CP.html">Change Password</a></li>
                 <li><a href="">Log Out</a></li>
             </ul>
         </nav>
@@ -170,14 +160,14 @@ li > a:only-child::after {
                 <div class="row">
                     <div class="col">
   <form action="" class="contact-form">
-	<div class="col-sm-5">
+	 <div class="col-sm-5">
       <div class="input-block">
-        <label for="">Movie Poster: </label>
-        <input type = "file" name = "fileupload" accept = "image/*" />
+        <label for="">Movie ID: </label>
+        <input type="text" class="form-control">
       </div>
     </div>
 	
-    <div class="col-sm-5">
+	<div class="col-sm-5">
       <div class="input-block">
         <label for="">Movie Title: </label>
         <input type="text" class="form-control">
@@ -185,29 +175,93 @@ li > a:only-child::after {
     </div>
 	
 	<div class="col-sm-5">
+      <div class="input-block">
+        <label for="">Genre: </label>
+        <input type="text" class="form-control">
+      </div>
+    </div>
+	
+	 <div class="col-sm-5">
+      <div class="input-block">
+        <label for="">Director: </label>
+        <input type="text" class="form-control">
+      </div>
+    </div>
+	
+	<div class="col-sm-5">
       <div class="input-block textarea">
-        <label for="">Movie Description: </label>
+        <label for="">Description: </label>
         <textarea rows="3" type="text" class="form-control"></textarea>
       </div>
     </div>
-       <div>
+
+	<div class="col-sm-5">
+      <div class="input-block">
+        <label for="">Duration: </label>
+        <input type="text" class="form-control">
+      </div>
+    </div>	
 	   
-    <div class="col-sm-5">
+	    <div class="col-sm-5">
       <div class="input-block">
-        <label for="">Movie Director: </label>
+        <label for="">Actor 1: </label>
         <input type="text" class="form-control">
       </div>
     </div>
-    <div class="col-sm-5">
+	
+	 <div class="col-sm-5">
       <div class="input-block">
-        <label for="">Movie Cast: </label>
+        <label for="">Actor 2: </label>
         <input type="text" class="form-control">
       </div>
     </div>
+	
+	 <div class="col-sm-5">
+      <div class="input-block">
+        <label for="">Actor 3: </label>
+        <input type="text" class="form-control">
+      </div>
+    </div>
+	
+	 <div class="col-sm-5">
+      <div class="input-block">
+        <label for="">Country: </label>
+        <input type="text" class="form-control">
+      </div>
+    </div>
+	
+	 <div class="col-sm-5">
+      <div class="input-block">
+        <label for="">Classification: </label>
+        <input type="text" class="form-control">
+      </div>
+    </div>
+	
+	 <div class="col-sm-5">
+      <div class="input-block">
+        <label for="">Year Released: </label>
+        <input type="text" class="form-control">
+      </div>
+    </div>
+	 
     <div class="col-sm-5">
       <div class="input-block">
         <label for="">Rating: </label>
         <input type="text" class="form-control">
+      </div>
+    </div>
+	
+	 <div class="col-sm-5">
+      <div class="input-block">
+        <label for="">Trailer Link: </label>
+        <input type="text" class="form-control">
+      </div>
+    </div>
+	
+	 <div class="col-sm-5">
+	  <div class="input-block">
+        <label for="">Movie Poster: </label>
+        <input type = "file" name = "fileupload" accept = "image/*" />
       </div>
     </div>
 	
