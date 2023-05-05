@@ -109,4 +109,29 @@ for($i = 0;$i < sizeof($result1);$i++){
 $row = $controller -> run("fetchUserDetails","acalafato1x","b322959e3d2762be6ad6c87a2ad821dca3424634e9759c8fdd6820db55aea3e8");
 echo $row[0]['username']."<br>". $row[0]['roles']."<br>".$row[0]['loyaltyPts']."<br>".$row[0]['genrePref'] ."<br>".$row[0]['seatPref'] ."<br>".$row[0]['email']."<br>".$row[0]['phoneNo'];
 
+
+
+$username = "abcdefg";
+$password = "abcdefg";
+$hashedPassword = hash("sha256",$password);
+$phoneNum = "11223344";
+$email = "abcdefg@email.com";
+$age = 22;
+$genre = "Action";
+$seat = "Back";
+$loyaltypts = 0;
+$roles = "Customer";
+
+/* DO NOT TOUCH THIS
+$register = $controller -> run("processRegistration",$phoneNum,$username,$hashedPassword,$email,$age,$genre,$loyaltypts,$roles,$seat);
+if($register){
+    echo "<h1>SUCCESS</h1>";
+
+}
+else{
+    echo "<h1>Failure</h1>";
+
+}
+
+*/
 ?>

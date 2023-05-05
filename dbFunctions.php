@@ -45,7 +45,7 @@ class controller{
             $result = $this->testDB->updateUserInfo($var1, $var2, $var3, $var4, $var5);
         }
         else if($method == "addReview"){
-            $result = $this->testDB->addReview($var1, $var2);
+            $result = $this->testDB->addReview($var1, $var2, $var3);
         }
 
     

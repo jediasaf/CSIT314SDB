@@ -160,18 +160,7 @@ echo'<body>
      </div>
   </div>
 </div>
- <div class="pinfo">Rate the movie.</div>
-  
-
-<div class="form-group">
-  <div class="col-md-4 inputGroupContainer">
-  <div class="input-group">
-  <span class="input-group-addon"><i class="fa fa-globe"><img width="15px" height="15px"src="Images/icons8-movie-50.png"></i></span>
-  <input  name="movietitle" placeholder="Movie Name" class="form-control"  type="text">
-    </div>
-  </div>
-</div>
-
+ <div class="pinfo">Rate the Cinema.</div>
 
 <div class="form-group">
   <div class="col-md-4 inputGroupContainer">

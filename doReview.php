@@ -1,15 +1,12 @@
 <?php
-
-$name = $_POST['name'];
 $email = $_POST['email'];
-$movieTitle = $_POST['movietitle'];
 $star = $_POST['star'];
 $text = $_POST['text'];
 
 include "dbFunctions.php";
 $controller = new controller();
-$run = $controller -> run();
-$result = $run->addReview($text, $star);
+$result = $controller -> run("addReview",$email,$text, $star);
+
 
 ?>
 
@@ -17,7 +14,7 @@ $result = $run->addReview($text, $star);
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Untitled Document</title>
+<title>Submit Review</title>
 <style type="text/css">
 @import url("css/AboutUs.css");
 </style>
