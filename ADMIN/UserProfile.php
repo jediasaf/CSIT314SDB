@@ -289,7 +289,7 @@ $(".add-new").removeAttr("disabled");
 <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
 </td>
 </tr>
-
+</tbody>
 </div>
 </body>
 </html> 
