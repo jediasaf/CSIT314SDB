@@ -202,6 +202,7 @@ $(".add-new").removeAttr("disabled");
 				<li><a href="CustomerBookings.html">Bookings</a></li>
 				<li><a href="BuyFood.html">Buy Food</a></li>
 				<li><a href="">My Profile</a></li>
+                <li><a href="EditProfile.php">Edit Profile</a></li>
                 <li><a href="CP.html">Change Password</a></li>
                 <li><a href="">Log Out</a></li>
             </ul>
