@@ -72,8 +72,14 @@ class testDB{
     }
 
     function updatePassword($username, $old, $new){
-        $result = $this->conn->query("UPDATE `userdb`set `hashedPasswd` = '$new' where `username` = '$username' and `hashedPasswd` = '$old'");
+        $result = $this->conn->query("UPDATE `userdb`set `hashedPassw` = '$new' where `username` = '$username' and `hashedPassw` = '$old'");
         return $result;
+    }
+
+    function validatePasswordChange($username){
+        $result = $this->conn->query("SELECT `hashedPassw` from `userdb` where `username` = '$username'");
+        $row = $result -> fetch_all(MYSQLI_BOTH);
+        return $row;
     }
 
 

@@ -199,10 +199,9 @@ $(".add-new").removeAttr("disabled");
         <ul>
                 <li><a href="">Home</a></li>
 				<li><a href="">About Us</a></li>
-				<li><a href="CustomerBookings.html">Bookings</a></li>
+				<li><a href="ManageBookings.php">Bookings</a></li>
 				<li><a href="">My Profile</a></li>
                 <li><a href="">Change Password</a></li>
-                <li><a href="">Log Out</a></li>
             </ul>
         </nav>
 

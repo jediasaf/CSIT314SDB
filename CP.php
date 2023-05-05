@@ -3,52 +3,47 @@ session_start();
 
 class changePassword{
 	function display(){
-
-	}
-}
-
 #echo "<h1>".$_SESSION['username']."</h1>";
 
 #include ("navbar.php");
-
+include ("dbFunctions.php");
+$message = "";
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
 	$username = $_POST['username'];
 	$old = $_POST['old'];
+	$oldhashed = hash("sha256",$old);
 	$new = $_POST['new'];
+	$newhashed = hash("sha256",$new);
 	
+
 	/*
 	echo "<h1>".$username."</h1>";
 	echo "<h1>".$old."</h1>";
 	echo "<h1>".$new."</h1>";
+	echo "<h1>".$newhashed."</h1>";
 	*/
 
 
 	$controller = new controller();
-	$result = $controller->run("updatePassword",$username,$old,$new);
-	if($result){
-		$message = "<h2>SUCCESS</h2>";
+	$result = $controller->run("updatePassword",$username,$oldhashed,$newhashed);
+	$validatePasswordChange = $controller -> run("validatePasswordChange",$username);
+
+	if($result == 1){
+		if($validatePasswordChange[0]['hashedPassw'] == $newhashed){
+			$message = "<h2>Password Changed Successfully</h2>";
+		}
+		else if($validatePasswordChange[0]['hashedPassw'] == $oldhashed){
+		}
+		else{
+			$message = "<h2>Input Error, Please Try Again</h2>";
+		}
 	}
 	else{
 		$message = "<h2>Unsuccessful, Please Try Again.</h2>";
 	}
 }
 
-
-
-
-
-
-
-
-
-
-
-$display = new changePassword();
-$display -> display();
-
-
-?>
-
+echo'
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -175,7 +170,7 @@ $display -> display();
 	-moz-border-radius: 5px;
 	color: #fff;
 	text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.12);
-	font: normal 30px 'Bitter', serif;
+	font: normal 30px "Bitter", serif;
 	-moz-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
 	-webkit-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
 	box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
@@ -207,15 +202,37 @@ $display -> display();
 <div class="form-style-10">
 <form action="?" method="post">
         <div class="inner-wrap">
-			<label>Username: <input type="text" name="username" value="<?php echo $_SESSION['username'] ?>" readonly></label>	
+			<label>Username: <input type="text" name="username" value="'. $_SESSION['username'] .'" readonly></label>	
 		<label>Old Password <input type="password" name="old" id="old" /></label>
         <label>New Password <input type="password" name="new" id="new"onkeyup="checkPasswords();" /></label>
         <label>Confirm Password <input type="password" name="newcfm" id="newcfm" onkeyup="checkPasswords();" /></label>
     </div>
     <div class="button-section">
      <input type="submit" id="submit"/>
-	 <span id="message"></span>
-	 <?php echo $message; ?>
+	 <span id="message"></span>';
+	 
+	echo $message;
+	echo'
     </div>
 </form>
 </div>
+
+
+
+';
+
+	}
+}
+
+
+
+
+
+
+
+
+$display = new changePassword();
+$display -> display();
+
+
+?>

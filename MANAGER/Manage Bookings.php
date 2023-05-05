@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Manager Manage Shows List</title>
+<title>Manager Manage Bookings</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -95,17 +95,20 @@ table.table {
 table-layout: fixed;
 border-radius: 25px;
 border-top: 2px solid black;
+overflow-wrap: break-word;
 }
 table.table tr th, table.table tr td {
  border-left: 2px solid black;
  border-right: 2px solid black;
  border-bottom: 2px solid black;
  border-radius: 55px;
+ overflow-wrap: break-word;
 }
 table.table th i {
 font-size: 30px;
 margin: 0 5px;
 cursor: pointer;
+overflow-wrap: break-word;
 }
 table.table th:last-child {
 width: 150px;
@@ -115,6 +118,7 @@ cursor: pointer;
 display: inline-block;
 margin: 0 5px;
 min-width: 30px;
+overflow-wrap: break-word;
 }
 
 table.table td a.edit {
@@ -191,9 +195,36 @@ $(".add-new").removeAttr("disabled");
 </script>
 </head>
 <body>
-<?php
-include ("NavBarManager.php");
-?>
+<nav>
+        <ul>
+                <li><a href="">Home</a></li>
+				<li><a href="">About Us</a></li>
+                <li><a href="">Manage Movies</a>
+                <!--First Tier Drop Down-->
+                <ul>
+                    <li><a href="">Movies List</a></li>
+                    <li><a href="">Add Movie</a></li>
+                </ul>
+				<li><a href="">Manage Shows</a>
+                <!--First Tier Drop Down-->
+                <ul>
+                    <li><a href="">Shows List</a></li>
+                    <li><a href="">Add Show</a></li>
+                </ul>
+				<li><a href="">Manage Bookings</a>
+                <!--First Tier Drop Down-->
+                <ul>
+                    <li><a href="">Bookings List</a></li>
+                </ul>
+				<li><a href="">Reports</a>
+                <!--First Tier Drop Down-->
+                <ul>
+                    <li><a href="">Sales</a></li>
+                </ul>
+                <li><a href="">Change Password</a></li>
+                <li><a href="">Log Out</a></li>
+            </ul>
+        </nav>
 
 		<center>
         <div id="content">
@@ -238,9 +269,8 @@ include ("NavBarManager.php");
 <td onClick="location.href='http://www.stackoverflow.com';">
 Ticket Confirmation</td>
 <td>
-<a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-<a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-<a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+<button class="edit-btn" title="Edit" data-toggle="tooltip">Edit</button>
+<button class="delete-btn" title="Delete" data-toggle="tooltip">Delete</button>
 </td>
 </tr>
 

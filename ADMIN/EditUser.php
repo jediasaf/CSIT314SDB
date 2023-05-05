@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Admin Add User</title>
+<title>Edit User</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -132,25 +132,35 @@ li > a:only-child::after {
 <body>
 <nav>
         <ul>
-				<li><a href="UserProfile.html">Home</a></li>
+                <li><a href="ManageBookings.html">Home</a></li>
 				<li><a href="">About Us</a></li>
-				<li><a href="AddUser.html">Add User</a></li>
+				
+                <li><a href="ManageMovies.html">Manage Movies</a>
+                <!--First Tier Drop Down-->
+                <ul>
+                    <li><a href="AddMovie.html">Add Movie</a></li>
+                </ul>
+				<li><a href="ManageShows">Manage Shows</a>
+                <!--First Tier Drop Down-->
+                <ul>
+                    <li><a href="AddShow.html">Add Show</a></li>
+                </ul>
+				<li><a href="BookingReport">Reports</a>
                 <li><a href="CP.html">Change Password</a></li>
                 <li><a href="">Log Out</a></li>
             </ul>
         </nav>
 
-
 		<center>
         <div id="content">
-		<h2>Add New <span style="color:#F8F8F8;"> User</span></h2>
+		<h2>Edit <span style="color:#F8F8F8;"> User Profile</span></h2>
 		</div>
  <div class="form">
             <form action="">
                 <div class="row">
                     <div class="col">
   <form action="" class="contact-form">
-    <div class="col-sm-5">
+	 <div class="col-sm-5">
       <div class="input-block">
         <label for="">Username: </label>
         <input type="text" class="form-control">
@@ -159,27 +169,27 @@ li > a:only-child::after {
 	
 	<div class="col-sm-5">
       <div class="input-block">
-        <label for="">Phone No: </label>
+        <label for="">Phone: </label>
         <input type="text" class="form-control">
       </div>
     </div>
 	
-	<div class="col-sm-5">
+	 <div class="col-sm-5">
       <div class="input-block">
         <label for="">Email: </label>
         <input type="text" class="form-control">
       </div>
     </div>
 	
-	
-    <div class="col-sm-5">
+		
+	 <div class="col-sm-5">
       <div class="input-block">
         <label for="">Age: </label>
         <input type="text" class="form-control">
       </div>
     </div>
 	
-		 <div class="col-sm-5">
+	 <div class="col-sm-5">
   <div class="input-block">
     <label for="genre">Genre Preference: </label>
     <select id="genre" class="form-control">
@@ -199,6 +209,7 @@ li > a:only-child::after {
     </select>
   </div>
 </div>
+
 	
 	<div class="col-sm-5">
   <div class="input-block">
@@ -211,8 +222,9 @@ li > a:only-child::after {
     </select>
   </div>
 </div>
-	
-	<div class="col-sm-5">
+
+	 
+<div class="col-sm-5">
   <div class="input-block">
     <label for="">Seat Preference: </label>
     <select class="form-control">
@@ -223,10 +235,12 @@ li > a:only-child::after {
     </select>
   </div>
 </div>
+
+	
       
     <div class="col-md-12">
 		<div class="form-group">
-		<input type="submit" value="Add User" class="btn btn-primary">
+		<input type="submit" value="Submit" class="btn btn-primary">
 		<div class="submitting"></div>
 		</div>
 		</div>
