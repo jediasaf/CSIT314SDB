@@ -132,17 +132,10 @@ li > a:only-child::after {
 <body>
 <nav>
         <ul>
-                <li><a href="">Home</a></li>
+				<li><a href="UserProfile.html">Home</a></li>
 				<li><a href="">About Us</a></li>
-                <li><a href="">Manage User Profiles</a>
-                <!--Fridt Tier Drop Down-->
-                <ul>
-
-                    <li><a href="">User Profiles</a></li>
-                    <li><a href="">Add Profile</a></li>
-
-                </ul>
-                <li><a href="">Change Password</a></li>
+				<li><a href="AddUser.html">Add User</a></li>
+                <li><a href="CP.html">Change Password</a></li>
                 <li><a href="">Log Out</a></li>
             </ul>
         </nav>
@@ -160,12 +153,6 @@ li > a:only-child::after {
     <div class="col-sm-5">
       <div class="input-block">
         <label for="">Username: </label>
-        <input type="text" class="form-control">
-      </div>
-    </div>
-    <div class="col-sm-5">
-      <div class="input-block">
-        <label for="">Hashed Password: </label>
         <input type="text" class="form-control">
       </div>
     </div>
@@ -192,33 +179,50 @@ li > a:only-child::after {
       </div>
     </div>
 	
-	<div class="col-sm-5">
-      <div class="input-block">
-        <label for="">Genre Preference: </label>
-        <input type="text" class="form-control">
-      </div>
-    </div>
+		 <div class="col-sm-5">
+  <div class="input-block">
+    <label for="genre">Genre Preference: </label>
+    <select id="genre" class="form-control">
+      <option value="action">Thriller</option>
+      <option value="comedy">Adventure</option>
+      <option value="drama">Horror</option>
+      <option value="horror">Fantasy</option>
+	  <option value="horror">Drama</option>
+	  <option value="horror">Animation</option>
+	  <option value="horror">Comedy</option>
+	  <option value="horror">Crime</option>
+	  <option value="horror">Mystery</option>
+      <option value="romance">Romance</option>
+	  <option value="horror">Action</option>
+	  <option value="horror">Sci-Fi</option>
+	  <option value="horror">Musical</option>
+    </select>
+  </div>
+</div>
 	
 	<div class="col-sm-5">
-      <div class="input-block">
-        <label for="">Loyalty Points: </label>
-        <input type="text" class="form-control">
-      </div>
-    </div>
+  <div class="input-block">
+    <label for="">Role: </label>
+    <select class="form-control">
+	<option value="analyst">Admin</option>
+      <option value="manager">Manager</option>
+      <option value="developer">Customer</option>
+      <option value="designer">Staff</option>
+    </select>
+  </div>
+</div>
 	
 	<div class="col-sm-5">
-      <div class="input-block">
-        <label for="">Role: </label>
-        <input type="text" class="form-control">
-      </div>
-    </div>
-	
-	<div class="col-sm-5">
-      <div class="input-block">
-        <label for="">Seat Preference: </label>
-        <input type="text" class="form-control">
-      </div>
-    </div>
+  <div class="input-block">
+    <label for="">Seat Preference: </label>
+    <select class="form-control">
+      <option value="window">Front</option>
+      <option value="aisle">Back</option>
+      <option value="middle">Center</option>
+	  <option value="middle">None</option>
+    </select>
+  </div>
+</div>
       
     <div class="col-md-12">
 		<div class="form-group">
