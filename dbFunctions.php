@@ -53,6 +53,13 @@ class controller{
         else if($method == "validatePasswordChange"){
             $result = $this->testDB->validatePasswordChange($var1);
         }
+        else if($method == "getRoomPlan"){
+            $result = $this->testDB->getRoomPlan($var1);
+        }
+        else if($method == "getRoomSpecs"){
+            $result = $this->testDB->getRoomSpecs($var1);
+        }
+
 
     
 

@@ -90,6 +90,17 @@ class testDB{
         return $row;
     }
 
+    function getRoomPlan($movieID){
+        $result = $this->conn->query("SELECT * from `roomplandb` where `movieID` = '$movieID'");
+        $row = $result->fetch_all(MYSQLI_BOTH);
+        return $row;
+    }
+    function getRoomSpecs($roomID){
+        $result = $this->conn->query("SELECT * from `roomspecification$roomID` where 1");
+        $row = $result->fetch_all(MYSQLI_BOTH);
+        return $row;
+    }
+
 
     # Mayuri
     function retrieveUser($username){
