@@ -87,8 +87,8 @@ class testDB{
         return $row;
     }
 
-    function updateUserInfo($email, $hashedPassword, $age, $preferences, $username){
-        $result = $this->conn->query("UPDATE `userdb` SET `email` = '$email', `hashedPassw` = '$hashedPassword', `age` = $age, `genrePref` = '$preferences' WHERE `username` = '$username'");
+    function updateUserInfo($email,  $age, $preferences, $username){
+        $result = $this->conn->query("UPDATE `userdb` SET `email` = '$email', `age` = $age, `genrePref` = '$preferences' WHERE `username` = '$username'");
         return $result;
     }
     function addReview($email, $text, $stars){

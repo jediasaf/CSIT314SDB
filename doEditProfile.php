@@ -1,40 +1,35 @@
 <?php
+session_start();
 
 #retrieve form data
 $email = $_POST['email'];
-$password = $_POST['password'];
-$repeatpassword = $_POST['password'];
 $age = $_POST['age'];
-$preferences = $_POST['preferences'];
-$hashedPassword = hash("sha256",$password);
+$preferences = $_POST['role'];
 
-
-
-# for connection and query to the database
-include ("dbFunctions.php");
+#connect to database and select the user from database
+include "dbFunctions.php";
 $controller = new controller();
-$run = $controller -> run();
+$result = $controller->run("retrieveUser", $_SESSION['username']);
 
-# retrieve the record with the username that matches the username of the current session
-$result = $run -> retrieveUser($_SESSION['username']);
-$row = $result -> fetch_assoc();
-$rowcount = $result -> num_rows;
-echo "query ran";
-echo $rowcount;
-
-# if username exists in the database, update said records
-if($rowcount == 1){
-    $result = $run -> updateUserInfo($email, $hashedPassword, $age, $preferences, $_SESSION['username']);
-}
-
+# update the user records
 if($result){
-	$redirect = '<meta http-equiv="refresh" content="5; url='.'HomePage SDB.php'.'" />';
+	$result = $controller->run("updateUserInfo", $email, $age, $preferences, $_SESSION['username']);
+	$message = '<div class="card">
+        <div style="border-radius:200px; height:200px; width:200px; background: #F8FAF5; margin:0 auto;">
+          <i class="checkmark">✓</i>
+        </div>
+        
+          <h1>Success</h1>
+          
+          <h2>Dear '.$_SESSION["username"].',</h2>
+          <p>Your profile has been updated! <br/> looking forward to see u in the cinema!
+        <br/>Redirecting to HomePage in 5 seconds.  </p>
+        </div>';
+        echo '<meta http-equiv="refresh" content="5; url='.'HomePage SDB.php'.'" />';
 }
 else{
 	$redirect = '<meta http-equiv="refresh" content="5; url='.'EditProfile.php'.'" />';
 }
-$run->close();
-
 ?>
 
 <!doctype html>
@@ -72,9 +67,9 @@ $run->close();
       </p>
       <p class="text-blk description">
       we are the first pop-up cinema in town<br>
-		  we bring your memories back of mixture of carnaval and cinema at the same time.&nbsp;&nbsp; 
+	we bring your memories back of mixture of carnival and cinema at the same time.&nbsp;&nbsp; 
 		<?php 
-		echo $redirect;
+		echo $message;
 		?>
 		</p>
     </div>
