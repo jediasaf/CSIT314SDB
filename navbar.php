@@ -7,6 +7,7 @@ class displayNav{
 		{ 
 			session_start(); 
 		} 
+		
 	 echo'
 	<!doctype html>
 	<html>
@@ -107,6 +108,21 @@ class displayNav{
 				subMenu.classList.toggle("open-menu");
 			}
 		</script>';
+
+		if(isset($_SESSION['role'])){
+			if($_SESSION['role'] == "Customer"){
+				include ("NavBarCustomer.php");
+			}
+			else if($_SESSION['role'] == "Admin"){
+				include ("NavBarAdmin.php");
+			}
+			else if($_SESSION['role'] == "Manager"){
+				include ("NavBarManager.php");
+			}
+			else if($_SESSION['role'] == "Staff"){
+
+			}
+		}
 	}
 }
 
