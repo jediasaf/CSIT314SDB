@@ -1,6 +1,71 @@
+<?php
+session_start();
+
+class changePassword{
+	function display(){
+
+	}
+}
+
+#echo "<h1>".$_SESSION['username']."</h1>";
+
+#include ("navbar.php");
+
+if($_SERVER['REQUEST_METHOD'] === 'POST'){
+	$username = $_POST['username'];
+	$old = $_POST['old'];
+	$new = $_POST['new'];
+	
+	/*
+	echo "<h1>".$username."</h1>";
+	echo "<h1>".$old."</h1>";
+	echo "<h1>".$new."</h1>";
+	*/
+
+
+	$controller = new controller();
+	$result = $controller->run("updatePassword",$username,$old,$new);
+	if($result){
+		$message = "<h2>SUCCESS</h2>";
+	}
+	else{
+		$message = "<h2>Unsuccessful, Please Try Again.</h2>";
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+$display = new changePassword();
+$display -> display();
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>
+        function checkPasswords() {
+          if (document.getElementById("new").value == document.getElementById("newcfm").value) {
+            document.getElementById("submit").disabled = false;
+            document.getElementById("message").style.color = "green";
+            document.getElementById("message").innerHTML = "matching";
+          } else {
+            document.getElementById("submit").disabled = true;
+            document.getElementById("message").style.color = "red";
+            document.getElementById("message").innerHTML = "not matching";
+    
+          }
+        }
+      </script>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -40,7 +105,7 @@
 	-moz-border-radius: 10px 10px 0 0;
 	color: #fff;
 	text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.12);
-	font: normal 30px 'Bitter', serif;
+	font: normal 30px "Bitter", serif;
 	-moz-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
 	-webkit-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
 	box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
@@ -84,7 +149,7 @@
 }
 
 .form-style-10 .section{
-	font: normal 20px 'Bitter', serif;
+	font: normal 20px "Bitter", serif;
 	color: #2A88AD;
 	margin-bottom: 5px;
 }
@@ -134,18 +199,23 @@
 }
 </style>
 
+
+
+
+
+
 <div class="form-style-10">
-<form>
+<form action="?" method="post">
         <div class="inner-wrap">
-		<label>Old Password <input type="password" name="field5" /></label>
-        <label>New Password <input type="password" name="field5" /></label>
-        <label>Confirm Password <input type="password" name="field6" /></label>
+			<label>Username: <input type="text" name="username" value="<?php echo $_SESSION['username'] ?>" readonly></label>	
+		<label>Old Password <input type="password" name="old" id="old" /></label>
+        <label>New Password <input type="password" name="new" id="new"onkeyup="checkPasswords();" /></label>
+        <label>Confirm Password <input type="password" name="newcfm" id="newcfm" onkeyup="checkPasswords();" /></label>
     </div>
     <div class="button-section">
-     <input type="submit" name="Sign Up" />
-     <span class="privacy-policy">
-     <input type="checkbox" name="field7">You agree to our Terms and Policy. 
-     </span>
+     <input type="submit" id="submit"/>
+	 <span id="message"></span>
+	 <?php echo $message; ?>
     </div>
 </form>
 </div>
