@@ -239,6 +239,9 @@ a {
 	
 }
 
+.sub-menu-wrap h3{
+	color: black;
+}
 .sub-menu-wrap.open-menu{
 	max-height: 650px;
 	
