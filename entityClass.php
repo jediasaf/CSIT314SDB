@@ -79,9 +79,22 @@ class testDB{
 
 
     # Mayuri
+    function retrieveUser($username){
+        $result = $this->conn->query("SELECT * from userdb where username = '$username'");
+        $row = $result->fetch_all(MYSQLI_BOTH);
+        return $row;
+    }
 
-
-
+    function updateUserInfo($email, $hashedPassword, $age, $preferences, $username){
+        $result = $this->conn->query("UPDATE userdb SET email = '$email', hashedPassw = '$hashedPassword', age = '$age', genrePref = '$preferences' WHERE username = '$username'");
+        $row = $result->fetch_all(MYSQLI_BOTH);
+        return $row;
+    }
+    function addReview($text, $stars){
+        $result = $this->conn->query("INSERT INTO reviewdb (reviewText, reviewStars) VALUES ('$text', '$stars')");
+        $row = $result->fetch_all(MYSQLI_BOTH);
+        return $row;
+    }
 
 }
 
