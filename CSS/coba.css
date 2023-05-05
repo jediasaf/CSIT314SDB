@@ -232,7 +232,8 @@ a {
 	top: 100%;
 	right: 10%;
 	width: 600px;
-	max-height: 0px;
+	min-height: 700px;
+	max-height: none;
 	overflow: hidden;
 	transition: max-height 0.5s;
 	z-index: 999;
@@ -243,7 +244,8 @@ a {
 	color: black;
 }
 .sub-menu-wrap.open-menu{
-	max-height: 650px;
+	min-height: 650px;
+	max-height: 800px;
 	
 }
 
