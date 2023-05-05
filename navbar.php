@@ -82,6 +82,11 @@ class displayNav{
 								<p>Preferences</p>
 								<span>></span>
 							</a>
+							<a href="CP.php" class="sub-menu-link">
+                <img src="Images/setting.png" />
+                <p>Change Password</p>
+                <span>></span>
+              </a>
 							<a href="LogOut.php" class="sub-menu-link">
 								<img src="Images/logout.png" />
 								<p>Logout</p>

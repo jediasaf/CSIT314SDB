@@ -50,6 +50,9 @@ class controller{
         else if($method == "updatePassword"){
             $result = $this->testDB->updatePassword($var1, $var2, $var3);
         }
+        else if($method == "validatePasswordChange"){
+            $result = $this->testDB->validatePasswordChange($var1);
+        }
 
     
 

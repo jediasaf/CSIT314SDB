@@ -66,6 +66,8 @@ while($row2 = $result2 -> fetch_assoc()){
 
 include ("dbFunctions.php");
 
+
+$controller = new controller();
 /*
 
 $controller = new controller();
@@ -143,7 +145,7 @@ else{
 
 
 
-$controller = new controller();
+/*
 $result = $controller->run("validateUserLogin","acalafato1x","b322959e3d2762be6ad6c87a2ad821dca3424634e9759c8fdd6820db55aea3e8","Customer");
 
 
@@ -154,4 +156,65 @@ echo $movieDetails[0]['movieID'];
 
 
 
+$username = "bread";
+$old = "bread";
+$new = "bread1";
+$newhashed = hash("sha256",$new);
+
+echo "old hash".hash("sha256",$old);
+echo "<br>";
+echo "new hash".hash("sha256",$new);
+$result = $controller->run("updatePassword",$username,$old,$newhashed);
+if($result){
+    $message = "<h2>SUCCESS</h2>";
+}
+else{
+    $message = "<h2>Unsuccessful, Please Try Again.</h2>";
+}
+echo "<h1>".$message."</h1>";
+$rowOld = $controller->run("fetchUserDetails",$username,hash("sha256",$old));
+$rowNew = $controller->run("fetchUserDetails",$username,hash("sha256",$new));
+echo "<br>";
+echo "OLD";
+echo $rowOld[0]['username'];
+echo "<br>";
+echo $rowOld[0]['hashedPassw'];
+echo "<br>";
+echo $rowOld[0]['age'];
+echo "<br>";
+echo "<br>";
+echo "<br>";
+echo "<br>";
+echo "<br>";
+echo "NEW";
+echo $rowNew[0]['username'];
+echo "<br>";
+echo $rowNew[0]['hashedPassw'];
+echo "<br>";
+echo $rowNew[0]['age'];
+echo "<br>";
+
+
+$test = $controller -> run("updatePassword","bread","985604c2b60243122c24d4e18363e6434c535923be05f760204a1aef023aae9b","bread");
+if($test){
+    $testmessage = "<h2>SUCCESS</h2>";
+}
+else{
+    $testmessage = "<h2>Unsuccessful, Please Try Again.</h2>";
+}
+echo "<h1>".$testmessage."</h1>";
+
+$test1 = $controller -> run("updatePassword","bread","bread","985604c2b60243122c24d4e18363e6434c535923be05f760204a1aef023aae9b");
+if($test1){
+    $testmessage1 = "<h2>SUCCESS</h2>";
+}
+else{
+    $testmessage1 = "<h2>Unsuccessful, Please Try Again.</h2>";
+}
+echo "<h1>".$testmessage1."</h1>";
+*/
+
+$username = "bread";
+$validatePasswordChange = $controller -> run("validatePasswordChange",$username);
+echo $validatePasswordChange[0]['hashedPassw'];
 ?>
