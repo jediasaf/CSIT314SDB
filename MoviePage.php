@@ -84,7 +84,7 @@ if(isset($_GET['name'])){
 }
 else{
   echo'<body>';
-  echo'<h3>showing now.</h3>';
+  echo'<h2>showing now.</h2>';
   echo'<div class="hero-container">';
   
   $result1 = $controller -> run("getMovie1");
@@ -113,7 +113,7 @@ else{
   echo'</body>';
     
   echo'<body>';
-    echo'<h2>coming soon.</h2>';
+    echo'<h3>coming soon.</h3>';
     echo'<div class="hero-container">';
     for($i = 0; $i < sizeof($result0);$i++){
               #echo '<div class="hero-container">';
