@@ -632,6 +632,10 @@ h2{
 	position: inherit;
 }
 
+.comingsoon h2{
+	margin-top: 100px;
+}
+
 .foodbev{
 	p
 }
