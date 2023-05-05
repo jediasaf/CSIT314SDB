@@ -60,6 +60,9 @@ class controller{
             $result = $this->testDB->getRoomSpecs($var1);
         }
 
+        else if($method == "getBookings"){
+            $result = $this->testDB->getBookings();
+        }
 
     
 

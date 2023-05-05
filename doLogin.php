@@ -79,7 +79,23 @@ class doLogin{
           <p>Welcome Back To SDB Pop-Up Cinema,<br/> looking forward to see u in the cinema!
         <br/>Redirecting to HomePage in 5 seconds.  </p>
         </div>';
-        echo '<meta http-equiv="refresh" content="5; url='.'HomePage SDB.php'.'" />';
+
+        if($_SESSION['roles'] == "Manager"){
+          echo '<meta http-equiv="refresh" content="5; url='.'Manage Bookings.php'.'" />';
+
+        }
+        else if($_SESSION['roles'] == "Customer"){
+          echo '<meta http-equiv="refresh" content="5; url='.'HomePage SDB.php'.'" />';
+
+        }
+        else if($_SESSION['roles'] == "Staff"){
+          echo '<meta http-equiv="refresh" content="5; url='.'CustomerBookings.php'.'" />';
+
+        }
+        else if($_SESSION['roles'] == "Admin"){
+          echo '<meta http-equiv="refresh" content="5; url='.'UserProfile.php'.'" />';
+
+        }
     }
     else{
       #might need to change to meta instead
