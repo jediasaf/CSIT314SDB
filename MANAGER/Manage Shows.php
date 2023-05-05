@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Manager Manage Shows List</title>
+<title>Manager Manage Shows</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -258,9 +258,8 @@ $(".add-new").removeAttr("disabled");
 <td>AWhiskerAway2020</td>
 <td>4</td>
 <td>
-<a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-<a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-<a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+<button class="edit-btn" title="Edit" data-toggle="tooltip">Edit</button>
+<button class="delete-btn" title="Delete" data-toggle="tooltip">Delete</button>
 </td>
 </tr>
 
