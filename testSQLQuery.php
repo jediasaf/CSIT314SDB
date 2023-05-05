@@ -66,7 +66,7 @@ while($row2 = $result2 -> fetch_assoc()){
 
 include ("dbFunctions.php");
 
-
+/*
 
 $controller = new controller();
 $result = $controller->run("validateUserLogin","acalafato1x","b322959e3d2762be6ad6c87a2ad821dca3424634e9759c8fdd6820db55aea3e8","Customer");
@@ -121,6 +121,9 @@ $genre = "Action";
 $seat = "Back";
 $loyaltypts = 0;
 $roles = "Customer";
+*/
+
+
 
 /* DO NOT TOUCH THIS
 $register = $controller -> run("processRegistration",$phoneNum,$username,$hashedPassword,$email,$age,$genre,$loyaltypts,$roles,$seat);
@@ -134,4 +137,21 @@ else{
 }
 
 */
+
+
+
+
+
+
+$controller = new controller();
+$result = $controller->run("validateUserLogin","acalafato1x","b322959e3d2762be6ad6c87a2ad821dca3424634e9759c8fdd6820db55aea3e8","Customer");
+
+
+$movieID = 'AWhiskerAway2020';
+$movieDetails = $controller -> run('getMovieFromID',$movieID);
+
+echo $movieDetails[0]['movieID'];
+
+
+
 ?>

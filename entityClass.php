@@ -71,6 +71,11 @@ class testDB{
         return $rowcount;
     }
 
+    function updatePassword($username, $old, $new){
+        $result = $this->conn->query("UPDATE `userdb`set `hashedPasswd` = '$new' where `username` = '$username' and `hashedPasswd` = '$old'");
+        return $result;
+    }
+
 
     # Darrel
     function getMovieFromID($movieID){

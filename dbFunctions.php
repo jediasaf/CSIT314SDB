@@ -47,6 +47,9 @@ class controller{
         else if($method == "addReview"){
             $result = $this->testDB->addReview($var1, $var2, $var3);
         }
+        else if($method == "updatePassword"){
+            $result = $this->testDB->updatePassword($var1, $var2, $var3);
+        }
 
     
 
