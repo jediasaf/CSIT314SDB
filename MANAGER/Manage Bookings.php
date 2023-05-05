@@ -191,36 +191,9 @@ $(".add-new").removeAttr("disabled");
 </script>
 </head>
 <body>
-<nav>
-        <ul>
-                <li><a href="">Home</a></li>
-				<li><a href="">About Us</a></li>
-                <li><a href="">Manage Movies</a>
-                <!--First Tier Drop Down-->
-                <ul>
-                    <li><a href="">Movies List</a></li>
-                    <li><a href="">Add Movie</a></li>
-                </ul>
-				<li><a href="">Manage Shows</a>
-                <!--First Tier Drop Down-->
-                <ul>
-                    <li><a href="">Shows List</a></li>
-                    <li><a href="">Add Show</a></li>
-                </ul>
-				<li><a href="">Manage Bookings</a>
-                <!--First Tier Drop Down-->
-                <ul>
-                    <li><a href="">Bookings List</a></li>
-                </ul>
-				<li><a href="">Reports</a>
-                <!--First Tier Drop Down-->
-                <ul>
-                    <li><a href="">Sales</a></li>
-                </ul>
-                <li><a href="">Change Password</a></li>
-                <li><a href="">Log Out</a></li>
-            </ul>
-        </nav>
+<?php
+include ("NavBarManager.php");
+?>
 
 		<center>
         <div id="content">

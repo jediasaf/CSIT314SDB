@@ -26,6 +26,13 @@ echo $rowcount;
 if($rowcount == 1){
     $result = $run -> updateUserInfo($email, $hashedPassword, $age, $preferences, $_SESSION['username']);
 }
+
+if($result){
+	$redirect = '<meta http-equiv="refresh" content="5; url='.'HomePage SDB.php'.'" />';
+}
+else{
+	$redirect = '<meta http-equiv="refresh" content="5; url='.'EditProfile.php'.'" />';
+}
 $run->close();
 
 ?>
@@ -36,9 +43,9 @@ $run->close();
 <meta charset="UTF-8">
 <title>Edit Profile</title>
 <style type="text/css">
-@import url("css/AboutUs.css");
+@import url("CSS/AboutUs.css");
 </style>
-<link href="css/MoviePage.css" rel="stylesheet" type="text/css">
+<link href="CSS/MoviePage.css" rel="stylesheet" type="text/css">
 </head>
 	<div class="hero">
 
@@ -65,7 +72,11 @@ $run->close();
       </p>
       <p class="text-blk description">
       we are the first pop-up cinema in town<br>
-		  we bring your memories back of mixture of carnaval and cinema at the same time.&nbsp;&nbsp; </p>
+		  we bring your memories back of mixture of carnaval and cinema at the same time.&nbsp;&nbsp; 
+		<?php 
+		echo $redirect;
+		?>
+		</p>
     </div>
   </div>
 </div>

@@ -111,16 +111,16 @@ class displayNav{
 
 		if(isset($_SESSION['role'])){
 			if($_SESSION['role'] == "Customer"){
-				include ("NavBarCustomer.php");
+				include ("CUSTOMER/NavBarCustomer.php");
 			}
 			else if($_SESSION['role'] == "Admin"){
-				include ("NavBarAdmin.php");
+				include ("ADMIN/NavBarAdmin.php");
 			}
 			else if($_SESSION['role'] == "Manager"){
-				include ("NavBarManager.php");
+				include ("MANAGER/NavBarManager.php");
 			}
 			else if($_SESSION['role'] == "Staff"){
-
+				include ("STAFF/NavBarStaff.php");
 			}
 		}
 	}
