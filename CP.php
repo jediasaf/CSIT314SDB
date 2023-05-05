@@ -30,16 +30,17 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
 	if($result == 1){
 		if($validatePasswordChange[0]['hashedPassw'] == $newhashed){
-			$message = "<h2>Password Changed Successfully</h2>";
+			$message = '<h2>Password Changed Successfully</h2>
+			<meta http-equiv="refresh" content="5; url='.'HomePage SDB.php'.'" />';
 		}
 		else if($validatePasswordChange[0]['hashedPassw'] == $oldhashed){
 		}
 		else{
-			$message = "<h2>Input Error, Please Try Again</h2>";
+			$message = '<h2>Input Error, Please Try Again</h2><meta http-equiv="refresh" content="5; url='.'CP.php'.'" />';
 		}
 	}
 	else{
-		$message = "<h2>Unsuccessful, Please Try Again.</h2>";
+		$message = '<h2>Unsuccessful, Please Try Again.</h2><meta http-equiv="refresh" content="5; url='.'CP.php'.'" />';
 	}
 }
 
