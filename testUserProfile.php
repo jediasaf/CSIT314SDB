@@ -107,6 +107,8 @@ table.table tr th, table.table tr td {
  border-right: 2px solid black;
  border-bottom: 2px solid black;
  border-radius: 55px;
+ word-wrap: break-word;
+ white-space: normal;
 }
 table.table th i {
 font-size: 20px;
@@ -139,78 +141,77 @@ display: none;
 </style>
 
 <script type="text/javascript">
-$(document).ready(function(){
-$('[data-toggle="tooltip"]').tooltip();
-var actions = $("table td:last-child").html();
-// Append table with add row form on add new button click
-$(".add-new").click(function(){
-$(this).attr("disabled", "disabled");
-var index = $("table tbody tr:last-child").index();
-var row = '<tr>' +
-'<td><input type="text" class="form-control" name="name" id="name"></td>' +
-'<td><input type="text" class="form-control" name="department" id="department"></td>' +
-'<td><input type="text" class="form-control" name="phone" id="phone"></td>' +
-'<td>' + actions + '</td>' +
-'</tr>';
-$("table").append(row);
-$("table tbody tr").eq(index + 1).find(".add, .edit").toggle();
-$('[data-toggle="tooltip"]').tooltip();
-});
-// Add row on add button click
-$(document).on("click", ".add", function(){
-var empty = false;
-var input = $(this).parents("tr").find('input[type="text"]');
-input.each(function(){
-if(!$(this).val()){
-$(this).addClass("error");
-empty = true;
-} else{
-$(this).removeClass("error");
-}
-});
-$(this).parents("tr").find(".error").first().focus();
-if(!empty){
-input.each(function(){
-$(this).parent("td").html($(this).val());
-});
-$(this).parents("tr").find(".add, .edit").toggle();
-$(".add-new").removeAttr("disabled");
-}
-});
-// Edit row on edit button click
-$(document).on("click", ".edit", function(){
-$(this).parents("tr").find("td:not(:last-child)").each(function(){
-$(this).html('<input type="text" class="form-control" value="' + $(this).text() + '">');
-});
-$(this).parents("tr").find(".add, .edit").toggle();
-$(".add-new").attr("disabled", "disabled");
-});
-// Delete row on delete button click
-$(document).on("click", ".delete", function(){
-$(this).parents("tr").remove();
-$(".add-new").removeAttr("disabled");
-});
-});
+    $(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();
+    var actions = $("table td:last-child").html();
+    // Append table with add row form on add new button click
+    $(".add-new").click(function(){
+    $(this).attr("disabled", "disabled");
+    var index = $("table tbody tr:last-child").index();
+    var row = '<tr>' +
+    '<td><input type="text" class="form-control" name="name" id="name"></td>' +
+    '<td><input type="text" class="form-control" name="department" id="department"></td>' +
+    '<td><input type="text" class="form-control" name="phone" id="phone"></td>' +
+    '<td>' + actions + '</td>' +
+    '</tr>';
+    $("table").append(row);
+    $("table tbody tr").eq(index + 1).find(".add, .edit").toggle();
+    $('[data-toggle="tooltip"]').tooltip();
+    });
+    // Add row on add button click
+    $(document).on("click", ".add", function(){
+    var empty = false;
+    var input = $(this).parents("tr").find('input[type="text"]');
+    input.each(function(){
+    if(!$(this).val()){
+    $(this).addClass("error");
+    empty = true;
+    } else{
+    $(this).removeClass("error");
+    }
+    });
+    $(this).parents("tr").find(".error").first().focus();
+    if(!empty){
+    input.each(function(){
+    $(this).parent("td").html($(this).val());
+    });
+    $(this).parents("tr").find(".add, .edit").toggle();
+    $(".add-new").removeAttr("disabled");
+    }
+    });
+    // Edit row on edit button click
+    $(document).on("click", ".edit", function(){
+    $(this).parents("tr").find("td:not(:last-child)").each(function(){
+    $(this).html('<input type="text" class="form-control" value="' + $(this).text() + '">');
+    });
+    $(this).parents("tr").find(".add, .edit").toggle();
+    $(".add-new").attr("disabled", "disabled");
+    });
+    // Delete row on delete button click
+    $(document).on("click", ".delete", function(){
+    $(this).parents("tr").remove();
+    $(".add-new").removeAttr("disabled");
+    });
+    });
 </script>
 </head>
 <body>
 <nav>
+    <ul>
+        <li><a href="">Home</a></li>
+        <li><a href="">About Us</a></li>
+        <li><a href="">Manage User Profiles</a>
+        <!--Fridt Tier Drop Down-->
         <ul>
-                <li><a href="">Home</a></li>
-				<li><a href="">About Us</a></li>
-                <li><a href="">Manage User Profiles</a>
-                <!--Fridt Tier Drop Down-->
-                <ul>
 
-                    <li><a href="">User Profiles</a></li>
-                    <li><a href="">Add Profile</a></li>
+            <li><a href="">User Profiles</a></li>
+            <li><a href="">Add Profile</a></li>
 
-                </ul>
-                <li><a href="">Change Password</a></li>
-                <li><a href="">Log Out</a></li>
-            </ul>
-        </nav>
-
+        </ul>
+        <li><a href="">Change Password</a></li>
+        <li><a href="">Log Out</a></li>
+    </ul>
+</nav>
 		<center>
         <div id="content">
 		<h2>User <span style="color:#F8F8F8;"> Profiles</span></h2>
@@ -219,75 +220,40 @@ $(".add-new").removeAttr("disabled");
         <div class="form">
             <form action="doUserProfile.php" method="POST">
                 <table class="table table-bordered">
-<thead>
-<tr>
-<th>Username</th>
-<th>Password-Hashed</th>
-<th>Phone</th>
-<th>Email</th>
-<th>Age</th>
-<th>Genre Preference</th>
-<th>Loyalty Points</th>
-<th>Role</th>
-<th>Seat Preference</th>
-<th>Actions</th>
-</tr>
-</thead>
+                    <thead>
+                        <tr>
+                        <th>Username</th>
+                        <th>Password-Hashed</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                        <th>Age</th>
+                        <th>Genre Preference</th>
+                        <th>Loyalty Points</th>
+                        <th>Role</th>
+                        <th>Seat Preference</th>
+                        <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                            include "dbFunctions.php";
+                            $controller = new controller();
+                            $result = $controller->run("retrieveUserDB");
 
-<tbody>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>
-<a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a> 
-<a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a> 
-<a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-</td>
-</tr>
-
-<tr>
-<td>cflewittg</td>
-<td>-</td>
-<td>88100004</td>
-<td>cwedgeg
-@guardian.co
-.uk</td>
-<td>31</td>
-<td>None</td>
-<td>0</td>
-<td>Manager</td>
-<td>None</td>
-<td>
-<a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-<a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-<a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-</td>
-</tr>
-
-<tr>
-<td>acalafato1x</td>
-<td>-</td>
-<td>88999886</td>
-<td>icrocombe1x@alexa.com</td>
-<td>45</td>
-<td>Documentary</td>
-<td>322</td>
-<td>Customer</td>
-<td>Back</td>
-<td>
-<a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-<a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-<a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-</td>
-</tr>
-</tbody>
-</div>
+                            if($result){
+                                while($row = $result->fetch_assoc()) {
+                                    echo "<tr><td>".$row["username"]."</td><td>".$row["hashedPassw"]."</td><td>".$row["phoneNo"]."</td><td>".$row["email"]."</td><td>".$row["age"]."</td><td>".$row["genrePref"]."</td><td>".$row["loyaltyPts"]."</td><td>".$row["roles"]."</td><td>".$row["seatPref"]."</td>
+                                        <td><a class='add' title='Add' data-toggle='tooltip'><i class='material-icons'>&#xE03B;</i></a> 
+                                        <a class='edit' title='Edit' data-toggle='tooltip'><i class='material-icons'>&#xE254;</i></a> 
+                                        <a class='delete' title='Delete' data-toggle='tooltip'><i class='material-icons'>&#xE872;</i></a></td></tr>";
+                                }
+                            } else {
+                                echo "0 results";
+                            }
+                        ?>
+                    </tbody>
+                </table>
+            </form>
+        </div>
 </body>
 </html> 

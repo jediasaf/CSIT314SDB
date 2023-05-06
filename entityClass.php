@@ -124,6 +124,11 @@ class testDB{
         return $result;
     }
 
+    function retrieveUserDB(){
+        $result = $this->conn->query("SELECT * from `userdb`");
+        return $result;
+    }
+
 }
 
 ?>
