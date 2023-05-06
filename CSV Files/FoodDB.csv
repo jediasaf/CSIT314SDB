@@ -1,5 +1,5 @@
-﻿foodName,quantity,foodPicName
-Popcorn Combo,1000,PopcornCombo.jpg
-Fries Combo,1000,FriesCombo.jpg
-Meatball Combo,700,MeatballCombo.jpg
-Burger Combo,1000,BurgerCombo.jpg
+﻿foodName,quantity,foodPicName,status
+Popcorn Combo,1000,PopcornCombo.jpg,1
+Fries Combo,1000,FriesCombo.jpg,0
+Meatball Combo,700,MeatballCombo.jpg,0
+Burger Combo,1000,BurgerCombo.jpg,1
