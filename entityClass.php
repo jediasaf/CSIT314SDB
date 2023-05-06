@@ -82,6 +82,14 @@ class testDB{
         return $row;
     }
 
+    function getBookings(){
+        $result = $this->conn->query("SELECT * FROM bookingdb");
+        $row = $result -> fetch_all(MYSQLI_BOTH);
+        return $row;
+    }
+
+
+
 
     # Darrel
     function getMovieFromID($movieID){
