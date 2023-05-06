@@ -1044,7 +1044,11 @@ h2{
 	width: 100%;
 	box-shadow: 0 5px 20px 3px rgba(0, 0, 0, 0.6);
 }
-
+.food-poster{
+	width: 230px;
+	height: 124px;
+	box-shadow: 0 5px 20px 3px rgba(0, 0, 0, 0.6);
+}
 .movie-detail-container {
 	background: #fff;
 	width: 1000px;

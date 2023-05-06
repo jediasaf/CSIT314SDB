@@ -132,6 +132,7 @@ class doOrder{
     </body>
 	  <body>
     <h2>food &amp; beverages.</h2>
+		<form>
 		<div class="hero-container">
 		<div class="main-container">
 		<div class="poster-container">';
@@ -157,14 +158,17 @@ class doOrder{
     echo'<p class="food__movie-slogan">'.$foodName2.'</p>';
     echo'<p class="food__current-price">$10.75</p>
     <p class="food__old-price">$20.99</p>
-    <button class="food__buy-btn">Add to Cart</button>
+		<button class="food__buy-btn">Add to Cart</button>
     </div>
     </div>
     </div>
     </div>
+	</form>
     </body>';
 
-    echo'<body class="shoppingCart">
+    echo'
+	<form>
+	<body class="shoppingCart">
     <div class="CartContainer">
     <div class="Header">
     <h3 class="Heading">&nbsp;</h3><h3 class="Heading">&nbsp;</h3><h3 class="Heading">Shopping Cart</h3>';
@@ -228,7 +232,9 @@ class doOrder{
     <button class="button">Checkout</button></div>
     </a>
     </div>
+	
     </body>
+	<form>
 
     <footer> 
     <h3>Software Development Board 2023</h3><br>

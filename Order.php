@@ -156,7 +156,7 @@
 		<div class="hero-container">
 		<div class="main-container">
 			<div class="poster-container">
-				<a href="#"><img src="Images/Combo/BurgerCombo.jpg" class="poster" /></a>
+				<a href="#"><img src="Images/Combo/BurgerCombo.jpg" class="food-poster" /></a>
 			</div>
 			<div class="food-container">
 				<div class="food__content">
