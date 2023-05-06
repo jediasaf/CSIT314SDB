@@ -82,12 +82,6 @@ class testDB{
         return $row;
     }
 
-    function getBookings(){
-        $result = $this->conn->query("SELECT * FROM bookingdb");
-        $row = $result -> fetch_all(MYSQLI_BOTH);
-        return $row;
-    }
-
 
     # Darrel
     function getMovieFromID($movieID){
@@ -101,8 +95,25 @@ class testDB{
         $row = $result->fetch_all(MYSQLI_BOTH);
         return $row;
     }
+
     function getRoomSpecs($roomID){
-        $result = $this->conn->query("SELECT * from `roomspecification$roomID` where 1");
+        $result = $this->conn->query("SELECT * from `roomspecification$roomID`");
+        $row = $result->fetch_all(MYSQLI_BOTH);
+        return $row;
+    }
+
+    function updateSeatStatusUnavailable($roomID,$seatName){
+        $result = $this->conn->query("UPDATE `roomspecification$roomID` set `status` = 0 where `seatName` = '$seatName'");
+        return $result;
+    }
+
+    function resetSeatingStatus($roomID){
+        $result = $this->conn->query("UPDATE `roomspecification$roomID` set `status` = 100");
+        return $result;
+    }
+
+    function getFoodDetails(){
+        $result = $this->conn->query("SELECT * from `fooddb`");
         $row = $result->fetch_all(MYSQLI_BOTH);
         return $row;
     }
@@ -121,11 +132,6 @@ class testDB{
     }
     function addReview($email, $text, $stars){
         $result = $this->conn->query("INSERT INTO `reviewdb` (`email`,`reviewText`, `reviewStars`) VALUES ('$email','$text', '$stars')");
-        return $result;
-    }
-
-    function retrieveUserDB(){
-        $result = $this->conn->query("SELECT * from `userdb`");
         return $result;
     }
 
