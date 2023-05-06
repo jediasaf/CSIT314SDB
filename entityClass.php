@@ -136,6 +136,12 @@ class testDB{
         $result = $this->conn->query("UPDATE `userdb` SET `email` = '$email', `age` = $age, `genrePref` = '$preferences' WHERE `username` = '$username'");
         return $result;
     }
+
+    function adminUpdateUserProfile($username, $pwdhashed, $phone, $email, $age, $genrepref, $loyaltypts, $role, $seatpref){
+        $result = $this->conn->query("UPDATE `userdb` SET `username` = $username, `hashedPassw` = $pwdhashed, `phoneNo` = $phone, `email` = '$email', `age` = $age, `genrePref` = '$genrepref', `loyaltyPts` = $loyaltypts, `roles` = $role, `seatPref` = $seatpref WHERE `username` = '$username'");
+        return $result;
+    }
+
     function addReview($email, $text, $stars){
         $result = $this->conn->query("INSERT INTO `reviewdb` (`email`,`reviewText`, `reviewStars`) VALUES ('$email','$text', '$stars')");
         return $result;

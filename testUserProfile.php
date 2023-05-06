@@ -1,3 +1,4 @@
+<!-- I am unable to put this page inside a class due to the mixture of single and double quotes in the code -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -142,56 +143,75 @@ display: none;
 
 <script type="text/javascript">
     $(document).ready(function(){
-    $('[data-toggle="tooltip"]').tooltip();
-    var actions = $("table td:last-child").html();
-    // Append table with add row form on add new button click
-    $(".add-new").click(function(){
-    $(this).attr("disabled", "disabled");
-    var index = $("table tbody tr:last-child").index();
-    var row = '<tr>' +
-    '<td><input type="text" class="form-control" name="name" id="name"></td>' +
-    '<td><input type="text" class="form-control" name="department" id="department"></td>' +
-    '<td><input type="text" class="form-control" name="phone" id="phone"></td>' +
-    '<td>' + actions + '</td>' +
-    '</tr>';
-    $("table").append(row);
-    $("table tbody tr").eq(index + 1).find(".add, .edit").toggle();
-    $('[data-toggle="tooltip"]').tooltip();
-    });
-    // Add row on add button click
-    $(document).on("click", ".add", function(){
-    var empty = false;
-    var input = $(this).parents("tr").find('input[type="text"]');
-    input.each(function(){
-    if(!$(this).val()){
-    $(this).addClass("error");
-    empty = true;
-    } else{
-    $(this).removeClass("error");
-    }
-    });
-    $(this).parents("tr").find(".error").first().focus();
-    if(!empty){
-    input.each(function(){
-    $(this).parent("td").html($(this).val());
-    });
-    $(this).parents("tr").find(".add, .edit").toggle();
-    $(".add-new").removeAttr("disabled");
-    }
-    });
-    // Edit row on edit button click
-    $(document).on("click", ".edit", function(){
-    $(this).parents("tr").find("td:not(:last-child)").each(function(){
-    $(this).html('<input type="text" class="form-control" value="' + $(this).text() + '">');
-    });
-    $(this).parents("tr").find(".add, .edit").toggle();
-    $(".add-new").attr("disabled", "disabled");
-    });
-    // Delete row on delete button click
-    $(document).on("click", ".delete", function(){
-    $(this).parents("tr").remove();
-    $(".add-new").removeAttr("disabled");
-    });
+        $('[data-toggle="tooltip"]').tooltip();
+        var actions = $("table td:last-child").html();
+        // Append table with add row form on add new button click
+        $(".add-new").click(function(){
+            $(this).attr("disabled", "disabled");
+            var index = $("table tbody tr:last-child").index();
+            var row = '<tr>' +
+            '<td><input type="text" class="form-control" name="username" id="username"></td>' +
+            '<td><input type="text" class="form-control" name="pwdhashed" id="pwdhashed"></td>' +
+            '<td><input type="text" class="form-control" name="phone" id="phone"></td>' +
+            '<td><input type="text" class="form-control" name="email" id="email"></td>' +
+            '<td><input type="text" class="form-control" name="age" id="age"></td>' +
+            '<td><input type="text" class="form-control" name="genrepref" id="genrepref"></td>' +
+            '<td><input type="text" class="form-control" name="loyaltypts" id="loyaltypts"></td>' +
+            '<td><input type="text" class="form-control" name="role" id="role"></td>' +
+            '<td><input type="text" class="form-control" name="seatpref" id="seatpref"></td>' +
+            '<td>' + actions + '</td>' +
+            '</tr>';
+            $("table").append(row);
+            $("table tbody tr").eq(index + 1).find(".add, .edit").toggle();
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+        // Add row on add button click
+        $(document).on("click", ".add", function(){
+            var empty = false;
+            var input = $(this).parents("tr").find('input[type="text"]');
+            input.each(function(){
+                if(!$(this).val()){
+                    $(this).addClass("error");
+                    empty = true;
+                } else{
+                    $(this).removeClass("error");
+                    $.ajax({
+                        url: "doUserProfile.php",
+                        type: "POST",
+                        data: {username: username, pwdhashed: pwdhashed, phone: phone, email: email, age: age, genrepref: genrepref, loyaltypts: loyaltypts, role: role, seatpref: seatpref},
+                        success: function(data) {
+                            // Display a message indicating success or failure
+                            if (data == "success") {
+                                alert("Record updated successfully");
+                            } else {
+                                alert("Error updating record: " + data);
+                            }
+                        }
+                    });
+                }
+                });
+                $(this).parents("tr").find(".error").first().focus();
+                if(!empty){
+                    input.each(function(){
+                    $(this).parent("td").html($(this).val());
+                });
+                $(this).parents("tr").find(".add, .edit").toggle();
+                $(".add-new").removeAttr("disabled");
+            }
+        });
+        // Edit row on edit button click
+        $(document).on("click", ".edit", function(){
+            $(this).parents("tr").find("td:not(:last-child)").each(function(){
+                $(this).html('<input type="text" class="form-control" value="' + $(this).text() + '">');
+            });
+            $(this).parents("tr").find(".add, .edit").toggle();
+            $(".add-new").attr("disabled", "disabled");
+        });
+        // Delete row on delete button click
+        $(document).on("click", ".delete", function(){
+            $(this).parents("tr").remove();
+            $(".add-new").removeAttr("disabled");
+        });
     });
 </script>
 </head>

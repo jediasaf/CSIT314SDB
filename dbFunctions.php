@@ -50,6 +50,9 @@ class controller{
         else if($method == "retrieveUserDB"){
             $result = $this->testDB->retrieveUserDB();
         }
+        else if($method == "adminUpdateUserProfile"){
+            $result == $this->testDB->adminUpdateUserProfile($var1, $var2, $var3, $var4, $var5, $var6, $var7, $var8, $var9);
+        }
         else if($method == "updatePassword"){
             $result = $this->testDB->updatePassword($var1, $var2, $var3);
         }
