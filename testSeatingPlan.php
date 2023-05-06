@@ -4,12 +4,14 @@ class doOrder{
 
   function display(){
 
-    if(!isset($SESSION){
-      session_start()
-    })
+    if(!isset($_SESSION)){
+      session_start();
+    }
 
-    $loyaltyPoints = $SESSION['loyaltyPoints'];
-    $usernames = $SESSION['username'];
+    #$loyaltyPoints = $_SESSION['loyaltyPoints'];
+    #$username = $_SESSION['username'];
+    $loyaltyPoints = 100;
+    $username = 'acalafato1x';
     
     #$movieID = $_GET['name'];
     $movieID = 'Belle2021';
@@ -47,10 +49,17 @@ class doOrder{
     $status = $roomSpecs[0]['status'];
     $seatName = $roomSpecs[0]['seatName'];
 
-    #get details from fooddb
-    $foodDetails = $controller -> run('getFoodDetails');
-    $foodName = $foodDetails[0]['foodName'];
-    $foodPicName = $foodDetails[0]['foodPicName'];
+    # get details from fooddb
+    $foodDetails = $controller -> run('getAvailableFoodDetails');
+    $foodName1 = $foodDetails[0]['foodName'];
+    $foodName2 = $foodDetails[1]['foodName'];
+    $foodPicName1 = $foodDetails[0]['foodPicName'];
+    $foodPicName2 = $foodDetails[1]['foodPicName'];
+
+    # get booking details
+    $bookingDetails = $controller -> run('getBookingDetails',$username);
+    $bookingID = $bookingDetails[0]['bookingID'];
+    
 
     #$controller -> run('updateSeatStatus',$roomID,$seatName);
 
@@ -116,8 +125,116 @@ class doOrder{
     </div>
     </div>';
 
+    #seating plan goes here
 
 
+    echo'</div>
+    </body>
+	  <body>
+    <h2>food &amp; beverages.</h2>
+		<div class="hero-container">
+		<div class="main-container">
+		<div class="poster-container">';
+		echo'<a href="#"><img src="Images/Combo/'.$foodPicName1.'" class="poster" /></a>';
+		echo'</div>
+		<div class="food-container">
+		<div class="food__content">';
+		echo'<h4 class="food__movie-title">'.$foodName1.'</h4>';
+		echo'<p class="food__movie-slogan">'.$foodName1.'</p>';
+		echo'<p class="food__current-price">$8.00</p>
+		<p class="food__old-price">$14.99</p>
+		<button class="food__buy-btn">Add to Cart</button>
+		</div>
+		</div>
+		</div>
+    <div class="main-container">
+    <div class="poster-container">';
+    echo '<a href="#"><img src="Images/Combo/'.$foodPicName2.'" class="poster" /></a>';
+    echo'</div>
+    <div class="food-container">
+    <div class="food__content">';
+    echo'<h4 class="food__movie-title">'.$foodName2.'</h4>';
+    echo'<p class="food__movie-slogan">'.$foodName2.'</p>';
+    echo'<p class="food__current-price">$10.75</p>
+    <p class="food__old-price">$20.99</p>
+    <button class="food__buy-btn">Add to Cart</button>
+    </div>
+    </div>
+    </div>
+    </div>
+    </body>';
+
+    echo'<body class="shoppingCart">
+    <div class="CartContainer">
+    <div class="Header">
+    <h3 class="Heading">&nbsp;</h3><h3 class="Heading">&nbsp;</h3><h3 class="Heading">Shopping Cart</h3>';
+    echo'<h5 class="Action">Booking ID: '.$bookingID.'</h5>';
+    echo'<h5 class="Action">Loyalty Points: '.$loyaltyPoints.'</h5>';
+    echo'<h5 class="Action"> Username: '.$username.'</h5>';
+    echo'</div>';
+
+    echo'<div class="Cart-Items">
+    <div class="image-box">';
+    echo'<img src="Images/MovieImage/'.$moviePicName.'" style={{ height="200px" }} />';
+    echo'</div>
+    <div class="about">';
+    echo'<h1 class="title">'.$movieTitle.'</h1>';
+    echo'<h3 class="subtitle">Child</h3>
+    <h3 class="subtitle">2pm</h3>
+    </div>
+    <div class="counter">
+    <div class="btn">+</div>
+    <div class="count">2</div>
+    <div class="btn">-</div>
+    </div>
+    <div class="prices">
+    <div class="amount">$12.99</div>
+    <div class="save"><u>Use Points (Only If 100 Points Earned)</u></div>
+    <div class="remove"><u>Remove</u></div>
+    </div>
+    </div>';
+
+    echo'<div class="Cart-Items">
+    <div class="image-box">';
+    echo'<img src="Images/MovieImage/'.$moviePicName.'" style={{ height="200px" }} />';
+    echo'</div>
+    <div class="about">';
+    echo'<h1 class="title">'.$movieTitle.'</h1>';
+    echo'<h3 class="subtitle">Adult</h3>
+    <h3 class="subtitle">2pm</h3>
+    </div>
+    <div class="counter">
+    <div class="btn">+</div>
+    <div class="count">2</div>
+    <div class="btn">-</div>
+    </div>
+    <div class="prices">
+    <div class="amount">$12.99</div>
+    <div class="save"><u>Use Points (Only If 100 Points Earned)</u></div>
+    <div class="remove"><u>Remove</u></div>
+    </div>
+    </div>
+    <hr>';
+
+    echo'<div class="checkout">
+    <div class="total">
+    <div>
+    <div class="Subtotal">Sub-Total</div>
+    <div class="items">2 items</div>
+    </div>
+    <div class="total-amount">$6.18</div>
+    </div>
+    <a href="PaymentPage.php">
+    <button class="button">Checkout</button></div>
+    </a>
+    </div>
+    </body>
+
+    <footer> 
+    <h3>Software Development Board 2023</h3><br>
+    <p>Pop-Up Cinema in Town</p>
+    </footer>
+    </html>';
   }
 }
 

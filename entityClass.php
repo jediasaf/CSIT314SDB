@@ -112,8 +112,14 @@ class testDB{
         return $result;
     }
 
-    function getFoodDetails(){
-        $result = $this->conn->query("SELECT * from `fooddb`");
+    function getAvailableFoodDetails(){
+        $result = $this->conn->query("SELECT * from `fooddb` where `status` = 1");
+        $row = $result->fetch_all(MYSQLI_BOTH);
+        return $row;
+    }
+
+    function getBookingDetails($username){
+        $result = $this->conn->query("SELECT * from `bookingdb` where `username` = '$username'");
         $row = $result->fetch_all(MYSQLI_BOTH);
         return $row;
     }

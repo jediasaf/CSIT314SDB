@@ -71,8 +71,11 @@ class controller{
         else if($method == "resetSeatingStatus"){
             $result = $this->testDB->resetSeatingStatus($var1);
         }
-        else if($method == "getFoodDetails"){
-            $result = $this->testDB->getFoodDetails();
+        else if($method == "getAvailableFoodDetails"){
+            $result = $this->testDB->getAvailableFoodDetails();
+        }
+        else if($method == "getBookingDetails"){
+            $result = $this->testDB->getBookingDetails($var1);
         }
 
     
