@@ -4,6 +4,13 @@ class doOrder{
 
   function display(){
 
+    if(!isset($SESSION){
+      session_start()
+    })
+
+    $loyaltyPoints = $SESSION['loyaltyPoints'];
+    $usernames = $SESSION['username'];
+    
     #$movieID = $_GET['name'];
     $movieID = 'Belle2021';
 
@@ -11,12 +18,11 @@ class doOrder{
     
     $controller = new controller();
     $movieDetails = $controller -> run('getMovieFromID',$movieID);
-    $roomPlan = $controller -> run('getRoomPlan',$movieID);
 
     # movie details
     $movieTitle =  $movieDetails[0]['movieTitle'];
     $genre = $movieDetails[0]['genres'];
-    $directorName = $movieDetails[0]['director'];
+    $directorName = $movieDetails[0]['directorName'];
     $description = $movieDetails[0]['description'];
     $duration = $movieDetails[0]['duration'];
     $actor_1_name = $movieDetails[0]['actor_1_name'];
@@ -31,12 +37,22 @@ class doOrder{
     $availability = $movieDetails[0]['availability'];
 
     # room ID, rows and cols
+    $roomPlan = $controller -> run('getRoomPlan',$movieID);
     $roomID = $roomPlan[0]['roomID'];
     $row = $roomPlan[0]['rows'];
     $cols = $roomPlan[0]['columns'];
 
+    # get seatName and availability
     $roomSpecs = $controller ->run('getRoomSpecs',$roomID);
     $status = $roomSpecs[0]['status'];
+    $seatName = $roomSpecs[0]['seatName'];
+
+    #get details from fooddb
+    $foodDetails = $controller -> run('getFoodDetails');
+    $foodName = $foodDetails[0]['foodName'];
+    $foodPicName = $foodDetails[0]['foodPicName'];
+
+    #$controller -> run('updateSeatStatus',$roomID,$seatName);
 
     echo'<!doctype html>
     <html>
@@ -55,7 +71,7 @@ class doOrder{
     <label> <br>
     Select a movie :</label>
     <select id="movie">';
-    echo'<option value="1">'.$movieTitle,$status.' - Adult SG$10</option>';
+    echo'<option value="1">'.$movieTitle.' - Adult SG$10</option>';
     echo'<option value="2">'.$movieTitle.' - Child SG$8</option>';
     echo'<option value="3">'.$movieTitle.' - Senior SG$8</option>';
     echo'<option value="4">'.$movieTitle.' - Student SG$9</option>';
@@ -99,6 +115,7 @@ class doOrder{
     </div>
     </div>
     </div>';
+
 
 
   }

@@ -65,6 +65,15 @@ class controller{
         else if($method == "getBookings"){
             $result = $this->testDB->getBookings();
         }
+        else if($method == "updateSeatStatusUnavailable"){
+            $result = $this->testDB->updateSeatStatusUnavailable($var1, $var2);
+        }
+        else if($method == "resetSeatingStatus"){
+            $result = $this->testDB->resetSeatingStatus($var1);
+        }
+        else if($method == "getFoodDetails"){
+            $result = $this->testDB->getFoodDetails();
+        }
 
     
 
