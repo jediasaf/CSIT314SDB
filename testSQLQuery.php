@@ -212,9 +212,38 @@ else{
     $testmessage1 = "<h2>Unsuccessful, Please Try Again.</h2>";
 }
 echo "<h1>".$testmessage1."</h1>";
-*/
+
 
 $username = "bread";
 $validatePasswordChange = $controller -> run("validatePasswordChange",$username);
-echo $validatePasswordChange[0]['hashedPassw'];
+echo $validatePasswordChange[0]['hashedPassw'];*/
+
+
+$controller = new controller ();
+$bookingid = 1;
+$result = $controller -> run("getBookingFromID",$bookingid);
+echo $result[0]['bookingID'];
+echo "<br>";
+echo $result[0]['phoneNo'];
+echo "<br>";
+echo $result[0]['username'];
+echo "<br>";
+echo $result[0]['bookingDate'];
+echo "<br>";
+#echo date_format($result[0]['bookingDate'],"Y/m/d");
+echo "<br>";
+echo $result[0]['movieID'];
+echo "<br>";
+echo $result[0]['noOfTickets'];
+echo "<br>";
+echo $result[0]['seats'];
+echo "<br>";
+
+$movie = $controller -> run("getMovie1");
+
+for($i = 0; $i < sizeof($movie);$i++){
+    echo '<option value="'.$movie[$i]['movieID'].'">';
+    echo $movie[$i]['movieID'];
+    echo '</option>';
+  }
 ?>

@@ -83,7 +83,13 @@ class testDB{
     }
 
     function getBookings(){
-        $result = $this->conn->query("SELECT * FROM bookingdb");
+        $result = $this->conn->query("SELECT * FROM `bookingdb`");
+        $row = $result -> fetch_all(MYSQLI_BOTH);
+        return $row;
+    }
+
+    function getBookingFromID($bookingID){
+        $result = $this->conn->query("SELECT * FROM `bookingdb` WHERE `bookingID` = '$bookingID'");
         $row = $result -> fetch_all(MYSQLI_BOTH);
         return $row;
     }

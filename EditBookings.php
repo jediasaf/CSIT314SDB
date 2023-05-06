@@ -1,3 +1,132 @@
+<?php
+
+class EditBookings{
+  function display (){
+    include ("dbFunctions.php");
+ $message = "";
+$controller = new controller ();
+if($_SERVER['REQUEST_METHOD'] === 'GET'){
+  $action = $_GET['action'];
+  $bookingid = $_GET['bookingid'];
+  
+  
+  $result = $controller -> run("getBookingFromID",$bookingid);
+  
+  $movie = $controller -> run("getMovie1");
+  
+  if($action == "edit"){
+    $message = '<form action="?" class="contact-form" method="POST">
+	 <div class="col-sm-5">
+      <div class="input-block">
+        <label for="">Booking ID: </label>
+        <input type="text" value="'.$result[0]['bookingID'].'" class="form-control" readonly>
+      </div>
+    </div>
+	
+	<div class="col-sm-5">
+      <div class="input-block">
+        <label for="">Username: </label>
+        <input type="text" value="'.$result[0]['username'].'" class="form-control">
+      </div>
+    </div>
+	
+	 <div class="col-sm-5">
+      <div class="input-block">
+        <label for="">Booking Date: </label>
+        <input type="text" value="'.$result[0]['bookingDate'].'" class="form-control">
+      </div>
+    </div>
+	
+	<div class="col-sm-5">
+      <div class="input-block textarea">
+        <label for="">Movie ID:'.$result[0]['movieID'].'</label>
+        <select name="movieID" class="form-control">';
+         
+          
+          for($i = 0; $i < sizeof($movie);$i++){
+            $message = $message.'<option value="'.$movie[$i]['movieID'].'">';
+            $message = $message. $movie[$i]['movieID'];
+            $message = $message. '</option>';
+          }
+          
+          $message = $message.'
+        </select>
+      </div>
+    </div>
+	
+	 <div class="col-sm-5">
+      <div class="input-block">
+        <label for="">No of Tickets: </label>
+        <input type="text" value="'.$result[0]['noOfTickets'].' class="form-control">
+      </div>
+    </div>
+	
+	 <div class="col-sm-5">
+      <div class="input-block">
+        <label for="">Claim: </label>
+        <input type="text" value="'.$result[0]['isClaimed'].'" class="form-control">
+      </div>
+    </div>
+	 
+    <div class="col-sm-5">
+      <div class="input-block">
+        <label for="">View Details: </label>
+        <input type="text" value="'.$result[0]['seats'].'" class="form-control">
+      </div>
+    </div>
+      
+    <div class="col-md-12">
+		<div class="form-group">
+		<input type="submit" name="submit" value="Edit" class="btn btn-primary">
+		<div class="submitting"></div>
+		</div>
+		</div>
+  </div>
+</form> ';
+  }
+  else if($action == "delete"){
+    $message =  '<form action="?" method="POST">';
+    $message = $message.'<h4 style="text-align: left; white-space: pre;">Booking ID                : '.$result[0]['bookingID'].'</h4>';
+    $message = $message.'<h4 style="text-align: left; white-space: pre;">Phone Number        : '.$result[0]['phoneNo'].'</h4>';
+    $message = $message.'<h4 style="text-align: left; white-space: pre;">Username                 : '.$result[0]['username'].'</h4>';
+    $message = $message.'<h4 style="text-align: left; white-space: pre;">Booking Date            : '.$result[0]['bookingDate'].'</h4>';
+    $message = $message.'<h4 style="text-align: left; white-space: pre;">Movie ID                    : '.$result[0]['movieID'].'</h4>';
+    $message = $message.'<h4 style="text-align: left; white-space: pre;">Number of tickets    : '.$result[0]['noOfTickets'].'</h4>';
+    $message = $message.'<h4 style="text-align: left; white-space: pre;">Seat Details               : '.$result[0]['seats'].'</h4>';
+    $message = $message.'<h4 style="text-align: left; white-space: pre;">isClaimed                   : '.$result[0]['isClaimed'].'</h4>';
+    $message = $message.'<input type="submit" name="submit" value="Delete">';
+    $message = $message.'</form>';
+  }
+  else if($action == "claim"){
+    $message =  '<form action="?" method="POST">';
+    $message = $message.'<h4 style="text-align: left; white-space: pre;">Booking ID                : '.$result[0]['bookingID'].'</h4>';
+    $message = $message.'<h4 style="text-align: left; white-space: pre;">Phone Number        : '.$result[0]['phoneNo'].'</h4>';
+    $message = $message.'<h4 style="text-align: left; white-space: pre;">Username                 : '.$result[0]['username'].'</h4>';
+    $message = $message.'<h4 style="text-align: left; white-space: pre;">Booking Date            : '.$result[0]['bookingDate'].'</h4>';
+    $message = $message.'<h4 style="text-align: left; white-space: pre;">Movie ID                    : '.$result[0]['movieID'].'</h4>';
+    $message = $message.'<h4 style="text-align: left; white-space: pre;">Number of tickets    : '.$result[0]['noOfTickets'].'</h4>';
+    $message = $message.'<h4 style="text-align: left; white-space: pre;">Seat Details               : '.$result[0]['seats'].'</h4>';
+    $message = $message.'<h4 style="text-align: left; white-space: pre;">isClaimed                   : '.$result[0]['isClaimed'].'</h4>';
+    $message = $message.'<input type="submit" name="submit" value="Claim">';
+    $message = $message.'</form>';
+  }
+  
+
+}
+else if($_SERVER['REQUEST_METHOD'] === 'POST'){
+  if($_POST['submit'] == "Edit"){
+
+  }
+  else if($_POST['submit'] == "Delete"){
+
+  }
+  else if($_POST['submit'] == "Claim"){
+
+  }
+
+}
+
+echo '
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +146,7 @@
 body {
 color: #404E67;
 background: #000000;
-font-family: 'Open Sans', sans-serif;
+font-family: "Open Sans", sans-serif;
 }
 .dropdown-menu {
    position: relative;
@@ -69,9 +198,9 @@ nav ul ul li{
 }
 
 /* Change this in order to change the Dropdown symbol */
-li > a::after { content: ' +';}
+li > a::after { content: "+";}
 li > a:only-child::after {
-    content: '';
+    content: "";
 }
 
 #content h2 {
@@ -155,67 +284,34 @@ li > a:only-child::after {
         <div id="content">
 		<h2>Edit <span style="color:#F8F8F8;"> Bookings</span></h2>
 		</div>
+
+    
  <div class="form">
-            <form action="">
                 <div class="row">
-                    <div class="col">
-  <form action="" class="contact-form">
-	 <div class="col-sm-5">
-      <div class="input-block">
-        <label for="">Booking ID: </label>
-        <input type="text" class="form-control">
-      </div>
-    </div>
-	
-	<div class="col-sm-5">
-      <div class="input-block">
-        <label for="">Username: </label>
-        <input type="text" class="form-control">
-      </div>
-    </div>
-	
-	 <div class="col-sm-5">
-      <div class="input-block">
-        <label for="">Booking Date: </label>
-        <input type="text" class="form-control">
-      </div>
-    </div>
-	
-	<div class="col-sm-5">
-      <div class="input-block textarea">
-        <label for="">Movie ID: </label>
-        <textarea rows="3" type="text" class="form-control"></textarea>
-      </div>
-    </div>
-	
-	 <div class="col-sm-5">
-      <div class="input-block">
-        <label for="">No of Tickets: </label>
-        <input type="text" class="form-control">
-      </div>
-    </div>
-	
-	 <div class="col-sm-5">
-      <div class="input-block">
-        <label for="">Claim: </label>
-        <input type="text" class="form-control">
-      </div>
-    </div>
-	 
-    <div class="col-sm-5">
-      <div class="input-block">
-        <label for="">View Details: </label>
-        <input type="text" class="form-control">
-      </div>
-    </div>
-      
-    <div class="col-md-12">
-		<div class="form-group">
-		<input type="submit" value="Submit" class="btn btn-primary">
-		<div class="submitting"></div>
-		</div>
-		</div>
-  </div>
-</form>       
+                    <div class="col">';
+
+                    echo $message;
+      echo'
 </body>
-</html>
+</html>';
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+$display = new EditBookings();
+$display->display();
+
+
+?>
+
+

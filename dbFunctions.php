@@ -80,6 +80,10 @@ class controller{
         else if($method == "getBookingDetails"){
             $result = $this->testDB->getBookingDetails($var1);
         }
+        else if($method == "getBookingFromID"){
+            $result = $this->testDB->getBookingFromID($var1);
+        }
+
 
     
 
