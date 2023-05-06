@@ -219,7 +219,9 @@ a {
 }
 .sub-menu h3{
 	padding-left: 10px;
-	margin: 0 auto;
+	display: inline;
+    margin: 0 auto;
+    padding-top: 10px;
 	
 }
 
@@ -438,7 +440,7 @@ a {
             left: 50%;
             transform: translate(-50%, -50%); 
             text-align: center;
-            z-index: 50;
+            z-index: 990;
         }
 .slideshow {
             height: 100%;
@@ -496,7 +498,7 @@ a {
             bottom: 3%;
             left: 50%;
             transform: translateX(-50%);
-            z-index: 70;
+            z-index: 999;
         }
 .slide-btn-1 {
             left: 45%;
@@ -544,83 +546,274 @@ h2{
 }
 
 .hero-container > div:nth-child(1) {
-  z-index: 25; /* set the z-index of the first row to a higher value */
+  z-index: 106; /* set the z-index of the first row to a higher value */
 }
 
 .hero-container > div:nth-child(2) {
-  z-index: 24; /* set the z-index of the second row to a lower value */
+  z-index: 105; /* set the z-index of the second row to a lower value */
 }
 
 .hero-container > div:nth-child(3) {
-  z-index: 23; /* set the z-index of the second row to a lower value */
+  z-index: 104; /* set the z-index of the second row to a lower value */
 }
 
 .hero-container > div:nth-child(4) {
-  z-index: 22; /* set the z-index of the second row to a lower value */
+  z-index: 103; /* set the z-index of the second row to a lower value */
 }
 
 .hero-container > div:nth-child(5) {
-  z-index: 21; /* set the z-index of the second row to a lower value */
+  z-index: 102; /* set the z-index of the second row to a lower value */
 }
 
 .hero-container > div:nth-child(6) {
-  z-index: 20; /* set the z-index of the second row to a lower value */
+  z-index: 101; /* set the z-index of the second row to a lower value */
 }
 .hero-container > div:nth-child(7) {
-  z-index: 19; /* set the z-index of the second row to a lower value */
+  z-index: 100; /* set the z-index of the second row to a lower value */
 }
 .hero-container > div:nth-child(8) {
-  z-index: 18; /* set the z-index of the second row to a lower value */
+  z-index: 99; /* set the z-index of the second row to a lower value */
 }
 .hero-container > div:nth-child(9) {
-  z-index: 17; /* set the z-index of the second row to a lower value */
+  z-index: 98; /* set the z-index of the second row to a lower value */
 }
 .hero-container > div:nth-child(10) {
-  z-index: 16; /* set the z-index of the second row to a lower value */
+  z-index: 97; /* set the z-index of the second row to a lower value */
 }
 .hero-container > div:nth-child(11) {
-  z-index: 15; /* set the z-index of the1 second row to a lower value */
+  z-index: 96; /* set the z-index of the1 second row to a lower value */
 }
 .hero-container > div:nth-child(12) {
-  z-index: 14; /* set the z-index of the second row to a lower value */
+  z-index: 95; /* set the z-index of the second row to a lower value */
 }
 .hero-container > div:nth-child(13) {
-  z-index: 13; /* set the z-index of the second row to a lower value */
+  z-index: 94; /* set the z-index of the second row to a lower value */
 }
 .hero-container > div:nth-child(14) {
-  z-index: 12; /* set the z-index of the second row to a lower value */
+  z-index: 93; /* set the z-index of the second row to a lower value */
 }
 .hero-container > div:nth-child(15) {
-  z-index: 11; /* set the z-index of the second row to a lower value */
+  z-index: 92; /* set the z-index of the second row to a lower value */
 }
 .hero-container > div:nth-child(16) {
-  z-index: 10; /* set the z-index of the second row to a lower value */
+  z-index: 91; /* set the z-index of the second row to a lower value */
 }
 .hero-container > div:nth-child(17) {
-  z-index: 9; /* set the z-index of the second row to a lower value */
+  z-index: 90; /* set the z-index of the second row to a lower value */
 }
 .hero-container > div:nth-child(18) {
-  z-index: 8; /* set the z-index of the second row to a lower value */
+  z-index: 89; /* set the z-index of the second row to a lower value */
 }
 .hero-container > div:nth-child(19) {
-  z-index: 7; /* set the z-index of the second row to a lower value */
+  z-index: 88; /* set the z-index of the second row to a lower value */
 }
 .hero-container > div:nth-child(20) {
-  z-index: 6; /* set the z-index of the second row to a lower value */
+  z-index: 87; /* set the z-index of the second row to a lower value */
 }
 .hero-container > div:nth-child(21) {
-  z-index: 5; /* set the z-index of the second row to a lower value */
+  z-index: 86; /* set the z-index of the second row to a lower value */
 }
 .hero-container > div:nth-child(22) {
-  z-index: 4; /* set the z-index of the second row to a lower value */
+  z-index: 85; /* set the z-index of the second row to a lower value */
 }
 .hero-container > div:nth-child(23) {
-  z-index: 3; /* set the z-index of the second row to a lower value */
+  z-index: 84; /* set the z-index of the second row to a lower value */
 }
 .hero-container > div:nth-child(24) {
-  z-index: 2; /* set the z-index of the second row to a lower value */
+  z-index: 83; /* set the z-index of the second row to a lower value */
 }
-
+.hero-container > div:nth-child(25) {
+  z-index: 82; /* set the z-index of the second row to a lower value */
+}
+.hero-container > div:nth-child(26) {
+  z-index: 81; /* set the z-index of the second row to a lower value */
+}
+.hero-container > div:nth-child(27) {
+  z-index: 80; /* set the z-index of the second row to a lower value */
+}
+.hero-container > div:nth-child(28) {
+  z-index: 79; /* set the z-index of the second row to a lower value */
+}
+.hero-container > div:nth-child(29) {
+  z-index: 78; /* set the z-index of the second row to a lower value */
+}
+.hero-container > div:nth-child(30) {
+  z-index: 77; /* set the z-index of the second row to a lower value */
+}
+.hero-container > div:nth-child(31) {
+  z-index: 76; /* set the z-index of the second row to a lower value */
+}
+.hero-container > div:nth-child(32) {
+  z-index: 75; /* set the z-index of the second row to a lower value */
+}
+.hero-container > div:nth-child(33) {
+  z-index: 74; /* set the z-index of the second row to a lower value */
+}
+.hero-container > div:nth-child(34) {
+  z-index: 73; /* set the z-index of the second row to a lower value */
+}
+.hero-container > div:nth-child(35) {
+  z-index: 72; /* set the z-index of the second row to a lower value */
+}
+.hero-container > div:nth-child(36) {
+  z-index: 71; /* set the z-index of the second row to a lower value */
+}
+.hero-container > div:nth-child(37) {
+  z-index: 70; /* set the z-index of the second row to a lower value */
+}
+.hero-container > div:nth-child(38) {
+  z-index: 69; /* set the z-index of the second row to a lower value */
+}
+.hero-container > div:nth-child(39) {
+  z-index: 68; /* set the z-index of the second row to a lower value */
+}
+.hero-container > div:nth-child(40) {
+  z-index: 67; /* set the z-index of the second row to a lower value */
+}
+.hero-container > div:nth-child(41) {
+  z-index: 66; /* set the z-index of the second row to a lower value */
+}
+.hero-container > div:nth-child(42) {
+  z-index: 65; /* set the z-index of the second row to a lower value */
+}
+.hero-container > div:nth-child(43) {
+  z-index: 64; /* set the z-index of the second row to a lower value */
+}
+.hero-container > div:nth-child(44) {
+  z-index: 63; /* set the z-index of the second row to a lower value */
+}
+.hero-container > div:nth-child(45) {
+  z-index: 62; /* set the z-index of the second row to a lower value */
+}
+.hero-container > div:nth-child(46) {
+  z-index: 61; /* set the z-index of the second row to a lower value */
+}
+.hero-container > div:nth-child(47) {
+  z-index: 60; /* set the z-index of the second row to a lower value */
+}
+.hero-container > div:nth-child(48) {
+  z-index: 59; /* set the z-index of the second row to a lower value */
+}
+.hero-container > div:nth-child(49) {
+  z-index: 58; /* set the z-index of the second row to a lower value */
+}
+.hero-container > div:nth-child(50) {
+  z-index: 57; /* set the z-index of the second row to a lower value */
+}
+.hero-container > div:nth-child(51) {
+  z-index: 56; /* set the z-index of the second row to a lower value */
+}
+.hero-container > div:nth-child(52) {
+  z-index: 55; /* set the z-index of the second row to a lower value */
+}
+.hero-container > div:nth-child(53) {
+  z-index: 54; /* set the z-index of the second row to a lower value */
+}
+.hero-container > div:nth-child(54) {
+  z-index: 53; /* set the z-index of the second row to a lower value */
+}
+.hero-container > div:nth-child(55) {
+  z-index: 52; /* set the z-index of the second row to a lower value */
+}
+.hero-container > div:nth-child(56) {
+  z-index: 51; /* set the z-index of the second row to a lower value */
+}
+.hero-container > div:nth-child(57) {
+  z-index: 50; /* set the z-index of the second row to a lower value */
+}
+.hero-container > div:nth-child(58) {
+  z-index: 49; /* set the z-index of the second row to a lower value */
+}
+.hero-container > div:nth-child(59) {
+  z-index: 48; /* set the z-index of the second row to a lower value */
+}
+.hero-container > div:nth-child(60) {
+  z-index: 47; /* set the z-index of the second row to a lower value */
+}
+.hero-container > div:nth-child(61) {
+  z-index: 46; /* set the z-index of the second row to a lower value */
+}
+.hero-container > div:nth-child(62) {
+  z-index: 45; /* set the z-index of the second row to a lower value */
+}.hero-container > div:nth-child(63) {
+  z-index: 44; /* set the z-index of the second row to a lower value */
+}.hero-container > div:nth-child(64) {
+  z-index: 43; /* set the z-index of the second row to a lower value */
+}
+.hero-container > div:nth-child(65) {
+  z-index: 42; /* set the z-index of the second row to a lower value */
+}.hero-container > div:nth-child(66) {
+  z-index: 41; /* set the z-index of the second row to a lower value */
+}
+.hero-container > div:nth-child(67) {
+  z-index: 40; /* set the z-index of the second row to a lower value */
+}.hero-container > div:nth-child(68) {
+  z-index: 39; /* set the z-index of the second row to a lower value */
+}.hero-container > div:nth-child(69) {
+  z-index: 38; /* set the z-index of the second row to a lower value */
+}.hero-container > div:nth-child(70) {
+  z-index: 37; /* set the z-index of the second row to a lower value */
+}.hero-container > div:nth-child(71) {
+  z-index: 36; /* set the z-index of the second row to a lower value */
+}.hero-container > div:nth-child(72) {
+  z-index: 35; /* set the z-index of the second row to a lower value */
+}.hero-container > div:nth-child(73) {
+  z-index: 34; /* set the z-index of the second row to a lower value */
+}.hero-container > div:nth-child(74) {
+  z-index: 32; /* set the z-index of the second row to a lower value */
+}.hero-container > div:nth-child(75) {
+  z-index: 31; /* set the z-index of the second row to a lower value */
+}.hero-container > div:nth-child(76) {
+  z-index: 30; /* set the z-index of the second row to a lower value */
+}.hero-container > div:nth-child(77) {
+  z-index: 29; /* set the z-index of the second row to a lower value */
+}.hero-container > div:nth-child(78) {
+  z-index: 28; /* set the z-index of the second row to a lower value */
+}.hero-container > div:nth-child(79) {
+  z-index: 27; /* set the z-index of the second row to a lower value */
+}.hero-container > div:nth-child(80) {
+  z-index: 26; /* set the z-index of the second row to a lower value */
+}.hero-container > div:nth-child(81) {
+  z-index: 25; /* set the z-index of the second row to a lower value */
+}.hero-container > div:nth-child(82) {
+  z-index: 24; /* set the z-index of the second row to a lower value */
+}.hero-container > div:nth-child(83) {
+  z-index: 23; /* set the z-index of the second row to a lower value */
+}.hero-container > div:nth-child(84) {
+  z-index: 22; /* set the z-index of the second row to a lower value */
+}.hero-container > div:nth-child(85) {
+  z-index: 21; /* set the z-index of the second row to a lower value */
+}.hero-container > div:nth-child(86) {
+  z-index: 20; /* set the z-index of the second row to a lower value */
+}.hero-container > div:nth-child(87) {
+  z-index: 19; /* set the z-index of the second row to a lower value */
+}.hero-container > div:nth-child(88) {
+  z-index: 18; /* set the z-index of the second row to a lower value */
+}.hero-container > div:nth-child(89) {
+  z-index: 17; /* set the z-index of the second row to a lower value */
+}.hero-container > div:nth-child(90) {
+  z-index: 16; /* set the z-index of the second row to a lower value */
+}.hero-container > div:nth-child(91) {
+  z-index: 15; /* set the z-index of the second row to a lower value */
+}.hero-container > div:nth-child(92) {
+  z-index: 14; /* set the z-index of the second row to a lower value */
+}.hero-container > div:nth-child(93) {
+  z-index: 13; /* set the z-index of the second row to a lower value */
+}.hero-container > div:nth-child(94) {
+  z-index: 12; /* set the z-index of the second row to a lower value */
+}.hero-container > div:nth-child(95) {
+  z-index: 11; /* set the z-index of the second row to a lower value */
+}.hero-container > div:nth-child(96) {
+  z-index: 10; /* set the z-index of the second row to a lower value */
+}.hero-container > div:nth-child(97) {
+  z-index: 9; /* set the z-index of the second row to a lower value */
+}.hero-container > div:nth-child(98) {
+  z-index: 8; /* set the z-index of the second row to a lower value */
+}.hero-container > div:nth-child(99) {
+  z-index: 7; /* set the z-index of the second row to a lower value */
+}.hero-container > div:nth-child(100) {
+  z-index: 6; /* set the z-index of the second row to a lower value */
+}
 
 .showingnow{
 	z-index: 1;
@@ -638,14 +831,11 @@ h2{
 	margin-top:500px;
 	height: 620px;
 	position: inherit;
+	z-index: 0;
 }
 
 .comingsoon h2{
 	margin-top: 100px;
-}
-
-.foodbev{
-	p
 }
 
 .main-container {
@@ -660,7 +850,7 @@ h2{
 	position: absolute;
 	top: 0;
 	left: 20px;
-	z-index: 1;
+	z-index: 2;
 }
 
 .poster {
@@ -690,7 +880,7 @@ h2{
 .food-container {
 	background: #fff;
 	width: 270px;
-	height: 300px;
+	min-height: 300px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -1176,6 +1366,7 @@ p{
 	align-content: center;
 	text-align: center;
 }
+
 .shoppingCart body{
 	margin: 0;
 	padding: 0;
@@ -1193,6 +1384,7 @@ p{
     border-radius: 20px;
     box-shadow: 0px 10px 20px #1687d933;
 	max-height: 800px;
+	margin-top: 10px;
 }
 
 .Header {
