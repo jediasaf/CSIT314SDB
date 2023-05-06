@@ -82,6 +82,12 @@ class testDB{
         return $row;
     }
 
+    function getBookings(){
+        $result = $this->conn->query("SELECT * FROM bookingdb");
+        $row = $result -> fetch_all(MYSQLI_BOTH);
+        return $row;
+    }
+
 
     # Darrel
     function getMovieFromID($movieID){
@@ -115,6 +121,11 @@ class testDB{
     }
     function addReview($email, $text, $stars){
         $result = $this->conn->query("INSERT INTO `reviewdb` (`email`,`reviewText`, `reviewStars`) VALUES ('$email','$text', '$stars')");
+        return $result;
+    }
+
+    function retrieveUserDB(){
+        $result = $this->conn->query("SELECT * from `userdb`");
         return $result;
     }
 
