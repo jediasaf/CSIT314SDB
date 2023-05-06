@@ -84,7 +84,9 @@ class doOrder{
     echo'</p>';
     echo'<p class="movie-detail__movie-actors-casts">';
     echo 'Actors: '.$actor_1_name.', '.$actor_2_name.', '.$actor_3_name;
+    echo '<br>';
     echo 'Director: '.$directorName;
+    echo '<br>';
     echo 'Year Released: '.$yearReleased;
     echo'</p>';
     echo'<p class="movie-detail__movie-rating">';
