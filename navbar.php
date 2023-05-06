@@ -14,7 +14,7 @@ class displayNav{
 	<head>
 	<meta charset="UTF-8">
 	<title>HomePage</title>
-	<link href="CSS/coba.css" rel="stylesheet" type="text/css">
+	<link href="CSS/navbar.css" rel="stylesheet" type="text/css">
 	</head>
 	<div class="hero">
 		  <nav id="navbar" class=""> 
