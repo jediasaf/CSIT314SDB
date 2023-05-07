@@ -93,9 +93,24 @@ class testDB{
         $row = $result -> fetch_all(MYSQLI_BOTH);
         return $row;
     }
-    function updateBookings($bookingID,$phoneNum,$username,$bookingDate,$movieID,$noOfTickets,$seats,$isClaimed){
-        $result = $this->conn->query("UPDATE `bookingdb` SET `phoneNo` = '$phoneNum' AND `username` = '$username' AND `bookingDate` = '$bookingDate' AND `movieID` = '$movieID' AND `noOfTickets` = '$noOfTickets' AND `seats` = '$seats' AND `isClaimed` = '$isClaimed' WHERE `bookingID` = '$bookingID'");
+    function updateBookings($bookingID,$phonenum,$username,$bookingDate,$movieID,$noOfTickets,$isClaimed,$seats){
+        $result = $this->conn->query("UPDATE `bookingdb` SET `phoneNo` = '$phonenum' , `username` = '$username' , `bookingDate` = '$bookingDate' , `movieID` = '$movieID' , `noOfTickets` = '$noOfTickets' , `seats` = '$seats' , `isClaimed` = '$isClaimed' WHERE `bookingID` = '$bookingID'");
         return $result;
+    }
+    function deleteBooking($bookingid){
+        $result = $this->conn->query("DELETE FROM `bookingdb` WHERE `bookingID` = '$bookingid'");
+        return $result;
+    }
+    function confirmDeletion($bookingid){
+        $result = $this->conn->query("SELECT * FROM `bookingdb` WHERE `bookingID` = '$bookingid'");
+        return $result -> num_rows;
+    }
+    function claimBooking($bookingid){
+        $result = $this->conn->query("UPDATE `bookingdb` SET `isClaimed` = 1 WHERE `bookingID` = '$bookingid'");
+        $test = $this->conn->query("SELECT `isClaimed` FROM `bookingdb` WHERE `bookingID` = '$bookingid'");
+        $row = $test -> fetch_all(MYSQLI_BOTH);
+        $isClaimed = $row[0]['isClaimed'];
+        return $isClaimed;
     }
 
 

@@ -46,12 +46,20 @@ class controller{
         else if($method == "getBookings"){
             $result = $this->testDB->getBookings();
         }
-        
         else if($method == "getBookingFromID"){
             $result = $this->testDB->getBookingFromID($var1);
         }
         else if($method == "updateBookings"){
             $result = $this->testDB->updateBookings($var1,$var2,$var3,$var4,$var5,$var6,$var7,$var8);
+        }
+        else if($method == "deleteBooking"){
+            $result = $this->testDB->deleteBooking($var1);
+        }
+        else if($method == "confirmDeletion"){
+            $result = $this->testDB->confirmDeletion($var1);
+        }
+        else if($method == "claimBooking"){
+            $result = $this->testDB->claimBooking($var1);
         }
 
 
