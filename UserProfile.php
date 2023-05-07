@@ -8,7 +8,7 @@ include ("../AdminNavBar.php");
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Manager View User Profiles</title>
+<title>Admin View User Profiles</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -46,13 +46,11 @@ include ("../AdminNavBar.php");
 <tbody>
 <tr>
 <td>cheildsj</td>
-<td>-</td>
 <td>89156711</td>
 <td>cvankeevj
 @time.com</td>
 <td>39</td>
 <td>None</td>
-<td>0</td>
 <td>Admin</td>
 <td>None</td>
 <td>
@@ -63,14 +61,12 @@ include ("../AdminNavBar.php");
 
 <tr>
 <td>cflewittg</td>
-<td>-</td>
 <td>88100004</td>
 <td>cwedgeg
 @guardian.co
 .uk</td>
 <td>31</td>
 <td>None</td>
-<td>0</td>
 <td>Manager</td>
 <td>None</td>
 <td>
@@ -81,12 +77,10 @@ include ("../AdminNavBar.php");
 
 <tr>
 <td>acalafato1x</td>
-<td>-</td>
 <td>88999886</td>
 <td>icrocombe1x@alexa.com</td>
 <td>45</td>
 <td>Documentary</td>
-<td>322</td>
 <td>Customer</td>
 <td>Back</td>
 <td>
