@@ -1,5 +1,5 @@
 <?php
-include ("../AdminNavBar.php");
+include ("../ManagerNavbar.php");
 ?>
 
 <!DOCTYPE html>
@@ -8,7 +8,7 @@ include ("../AdminNavBar.php");
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>View User Profiles</title>
+<title>Manager Manage Customer Bookings</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -19,13 +19,12 @@ include ("../AdminNavBar.php");
 <style type="text/css">
 @import url("CSS/AllUsers.css");
 </style>
-</head>
 
 <body>
 
 		<center>
         <div id="content">
-		<h2>User <span style="color:#F8F8F8;"> Profiles</span></h2>
+		<h2>Manage<span style="color:#F8F8F8;"> Customer Bookings </span></h2>
 		</div>
  
         <div class="form">
@@ -33,64 +32,47 @@ include ("../AdminNavBar.php");
                 <table class="table table-bordered">
 <thead>
 
+<div class="table-container">
+<div class="table-wrapper">
+<div class="table-title">
+<div class="row">
+<div class="col-sm-4">
+</div>
+</div>
+</div>
+<table class="table table-bordered">
+<thead>
 <tr>
+<th>Booking ID</th>
 <th>Username</th>
-<th>Phone</th>
-<th>Email</th>
-<th>Age</th>
-<th>Genre Preference</th>
-<th>Role</th>
-<th>Seat Preference</th>
+<th>Booking Date</th>
+<th>Movie ID</th>
+<th>No.Of Tickets</th>
+<th>Claim</th>
+<th>View Details</th>
 <th>Actions</th>
 </tr>
 </thead>
-
 <tbody>
+
 <tr>
-<td>cheildsj</td>
-<td>89156711</td>
-<td>cvankeevj
-@time.com</td>
-<td>39</td>
-<td>None</td>
-<td>Admin</td>
-<td>None</td>
+<td>1</td>
+<td>cmelato28</td>
+<td>13/2/23</td>
+<td>AWhiskerAway2020</td>
+<td>2</td>
+<td>1</td>
+<td onClick="location.href='http://www.stackoverflow.com';">
+Ticket Confirmation</td>
 <td>
 <button class="edit-btn" title="Edit" data-toggle="tooltip">Edit</button>
 <button class="delete-btn" title="Delete" data-toggle="tooltip">Delete</button>
 </td>
 </tr>
 
-<tr>
-<td>cflewittg</td>
-<td>88100004</td>
-<td>cwedgeg
-@guardian.co
-.uk</td>
-<td>31</td>
-<td>None</td>
-<td>Manager</td>
-<td>None</td>
-<td>
-<button class="edit-btn" title="Edit" data-toggle="tooltip">Edit</button>
-<button class="delete-btn" title="Delete" data-toggle="tooltip">Delete</button>
-</td>
-</tr>
-
-<tr>
-<td>acalafato1x</td>
-<td>88999886</td>
-<td>icrocombe1x@alexa.com</td>
-<td>45</td>
-<td>Documentary</td>
-<td>Customer</td>
-<td>Back</td>
-<td>
-<button class="edit-btn" title="Edit" data-toggle="tooltip">Edit</button>
-<button class="delete-btn" title="Delete" data-toggle="tooltip">Delete</button>
-</td>
-</tr>
 </tbody>
+</table>
+</div>
 </div>
 </body>
 </html> 

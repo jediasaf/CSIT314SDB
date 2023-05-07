@@ -78,8 +78,18 @@ li > a:only-child::after {
 <body>
 <nav>
         <ul>
-                <li><a href="UserProfile.php">Home</a></li>
-				<li><a href="AddProfile.php">Add Profile</a>
+                <li><a href="ManageBookings.php">Home</a></li>
+                <li><a href="ManageMovies.php">Manage Movies</a>
+                <!--First Tier Drop Down-->
+                <ul>
+                    <li><a href="AddMovie.php">Add Movie</a></li>
+                </ul>
+				<li><a href="ManageShows.php">Manage Shows</a>
+                <!--First Tier Drop Down-->
+                <ul>
+                    <li><a href="AddShow.php">Add Show</a></li>
+                </ul>
+				<li><a href="BookingReport.php">Reports</a>
                 <li><a href="CP.php">Change Password</a></li>
             </ul>
         </nav>

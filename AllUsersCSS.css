@@ -1,0 +1,71 @@
+@charset "UTF-8";
+/* CSS Document */
+
+body {
+color: #404E67;
+background: #000000;
+font-family: 'Open Sans', sans-serif;
+}
+
+#content h2 {
+  margin: 0 0 0 0;
+  font: 130% verdana, "Trebuchet MS", arial, tahoma, sans-serif;
+  padding: 5px;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  color: #F8F8F8;
+  background: inherit;
+}
+
+.form{
+background-color: #F8F8F8;
+margin: 0 5%;
+padding: 30px 60px;
+border-radius: 20px;
+}
+
+table.table {
+table-layout: fixed;
+border-radius: 25px;
+border-top: 2px solid black;
+overflow-wrap: break-word;
+}
+table.table tr th, table.table tr td {
+ border-left: 2px solid black;
+ border-right: 2px solid black;
+ border-bottom: 2px solid black;
+ border-radius: 55px;
+ overflow-wrap: break-word;
+}
+table.table th i {
+font-size: 30px;
+margin: 0 5px;
+cursor: pointer;
+overflow-wrap: break-word;
+}
+table.table th:last-child {
+width: 150px;
+}
+table.table td a {
+cursor: pointer;
+display: inline-block;
+margin: 0 5px;
+min-width: 30px;
+overflow-wrap: break-word;
+}
+
+table.table td a.edit {
+color: #000000;
+}
+table.table td a.delete {
+color: #E34724;
+}
+
+
+table.table td i {
+font-size: 25px;
+}
+
+table.table td .add {
+display: none;
+}
