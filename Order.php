@@ -198,58 +198,36 @@
    	   </div>
 
    	   <div class="Cart-Items">
-   	   	  <div class="image-box">
-   	   	  	<img src="Images/MovieImage/AWhiskerAway2020.png" style={{ height="200px" }} />
-   	   	  </div>
-   	   	  <div class="about">
-   	   	  	<h1 class="title">A Whisker Away</h1>
-   	   	  	<h3 class="subtitle">Child</h3>
-			<h3 class="subtitle">2pmm</h3>
-   	   	  </div>
-   	   	  <div class="counter">
-   	   	  	<div class="btn">+</div>
-   	   	  	<div class="count">2</div>
-   	   	  	<div class="btn">-</div>
-   	   	  </div>
-   	   	  <div class="prices">
-   	   	  	<div class="amount">$12.99</div>
-   	   	  	<div class="save"><u>Use Points (Only If 100 Points Earned)</u></div>
-   	   	  	<div class="remove"><u>Remove</u></div>
-   	   	  </div>
-   	   </div>
-
-   	   <div class="Cart-Items">
-   	   	  <div class="image-box">
-   	   	  	<img src="Images/MovieImage/AWhiskerAway2020.png" style={{ height="200px" }} />
-   	   	  </div>
-   	   	  <div class="about">
-   	   	  	<h1 class="title">A Whisker Away</h1>
-   	   	  	<h3 class="subtitle">Adult</h3>
-			<h3 class="subtitle">2pm</h3>
-   	   	  </div>
-   	   	  <div class="counter">
-   	   	  	<div class="btn">+</div>
-   	   	  	<div class="count">2</div>
-   	   	  	<div class="btn">-</div>
-   	   	  </div>
-   	   	  <div class="prices">
-   	   	  	<div class="amount">$12.99</div>
-   	   	  	<div class="save"><u>Use Points (Only If 100 Points Earned)</u></div>
-   	   	  	<div class="remove"><u>Remove</u></div>
-   	   	  </div>
-   	   </div>
-   	 <hr> 
-   	 <div class="checkout">
-   	 <div class="total">
-   	 	<div>
-   	 		<div class="Subtotal">Sub-Total</div>
-   	 		<div class="items">2 items</div>
-   	 	</div>
-   	 	<div class="total-amount">$6.18</div>
-   	 </div>
-		 <a href="PaymentPage.php">
-   	 <button class="button">Checkout</button></div>
+  <form>
+<table>
+    <thead>
+    <th class="ticketType">Ticket Type</th>
+    <th class="numTickets">Number of tickets</th>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Senior - $6 per ticket</td>
+        <td><input name="SeniorNoTicket" type="number"></td>
+    </tr>
+    <tr>
+        <td>Adult - $12 per ticket</td>
+        <td><input name="AdultNoTicket" type="number"></td>
+    </tr>
+    <tr>
+        <td>Student - $8 per ticket</td>
+        <td><input name="StudentNoTicket" type="number"></td>
+    </tr>
+    <tr>
+        <td>Child - $6 per ticket</td>
+        <td><input name="ChildNoTicket" type="number"></td>
+    </tr>    
+</tbody>
+</table>
+	  <a href="PaymentPage.php">
+   	 <button class="button">Checkout</button>
 		 </a>
+<form>
+	
    </div>
 	</body>
 	

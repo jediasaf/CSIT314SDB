@@ -50,7 +50,7 @@ body { font-family: Consolas, "Andale Mono", "Lucida Console", "Lucida Sans Type
 }
 
 body {
-  background: rgb(250, 250, 250) url(http://lorempixel.com/1920/1080/nature/);
+  background: #000000;
   font-family: Consolas, "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", Monaco, "Courier New", "monospace";
 }
 
@@ -1198,10 +1198,6 @@ h2{
 	border-bottom-right-radius: 5px;
 }
 
-
-body{
-	background: #000000;
-}
  h2{
 	font: mono Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", "serif";
 	text-align: center;
@@ -1580,4 +1576,12 @@ hr{
 	font-family: Consolas, "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", Monaco, "Courier New", "monospace";
 	justify-content: space-between;
 	margin: 0 auto;
+}
+
+.ticketType{
+	margin-bottom: 20px;
+}
+
+.numTicket{
+	margin-bottom: 20px;
 }
