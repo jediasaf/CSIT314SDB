@@ -8,6 +8,7 @@ class controller{
     }   
     function run($method,$var1=0,$var2=0,$var3=0,$var4=0,$var5=0,$var6=0,$var7=0,$var8=0,$var9=0){
         
+        #Bryan
         if($method == "validateUserLogin"){
             $result = $this->testDB -> validateUserLogin($var1,$var2,$var3);
         }
@@ -35,9 +36,58 @@ class controller{
         else if($method == "searchMovies10Num"){
             $result = $this->testDB->searchMovies10Num($var1,$var2);
         }
+        
+        
+        else if($method == "updatePassword"){
+            $result = $this->testDB->updatePassword($var1, $var2, $var3);
+        }
+        else if($method == "validatePasswordChange"){
+            $result = $this->testDB->validatePasswordChange($var1);
+        }
+        
+        else if($method == "getBookings"){
+            $result = $this->testDB->getBookings();
+        }
+        
+        else if($method == "getBookingFromID"){
+            $result = $this->testDB->getBookingFromID($var1);
+        }
+
+
+
+
+
+
+        #Darrel
         else if($method == "getMovieFromID"){
             $result = $this->testDB->getMovieFromID($var1);
         }
+        else if($method == "getRoomPlan"){
+            $result = $this->testDB->getRoomPlan($var1);
+        }
+        else if($method == "getRoomSpecs"){
+            $result = $this->testDB->getRoomSpecs($var1);
+        }
+        else if($method == "updateSeatStatusUnavailable"){
+            $result = $this->testDB->updateSeatStatusUnavailable($var1, $var2);
+        }
+        else if($method == "resetSeatingStatus"){
+            $result = $this->testDB->resetSeatingStatus($var1);
+        }
+        else if($method == "getAvailableFoodDetails"){
+            $result = $this->testDB->getAvailableFoodDetails();
+        }
+        else if($method == "getBookingDetails"){
+            $result = $this->testDB->getBookingDetails($var1);
+        }
+
+
+
+
+
+
+
+        #Mayuri
         else if($method == "retrieveUser"){
             $result = $this->testDB->retrieveUser($var1);
         }
@@ -53,39 +103,7 @@ class controller{
         else if($method == "adminUpdateUserProfile"){
             $result = $this->testDB->adminUpdateUserProfile($var1, $var2, $var3, $var4, $var5, $var6, $var7, $var8, $var9);
         }
-        else if($method == "updatePassword"){
-            $result = $this->testDB->updatePassword($var1, $var2, $var3);
-        }
-        else if($method == "validatePasswordChange"){
-            $result = $this->testDB->validatePasswordChange($var1);
-        }
-        else if($method == "getRoomPlan"){
-            $result = $this->testDB->getRoomPlan($var1);
-        }
-        else if($method == "getRoomSpecs"){
-            $result = $this->testDB->getRoomSpecs($var1);
-        }
-        else if($method == "getBookings"){
-            $result = $this->testDB->getBookings();
-        }
-        else if($method == "updateSeatStatusUnavailable"){
-            $result = $this->testDB->updateSeatStatusUnavailable($var1, $var2);
-        }
-        else if($method == "resetSeatingStatus"){
-            $result = $this->testDB->resetSeatingStatus($var1);
-        }
-        else if($method == "getAvailableFoodDetails"){
-            $result = $this->testDB->getAvailableFoodDetails();
-        }
-        else if($method == "getBookingDetails"){
-            $result = $this->testDB->getBookingDetails($var1);
-        }
-        else if($method == "getBookingFromID"){
-            $result = $this->testDB->getBookingFromID($var1);
-        }
 
-
-    
 
 
 
