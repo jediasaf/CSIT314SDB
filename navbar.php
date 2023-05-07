@@ -13,7 +13,6 @@ class displayNav{
 	<html>
 	<head>
 	<meta charset="UTF-8">
-	<title>HomePage</title>
 	<link href="CSS/navbar.css" rel="stylesheet" type="text/css">
 	</head>
 	<div class="hero">

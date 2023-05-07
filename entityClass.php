@@ -117,6 +117,26 @@ class testDB{
         $row = $result -> fetch_all(MYSQLI_BOTH);
         return $row;
     }
+    function updateMovie($movieID,$movieTitle,$genres,$directorName,$description,$duration,$actor_1_name,$actor_2_name,$actor_3_name,$country,$classificationRating,$yearReleased,$rantings,$trailerLink,$moviePicName,$availability){
+        $result = $this->conn->query("UPDATE `moviedb` SET `movieTitle` = '$movieTitle',`genres` = '$genres', `directorName` = '$directorName',
+         `description` = '$description', `duration` = '$duration', `actor_1_name` = '$actor_1_name', `actor_2_name` = '$actor_2_name', `actor_3_name` = '$actor_3_name',
+          `country` = '$country', `classificationRating` = '$classificationRating', `yearReleased` = '$yearReleased', `rantings` = '$rantings', `trailerLink` = '$trailerLink',
+           `moviePicName` = '$moviePicName', `availability` = '$availability' WHERE `movieID` = '$movieID'");
+        return $result;
+    }
+    function deleteMovie($movieID){
+        $result = $this->conn->query("DELETE FROM `moviedb` WHERE `movieID` = '$movieID'");
+        return $result;
+    }
+
+    function confirmMovieDeletion($movieID){
+        $result = $this->conn->query("SELECT * FROM `moviedb` WHERE `movieID` = '$movieID'");
+        return $result -> num_rows;
+    }
+    function escapeString($string){
+        $result = $this->conn->real_escape_string($string);
+        return $result;
+    }
 
 
 
