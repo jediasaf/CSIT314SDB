@@ -327,27 +327,10 @@ li > a:only-child::after {
 </style>
 </head>
 
-<body>
-<nav>
-        <ul>
-                <li><a href="ManageBookings.html">Home</a></li>
-				<li><a href="">About Us</a></li>
-				
-                <li><a href="ManageMovies.html">Manage Movies</a>
-                <!--First Tier Drop Down-->
-                <ul>
-                    <li><a href="AddMovie.html">Add Movie</a></li>
-                </ul>
-				<li><a href="ManageShows">Manage Shows</a>
-                <!--First Tier Drop Down-->
-                <ul>
-                    <li><a href="AddShow.html">Add Show</a></li>
-                </ul>
-				<li><a href="BookingReport">Reports</a>
-                <li><a href="CP.html">Change Password</a></li>
-                <li><a href="">Log Out</a></li>
-            </ul>
-        </nav>
+<body>';
+
+include ("ManagerNavBar.php");
+echo'
 
 		<center>
         <div id="content">

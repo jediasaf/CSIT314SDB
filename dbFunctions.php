@@ -42,7 +42,6 @@ class controller{
         else if($method == "validatePasswordChange"){
             $result = $this->testDB->validatePasswordChange($var1);
         }
-        
         else if($method == "getBookings"){
             $result = $this->testDB->getBookings();
         }
@@ -60,6 +59,9 @@ class controller{
         }
         else if($method == "claimBooking"){
             $result = $this->testDB->claimBooking($var1);
+        }
+        else if($method == "getAllMovies"){
+            $result = $this->testDB->getAllMovies();
         }
 
 
