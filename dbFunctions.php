@@ -36,8 +36,6 @@ class controller{
         else if($method == "searchMovies10Num"){
             $result = $this->testDB->searchMovies10Num($var1,$var2);
         }
-        
-        
         else if($method == "updatePassword"){
             $result = $this->testDB->updatePassword($var1, $var2, $var3);
         }
@@ -51,6 +49,9 @@ class controller{
         
         else if($method == "getBookingFromID"){
             $result = $this->testDB->getBookingFromID($var1);
+        }
+        else if($method == "updateBookings"){
+            $result = $this->testDB->updateBookings($var1,$var2,$var3,$var4,$var5,$var6,$var7,$var8);
         }
 
 

@@ -93,6 +93,10 @@ class testDB{
         $row = $result -> fetch_all(MYSQLI_BOTH);
         return $row;
     }
+    function updateBookings($bookingID,$phoneNum,$username,$bookingDate,$movieID,$noOfTickets,$seats,$isClaimed){
+        $result = $this->conn->query("UPDATE `bookingdb` SET `phoneNo` = '$phoneNum' AND `username` = '$username' AND `bookingDate` = '$bookingDate' AND `movieID` = '$movieID' AND `noOfTickets` = '$noOfTickets' AND `seats` = '$seats' AND `isClaimed` = '$isClaimed' WHERE `bookingID` = '$bookingID'");
+        return $result;
+    }
 
 
 

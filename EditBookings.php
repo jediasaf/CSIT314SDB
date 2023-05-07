@@ -19,28 +19,28 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){
 	 <div class="col-sm-5">
       <div class="input-block">
         <label for="">Booking ID: </label>
-        <input type="text" value="'.$result[0]['bookingID'].'" class="form-control" readonly>
+        <input type="text" name="bookingid" value="'.$result[0]['bookingID'].'" class="form-control" readonly>
       </div>
     </div>
 	
 	<div class="col-sm-5">
       <div class="input-block">
         <label for="">Username: </label>
-        <input type="text" value="'.$result[0]['username'].'" class="form-control">
+        <input type="text" name="username" value="'.$result[0]['username'].'" class="form-control">
       </div>
     </div>
 	
 	 <div class="col-sm-5">
       <div class="input-block">
         <label for="">Booking Date: </label>
-        <input type="text" value="'.$result[0]['bookingDate'].'" class="form-control">
+        <input type="text" name="bookingdate" value="'.$result[0]['bookingDate'].'" class="form-control">
       </div>
     </div>
 	
 	<div class="col-sm-5">
       <div class="input-block textarea">
         <label for="">Movie ID:'.$result[0]['movieID'].'</label>
-        <select name="movieID" class="form-control">';
+        <select name="movieid" class="form-control">';
          
           
           for($i = 0; $i < sizeof($movie);$i++){
@@ -57,21 +57,28 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){
 	 <div class="col-sm-5">
       <div class="input-block">
         <label for="">No of Tickets: </label>
-        <input type="text" value="'.$result[0]['noOfTickets'].' class="form-control">
+        <input type="text" name="nooftickets" value="'.$result[0]['noOfTickets'].'" class="form-control">
+      </div>
+    </div>
+
+    <div class="col-sm-5">
+      <div class="input-block">
+        <label for="">Phone Number: </label>
+        <input type="number" name="phonenum" value="'.$result[0]['phoneNo'].'" class="form-control">
       </div>
     </div>
 	
 	 <div class="col-sm-5">
       <div class="input-block">
         <label for="">Claim: </label>
-        <input type="text" value="'.$result[0]['isClaimed'].'" class="form-control">
+        <input type="text" name="isclaimed" value="'.$result[0]['isClaimed'].'" class="form-control">
       </div>
     </div>
 	 
     <div class="col-sm-5">
       <div class="input-block">
         <label for="">View Details: </label>
-        <input type="text" value="'.$result[0]['seats'].'" class="form-control">
+        <input type="text" name="seats" value="'.$result[0]['seats'].'" class="form-control">
       </div>
     </div>
       
@@ -94,6 +101,7 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){
     $message = $message.'<h4 style="text-align: left; white-space: pre;">Number of tickets    : '.$result[0]['noOfTickets'].'</h4>';
     $message = $message.'<h4 style="text-align: left; white-space: pre;">Seat Details               : '.$result[0]['seats'].'</h4>';
     $message = $message.'<h4 style="text-align: left; white-space: pre;">isClaimed                   : '.$result[0]['isClaimed'].'</h4>';
+    $message = $message.'<input type="hidden" name="bookingid" value="'.$result[0]['bookingid'].'" >';
     $message = $message.'<input type="submit" name="submit" value="Delete">';
     $message = $message.'</form>';
   }
@@ -107,6 +115,7 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){
     $message = $message.'<h4 style="text-align: left; white-space: pre;">Number of tickets    : '.$result[0]['noOfTickets'].'</h4>';
     $message = $message.'<h4 style="text-align: left; white-space: pre;">Seat Details               : '.$result[0]['seats'].'</h4>';
     $message = $message.'<h4 style="text-align: left; white-space: pre;">isClaimed                   : '.$result[0]['isClaimed'].'</h4>';
+    $message = $message.'<input type="hidden" name="bookingid" value="'.$result[0]['bookingid'].'" >';
     $message = $message.'<input type="submit" name="submit" value="Claim">';
     $message = $message.'</form>';
   }
@@ -115,13 +124,28 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){
 }
 else if($_SERVER['REQUEST_METHOD'] === 'POST'){
   if($_POST['submit'] == "Edit"){
+    $seats = $_POST['seats'];
+    $isclaimed = $_POST['isclaimed'];
+    $phonenum = $_POST['phonenum'];
+    $nooftickets = $_POST['nooftickets'];
+    $movieid = $_POST['movieid'];
+    $bookingdate = $_POST['bookingdate'];
+    $username = $_POST['username'];
+    $bookingid = $_POST['bookingid'];
+    $result = $controller->run("updateBookings",$bookingid,$username,$bookingdate,$movieid,$nooftickets,$phonenum,$isclaimed,$seats);
+
+    #verify the update
 
   }
   else if($_POST['submit'] == "Delete"){
+    $bookingid = $_POST['bookingid'];
+    # do the delete
+
 
   }
   else if($_POST['submit'] == "Claim"){
-    
+    $bookingid = $_POST['bookingid'];
+    # do the claim
   }
 
 }
