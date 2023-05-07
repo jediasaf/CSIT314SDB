@@ -112,6 +112,11 @@ class testDB{
         $isClaimed = $row[0]['isClaimed'];
         return $isClaimed;
     }
+    function getAllMovies(){
+        $result = $this->conn->query("SELECT * FROM `moviedb`");
+        $row = $result -> fetch_all(MYSQLI_BOTH);
+        return $row;
+    }
 
 
 

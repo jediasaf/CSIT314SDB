@@ -81,7 +81,7 @@ class doLogin{
         </div>';
 
         if($_SESSION['roles'] == "Manager"){
-          echo '<meta http-equiv="refresh" content="5; url='.'Manage Bookings.php'.'" />';
+          echo '<meta http-equiv="refresh" content="5; url='.'ManageBookings.php'.'" />';
 
         }
         else if($_SESSION['roles'] == "Customer"){

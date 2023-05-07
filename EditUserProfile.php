@@ -1,5 +1,5 @@
 <?php
-include ("../AdminNavBar.php");
+include ("AdminNavBar.php");
 ?>
 
 <!DOCTYPE html>
