@@ -40,7 +40,7 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){
 	<div class="col-sm-5">
       <div class="input-block textarea">
         <label for="">Movie ID:'.$result[0]['movieID'].'</label>
-        <select name="movieid" class="form-control">';
+        <select name="movieid" value="'.$result[0]['movieID'].'" class="form-control">';
          
           
           for($i = 0; $i < sizeof($movie);$i++){
@@ -101,7 +101,7 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){
     $message = $message.'<h4 style="text-align: left; white-space: pre;">Number of tickets    : '.$result[0]['noOfTickets'].'</h4>';
     $message = $message.'<h4 style="text-align: left; white-space: pre;">Seat Details               : '.$result[0]['seats'].'</h4>';
     $message = $message.'<h4 style="text-align: left; white-space: pre;">isClaimed                   : '.$result[0]['isClaimed'].'</h4>';
-    $message = $message.'<input type="hidden" name="bookingid" value="'.$result[0]['bookingid'].'" >';
+    $message = $message.'<input type="hidden" name="bookingid" value="'.$result[0]['bookingID'].'" >';
     $message = $message.'<input type="submit" name="submit" value="Delete">';
     $message = $message.'</form>';
   }
@@ -115,7 +115,7 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){
     $message = $message.'<h4 style="text-align: left; white-space: pre;">Number of tickets    : '.$result[0]['noOfTickets'].'</h4>';
     $message = $message.'<h4 style="text-align: left; white-space: pre;">Seat Details               : '.$result[0]['seats'].'</h4>';
     $message = $message.'<h4 style="text-align: left; white-space: pre;">isClaimed                   : '.$result[0]['isClaimed'].'</h4>';
-    $message = $message.'<input type="hidden" name="bookingid" value="'.$result[0]['bookingid'].'" >';
+    $message = $message.'<input type="hidden" name="bookingid" value="'.$result[0]['bookingID'].'" >';
     $message = $message.'<input type="submit" name="submit" value="Claim">';
     $message = $message.'</form>';
   }
@@ -132,20 +132,65 @@ else if($_SERVER['REQUEST_METHOD'] === 'POST'){
     $bookingdate = $_POST['bookingdate'];
     $username = $_POST['username'];
     $bookingid = $_POST['bookingid'];
-    $result = $controller->run("updateBookings",$bookingid,$username,$bookingdate,$movieid,$nooftickets,$phonenum,$isclaimed,$seats);
+    /*
+    echo '<h1>'.$seats.'</h1>';
+    echo '<h1>'.$isclaimed.'</h1>';
+    echo '<h1>'.$phonenum.'</h1>';
+    echo '<h1>'.$nooftickets.'</h1>';
+    echo '<h1>'.$movieid.'</h1>';
+    echo '<h1>'.$bookingdate.'</h1>';
+    echo '<h1>'.$username.'</h1>';
+    echo '<h1>'.$bookingid.'</h1>';*/
+    $result = $controller->run("updateBookings",$bookingid,$phonenum,$username,$bookingdate,$movieid,$nooftickets,$isclaimed,$seats);
 
     #verify the update
-
+    if($result){
+      $result = $controller->run("getBookingFromID",$bookingid);
+      if($result[0]['username'] == $username && $result[0]['bookingDate'] == $bookingdate && $result[0]['phoneNo'] == $phonenum 
+      && $result[0]['movieID'] == $movieid && $result[0]['noOfTickets'] == $nooftickets && $result[0]['seats'] == $seats
+      && $result[0]['isClaimed'] == $isclaimed)
+      $message = 'Update Successful';
+    }
+    else{
+      $message = 'Update Unsuccessful';
+    }
+    $message = $message.'<meta http-equiv="refresh" content="5; url='.'Manage Bookings.php'.'" />';
   }
   else if($_POST['submit'] == "Delete"){
     $bookingid = $_POST['bookingid'];
+    /*
+    echo '<h1>'.$bookingid.'</h1>';
+    */
     # do the delete
-
-
+    $result = $controller->run("deleteBooking",$bookingid);
+    if($result){
+      $test = $controller->run("confirmDeletion",$bookingid);
+      if($test == 0){
+        $message = 'Booking Deleted';
+      }
+      else{
+        $message = 'Booking not deleted';
+      }
+    }
+    else{
+      $message = 'failed to delete';
+    }
+    $message = $message.'<meta http-equiv="refresh" content="5; url='.'Manage Bookings.php'.'" />';
   }
   else if($_POST['submit'] == "Claim"){
     $bookingid = $_POST['bookingid'];
+    /*
+    echo '<h1>'.$bookingid.'</h1>';
+    */
     # do the claim
+    $result = $controller->run("claimBooking",$bookingid);
+    if($result == 1){
+      $message = 'claimed successfully';
+    }
+    else{
+      $message = 'not claimed';
+    }
+    $message = $message.'<meta http-equiv="refresh" content="5; url='.'Manage Bookings.php'.'" />';
   }
 
 }

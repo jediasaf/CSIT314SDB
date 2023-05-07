@@ -71,8 +71,10 @@ class displayManageBookings{
                         <a href="EditBookings.php?action=claim&bookingid='.$row[$i]['bookingID'].'">Click to Claim</td></a>
                         <td>';
                     }
-                    $message = $message. '<a href="EditBookings.php?action=edit&bookingid='.$row[$i]['bookingID'].'"><button class="edit-btn" title="Edit" data-toggle="tooltip">Edit</button></a>';
-                    $message = $message. '<a href="EditBookings.php?action=delete&bookingid='.$row[$i]['bookingID'].'"><button class="delete-btn" title="Delete" data-toggle="tooltip">Delete</button></a>';
+                    #<button class="edit-btn" title="Edit" data-toggle="tooltip">Edit</button>
+                    #<button class="delete-btn" title="Delete" data-toggle="tooltip">Delete</button>
+                    $message = $message. '<a href="EditBookings.php?action=edit&bookingid='.$row[$i]['bookingID'].'">Edit</a>';
+                    $message = $message. '<a href="EditBookings.php?action=delete&bookingid='.$row[$i]['bookingID'].'">Delete</a>';
                     $message = $message.  '</td>';
                     $message = $message.  '</tr>';
                 }
