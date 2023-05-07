@@ -16,7 +16,7 @@ $hashedPassword = hash("sha256",$pwd);
 $result = $controller->run("retrieveUser", $username);
 
 if($result){
-    $result = $controller->run("adminUpdateUserProfile", $username, $hashedPassword, $phone, $email, $age, $genrepref, $loyaltypts, $role, $seatpref)
+    $result = $controller->run("adminUpdateUserProfile", $username, $hashedPassword, $phone, $email, $age, $genrepref, $loyaltypts, $role, $seatpref);
 }
 
 ?>

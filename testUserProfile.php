@@ -169,6 +169,18 @@ display: none;
         $(document).on("click", ".add", function(){
             var empty = false;
             var input = $(this).parents("tr").find('input[type="text"]');
+
+            // Define the variables and retrieve their values from the input fields
+            var username = input.eq(0).val();
+            var pwdhashed = input.eq(1).val();
+            var phone = input.eq(2).val();
+            var email = input.eq(3).val();
+            var age = input.eq(4).val();
+            var genrepref = input.eq(5).val();
+            var loyaltypts = input.eq(6).val();
+            var role = input.eq(7).val();
+            var seatpref = input.eq(8).val();
+            
             input.each(function(){
                 if(!$(this).val()){
                     $(this).addClass("error");
