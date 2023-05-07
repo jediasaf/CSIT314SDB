@@ -186,11 +186,12 @@ display: none;
                     $(this).addClass("error");
                     empty = true;
                 } else{
-                    $(this).removeClass("error");
+                    //$(this).removeClass("error");
                     $.ajax({
                         url: "doUserProfile.php",
                         type: "POST",
                         data: {username: username, pwdhashed: pwdhashed, phone: phone, email: email, age: age, genrepref: genrepref, loyaltypts: loyaltypts, role: role, seatpref: seatpref},
+                        dataType: 'text',
                         success: function(data) {
                             // Display a message indicating success or failure
                             if (data == "success") {
