@@ -148,6 +148,17 @@ class testDB{
         return $result;
     }
 
+    function getRoomPlandb(){
+        $result = $this->conn->query("SELECT * FROM `roomplandb`");
+        $row = $result -> fetch_all(MYSQLI_BOTH);
+        return $row;
+    }
+    function getRoomPlanFromID($roomID){
+        $result = $this->conn->query("SELECT * FROM `roomplandb` WHERE `roomID` = '$roomID'");
+        $row = $result -> fetch_all(MYSQLI_BOTH);
+        return $row;
+    }
+
 
 
 

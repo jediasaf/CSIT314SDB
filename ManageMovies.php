@@ -3,6 +3,7 @@
 class ManageMovies{
     function display(){
         include ("ManagerNavbar.php");
+        #include ("navbar.php");
         include ("dbFunctions.php");
         $controller = new controller();
 

@@ -82,6 +82,5 @@ li > a:only-child::after {
 <nav>
         <ul>
 				<li><a href="MyBookings.php">My Bookings</a>
-                <li><a href="">Change Password</a></li>
             </ul>
         </nav>

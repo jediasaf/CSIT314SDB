@@ -1,7 +1,11 @@
 <?php
-include ("ManagerNavbar.php");
-?>
+class ManageShows{
+    function display(){
+        include ("ManagerNavbar.php");
+include ("dbFunctions.php");
+$controller = new controller();
 
+echo '
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,24 +46,46 @@ include ("ManagerNavbar.php");
 <table class="table table-bordered">
 <thead>
 <tr>
+<th>Room ID</th>
 <th>Movie ID</th>
-<th>Room Id</th>
+<th>Rows</th>
+<th>Columns</th>
+<th>Capacity</th>
 <th>Actions</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td>AWhiskerAway2020</td>
-<td>4</td>
-<td>
-<button class="edit-btn" title="Edit" data-toggle="tooltip">Edit</button>
-<button class="delete-btn" title="Delete" data-toggle="tooltip">Delete</button>
-</td>
-</tr>
 
+';
+
+$row = $controller->run("getRoomPlandb");
+
+for($i = 0; $i < sizeof($row); $i++){
+    echo '<tr>';
+    echo '<td>'.$row[$i]['roomID'].'</td>';
+    echo '<td>'.$row[$i]['movieID'].'</td>';
+    echo '<td>'.$row[$i]['rows'].'</td>';
+    echo '<td>'.$row[$i]['columns'].'</td>';
+    echo '<td>'.$row[$i]['capacity'].'</td>';
+    echo '<td><a href="EditShow.php?action=edit&roomID='.$row[$i]['roomID'].'">Edit</a><br>
+    <a href="EditShow.php?action=reset&roomID='.$row[$i]['roomID'].'">Reset</a>
+    </td>';
+    echo '</tr>';
+
+}
+
+
+echo'
 </tbody>
 </table>
 </div>
 </div>
 </body>
-</html> 
+</html> ';
+    }
+}
+
+
+$display = new ManageShows();
+$display->display();
+?>
