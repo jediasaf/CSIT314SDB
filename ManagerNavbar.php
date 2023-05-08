@@ -81,8 +81,8 @@ li > a:only-child::after {
 <body>
 <nav>
         <ul>
-                
-                <li><a href="ManageMovies.php">Manage Movies</a>
+                <li><a href="ManageBookings.php">Manage Bookings</a></li>
+                <li><a href="ManageMovies.php">Manage Movies</a></li>
                 <!--First Tier Drop Down-->
                 <ul>
                     <li><a href="AddMovie.php">Add Movie</a></li>
