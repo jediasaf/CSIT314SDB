@@ -201,6 +201,12 @@ class testDB{
         return $row;
     }
 
+    function getCustomerList(){
+        $result = $this->conn->query("SELECT * FROM `userdb` WHERE `roles` = 'Customer'");
+        $row = $result -> fetch_all(MYSQLI_BOTH);
+        return $row;
+    }
+
 
 
 

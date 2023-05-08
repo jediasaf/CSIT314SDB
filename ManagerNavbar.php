@@ -64,7 +64,7 @@ class ManagerNav{
         }
         
         /* Change this in order to change the Dropdown symbol */
-        li > a::after { content: ' +';}
+        li > a::after { content: " +";}
         li > a:only-child::after {
             content: "";
         }
@@ -94,6 +94,8 @@ class ManagerNav{
                         <ul>
                         <li><a href="AddFood.php">Add Food</a></li>
                         </ul>
+                        <li><a href="ViewCustomers.php">View Customer List</a></li>
+
                     </ul>
                 </nav>';
     }

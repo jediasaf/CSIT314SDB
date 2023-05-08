@@ -102,7 +102,9 @@ class controller{
         else if($method == "getPref"){
             $result = $this->testDB->getPref($var1);
         }
-        
+        else if($method == "getCustomerList"){
+            $result = $this->testDB->getCustomerList();
+        }
 
 
 

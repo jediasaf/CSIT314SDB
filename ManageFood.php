@@ -1,5 +1,5 @@
 <?php
-include ("../ManagerNavbar.php");
+include ("navbar.php");
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +23,7 @@ include ("../ManagerNavbar.php");
 <body>
 		<center>
         <div id="content">
-		<h2>Manage Food<span style="color:#F8F8F8;"></span></h2>
+		<h2>Manage Food</h2>
 		</div>
  
         <div class="form">
