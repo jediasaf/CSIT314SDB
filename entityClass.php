@@ -247,8 +247,8 @@ class testDB{
         return $result;
     }
 
-    function adminUpdateUserProfile($username, $pwdhashed, $phone, $email, $age, $genrepref, $loyaltypts, $role, $seatpref){
-        $result = $this->conn->query("UPDATE `userdb` SET `username` = $username, `hashedPassw` = $pwdhashed, `phoneNo` = $phone, `email` = '$email', `age` = $age, `genrePref` = '$genrepref', `loyaltyPts` = $loyaltypts, `roles` = $role, `seatPref` = $seatpref WHERE `username` = '$username'");
+    function adminUpdateUserProfile($username, $phone, $email, $age, $genrepref, $loyaltypts, $role, $seatpref){
+        $result = $this->conn->query("UPDATE `userdb` SET `phoneNo` = $phone, `email` = '$email', `age` = $age, `genrePref` = '$genrepref', `loyaltyPts` = $loyaltypts, `roles` = $role, `seatPref` = $seatpref WHERE `username` = '$username'");
         return $result;
     }
 
@@ -258,9 +258,15 @@ class testDB{
     }
 
     function retrieveUserDB(){
-        $result = $this->conn->query("SELECT * from `userdb`");
+        $result = $this->conn->query("SELECT * from `userdb` WHERE `roles` = 'Staff' OR `roles` = 'Manager'");
         $row = $result->fetch_all(MYSQLI_BOTH);
         return $row;
+    }
+
+    function addUser($phoneNum,$username,$email,$age,$genre,$loyaltypts,$roles,$seat){
+        $result = $this->conn->query("INSERT INTO `userdb` (`phoneNo`, `username`,`email`, `age`, `genrePref`, `loyaltyPts`, `roles`, `seatPref`) 
+        VALUES (".$phoneNum.",'".$username."' , '".$email."', ".$age.", '".$genre."', ".$loyaltypts.", '".$roles."', '".$seat."');");
+        return $result;
     }
 
 }

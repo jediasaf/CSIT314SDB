@@ -30,6 +30,7 @@ class UserProfile{
                 <th>Email</th>
                 <th>Age</th>
                 <th>Genre Preference</th>
+                <th>Loyalty Points</th>
                 <th>Role</th>
                 <th>Seat Preference</th>
                 <th>Edit User</th>
@@ -52,10 +53,11 @@ class UserProfile{
                     $message = $message.  '<td>'.$row[$i]['email'].'</td>';
                     $message = $message.  '<td>'.$row[$i]['age'].'</td>';
                     $message = $message.  '<td>'.$row[$i]['genrePref'].'</td>';
+                    $message = $message.  '<td>'.$row[$i]['loyaltyPts'].'</td>';
                     $message = $message.  '<td>'.$row[$i]['roles'].'</td>';
                     $message = $message.  '<td>'.$row[$i]['seatPref'].'</td>';
-                    $message = $message. '<td><button class="edit-btn" title="Edit" data-toggle="tooltip"><a href="testEditUserProfile.php">Edit</a></button></td>';
-                    $message = $message. '<td><button class="delete-btn" title="Delete" data-toggle="tooltip"><a href="testEditUserProfile.php?action=delete">Delete</a></button></td>';
+                    $message = $message.  '<td><a href="testEditUserProfile.php?action=edit&username='.$row[$i]['username'].'">Edit</a></td>';
+                    $message = $message.  '<td><a href="testEditUserProfile.php?action=delete&username='.$row[$i]['username'].'">Delete</a></td>';
                     $message = $message.  '</tr>';
                 }
             }

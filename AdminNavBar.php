@@ -77,6 +77,6 @@ li > a:only-child::after {
 <nav>
         <ul>
                 <li><a href="UserProfile.php">Home</a></li>
-				<li><a href="AddProfile.php">Add Profile</a>
+				<li><a href="AddUser.php">Add Profile</a>
             </ul>
         </nav>
