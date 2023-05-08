@@ -169,7 +169,13 @@ class testDB{
         return $row;
     }
     function updateRoomPlan($roomID,$movieID,$rows,$columns,$capacity){
-        $result = $this->conn->query("");
+        $result = $this->conn->query("UPDATE `roomplandb` SET `movieID` = '$movieID',`rows` = '$rows', `columns` = '$columns', `capacity` = '$capacity' WHERE `roomID` = '$roomID'");
+        return $result;
+    }
+
+    function resetRoomPlan($roomID){
+        $result = $this->conn->query("UPDATE `roomplandb` SET `rows`='',`columns`='',`capacity`='',`movieID`='' WHERE `roomID` = '$roomID'");
+        return $result;
     }
 
 

@@ -84,7 +84,12 @@ class controller{
         else if($method == "getRoomPlanFromID"){
             $result = $this->testDB->getRoomPlanFromID($var1);
         }
-
+        else if($method == "updateRoomPlan"){
+            $result = $this->testDB->updateRoomPlan($var1,$var2,$var3,$var4,$var5);
+        }
+        else if($method == "resetRoomPlan"){
+            $result = $this->testDB->resetRoomPlan($var1);
+        }
 
 
 
