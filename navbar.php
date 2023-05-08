@@ -51,7 +51,7 @@ class displayNav{
 						  <div class="user-info"> <img src="Images/user.png" width="50" height="50" alt="" class="user-pic"/>
 							  <h3>';
 							  if(isset($_SESSION['username'])){
-								echo $_SESSION["username"];
+								echo $_SESSION["username"];.
 							  }
 							  else{
 								echo 'Please Log In';

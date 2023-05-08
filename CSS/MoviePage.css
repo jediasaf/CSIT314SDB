@@ -926,22 +926,14 @@ fieldset[disabled] a.btn {
   border-color: #01549b;
 }
 
-footer{
-    position: absolute;
-    bottom: 0 auto;
-	margin: 0 auto;
-	text-align: center;
-    left: 0;
-    right: 0;
-    background: #111;
-    height: auto;
-    width: 100vw;
-    padding-top: 40px;
-    color: #fff;
-	padding-bottom: 50px;
-	font: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif";
+input[type="number"] {
+   
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: 2px solid black;
+    box-sizing: border-box;
 }
-
 footer{
     position: absolute;
     bottom: 0 auto;
@@ -952,7 +944,7 @@ footer{
     background: #111;
     height: auto;
     width: 100vw;
-    padding-top: 40px;
+    padding-top: 20px;
     color: #fff;
 	padding-bottom: 50px;
 	font: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif";

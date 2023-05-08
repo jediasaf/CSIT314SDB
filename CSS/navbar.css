@@ -79,7 +79,7 @@ a {
   height: 60px;
   line-height: 60px;
   width: 100vw;
-  z-index: 10;
+  z-index: 999;
   display: flex;
   position: relative;
 	justify-content: space-between;
@@ -181,7 +181,7 @@ a {
 
 
 .user-info{
-	display: flex;
+	display: inline-flex;
 	align-items: center;
 	
 }
@@ -219,7 +219,9 @@ a {
 }
 .sub-menu h3{
 	padding-left: 10px;
-	margin: 0 auto;
+	display: inline;
+    margin: 0 auto;
+    padding-top: 10px;
 	
 }
 
@@ -232,14 +234,20 @@ a {
 	top: 100%;
 	right: 10%;
 	width: 600px;
-	max-height: 0px;
+	min-height: 700px;
+	max-height: none;
 	overflow: hidden;
 	transition: max-height 0.5s;
+	z-index: 999;
 	
 }
 
+.sub-menu-wrap h3{
+	color: black;
+}
 .sub-menu-wrap.open-menu{
-	max-height: 650px;
+	min-height: 650px;
+	max-height: 800px;
 	
 }
 
