@@ -11,7 +11,9 @@ class EditProfile{
     </style>
     </head>
     <div class="hero">
-    <?php include("navbar.php");?>
+    ';
+    include("navbar.php");
+    echo'
     <body>
       <div class="box-form">
        <form class="edit-form" action="doEditProfile.php" method = "POST">

@@ -113,18 +113,18 @@ class displayNav{
 			 }
 		</script>';
 
-		if(isset($_SESSION['role'])){
-			if($_SESSION['role'] == "Customer"){
-				include ("CUSTOMER/NavBarCustomer.php");
+		if(isset($_SESSION['roles'])){
+			if($_SESSION['roles'] == "Customer"){
+				include ("CustomerNavbar.php");
 			}
-			else if($_SESSION['role'] == "Admin"){
-				include ("ADMIN/NavBarAdmin.php");
+			else if($_SESSION['roles'] == "Admin"){
+				include ("AdminNavBar.php");
 			}
-			else if($_SESSION['role'] == "Manager"){
-				include ("MANAGER/NavBarManager.php");
+			else if($_SESSION['roles'] == "Manager"){
+				include ("ManagerNavbar.php");
 			}
-			else if($_SESSION['role'] == "Staff"){
-				include ("STAFF/NavBarStaff.php");
+			else if($_SESSION['roles'] == "Staff"){
+				include ("StaffNavbar.php");
 			}
 		}
 	}

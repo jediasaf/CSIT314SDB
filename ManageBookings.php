@@ -116,8 +116,8 @@ background:white;
 
 echo'
 </head>';
-#include('navbar.php');
-include ("ManagerNavbar.php");
+include('navbar.php');
+#include ("ManagerNavbar.php");
 
 echo'<body>
 

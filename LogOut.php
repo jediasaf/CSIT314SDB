@@ -5,7 +5,7 @@ session_start();
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Untitled Document</title>
+<title>Log Out</title>
 	<style type="text/css">
 @import url("CSS/LogOut.css");
 </style>
@@ -17,7 +17,7 @@ session_start();
 <body>
 </div>
 <?php 
-echo $_SESSION['username'];
+#echo $_SESSION['username'];
 ?>
 </div>
 <div class="box">

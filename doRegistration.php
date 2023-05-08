@@ -40,7 +40,7 @@ class displayDoRegistration{
     # method names and usage to be found here 
     # https://www.w3schools.com/php/php_ref_mysqli.asp
     
-    
+    include ("navbar.php");
     include "dbFunctions.php";
     $controller = new controller();
     $result = $controller->run("validateRegistration",$username);

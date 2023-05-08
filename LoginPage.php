@@ -3,6 +3,7 @@
 
 class displayLogin{
 	function display(){
+		
 		echo'
 		<!DOCTYPE html>
 		<html lang="en" >

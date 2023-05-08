@@ -93,18 +93,22 @@ class testDB{
         $row = $result -> fetch_all(MYSQLI_BOTH);
         return $row;
     }
+
     function updateBookings($bookingID,$phonenum,$username,$bookingDate,$movieID,$noOfTickets,$isClaimed,$seats){
         $result = $this->conn->query("UPDATE `bookingdb` SET `phoneNo` = '$phonenum' , `username` = '$username' , `bookingDate` = '$bookingDate' , `movieID` = '$movieID' , `noOfTickets` = '$noOfTickets' , `seats` = '$seats' , `isClaimed` = '$isClaimed' WHERE `bookingID` = '$bookingID'");
         return $result;
     }
+
     function deleteBooking($bookingid){
         $result = $this->conn->query("DELETE FROM `bookingdb` WHERE `bookingID` = '$bookingid'");
         return $result;
     }
+
     function confirmDeletion($bookingid){
         $result = $this->conn->query("SELECT * FROM `bookingdb` WHERE `bookingID` = '$bookingid'");
         return $result -> num_rows;
     }
+
     function claimBooking($bookingid){
         $result = $this->conn->query("UPDATE `bookingdb` SET `isClaimed` = 1 WHERE `bookingID` = '$bookingid'");
         $test = $this->conn->query("SELECT `isClaimed` FROM `bookingdb` WHERE `bookingID` = '$bookingid'");
@@ -112,11 +116,13 @@ class testDB{
         $isClaimed = $row[0]['isClaimed'];
         return $isClaimed;
     }
+
     function getAllMovies(){
         $result = $this->conn->query("SELECT * FROM `moviedb`");
         $row = $result -> fetch_all(MYSQLI_BOTH);
         return $row;
     }
+
     function updateMovie($movieID,$movieTitle,$genres,$directorName,$description,$duration,$actor_1_name,$actor_2_name,$actor_3_name,$country,$classificationRating,$yearReleased,$rantings,$trailerLink,$moviePicName,$availability){
         $result = $this->conn->query("UPDATE `moviedb` SET `movieTitle` = '$movieTitle',`genres` = '$genres', `directorName` = '$directorName',
          `description` = '$description', `duration` = '$duration', `actor_1_name` = '$actor_1_name', `actor_2_name` = '$actor_2_name', `actor_3_name` = '$actor_3_name',
@@ -124,6 +130,7 @@ class testDB{
            `moviePicName` = '$moviePicName', `availability` = '$availability' WHERE `movieID` = '$movieID'");
         return $result;
     }
+
     function deleteMovie($movieID){
         $result = $this->conn->query("DELETE FROM `moviedb` WHERE `movieID` = '$movieID'");
         return $result;
@@ -133,10 +140,12 @@ class testDB{
         $result = $this->conn->query("SELECT * FROM `moviedb` WHERE `movieID` = '$movieID'");
         return $result -> num_rows;
     }
+
     function escapeString($string){
         $result = $this->conn->real_escape_string($string);
         return $result;
     }
+
     function addMovie($movieID,$movieTitle,$genres,$directorName,$description,$duration,$actor_1_name,$actor_2_name,$actor_3_name,$country,$classificationRating,
     $yearReleased,$rantings,$trailerLink,$moviePicName,$availability){
         $result = $this->conn->query("INSERT INTO `moviedb`(`movieID`, `movieTitle`, `genres`, `directorName`, `description`, 
@@ -153,10 +162,14 @@ class testDB{
         $row = $result -> fetch_all(MYSQLI_BOTH);
         return $row;
     }
+
     function getRoomPlanFromID($roomID){
         $result = $this->conn->query("SELECT * FROM `roomplandb` WHERE `roomID` = '$roomID'");
         $row = $result -> fetch_all(MYSQLI_BOTH);
         return $row;
+    }
+    function updateRoomPlan($roomID,$movieID,$rows,$columns,$capacity){
+        $result = $this->conn->query("");
     }
 
 

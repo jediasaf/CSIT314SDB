@@ -1,5 +1,5 @@
 <?php
-include ("../CustomerNavbar.php");
+include ("navbar.php");
 ?>
 
 <!DOCTYPE html>

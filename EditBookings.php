@@ -329,7 +329,7 @@ li > a:only-child::after {
 
 <body>';
 
-include ("ManagerNavBar.php");
+include ("navbar.php");
 echo'
 
 		<center>

@@ -3,7 +3,8 @@
 
 class EditShow{
   function display(){
-    include ("ManagerNavbar.php");
+   
+    include ("navbar.php");
     include ("dbFunctions.php");
     $controller = new controller();
     $message = "";
@@ -105,6 +106,7 @@ class EditShow{
         $columns = $_POST['columns'];
         $capacity = $rows * $columns;
         $movieID = $controller -> run("escapeString",$tempmovieID);
+
       }
       else{
         $roomID = $_POST['roomID'];

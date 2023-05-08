@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+include ("navbar.php");
 class changePassword{
 	function display(){
 #echo "<h1>".$_SESSION['username']."</h1>";

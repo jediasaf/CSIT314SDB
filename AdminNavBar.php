@@ -1,5 +1,5 @@
 <?php
-include ("navbar.php");
+#include ("navbar.php");
 ?>
 <html lang="en">
 <head>

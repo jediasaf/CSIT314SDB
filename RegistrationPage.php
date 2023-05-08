@@ -2,6 +2,7 @@
 
 class displayRegistration{
   function display(){
+    
     echo'
     <!doctype html>
     <html>
@@ -28,7 +29,9 @@ class displayRegistration{
     </style>
     <link href="CSS/RegistrationForm.css" rel="stylesheet" type="text/css">
     <!--<link href="RegistrationForm.css" rel="stylesheet" type="text/css">-->
-    </head>
+    </head>';
+    
+echo'
       <body>
         <div class="box-form">
        <form action="doRegistration.php" method="post">

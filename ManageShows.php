@@ -1,8 +1,8 @@
 <?php
 class ManageShows{
     function display(){
-        include ("ManagerNavbar.php");
-include ("dbFunctions.php");
+        include ("navbar.php");
+        include ("dbFunctions.php");
 $controller = new controller();
 
 echo '
