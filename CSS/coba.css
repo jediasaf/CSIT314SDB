@@ -230,7 +230,7 @@ a {
 	max-height: 0px;
 	overflow: hidden;
 	transition: max-height 0.5s;
-	z-index: 999;
+	z-index: 9999;
 	
 }
 
@@ -240,7 +240,7 @@ a {
 .sub-menu-wrap.open-menu{
 	min-height: 650px;
 	max-height: 800px;
-	
+	z-index: 9999;
 }
 
 .sub-menu{
