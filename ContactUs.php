@@ -31,7 +31,7 @@
       </div>
       <div class="right-side">
         <div class="topic-text">Send us a message</div>
-        <p>If you have any enquires or would like to contact us, you can fill up this form.</p>
+        <p class="contactusText">If you have any enquires or would like to contact us, you can fill up this form.</p>
       <form action="#">
         <div class="input-box">
           <input type="text" placeholder="Enter your name">
