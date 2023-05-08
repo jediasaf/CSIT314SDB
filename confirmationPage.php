@@ -106,7 +106,8 @@
     <tr>
         <td style="padding-right:10px">Child - $6 per ticket</td>
         <td><input name="ChildNoTicket" type="number"></td>
-    </tr>    
+    </tr>
+		<tr> <td>Booked Seats :</td> </tr>
 </tbody>
 	  </table>
 	  <table>
