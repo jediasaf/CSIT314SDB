@@ -2,12 +2,47 @@
 class doPayment{
     
     function display(){
+      
+      if(!isset($_SESSION)){
+        session_start();
+      }
 
-        echo'<!doctype html>
+      include('dbFunctions.php');
+      $controller = new controller();
+
+      #store relevent data from order.php to session
+
+      #tickets
+      /*
+      $SESSION['SeniorNoTicket'] = $_POST['SeniorNoTicket'];
+      $SESSION['AdultNoTicket'] = $_POST['AdultNoTicket'];
+      $SESSION['StudentNoTicket'] = $_POST['StudentNoTicket'];
+      $SESSION['ChildNoTicket'] = $_POST['ChildNoTicket'];
+      $SESSION[''] = $_POST['SeniorNoTicket'];
+      $SESSION[''] = $_POST['SeniorNoTicket'];
+      $SESSION[''] = $_POST['SeniorNoTicket'];
+      $SESSION[''] = $_POST['SeniorNoTicket'];
+      # food
+      $foodDetails = $controller -> run('getAvailableFoodDetails');
+      for ($i = 0; $i < count($foodDetails); $i++) {
+        $SESSION[$foodDetails[$i]['foodName']] = $_POST[$foodDetails[$i]['foodName']];
+      }
+      */
+      #seats
+      foreach($_POST as $key => $value) {
+        if (strpos($value, '*') !== false){
+          $string .= $value.',';
+        }
+      }
+      $SESSION['seats'] = $string;
+      $test = $SESSION['seats'];
+
+
+      echo'<!doctype html>
         <html>
         <head>
         <meta charset="UTF-8">
-        <title>confirmation page</title>
+        <title>payment page</title>
         <style type="text/css">
         @import url("CSS/PaymentPage.css");
         </style>
@@ -23,16 +58,14 @@ class doPayment{
                   />
                 </div>
                 <div class="rightside">
-                  <form action="">
+                  <form action="testPaymentPage.php" method"POST">
                     <h1>Check Out</h1>
                     <h2>Payment Information</h2>
                       <p>Thank You, Please bring along your booking ID and or Proof of Payment when you come to the cinema.</p>
-                      <p>Only accept PayNow to 88765790</p>
-                    <p>Booking ID</p>
-                    <input type="text" class="inputbox" name="name" required />
-                    <p>PayNow Name</p>
-                    <input type="text" class="inputbox" name="paynow_number" id="paynow_number" required />
-                      <p>PayNow Number</p>
+                      
+                    <p>Name</p>
+                    <input type="text" class="inputbox" name="paynow_name" id="paynow_name" required />
+                      <p>Number</p>
                     <input type="number" class="inputbox" name="paynow_number" id="paynow_number" required />
         
         
@@ -44,13 +77,10 @@ class doPayment{
                     </select>
         <div class="paymentdate">
         
-                    <p class="paymentdate_text">Payment Date</p>
-                    <input type="date" class="inputbox" name="exp_date" id="exp_date" required />
+
                 </div>
                     <p></p>
-                      <a href="HomePage SDB.php">
                     <button type="submit" class="button">CheckOut</button>
-                          </a>
                   </form>
                 </div>
               </div>
@@ -60,6 +90,11 @@ class doPayment{
         <body>
         </body>
         </html>';
+
+        $number = $_POST['paynow_number'];
+        $name = $_POST['paynow_name'];
+        $paymentType = $_POST['payment_type'];
+        
     }
 }
 

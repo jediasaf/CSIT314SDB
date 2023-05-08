@@ -146,6 +146,8 @@ class controller{
 
 
 
+
+
         #Mayuri
         else if($method == "retrieveUser"){
             $result = $this->testDB->retrieveUser($var1);

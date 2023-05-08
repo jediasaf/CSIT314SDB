@@ -3,6 +3,10 @@
 
         function display(){
 
+          if(!isset($_SESSION)){
+            session_start();
+          }
+
             echo'<!doctype html>
             <html>
             <head>
@@ -26,7 +30,7 @@
                       margin-bottom: 10px;
                     }
                     h2{
-                         color: #88B04B;
+                        color: #88B04B;
                       font-family: "Nunito Sans", "Helvetica Neue", sans-serif;
                       font-weight: 900;
                       font-size: 30px;
@@ -69,8 +73,8 @@
                       <div class="Header">
                           <h3 class="Heading">&nbsp;</h3><h3 class="Heading">&nbsp;</h3><h3 class="Heading">Your Booking</h3>
                           <h5 class="Action">Booking ID: 12345678</h5>
-                       <h5 class="Action">Loyalty Points: 12345678</h5>
-                       <h5 class="Action"> Username: webDesigner</h5>
+                      <h5 class="Action">Loyalty Points: 12345678</h5>
+                      <h5 class="Action"> Username: webDesigner</h5>
                       </div>
             
                       <div class="Cart-Items">
@@ -117,7 +121,7 @@
                         </div>
                         <div class="total-amount">$6.18</div>
                     </div>
-               </div>
+              </div>
                     
                     </div>
                 </body>

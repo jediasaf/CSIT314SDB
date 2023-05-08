@@ -52,17 +52,6 @@ class doOrder{
 
     # get details from fooddb
     $foodDetails = $controller -> run('getAvailableFoodDetails');
-    $foodName1 = $foodDetails[0]['foodName'];
-    $foodName2 = $foodDetails[1]['foodName'];
-    $foodPicName1 = $foodDetails[0]['foodPicName'];
-    $foodPicName2 = $foodDetails[1]['foodPicName'];
-
-    # get booking details
-    $bookingDetails = $controller -> run('getBookingDetails',$username);
-    $bookingID = $bookingDetails[0]['bookingID'];
-    
-
-    #$controller -> run('updateSeatStatus',$roomID,$seatName);
 
     echo'<!doctype html>
     <html>
@@ -74,7 +63,7 @@ class doOrder{
     </style>
     </head>';
     
-    include('navbar.php');
+    #include('navbar.php');
 
     echo'<body>
     <div class="movie-container">
@@ -131,6 +120,7 @@ class doOrder{
     #echo '<h1>'.$row.'</h1>';
     #echo '<h1>'.$cols.'</h1>';
 
+    echo '<form action="testPaymentPage.php" method = "POST">';
     echo '<div>';
     echo '<table>';
     for($r = 1 ; $r <= $row; $r++ ){
@@ -141,7 +131,7 @@ class doOrder{
           echo '<td><img width="50px" height="50px" src="Images/taken.png"><input type="checkbox" name="col'.$c.'row'.$r.'" value="" checked disabled  ></td>';
         } 
         else if($result == 0){
-          echo '<td><img width="50px" height="50px" src="Images/selected.png"><input type="checkbox" name="col'.$c.'row'.$r.'" value="'.$c.' '.$r.'" ></td>';
+          echo '<td><img width="50px" height="50px" src="Images/selected.png"><input type="checkbox" name="col'.$c.'row'.$r.'" value="'.$c.'*'.$r.'" ></td>';
         }
         
       }
@@ -153,123 +143,102 @@ class doOrder{
 
     
     #cleaning
-    echo '<br><br><br><br><br><br><br><br><br><br><br><br><br>';
+    echo '<br><br><br><br>';
 
-
+    #display available food
     echo'</div>
     </body>
 	  <body>
     <h2>food &amp; beverages.</h2>
-		<form>
-		<div class="hero-container">
-		<div class="main-container">
-		<div class="poster-container">';
-		echo'<a href="#"><img src="Images/Combo/'.$foodPicName1.'" class="poster" /></a>';
-		echo'</div>
-		<div class="food-container">
-		<div class="food__content">';
-		echo'<h4 class="food__movie-title">'.$foodName1.'</h4>';
-		echo'<p class="food__movie-slogan">'.$foodName1.'</p>';
-		echo'<p class="food__current-price">$8.00</p>
-		<p class="food__old-price">$14.99</p>
-		<button class="food__buy-btn">Add to Cart</button>
-		</div>
-		</div>
-		</div>
-    <div class="main-container">
-    <div class="poster-container">';
-    echo '<a href="#"><img src="Images/Combo/'.$foodPicName2.'" class="poster" /></a>';
+		<div class="hero-container">';
+    for ($i = 0; $i < count($foodDetails); $i++) {
+      echo'<div class="main-container">
+      <div class="poster-container">';
+      echo'<a href="#"><img src="Images/Combo/'.$foodDetails[$i]['foodPicName'].'" class="poster" /></a>';
+      echo'</div>
+      <div class="food-container">
+      <div class="food__content">';
+      echo'<p class="food__current-price">$8.00</p>';
+      echo'<h4 class="food__movie-title">'.$foodDetails[$i]['foodName'].'</h4>';
+      echo'<p class="food__movie-slogan">'.$foodDetails[$i]['foodName'].'</p>';
+      echo'</div>
+      </div>
+      </div>';
+    }
     echo'</div>
-    <div class="food-container">
-    <div class="food__content">';
-    echo'<h4 class="food__movie-title">'.$foodName2.'</h4>';
-    echo'<p class="food__movie-slogan">'.$foodName2.'</p>';
-    echo'<p class="food__current-price">$10.75</p>
-    <p class="food__old-price">$20.99</p>
-		<button class="food__buy-btn">Add to Cart</button>
-    </div>
-    </div>
-    </div>
-    </div>
-	</form>
     </body>';
 
     echo'
-	<form>
 	<body class="shoppingCart">
-    <div class="CartContainer">
-    <div class="Header">
-    <h3 class="Heading">&nbsp;</h3><h3 class="Heading">&nbsp;</h3><h3 class="Heading">Shopping Cart</h3>';
-    echo'<h5 class="Action">Booking ID: '.$bookingID.'</h5>';
-    echo'<h5 class="Action">Loyalty Points: '.$loyaltyPoints.'</h5>';
-    echo'<h5 class="Action"> Username: '.$username.'</h5>';
-    echo'</div>';
+	<div class="CartContainer">
+   	   <div class="Header">
+   	   	<h3 class="Heading">&nbsp;</h3><h3 class="Heading">&nbsp;</h3><h3 class="Heading">Shopping Cart</h3>
+		   <h5 class="Action">Loyalty Points: '.$loyaltyPoints.'</h5>
+		   <h5 class="Action"> Username: '.$username.'</h5>
+   	   </div>
 
-    echo'<div class="Cart-Items">
-    <div class="image-box">';
-    echo'<img src="Images/MovieImage/'.$moviePicName.'" style={{ height="200px" }} />';
-    echo'</div>
-    <div class="about">';
-    echo'<h1 class="title">'.$movieTitle.'</h1>';
-    echo'<h3 class="subtitle">Child</h3>
-    <h3 class="subtitle">2pm</h3>
-    </div>
-    <div class="counter">
-    <div class="btn">+</div>
-    <div class="count">2</div>
-    <div class="btn">-</div>
-    </div>
-    <div class="prices">
-    <div class="amount">$12.99</div>
-    <div class="save"><u>Use Points (Only If 100 Points Earned)</u></div>
-    <div class="remove"><u>Remove</u></div>
-    </div>
-    </div>';
+   	   <div class="Cart-Items">
 
-    echo'<div class="Cart-Items">
-    <div class="image-box">';
-    echo'<img src="Images/MovieImage/'.$moviePicName.'" style={{ height="200px" }} />';
-    echo'</div>
-    <div class="about">';
-    echo'<h1 class="title">'.$movieTitle.'</h1>';
-    echo'<h3 class="subtitle">Adult</h3>
-    <h3 class="subtitle">2pm</h3>
-    </div>
-    <div class="counter">
-    <div class="btn">+</div>
-    <div class="count">2</div>
-    <div class="btn">-</div>
-    </div>
-    <div class="prices">
-    <div class="amount">$12.99</div>
-    <div class="save"><u>Use Points (Only If 100 Points Earned)</u></div>
-    <div class="remove"><u>Remove</u></div>
-    </div>
-    </div>
-    <hr>';
+<table>
+    <thead>
+    <th class="ticketType">Ticket Type</th>
+    <th style="padding-right:10px" class="numTickets">Number of tickets</th>
+    </thead>
+    <tbody >
+    <tr style="margin-bottom: 5px; margin-top: 10px;">
+        <td style="padding-right:10px">Senior - $6 per ticket</td>
+        <td><input name="SeniorNoTicket" type="number"></td>
+    </tr>
+    <tr>
+        <td style="padding-right:10px">Adult - $12 per ticket</td>
+        <td><input name="AdultNoTicket" type="number"></td>
+    </tr>
+    <tr>
+        <td style="padding-right:10px">Student - $8 per ticket</td>
+        <td><input name="StudentNoTicket" type="number"></td>
+    </tr>
+    <tr>
+        <td style="padding-right:10px">Child - $6 per ticket</td>
+        <td><input name="ChildNoTicket" type="number"></td>
+    </tr>    
+</tbody>
+	  </table>
+	  <table>
+<th  style="padding-right:10px" class="foodType">Food Choice</th>
+<th  class="numTickets">Number of Combos</th>
+	<tbody style="margin-bottom: 5px; margin-top: 10px;">';
 
-    echo'<div class="checkout">
-    <div class="total">
-    <div>
-    <div class="Subtotal">Sub-Total</div>
-    <div class="items">2 items</div>
-    </div>
-    <div class="total-amount">$6.18</div>
-    </div>
-    <a href="PaymentPage.php">
-    <button class="button">Checkout</button></div>
-    </a>
-    </div>
-	
-    </body>
-	<form>
 
-    <footer> 
-    <h3>Software Development Board 2023</h3><br>
-    <p>Pop-Up Cinema in Town</p>
-    </footer>
-    </html>';
+  for ($i = 0; $i < count($foodDetails); $i++) {
+    echo'<tr>';
+    echo'<td>'.$foodDetails[$i]['foodName'].'</td>';
+    echo'<td style="padding-right:10px"><input name="'.$foodDetails[$i]['foodName'].'" type="number"></td>';
+    echo'</tr>';
   }
+	
+
+
+	echo'</tbody>	
+</table>
+	  <table>
+	  <th  class="total">Total :</th>
+	  </table>
+   	<input type="submit" value="Check Out">
+<form>
+	
+   </div>
+	</body>
+	
+	<footer> 
+			<h3>Software Development Board 2023</h3><br>
+			<p>Pop-Up Cinema in Town</p>
+</footer>
+	</html>';
+  }
+
+  #add variables to SESSION
+
+
 }
 
 $doOrder = new doOrder();
