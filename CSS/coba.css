@@ -422,6 +422,11 @@ a {
 	
 	
 }
+
+.synopsis{
+	margin-bottom: 100px;
+}
+
 .content {
             position: relative;
         }
@@ -1052,53 +1057,9 @@ h2{
 	position: absolute;
 	top: 20px;
 	box-shadow: 0 5px 20px 3px rgba(0, 0, 0, 0.6);
-	opacity: 0;
-}
-
-.main-container:hover .movie-detail-container {
 	opacity: 1;
-	animation: bounceIn 0.6s linear;
 }
 
-
-@keyframes bounceIn {
-	0%,
-	20%,
-	40%,
-	60%,
-	80%,
-	to {
-		-webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-		animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-	}
-	0% {
-		opacity: 0;
-		-webkit-transform: scale3d(0.3, 0.3, 0.3);
-		transform: scale3d(0.3, 0.3, 0.3);
-	}
-	20% {
-		-webkit-transform: scale3d(1.03, 1.03, 1.03);
-		transform: scale3d(1.03, 1.03, 1.03);
-	}
-	40% {
-		-webkit-transform: scale3d(0.9, 0.9, 0.9);
-		transform: scale3d(0.9, 0.9, 0.9);
-	}
-	60% {
-		opacity: 1;
-		-webkit-transform: scale3d(1.01, 1.01, 1.01);
-		transform: scale3d(1.01, 1.01, 1.01);
-	}
-	80% {
-		-webkit-transform: scale3d(0.97, 0.97, 0.97);
-		transform: scale3d(0.97, 0.97, 0.97);
-	}
-	to {
-		opacity: 1;
-		-webkit-transform: scaleX(1);
-		transform: scaleX(1);
-	}
-}
 .movie-detail__content {
 	width: 100%;
 	position: absolute;
