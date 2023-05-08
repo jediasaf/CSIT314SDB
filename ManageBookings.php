@@ -117,7 +117,7 @@ echo'<body>
 
 		<center>
         <div id="content">
-		<h2>Manage<span style="color:#F8F8F8;"> Bookings List</span></h2>
+		<h2>Manage Bookings List</h2>
 		</div>
         
         <div class="form">

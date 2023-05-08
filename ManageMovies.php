@@ -28,7 +28,7 @@ class ManageMovies{
         <body>
                 <center>
                 <div id="content">
-                <h2>Manage <span style="color:#F8F8F8;"> All Movies</span></h2>
+                <h2>Manage All Movies</h2>
                 </div>
          
                 <div class="form">

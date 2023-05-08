@@ -2,7 +2,7 @@
 class AboutUs{
 
 	function display(){
-
+		include("navbar.php");
 		echo'
 		<!doctype html>
 		<html>

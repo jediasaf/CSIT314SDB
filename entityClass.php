@@ -137,6 +137,16 @@ class testDB{
         $result = $this->conn->real_escape_string($string);
         return $result;
     }
+    function addMovie($movieID,$movieTitle,$genres,$directorName,$description,$duration,$actor_1_name,$actor_2_name,$actor_3_name,$country,$classificationRating,
+    $yearReleased,$rantings,$trailerLink,$moviePicName,$availability){
+        $result = $this->conn->query("INSERT INTO `moviedb`(`movieID`, `movieTitle`, `genres`, `directorName`, `description`, 
+        `duration`, `actor_1_name`, `actor_2_name`, `actor_3_name`, `country`, `classificationRating`, `yearReleased`, `rantings`, 
+        `trailerLink`, `moviePicName`, `availability`) 
+        VALUES ('$movieID','$movieTitle','$genres','$directorName','$description','$duration','$actor_1_name','$actor_2_name','$actor_3_name','$country',
+        '$classificationRating','$yearReleased','$rantings','$trailerLink','$moviePicName','$availability')
+        ");
+        return $result;
+    }
 
 
 

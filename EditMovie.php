@@ -9,7 +9,8 @@ class EditMovie{
     if($_SERVER['REQUEST_METHOD'] === 'GET'){
       $movieid = $_GET['movieid'];
       if($_GET['action'] == "edit"){
-        $result = $controller->run("getMovieFromID",$movieid);
+        $changedmovieID = $controller->run("escapeString",$movieid);
+        $result = $controller->run("getMovieFromID",$changedmovieID);
         $message = '<form action="?" method="POST" class="contact-form">
           <div class="col-sm-5">
             <div class="input-block">
@@ -136,13 +137,14 @@ class EditMovie{
 
 
       else if($_GET['action'] == "delete"){
-        $result = $controller->run("getMovieFromID",$movieid);
+        $changedmovieID = $controller->run("escapeString",$movieid);
+        $result = $controller->run("getMovieFromID",$changedmovieID);
         $message =  '<form action="?" method="POST">';
         $message = $message.'<h4 style="text-align: left; white-space: pre;">Movie ID                     : '.$result[0]['movieID'].'</h4>';
         $message = $message.'<h4 style="text-align: left; white-space: pre;">Movie Title                 : '.$result[0]['movieTitle'].'</h4>';
         $message = $message.'<h4 style="text-align: left; white-space: pre;">Genre                        : '.$result[0]['genres'].'</h4>';
         $message = $message.'<h4 style="text-align: left; white-space: pre;">Director Name           : '.$result[0]['directorName'].'</h4>';
-        $message = $message.'<h4 style="text-align: left; white-space: pre;">Description                : '.$result[0]['description'].'</h4>';
+        $message = $message.'<h4 style="text-align: left; white-space: pre;" width=700>Description                : '.$result[0]['description'].'</h4>';
         $message = $message.'<h4 style="text-align: left; white-space: pre;">Duration                    : '.$result[0]['duration'].'</h4>';
         $message = $message.'<h4 style="text-align: left; white-space: pre;">Actor 1                      : '.$result[0]['actor_1_name'].'</h4>';
         $message = $message.'<h4 style="text-align: left; white-space: pre;">Actor 2                      : '.$result[0]['actor_2_name'].'</h4>';
@@ -193,10 +195,21 @@ class EditMovie{
         $moviePicName = $_POST['moviePicName'];
         $availability = $_POST['availability'];
 
-        $changeddescription = $controller->run("escapeString",$description);
 
-        $result = $controller->run("updateMovie",$movieID,$movieTitle,$genres,$directorName,$changeddescription,$duration,$actor_1_name,$actor_2_name,$actor_3_name,$country,
-        $classificationRating,$yearReleased,$rantings,$trailerLink,$moviePicName,$availability);
+        
+        $changeddescription = $controller->run("escapeString",$description);
+        $changedmovieID = $controller->run("escapeString",$movieID);
+        $changedmovieTitle = $controller->run("escapeString",$movieTitle);
+        $changedmoviePicName = $controller->run("escapeString",$moviePicName);
+
+        /*
+        echo '<h1>'.$changeddescription.'</h1>';
+        echo '<h1>'.$changedmovieID.'</h1>';
+        echo '<h1>'.$changedmovieTitle.'</h1>';
+        */
+
+        $result = $controller->run("updateMovie",$changedmovieID,$changedmovieTitle,$genres,$directorName,$changeddescription,$duration,$actor_1_name,$actor_2_name,$actor_3_name,$country,
+        $classificationRating,$yearReleased,$rantings,$trailerLink,$changedmoviePicName,$availability);
 
         if($result){
           /*
@@ -219,8 +232,8 @@ class EditMovie{
           $availability .'<br></h1>';*/
 
 
-
-          $check = $controller -> run("getMovieFromID",$movieID);
+          echo '<h1>'.$changedmovieID.'</h1>';
+          $check = $controller -> run("getMovieFromID",$changedmovieID);
           if($check[0]['movieID'] == $movieID && $check[0]['movieTitle'] == $movieTitle && $check[0]['genres'] == $genres && $check[0]['directorName'] == $directorName && 
           $check[0]['description'] == $description && $check[0]['duration'] == $duration && $check[0]['actor_1_name'] == $actor_1_name && $check[0]['actor_2_name'] == $actor_2_name && 
           $check[0]['actor_3_name'] == $actor_3_name && $check[0]['country'] == $country && $check[0]['classificationRating'] == $classificationRating && 
@@ -243,10 +256,13 @@ class EditMovie{
 
 
       else if($_POST['submit'] == "delete"){
+
         $movieID = $_POST['movieID'];
-        $result = $controller->run("deleteMovie",$movieID);
+        $changedmovieID = $controller->run("escapeString",$movieID);
+
+        $result = $controller->run("deleteMovie",$changedmovieID);
         if($result){
-          $check = $controller->run("confirmMovieDeletion",$movieID);
+          $check = $controller->run("confirmMovieDeletion",$changedmovieID);
           if($check == 0){
             $message = 'Delete Successful';
           }
