@@ -32,7 +32,8 @@ class UserProfile{
                 <th>Genre Preference</th>
                 <th>Role</th>
                 <th>Seat Preference</th>
-                <th>Actions</th>
+                <th>Edit User</th>
+                <th>Delete User</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -53,10 +54,8 @@ class UserProfile{
                     $message = $message.  '<td>'.$row[$i]['genrePref'].'</td>';
                     $message = $message.  '<td>'.$row[$i]['roles'].'</td>';
                     $message = $message.  '<td>'.$row[$i]['seatPref'].'</td>';
-                    
-                    $message = $message. '<td><button class="edit-btn" title="Edit" data-toggle="tooltip" href="EditUserProfile.php?action=edit">Edit</button>
-                    <button class="delete-btn" title="Delete" data-toggle="tooltip" href="EditUserProfile.php?action=delete">Delete</button></td>';
-                
+                    $message = $message. '<td><button class="edit-btn" title="Edit" data-toggle="tooltip"><a href="testEditUserProfile.php">Edit</a></button></td>';
+                    $message = $message. '<td><button class="delete-btn" title="Delete" data-toggle="tooltip"><a href="testEditUserProfile.php?action=delete">Delete</a></button></td>';
                     $message = $message.  '</tr>';
                 }
             }
