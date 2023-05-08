@@ -83,8 +83,10 @@
 
    	   <div class="Cart-Items">
   <form>
+	  <h4 class="MovieSelected">Movie Selected :</h4>
 <table>
     <thead>
+	
     <th class="ticketType">Ticket Type</th>
     <th style="padding-right:10px" class="numTickets">Number of tickets</th>
     </thead>
