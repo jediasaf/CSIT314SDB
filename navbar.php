@@ -110,18 +110,7 @@ class displayNav{
 			
 			function toggleMenu(){
 				subMenu.classList.toggle("open-menu");
-			 	document.addEventListener("click", closeMenu);
 			 }
-
-	function closeMenu(event) {
-  	// Check if the clicked element is outside of the subMenu
-  	if (!subMenu.contains(event.target)) {
-    	subMenu.classList.remove("open-menu");
-    
-    // Remove event listener from document object
-    document.removeEventListener("click", closeMenu);
-  	}
-  }
 		</script>';
 
 		if(isset($_SESSION['role'])){
