@@ -11,7 +11,7 @@ class displayManageBookings{
 
         }
         
-            if($_SESSION['roles'] == "Manager"){
+            if($_SESSION['roles'] == "Manager" || $_SESSION['roles'] == "Staff" ){
                 $message = '
                 <thead>
                 <div>Status Codes:<br>

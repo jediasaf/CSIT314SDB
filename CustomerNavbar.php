@@ -77,6 +77,7 @@ li > a:only-child::after {
 <body>
 <nav>
         <ul>
-				<li><a href="MyBookings.php">My Bookings</a>
+				<li><a href="MyBookings.php">My Bookings</a></li>
+                <li><a href="MoviePage.php#feedback">Submit Cinema Review</a></li>
             </ul>
         </nav>

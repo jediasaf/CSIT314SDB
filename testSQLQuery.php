@@ -218,7 +218,7 @@ $username = "bread";
 $validatePasswordChange = $controller -> run("validatePasswordChange",$username);
 echo $validatePasswordChange[0]['hashedPassw'];*/
 
-
+/*
 $controller = new controller ();
 $bookingid = 1;
 $result = $controller -> run("getBookingFromID",$bookingid);
@@ -246,4 +246,60 @@ for($i = 0; $i < sizeof($movie);$i++){
     echo $movie[$i]['movieID'];
     echo '</option>';
   }
-?>
+
+
+  
+
+
+  #seating plan goes here
+  $roomID = 1;
+  $row = 5;
+  $cols = 5;
+  echo '<div>';
+  echo '<h1>hello</h1>';
+  echo '<h1>'.$row.'</h1>';
+  echo '<h1>'.$cols.'</h1>';
+  echo '<tbody>';
+  for($r = 1 ; $r <= $row; $r++ ){
+    echo '<tr>';
+    for($c = 1 ; $c <= $cols; $c++){
+      $result = $controller -> run("getSeatStatus",$roomID,$r,$c);
+      if($result == 1){
+        echo '<td><input type="checkbox" name="col'.$c.'row'.$r.'" value="'.$c.' '.$r.'" checked readonly></td>';
+      } 
+      else if($result == 0){
+        echo '<td><input type="checkbox" name="col'.$c.'row'.$r.'" value="'.$c.' '.$r.'" ></td>';
+      }
+      
+    }
+    echo '</tr>';
+  }
+  echo '</tbody>';
+  echo '</div>';
+
+  echo '<br><br><br><br><br><br><br><br><br><br><br><br><br>';
+
+  echo '<div>';
+  echo '<h1>hello</h1>';
+  echo '<h1>'.$row.'</h1>';
+  echo '<h1>'.$cols.'</h1>';
+  echo '<table>';
+  for($r = 1 ; $r <= $row; $r++ ){
+    echo '<tr>';
+    for($c = 1 ; $c <= $cols; $c++){
+      $result = $controller -> run("getSeatStatus",$roomID,$r,$c);
+      if($result == 1){
+        echo '<td>1</td>';
+      } 
+      else if($result == 0){
+        echo '<td>0</td>';
+      }
+      
+    }
+    echo '</tr>';
+  }
+  echo '</table>';
+  echo '</div>';
+*/
+
+  ?>

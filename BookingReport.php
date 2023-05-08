@@ -25,7 +25,7 @@ include ("navbar.php");
 
 		<center>
         <div id="content">
-		<h2>Booking <span style="color:#F8F8F8;"> Reports</span></h2>
+		<h2>Booking Reports</h2>
 		</div>
  
         <div class="form">
