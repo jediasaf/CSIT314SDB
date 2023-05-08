@@ -107,9 +107,43 @@ class EditShow{
         $capacity = $rows * $columns;
         $movieID = $controller -> run("escapeString",$tempmovieID);
 
+        $result = $controller -> run("updateRoomPlan",$roomID,$movieID,$rows,$columns,$capacity);
+        if($result){
+          $check = $controller -> run("getRoomPlanFromID",$roomID);
+
+          if($check[0]['movieID'] == $movieID && $check[0]['rows'] == $rows && $check[0]['columns'] == $columns && $check[0]['capacity'] == $capacity){
+            $message = $message.'Update successful';
+          }
+          else{
+            $message = $message.'Update failed';
+          }
+        }
+        else{
+          $message = $message.'Query unsuccessful';
+
+        }
+        
+
+
       }
       else{
         $roomID = $_POST['roomID'];
+        $result = $controller -> run("resetRoomPlan",$roomID);
+
+        if($result){
+          $check = $controller -> run("getRoomPlanFromID",$roomID);
+
+          if($check[0]['movieID'] == '' && $check[0]['rows'] == '0' && $check[0]['columns'] == '0' && $check[0]['capacity'] == '0'){
+            $message = $message.'Reset successful';
+          }
+          else{
+            $message = $message.'Reset failed';
+          }
+        }
+        else{
+          $message = $message.'Query unsuccessful';
+        }
+        
       }
 
       
