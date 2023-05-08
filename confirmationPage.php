@@ -47,19 +47,6 @@
         display: inline-block;
         margin: 0 auto;
       }
-	
-	input[type="number"]{
-		border: 3px solid #ccc;
-	}
-	
-	table{
-		margin-bottom: 20px;
-	}
-	
-	table th{
-		font-weight: bold;
-		font-size: larger;
-	}
     </style>
     <body>
       <div class="card">
@@ -72,72 +59,108 @@
       </div>
 		
 		<div class="confirmationtable">
-				<body class="shoppingCart">
-	<div class="CartContainer">
+			<body class="shoppingCart">
+	<div style="max-height: none" class="CartContainer">
    	   <div class="Header">
-   	   	<h3 class="Heading">&nbsp;</h3><h3 class="Heading">&nbsp;</h3><h3 class="Heading">Confirmation Cart</h3>
+   	   	<h3 class="Heading">&nbsp;</h3><h3 class="Heading">&nbsp;</h3><h3 class="Heading">Your Booking</h3>
    	   	<h5 class="Action">Booking ID: 12345678</h5>
 		   <h5 class="Action">Loyalty Points: 12345678</h5>
 		   <h5 class="Action"> Username: webDesigner</h5>
    	   </div>
 
+		 <div class="image-box">
+   	   	  	<img margin-bottom="10px" src="Images/MovieImage/AWhiskerAway2020.png" style={{ height="200px" }} />
+   	   	  </div>
    	   <div class="Cart-Items">
-  <form>
-	  <h4 class="MovieSelected">Movie Selected :</h4>
-<table>
-    <thead>
-	
-    <th class="ticketType">Ticket Type</th>
-    <th style="padding-right:10px" class="numTickets">Number of tickets</th>
-    </thead>
-    <tbody >
-    <tr style="margin-bottom: 5px; margin-top: 10px;">
-        <td style="padding-right:10px">Senior - $6 per ticket</td>
-        <td><input name="SeniorNoTicket" type="number"></td>
-    </tr>
-    <tr>
-        <td style="padding-right:10px">Adult - $12 per ticket</td>
-        <td><input name="AdultNoTicket" type="number"></td>
-    </tr>
-    <tr>
-        <td style="padding-right:10px">Student - $8 per ticket</td>
-        <td><input name="StudentNoTicket" type="number"></td>
-    </tr>
-    <tr>
-        <td style="padding-right:10px">Child - $6 per ticket</td>
-        <td><input name="ChildNoTicket" type="number"></td>
-    </tr>
-		<tr> <td>Booked Seats :</td> </tr>
-</tbody>
-	  </table>
-	  <table>
-<th  style="padding-right:10px" class="foodType">Food Choice</th>
-<th  class="numTickets">Number of Combos</th>
-	<tbody style="margin-bottom: 5px; margin-top: 10px;">
-	<tr> 
-        <td>Burger Combo</td>
-        <td style="padding-right:10px"><input name="BCFoodNo" type="number"></td>
-    </tr>
-    <tr>
-        <td>Fries Combo</td>
-        <td style="padding-right:10px"><input name="FCFoodNo" type="number"></td>
-    </tr>
-	
-	</tbody>	
-</table>
-	  <table>
-	  <th  class="total">Total :</th>
-	  </table>
+   	   	  	<div class="about">
+   	   	  	<h1 class="title">A Whisker Away</h1>
+   	   	  	<h3 class="subtitle">Child</h3>
+			<h3 class="subtitle">2pm</h3>
+   	   	  </div>
+   	   	  <div class="counter">
+   	   	  	<div class="count">2</div>
+   	   	  </div>
+   	   	  <div class="prices">
+   	   	  	<div class="amount">$12.99</div>
+   	   	  	<div class="save"><u>Points has been used</u></div>
+   	   	  </div>
+   	   </div>
+
+   	   <div class="Cart-Items">
+   	   	  <div class="about">
+   	   	  	<h1 class="title">A Whisker Away</h1>
+   	   	  	<h3 class="subtitle">Adult</h3>
+			<h3 class="subtitle">2pm</h3>
+   	   	  </div>
+   	   	  <div class="counter">
+   	   	  	<div class="count">2</div>
+   	   	  </div>
+   	   	  <div class="prices">
+   	   	  	<div class="amount">$12.99</div>
+   	   	  	<div style="color: firebrick;" class="save"><u>No points has been used</u></div>
+   	   	  </div>
+   	   </div>
+		
+	 <div class="Cart-Items">
+   	   	  <div class="about">
+   	   	  	<h1 class="title">A Whisker Away</h1>
+   	   	  	<h3 class="subtitle">Senior</h3>
+			<h3 class="subtitle">2pm</h3>
+   	   	  </div>
+   	   	  <div class="counter">
+   	   	  	<div class="count">2</div>
+   	   	  </div>
+   	   	  <div class="prices">
+   	   	  	<div class="amount">$12.99</div>
+   	   	  	<div style="color: firebrick;" class="save"><u>No points has been used</u></div>
+   	   	  </div>
+   	   </div>
+		 <div class="Cart-Items">
+   	   	  <div class="about">
+   	   	  	<h1 class="title">A Whisker Away</h1>
+   	   	  	<h3 class="subtitle">Student</h3>
+			<h3 class="subtitle">2pm</h3>
+   	   	  </div>
+   	   	  <div class="counter">
+   	   	  	<div class="count">2</div>
+   	   	  </div>
+   	   	  <div class="prices">
+   	   	  	<div class="amount">$12.99</div>
+   	   	  	<div style="color: firebrick;"class="save"><u>No points has been used</u></div>
+   	   	  </div>
+			
+   	   </div>
+		<h4 style="text-align: center; margin-bottom: 10px;">Booked Seats Number : </h4>
+		 <hr>
+		<h5 style="text-align: center; margin-bottom: 10px;">food and beverages</h5>
+		 <div class="Cart-Items">
+   	   	  <div class="about">
+   	   	  	<h1 class="title">Burger Combo</h1>
+   	   	  </div>
+   	   	  <div class="counter">
+   	   	  	<div style="margin-left: 45px;" class="count">2</div>
+   	   	  </div>
+   	   	  <div class="prices">
+   	   	  	<div class="amount">$12.99</div>
+   	   	  </div>
+			
+   	   </div>
+		 <div class="Cart-Items">
+   	   	  <div class="about">
+   	   	  	<h1 class="title">Fries Combo</h1>
+   	   	  </div>
+   	   	  <div class="counter">
+   	   	  	<div style="margin-left: 45px;" class="count">2</div>
+   	   	  </div>
+   	   	  <div class="prices">
+   	   	  	<div class="amount">$12.99</div>
+   	   	  </div>
+			
+   	   </div>
+		<h1 style="color:black;" class="total">Total :</h1>
 	  <a href="PaymentPage.php">
    	 <button class="button">Checkout</button>
 		 </a>
-<form>
-	
-   </div>
-	</body>
-	
-		
-		</div>
     </body>
 </html>
 <body>
