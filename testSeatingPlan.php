@@ -127,31 +127,35 @@ class doOrder{
     </div>';
 
     #seating plan goes here
+    #echo '<h1>hello</h1>';
+    #echo '<h1>'.$row.'</h1>';
+    #echo '<h1>'.$cols.'</h1>';
+
     echo '<div>';
-    echo '<h1>hello</h1>';
-    echo '<h1>'.$row.'</h1>';
-    echo '<h1>'.$cols.'</h1>';
     echo '<table>';
     for($r = 1 ; $r <= $row; $r++ ){
       echo '<tr>';
       for($c = 1 ; $c <= $cols; $c++){
         $result = $controller -> run("getSeatStatus",$roomID,$r,$c);
         if($result == 1){
-          echo '<td><input type="checkbox" name="col'.$c.'row'.$r.'" value="'.$c.' '.$r.'" checked readonly></td>';
+          echo '<td><img width="50px" height="50px" src="Images/taken.png"><input type="checkbox" name="col'.$c.'row'.$r.'" value="" checked disabled  ></td>';
         } 
         else if($result == 0){
-          echo '<td><input type="checkbox" name="col'.$c.'row'.$r.'" value="'.$c.' '.$r.'" ></td>';
+          echo '<td><img width="50px" height="50px" src="Images/selected.png"><input type="checkbox" name="col'.$c.'row'.$r.'" value="'.$c.' '.$r.'" ></td>';
         }
         
       }
       echo '</tr>';
     }
     echo '</table>';
+    echo '<h2>SCREEN</h2>';
     echo '</div>';
 
     
     #cleaning
     echo '<br><br><br><br><br><br><br><br><br><br><br><br><br>';
+
+
     echo'</div>
     </body>
 	  <body>
