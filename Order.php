@@ -7,6 +7,18 @@
 <style type="text/css">
 @import url("CSS/coba.css");
 	
+	input[type="number"]{
+		border: 3px solid #ccc;
+	}
+	
+	table{
+		margin-bottom: 20px;
+	}
+	
+	table th{
+		font-weight: bold;
+		font-size: larger;
+	}
 </style>
 	
 
@@ -202,27 +214,45 @@
 <table>
     <thead>
     <th class="ticketType">Ticket Type</th>
-    <th class="numTickets">Number of tickets</th>
+    <th style="padding-right:10px" class="numTickets">Number of tickets</th>
     </thead>
-    <tbody>
-    <tr>
-        <td>Senior - $6 per ticket</td>
+    <tbody >
+    <tr style="margin-bottom: 5px; margin-top: 10px;">
+        <td style="padding-right:10px">Senior - $6 per ticket</td>
         <td><input name="SeniorNoTicket" type="number"></td>
     </tr>
     <tr>
-        <td>Adult - $12 per ticket</td>
+        <td style="padding-right:10px">Adult - $12 per ticket</td>
         <td><input name="AdultNoTicket" type="number"></td>
     </tr>
     <tr>
-        <td>Student - $8 per ticket</td>
+        <td style="padding-right:10px">Student - $8 per ticket</td>
         <td><input name="StudentNoTicket" type="number"></td>
     </tr>
     <tr>
-        <td>Child - $6 per ticket</td>
+        <td style="padding-right:10px">Child - $6 per ticket</td>
         <td><input name="ChildNoTicket" type="number"></td>
     </tr>    
 </tbody>
+	  </table>
+	  <table>
+<th  style="padding-right:10px" class="foodType">Food Choice</th>
+<th  class="numTickets">Number of Combos</th>
+	<tbody style="margin-bottom: 5px; margin-top: 10px;">
+	<tr> 
+        <td>Burger Combo</td>
+        <td style="padding-right:10px"><input name="BCFoodNo" type="number"></td>
+    </tr>
+    <tr>
+        <td>Fries Combo</td>
+        <td style="padding-right:10px"><input name="FCFoodNo" type="number"></td>
+    </tr>
+	
+	</tbody>	
 </table>
+	  <table>
+	  <th  class="total">Total :</th>
+	  </table>
 	  <a href="PaymentPage.php">
    	 <button class="button">Checkout</button>
 		 </a>
