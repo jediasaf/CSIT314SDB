@@ -207,7 +207,8 @@ class testDB{
 
     function retrieveUserDB(){
         $result = $this->conn->query("SELECT * from `userdb`");
-        return $result;
+        $row = $result->fetch_all(MYSQLI_BOTH);
+        return $row;
     }
 
 }

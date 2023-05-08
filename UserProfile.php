@@ -1,6 +1,6 @@
 
 <?php
-include ("../AdminNavBar.php");
+include ("AdminNavBar.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
