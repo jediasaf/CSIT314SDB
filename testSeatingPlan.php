@@ -11,7 +11,8 @@ class doOrder{
     #$loyaltyPoints = $_SESSION['loyaltyPoints'];
     #$username = $_SESSION['username'];
     $loyaltyPoints = 100;
-    $username = 'acalafato1x';
+    # $username = 'acalafato1x';
+    $username = 'cmelato28';
     
     #$movieID = $_GET['name'];
     $movieID = 'Belle2021';
@@ -126,8 +127,31 @@ class doOrder{
     </div>';
 
     #seating plan goes here
+    echo '<div>';
+    echo '<h1>hello</h1>';
+    echo '<h1>'.$row.'</h1>';
+    echo '<h1>'.$cols.'</h1>';
+    echo '<table>';
+    for($r = 1 ; $r <= $row; $r++ ){
+      echo '<tr>';
+      for($c = 1 ; $c <= $cols; $c++){
+        $result = $controller -> run("getSeatStatus",$roomID,$r,$c);
+        if($result == 1){
+          echo '<td><input type="checkbox" name="col'.$c.'row'.$r.'" value="'.$c.' '.$r.'" checked readonly></td>';
+        } 
+        else if($result == 0){
+          echo '<td><input type="checkbox" name="col'.$c.'row'.$r.'" value="'.$c.' '.$r.'" ></td>';
+        }
+        
+      }
+      echo '</tr>';
+    }
+    echo '</table>';
+    echo '</div>';
 
-
+    
+    #cleaning
+    echo '<br><br><br><br><br><br><br><br><br><br><br><br><br>';
     echo'</div>
     </body>
 	  <body>
