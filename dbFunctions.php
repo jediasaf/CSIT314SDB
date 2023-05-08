@@ -96,6 +96,12 @@ class controller{
         else if($method == "getBookingFromUsername"){
             $result = $this->testDB->getBookingFromUsername($var1);
         }
+        else if($method == "updatePref"){
+            $result = $this->testDB->updatePref($var1,$var2,$var3);
+        }
+        else if($method == "getPref"){
+            $result = $this->testDB->getPref($var1);
+        }
         
 
 
@@ -123,6 +129,9 @@ class controller{
         }
         else if($method == "getBookingDetails"){
             $result = $this->testDB->getBookingDetails($var1);
+        }
+        else if($method == "getSeatStatus"){
+            $result = $this->testDB->getSeatStatus($var1,$var2,$var3);
         }
 
 

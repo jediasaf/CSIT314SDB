@@ -190,6 +190,17 @@ class testDB{
         return $row;
     }
 
+    function updatePref($username,$genrePref,$seatPref){
+        $result = $this->conn->query("UPDATE `userdb` SET `genrePref` = '$genrePref', `seatPref` = '$seatPref' WHERE `username` = '$username'");
+        return $result;
+    }
+
+    function getPref($username){
+        $result = $this->conn->query("SELECT `genrePref`, `seatPref` FROM `userdb` WHERE `username` = '$username'");
+        $row = $result -> fetch_all(MYSQLI_BOTH);
+        return $row;
+    }
+
 
 
 
@@ -233,6 +244,17 @@ class testDB{
         $row = $result->fetch_all(MYSQLI_BOTH);
         return $row;
     }
+
+    function getSeatStatus($roomID,$rows,$columns){
+        $result = $this->conn->query("SELECT `status` FROM `roomspecification$roomID` WHERE `rows` = '$rows' AND `columns` = '$columns'");
+        $row = $result->fetch_all(MYSQLI_BOTH);
+        $status = $row[0]['status'];
+        return $status;
+    }
+
+
+
+
 
 
     # Mayuri
