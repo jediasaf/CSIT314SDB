@@ -18,7 +18,7 @@ class displayNav{
 	<div class="hero">
 		  <nav id="navbar" class=""> 
 			<div class="logo">
-			<a href="#HomePage">
+			<a href="HomePage SDB.php">
 			<img width= "50px" height="auto" src="Images/D.png"/>
 			</a>
 			</div>
@@ -32,7 +32,7 @@ class displayNav{
 			  <div class="searchbar">
 			<form action="MoviePage.php" class="search-bar">
 				<input type="text" placeholder="Search Movie" name="name">
-				<button type="submit"><img width="15px" height="15px" src="Images/search.png"width="10px" height="10px"></button>
+				<input type="submit" value="Search">
 					
 			</form>
 			</div>';
@@ -50,7 +50,7 @@ class displayNav{
 						  <div class="user-info"> <img src="Images/user.png" width="50" height="50" alt="" class="user-pic"/>
 							  <h3>';
 							  if(isset($_SESSION['username'])){
-								echo $_SESSION["username"];.
+								echo $_SESSION["username"];
 							  }
 							  else{
 								echo 'Please Log In';
