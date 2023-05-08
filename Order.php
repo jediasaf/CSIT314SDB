@@ -220,21 +220,27 @@
     <tr style="margin-bottom: 5px; margin-top: 10px;">
         <td style="padding-right:10px">Senior - $6 per ticket</td>
         <td><input name="SeniorNoTicket" type="number"></td>
+		
     </tr>
     <tr>
         <td style="padding-right:10px">Adult - $12 per ticket</td>
         <td><input name="AdultNoTicket" type="number"></td>
+		
     </tr>
     <tr>
         <td style="padding-right:10px">Student - $8 per ticket</td>
         <td><input name="StudentNoTicket" type="number"></td>
+		
     </tr>
     <tr>
         <td style="padding-right:10px">Child - $6 per ticket</td>
         <td><input name="ChildNoTicket" type="number"></td>
-    </tr>    
+		
+    </tr> 
+		
 </tbody>
 	  </table>
+	  <div class="save"><u>Use points for 1 ticket per order</u></div>
 	  <table>
 <th  style="padding-right:10px" class="foodType">Food Choice</th>
 <th  class="numTickets">Number of Combos</th>
@@ -250,6 +256,7 @@
 	
 	</tbody>	
 </table>
+	  
 	  <table>
 	  <th  class="total">Total :</th>
 	  </table>
