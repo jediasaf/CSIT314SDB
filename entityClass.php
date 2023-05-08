@@ -208,8 +208,8 @@ class testDB{
     }
     
     function getAllFood(){
-        $result = $this->conn->query("SELECT * FROM `foobdb`");
-        $row = $result -> fetch_all(MYSQL_BOTH);
+        $result = $this->conn->query("SELECT * FROM `fooddb`");
+        $row = $result -> fetch_all(MYSQLI_BOTH);
         return $row;
     }
 

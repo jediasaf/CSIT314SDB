@@ -5,7 +5,15 @@ class EditFood{
     include ("navbar.php");
     include ("dbFunctions.php");
     $controller = new controller();
-    
+    if($_SERVER['REQUEST_METHOD'] === 'GET'){
+
+    }
+
+    if($_GET['action'] == "edit"){
+
+
+    }
+
     echo '
     
     ';

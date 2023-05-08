@@ -1,8 +1,13 @@
 <?php
-include ("navbar.php");
-?>
 
-<!DOCTYPE html>
+class ManageFood{
+  function display(){
+    include ("navbar.php");
+    include ("dbFunctions.php");
+    $controller = new controller();
+    $row = $controller -> run("getAllFood");
+    echo '
+    <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -49,17 +54,25 @@ include ("navbar.php");
 <th>Actions</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>
-<button class="edit-btn" title="Edit" data-toggle="tooltip">Edit</button>
-<button class="delete-btn" title="Delete" data-toggle="tooltip">Delete</button>
-</td>
-</tr>
+<tbody>';
+
+
+for($i = 0; $i < sizeof($row); $i ++){
+    echo'
+    <tr>
+    <td>'.$row[$i]['foodName'].'</td>
+    <td>'.$row[$i]['quantity'].'</td>
+    <td>'.$row[$i]['foodPicName'].'</td>
+    <td>'.$row[$i]['status'].'</td>
+    <td>
+    <a href="EditFood.php?action=edit&foodName='.$row[$i]['foodName'].'">Edit</a>
+    <a href="EditFood.php?action=delete&foodName='.$row[$i]['foodName'].'">Delete</a>
+    </td>
+    </tr>';
+}
+
+
+echo'
 
 </tbody>
 </table>
@@ -67,3 +80,13 @@ include ("navbar.php");
 </div>
 </body>
 </html> 
+
+    ';
+  }
+}
+
+
+$display = new ManageFood();
+$display -> display();
+?>
+
