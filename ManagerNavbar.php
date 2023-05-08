@@ -93,6 +93,5 @@ li > a:only-child::after {
                     <li><a href="AddShow.php">Add Show</a></li>
                 </ul>
 				<li><a href="BookingReport.php">Reports</a>
-                <li><a href="CP.php">Change Password</a></li>
             </ul>
         </nav>
