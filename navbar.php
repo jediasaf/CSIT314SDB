@@ -32,7 +32,7 @@ class displayNav{
 			  <div class="searchbar">
 			<form action="MoviePage.php" class="search-bar">
 				<input type="text" placeholder="Search Movie" name="name">
-				<button type="submit"><img align-   width="15px" height="15px" src="Images/search.png"width="10px" height="10px"></button>
+				<button type="submit"><img width="15px" height="15px" src="Images/search.png"width="10px" height="10px"></button>
 					
 			</form>
 			</div>';
