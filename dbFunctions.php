@@ -90,6 +90,13 @@ class controller{
         else if($method == "resetRoomPlan"){
             $result = $this->testDB->resetRoomPlan($var1);
         }
+        else if($method == "getMovieTitleFromID"){
+            $result = $this->testDB->getMovieTitleFromID($var1);
+        }
+        else if($method == "getBookingFromUsername"){
+            $result = $this->testDB->getBookingFromUsername($var1);
+        }
+        
 
 
 

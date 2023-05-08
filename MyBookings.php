@@ -1,8 +1,12 @@
 <?php
-include ("navbar.php");
-?>
-
-<!DOCTYPE html>
+class MyBookings{
+    function display(){
+        include ("navbar.php");
+        include ("dbFunctions.php");
+        $controller = new controller();
+        echo '
+        
+        <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -24,7 +28,7 @@ include ("navbar.php");
 <body>
 		<center>
         <div id="content">
-		<h2>My <span style="color:#F8F8F8;"> Bookings</span></h2>
+		<h2>My Bookings</h2>
 		</div>
  
         <div class="form">
@@ -37,22 +41,42 @@ include ("navbar.php");
 <th>Booking Date</th>
 <th>Movie ID</th>
 <th>No.Of Tickets</th>
-<th>View Details</th>
+<th>Seat Detail</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>13/2/23</td>
-<td>AWhiskerAway2020</td>
-<td>2</td>
-<td onClick="location.href='http://www.stackoverflow.com';">
-Ticket Confirmation</td>
-</tr>
+<tbody>';
 
+$username = $_SESSION['username'];
+$row = $controller -> run("getBookingFromUsername",$username);
+
+for($i = 0; $i < sizeof($row); $i ++){
+    $result = $controller -> run("getMovieTitleFromID",$row[$i]['movieID']);
+    $movieTitle = $result[0]['movieTitle'];
+    echo '<tr>';
+    echo '<td>'.$row[$i]['bookingID'].'</td>';
+    echo '<td>'.$row[$i]['bookingDate'].'</td>';
+    echo '<td>'.$movieTitle.'</td>';
+    echo '<td>'.$row[$i]['noOfTickets'].'</td>';
+    echo '<td>'.$row[$i]['seats'].'</td>';
+
+    echo '</tr>';
+}
+
+
+echo' 
 </tbody>
 </table>
 </div>
 </div>
 </body>
 </html> 
+        
+        ';
+    }
+}
+
+
+$display = new MyBookings();
+$display -> display();
+?>
+

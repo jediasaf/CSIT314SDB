@@ -178,6 +178,18 @@ class testDB{
         return $result;
     }
 
+    function getMovieTitleFromID($movieID){
+        $result = $this->conn->query("SELECT movieTitle FROM `moviedb` WHERE `movieID` = '$movieID'");
+        $row = $result -> fetch_all(MYSQLI_BOTH);
+        return $row;
+    }
+    
+    function getBookingFromUsername($username){
+        $result = $this->conn->query("SELECT * FROM `bookingdb` WHERE `username` = '$username'");
+        $row = $result -> fetch_all(MYSQLI_BOTH);
+        return $row;
+    }
+
 
 
 
