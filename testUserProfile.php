@@ -1,15 +1,79 @@
 <?php
-include ("AdminNavBar.php");
+
 
 class UserProfile{
+
     function display(){
-        echo '<!DOCTYPE html>
+        #include ("navbar.php");
+        if(!isset($_SESSION)){
+            session_start();
+            #$message = '<h1>UNAUTHORISED. PLEASE DO NOT PROCEED</h1><br><meta http-equiv="refresh" content="5; url='.'HomePage SDB.php'.'" />';
+
+        }
+        
+            if($_SESSION['roles'] == "Admin"){
+                $message = '
+                <thead>
+                <div class="table-container">
+                <div class="table-wrapper">
+                <div class="table-title">
+                <div class="row">
+                <div class="col-sm-4">
+                </div>
+                </div>
+                </div>
+                <table class="table table-bordered">
+                <thead>
+                <tr>
+                <th>Username</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Age</th>
+                <th>Genre Preference</th>
+                <th>Role</th>
+                <th>Seat Preference</th>
+                <th>Edit User</th>
+                <th>Delete User</th>
+                </tr>
+                </thead>
+                <tbody>
+                
+                
+                ';
+                include ("dbFunctions.php");
+
+                $controller = new controller();
+                $row = $controller ->run("retrieveUserDB");
+
+                for($i = 0; $i < sizeof($row);$i++){
+                    $message = $message. '<tr>';
+                    $message = $message.  '<td>'.$row[$i]['username'].'</td>';
+                    $message = $message.  '<td>'.$row[$i]['phoneNo'].'</td>';
+                    $message = $message.  '<td>'.$row[$i]['email'].'</td>';
+                    $message = $message.  '<td>'.$row[$i]['age'].'</td>';
+                    $message = $message.  '<td>'.$row[$i]['genrePref'].'</td>';
+                    $message = $message.  '<td>'.$row[$i]['roles'].'</td>';
+                    $message = $message.  '<td>'.$row[$i]['seatPref'].'</td>';
+                    $message = $message. '<td><button class="edit-btn" title="Edit" data-toggle="tooltip"><a href="testEditUserProfile.php">Edit</a></button></td>';
+                    $message = $message. '<td><button class="delete-btn" title="Delete" data-toggle="tooltip"><a href="testEditUserProfile.php?action=delete">Delete</a></button></td>';
+                    $message = $message.  '</tr>';
+                }
+            }
+            else{
+                
+                $message = '<h1>UNAUTHORISED. PLEASE DO NOT PROCEED</h1><br><meta http-equiv="refresh" content="5; url='.'HomePage SDB.php'.'" />';
+            }
+        
+        
+            echo'
+        <!DOCTYPE html>
         <html lang="en">
         <head>
+
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>View User Profiles</title>
+        <title>Manager Manage Bookings</title>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -19,86 +83,52 @@ class UserProfile{
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <style type="text/css">
         @import url("CSS/AllUsers.css");
-        </style>
-        </head>
-        
-        <body>
-        
+
+        </style>';
+
+
+        echo'
+        </head>';
+        #include('navbar.php');
+        include ("AdminNavbar.php");
+
+        echo'<body>
+
+
                 <center>
                 <div id="content">
-                <h2>User <span style="color:#F8F8F8;"> Profiles</span></h2>
+                <h2>User<span style="color:#F8F8F8;"> Profiles</span></h2>
                 </div>
-         
+                
                 <div class="form">
                     <form action="">
-                        <table class="table table-bordered">
-        <thead>
-        
-        <tr>
-        <th>Username</th>
-        <th>Phone</th>
-        <th>Email</th>
-        <th>Age</th>
-        <th>Genre Preference</th>
-        <th>Role</th>
-        <th>Seat Preference</th>
-        <th>Actions</th>
-        </tr>
-        </thead>
-        
-        <tbody>
-        <tr>
-        <td>cheildsj</td>
-        <td>89156711</td>
-        <td>cvankeevj
-        @time.com</td>
-        <td>39</td>
-        <td>None</td>
-        <td>Admin</td>
-        <td>None</td>
-        <td>
-        <button class="edit-btn" title="Edit" data-toggle="tooltip">Edit</button>
-        <button class="delete-btn" title="Delete" data-toggle="tooltip">Delete</button>
-        </td>
-        </tr>
-        
-        <tr>
-        <td>cflewittg</td>
-        <td>88100004</td>
-        <td>cwedgeg
-        @guardian.co
-        .uk</td>
-        <td>31</td>
-        <td>None</td>
-        <td>Manager</td>
-        <td>None</td>
-        <td>
-        <button class="edit-btn" title="Edit" data-toggle="tooltip">Edit</button>
-        <button class="delete-btn" title="Delete" data-toggle="tooltip">Delete</button>
-        </td>
-        </tr>
-        
-        <tr>
-        <td>acalafato1x</td>
-        <td>88999886</td>
-        <td>icrocombe1x@alexa.com</td>
-        <td>45</td>
-        <td>Documentary</td>
-        <td>Customer</td>
-        <td>Back</td>
-        <td>
-        <button class="edit-btn" title="Edit" data-toggle="tooltip">Edit</button>
-        <button class="delete-btn" title="Delete" data-toggle="tooltip">Delete</button>
-        </td>
-        </tr>
+                        <table class="table table-bordered">';
+        echo $message;
+
+        echo'
         </tbody>
+        </table>
+        </div>
         </div>
         </body>
         </html> ';
+    
+    
+    
+    
     }
 
+
+
+
+    
 }
 
 $display = new UserProfile();
 $display->display();
+
+
+
+
 ?>
+

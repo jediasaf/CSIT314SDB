@@ -154,7 +154,7 @@ else if($_SERVER['REQUEST_METHOD'] === 'POST'){
     else{
       $message = 'Update Unsuccessful';
     }
-    $message = $message.'<meta http-equiv="refresh" content="5; url='.'Manage Bookings.php'.'" />';
+    $message = $message.'<meta http-equiv="refresh" content="5; url='.'ManageBookings.php'.'" />';
   }
   else if($_POST['submit'] == "Delete"){
     $bookingid = $_POST['bookingid'];
@@ -175,7 +175,7 @@ else if($_SERVER['REQUEST_METHOD'] === 'POST'){
     else{
       $message = 'failed to delete';
     }
-    $message = $message.'<meta http-equiv="refresh" content="5; url='.'Manage Bookings.php'.'" />';
+    $message = $message.'<meta http-equiv="refresh" content="5; url='.'ManageBookings.php'.'" />';
   }
   else if($_POST['submit'] == "Claim"){
     $bookingid = $_POST['bookingid'];
@@ -190,7 +190,7 @@ else if($_SERVER['REQUEST_METHOD'] === 'POST'){
     else{
       $message = 'not claimed';
     }
-    $message = $message.'<meta http-equiv="refresh" content="5; url='.'Manage Bookings.php'.'" />';
+    $message = $message.'<meta http-equiv="refresh" content="5; url='.'ManageBookings.php'.'" />';
   }
 
 }

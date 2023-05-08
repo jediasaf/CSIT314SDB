@@ -73,7 +73,7 @@ class displayManageBookings{
                     }
                     #<button class="edit-btn" title="Edit" data-toggle="tooltip">Edit</button>
                     #<button class="delete-btn" title="Delete" data-toggle="tooltip">Delete</button>
-                    $message = $message. '<a href="EditBookings.php?action=edit&bookingid='.$row[$i]['bookingID'].'">Edit</a>';
+                    $message = $message. '<a href="EditBookings.php?action=edit&bookingid='.$row[$i]['bookingID'].'">Edit</a><br>';
                     $message = $message. '<a href="EditBookings.php?action=delete&bookingid='.$row[$i]['bookingID'].'">Delete</a>';
                     $message = $message.  '</td>';
                     $message = $message.  '</tr>';
@@ -109,7 +109,7 @@ class displayManageBookings{
 
 echo'
 </head>';
-include('navbar.php');
+#include('navbar.php');
 include ("ManagerNavbar.php");
 
 echo'<body>
@@ -117,7 +117,7 @@ echo'<body>
 
 		<center>
         <div id="content">
-		<h2>Manage<span style="color:#F8F8F8;"> Bookings List</span></h2>
+		<h2>Manage Bookings List</h2>
 		</div>
         
         <div class="form">

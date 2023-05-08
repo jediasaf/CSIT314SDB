@@ -23,7 +23,7 @@ include ("ManagerNavbar.php");
 <body>
 		<center>
         <div id="content">
-		<h2>Manage <span style="color:#F8F8F8;"> Shows</span></h2>
+		<h2>Manage Shows</h2>
 		</div>
  
         <div class="form">
