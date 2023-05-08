@@ -105,6 +105,10 @@ class controller{
         else if($method == "getCustomerList"){
             $result = $this->testDB->getCustomerList();
         }
+        else if($method == "getAllFood"){
+            $result = $this->testDB->getAllFood();
+        }
+        
 
 
 

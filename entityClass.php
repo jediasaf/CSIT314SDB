@@ -206,6 +206,12 @@ class testDB{
         $row = $result -> fetch_all(MYSQLI_BOTH);
         return $row;
     }
+    
+    function getAllFood(){
+        $result = $this->conn->query("SELECT * FROM `foobdb`");
+        $row = $result -> fetch_all(MYSQL_BOTH);
+        return $row;
+    }
 
 
 

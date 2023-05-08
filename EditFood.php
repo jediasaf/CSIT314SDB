@@ -1,5 +1,20 @@
 <?php
-include ("navbar.php");
+
+class EditFood{
+  function display(){
+    include ("navbar.php");
+    include ("dbFunctions.php");
+    $controller = new controller();
+    
+    echo '
+    
+    ';
+  }
+}
+
+
+$display = new EditFood();
+$display -> display();
 ?>
 
 <!DOCTYPE html>
