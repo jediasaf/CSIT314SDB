@@ -240,7 +240,7 @@
 		
 </tbody>
 	  </table>
-	  <div class="save"><u>Use points for 1 ticket per order</u></div>
+	  <div class="save"><u>Use 100 points for 1 ticket per order</u></div>
 	  <table>
 <th  style="padding-right:10px" class="foodType">Food Choice</th>
 <th  class="numTickets">Number of Combos</th>
