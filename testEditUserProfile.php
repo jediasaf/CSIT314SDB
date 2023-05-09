@@ -266,14 +266,13 @@ class EditUserProfile{
           $seatpref = $_POST['seatpref'];
           $loyaltypts = $_POST['loyaltypts'];
           $result = $controller->run("adminUpdateUserProfile", $username, $phone, $email, $age, $genrepref, $loyaltypts, $role, $seatpref);
-          print_r($result);
           
           if($result){
             $message = 'Update Successful';
           }else{
             $message = 'Update Unsuccessful';
           }
-          $message = $message.'<meta http-equiv="refresh" content="5; url='.'testUserProfile.php'.'" />';
+          $message = $message.'<meta http-equiv="refresh" content="5; url='.'UserProfile.php'.'" />';
         }
         else if($_POST['submit'] == "Delete"){
           $username = $_POST['username'];
@@ -285,7 +284,7 @@ class EditUserProfile{
           else{
             $message = 'User not deleted';
           }
-          $message = $message.'<meta http-equiv="refresh" content="5; url='.'testUserProfile.php'.'" />';
+          $message = $message.'<meta http-equiv="refresh" content="5; url='.'UserProfile.php'.'" />';
       }
     
     }

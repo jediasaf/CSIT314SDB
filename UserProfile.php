@@ -1,94 +1,140 @@
-
 <?php
-include ("AdminNavBar.php");
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Admin View User Profiles</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
-<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<style type="text/css">
-@import url("CSS/AllUserCSS.css");
-</style>
 
-<body>
-		<center>
-        <div id="content">
-		<h2>User <span style="color:#F8F8F8;"> Profiles</span></h2>
-		</div>
- 
-        <div class="form">
-            <form action="">
+class UserProfile{
+
+    function display(){
+        if(!isset($_SESSION)){
+            session_start();
+            #$message = '<h1>UNAUTHORISED. PLEASE DO NOT PROCEED</h1><br><meta http-equiv="refresh" content="5; url='.'HomePage SDB.php'.'" />';
+
+        }
+        
+            if($_SESSION['roles'] == "Admin"){
+                $message = '
+                <thead>
+                <div class="table-container">
+                <div class="table-wrapper">
+                <div class="table-title">
+                <div class="row">
+                <div class="col-sm-4">
+                </div>
+                </div>
+                </div>
                 <table class="table table-bordered">
-<thead>
+                <thead>
+                <tr>
+                <th>Phone</th>
+                <th>Username</th>
+                <th>Password Hashes</th>
+                <th>Email</th>
+                <th>Age</th>
+                <th>Genre Preference</th>
+                <th>Loyalty Points</th>
+                <th>Role</th>
+                <th>Seat Preference</th>
+                <th>Edit User</th>
+                <th>Delete User</th>
+                </tr>
+                </thead>
+                <tbody>
+                
+                
+                ';
+                include ("dbFunctions.php");
 
-<tr>
-<th>Username</th>
-<th>Phone</th>
-<th>Email</th>
-<th>Age</th>
-<th>Genre Preference</th>
-<th>Role</th>
-<th>Seat Preference</th>
-<th>Actions</th>
-</tr>
-</thead>
+                $controller = new controller();
+                $row = $controller ->run("retrieveUserDB");
 
-<tbody>
-<tr>
-<td>cheildsj</td>
-<td>89156711</td>
-<td>cvankeevj
-@time.com</td>
-<td>39</td>
-<td>None</td>
-<td>Admin</td>
-<td>None</td>
-<td>
-<button class="edit-btn" title="Edit" data-toggle="tooltip">Edit</button>
-<button class="delete-btn" title="Delete" data-toggle="tooltip">Delete</button>
-</td>
-</tr>
+                for($i = 0; $i < sizeof($row);$i++){
+                    $message = $message. '<tr>';
+                    $message = $message.  '<td>'.$row[$i]['phoneNo'].'</td>';
+                    $message = $message.  '<td>'.$row[$i]['username'].'</td>';
+                    $message = $message.  '<td>'.$row[$i]['hashedPassw'].'</td>';
+                    $message = $message.  '<td>'.$row[$i]['email'].'</td>';
+                    $message = $message.  '<td>'.$row[$i]['age'].'</td>';
+                    $message = $message.  '<td>'.$row[$i]['genrePref'].'</td>';
+                    $message = $message.  '<td>'.$row[$i]['loyaltyPts'].'</td>';
+                    $message = $message.  '<td>'.$row[$i]['roles'].'</td>';
+                    $message = $message.  '<td>'.$row[$i]['seatPref'].'</td>';
+                    $message = $message. '<td><a href="testEditUserProfile.php?action=edit&username='.$row[$i]['username'].'">Edit</a></td>';
+                    if($_SESSION['roles'] == "Admin"){
+                        $message = $message. '<td><a href="testEditUserProfile.php?action=delete&username='.$row[$i]['username'].'">Delete</a></td>';
+                    }
 
-<tr>
-<td>cflewittg</td>
-<td>88100004</td>
-<td>cwedgeg
-@guardian.co
-.uk</td>
-<td>31</td>
-<td>None</td>
-<td>Manager</td>
-<td>None</td>
-<td>
-<button class="edit-btn" title="Edit" data-toggle="tooltip">Edit</button>
-<button class="delete-btn" title="Delete" data-toggle="tooltip">Delete</button>
-</td>
-</tr>
+                    $message = $message.  '</td>';
+                    $message = $message.  '</tr>';
+                }
+            }
+            else{
+                
+                $message = '<h1>UNAUTHORISED. PLEASE DO NOT PROCEED</h1><br><meta http-equiv="refresh" content="5; url='.'HomePage SDB.php'.'" />';
+            }
+        
+        
+            echo'
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
 
-<tr>
-<td>acalafato1x</td>
-<td>88999886</td>
-<td>icrocombe1x@alexa.com</td>
-<td>45</td>
-<td>Documentary</td>
-<td>Customer</td>
-<td>Back</td>
-<td>
-<button class="edit-btn" title="Edit" data-toggle="tooltip">Edit</button>
-<button class="delete-btn" title="Delete" data-toggle="tooltip">Delete</button>
-</td>
-</tr>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>View User Profiles</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <style type="text/css">
+        @import url("CSS/AllUsers.css");
 
-</div>
-</body>
-</html> 
+        </style>';
+
+
+        echo'
+        </head>';
+        #include('navbar.php');
+        include ("AdminNavbar.php");
+
+        echo'<body>
+
+
+                <center>
+                <div id="content">
+                <h2>User<span style="color:#F8F8F8;"> Profiles</span></h2>
+                </div>
+                
+                <div class="form">
+                    <form action="">
+                        <table class="table table-bordered">';
+        echo $message;
+
+        echo'
+        </tbody>
+        </table>
+        </div>
+        </div>
+        </body>
+        </html> ';
+    
+    
+    
+    
+    }
+
+
+
+
+    
+}
+
+$display = new UserProfile();
+$display->display();
+
+
+
+
+?>
+
