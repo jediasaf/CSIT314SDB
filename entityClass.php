@@ -274,14 +274,20 @@ class testDB{
 
     function popularMoviesAllTime(){
         $result = $this->conn->query("SELECT `movieID`, COUNT(*) as count,
-        SUM(`noOfTickets`) AS ticketCount FROM `bookingdb` GROUP BY `movieID` ORDER BY count DESC");
+        SUM(`noOfTickets`) AS ticketCount 
+        FROM `bookingdb` 
+        GROUP BY `movieID` 
+        ORDER BY ticketCount DESC");
         $row = $result -> fetch_all(MYSQLI_BOTH);
         return $row;
     }
 
     function busyDatesAllTime(){
         $result = $this->conn->query("SELECT `bookingDate`, COUNT(*) as count,
-        SUM(`noOfTickets`) AS ticketCount FROM `bookingdb` GROUP BY `bookingDate` ORDER BY count DESC");
+        SUM(`noOfTickets`) AS ticketCount
+        FROM `bookingdb` 
+        GROUP BY `bookingDate` 
+        ORDER BY ticketCount DESC");
         $row = $result -> fetch_all(MYSQLI_BOTH);
         return $row;
     }
@@ -308,7 +314,7 @@ class testDB{
         FROM `bookingdb` 
         WHERE YEAR(`bookingDate`) = '$year'
         GROUP BY `movieID` 
-        ORDER BY count DESC");
+        ORDER BY ticketCount DESC");
         $row = $result -> fetch_all(MYSQLI_BOTH);
         return $row;
     }
@@ -319,7 +325,7 @@ class testDB{
         FROM `bookingdb` 
         WHERE YEAR(`bookingDate`) = '$year'
         GROUP BY `bookingDate` 
-        ORDER BY count DESC");
+        ORDER BY ticketCount DESC");
         $row = $result -> fetch_all(MYSQLI_BOTH);
         return $row;
     }
@@ -348,7 +354,7 @@ class testDB{
         WHERE YEAR(`bookingDate`) = '$year'
         AND MONTH(`bookingDate`) = '$month'
         GROUP BY `movieID` 
-        ORDER BY count DESC");
+        ORDER BY ticketCount DESC");
         $row = $result -> fetch_all(MYSQLI_BOTH);
         return $row;
     }
@@ -360,7 +366,7 @@ class testDB{
         WHERE YEAR(`bookingDate`) = '$year'
         AND MONTH(`bookingDate`) = '$month'
         GROUP BY `bookingDate` 
-        ORDER BY count DESC");
+        ORDER BY ticketCount DESC");
         $row = $result -> fetch_all(MYSQLI_BOTH);
         return $row;
     }
@@ -389,7 +395,7 @@ class testDB{
         WHERE `bookingDate` 
         BETWEEN DATE_SUB(CURRENT_DATE(), INTERVAL '$Day' DAY) AND CURDATE()
         GROUP BY `movieID` 
-        ORDER BY count DESC");
+        ORDER BY ticketCount DESC");
         $row = $result -> fetch_all(MYSQLI_BOTH);
         return $row;
     }
@@ -401,7 +407,7 @@ class testDB{
         WHERE `bookingDate` 
         BETWEEN DATE_SUB(CURRENT_DATE(), INTERVAL '$Day' DAY) AND CURDATE()
         GROUP BY `bookingDate` 
-        ORDER BY count DESC");
+        ORDER BY ticketCount DESC");
         $row = $result -> fetch_all(MYSQLI_BOTH);
         return $row;
     }
@@ -463,6 +469,12 @@ class testDB{
         return $status;
     }
 
+    function getSeatName($roomID,$rows,$columns){
+        $result = $this->conn->query("SELECT `seatName` FROM `roomspecification$roomID` WHERE `rows` = '$rows' AND `columns` = '$columns'");
+        $row = $result->fetch_all(MYSQLI_BOTH);
+        return $row;
+    }
+
 
 
 
@@ -516,6 +528,18 @@ class testDB{
         $result = $this->conn->query("SELECT * FROM `userdb`");
         $row = $result->fetch_all(MYSQLI_BOTH);
         return $row;
+    }
+
+    function searchUser($username){
+        $result = $this->conn->query("SELECT * from `userdb` where `username` LIKE '%$username%'");
+        $row = $result -> fetch_all(MYSQLI_BOTH);
+        return $row;
+    }
+
+    function searchUserNum($username){
+        $result = $this->conn->query("SELECT * from `userdb` where `username` LIKE '%$username%'");
+        $rowcount = $result -> num_rows;
+        return $rowcount;
     }
 
 }

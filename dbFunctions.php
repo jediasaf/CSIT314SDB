@@ -197,6 +197,9 @@ class controller{
         else if($method == "getSeatStatus"){
             $result = $this->testDB->getSeatStatus($var1,$var2,$var3);
         }
+        else if($method == "getSeatName"){
+            $result = $this->testDB->getSeatName($var1,$var2,$var3);
+        }
 
 
 
@@ -230,6 +233,12 @@ class controller{
         }
         elseif($method == "getAllUsers"){
             $result = $this->testDB->getAllUsers();
+        }
+        elseif($method == "searchUser"){
+            $result = $this->testDB->searchUser($var1);
+        }
+        elseif($method == "searchUserNum"){
+            $result = $this->testDB->searchUserNum($var1);
         }
 
 

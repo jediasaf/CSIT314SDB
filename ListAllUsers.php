@@ -11,6 +11,12 @@ class ListAllUsers{
         
             if($_SESSION['roles'] == "Admin"){
                 $message = '
+                <div class="searchbar">
+                <form action="SearchUser.php" class="search-bar">
+                    <input type="text" placeholder="Search User" name="name">
+                    <input type="submit" value="Search">
+                </form>
+                </div>
                 <thead>
                 <div class="table-container">
                 <div class="table-wrapper">

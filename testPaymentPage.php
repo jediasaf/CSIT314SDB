@@ -19,10 +19,6 @@ class doPayment{
       $_SESSION['AdultNoTicket'] = $_POST['AdultNoTicket'];
       $_SESSION['StudentNoTicket'] = $_POST['StudentNoTicket'];
       $_SESSION['ChildNoTicket'] = $_POST['ChildNoTicket'];
-      $_SESSION[''] = $_POST['SeniorNoTicket'];
-      $_SESSION[''] = $_POST['SeniorNoTicket'];
-      $_SESSION[''] = $_POST['SeniorNoTicket'];
-      $_SESSION[''] = $_POST['SeniorNoTicket'];
 
       # food
       $foodDetails = $controller -> run('getAvailableFoodDetails');
@@ -63,7 +59,7 @@ class doPayment{
                   />
                 </div>
                 <div class="rightside">
-                  <form action="testPaymentPage.php" method = "POST">
+                  <form action="testconfirmationPage.php" method = "POST">
                     <h1>Check Out</h1>
                     <h2>Payment Information</h2>
                       <p>Thank You, Please bring along your booking ID and or Proof of Payment when you come to the cinema.</p>
@@ -88,7 +84,7 @@ class doPayment{
                     <button type="submit" class="button">CheckOut</button>
 
                   </form>';
-                  echo $msg;
+                  #echo $msg;
                 echo'</div>
               </div>
             </div>
@@ -99,6 +95,7 @@ class doPayment{
         </html>';
 
         # verification check
+        /*
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
           if ($_POST['payment_type'] == 'PayNow') {
             $msg .= '<img src="images/QRcode.png"/>';
@@ -106,9 +103,9 @@ class doPayment{
           $number = $_POST['paynow_number'];
           $name = $_POST['paynow_name'];
           $paymentType = $_POST['payment_type'];
-
+          
         }
-
+        */
         
         
     }
