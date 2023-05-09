@@ -187,6 +187,9 @@ class controller{
         elseif($method == "deleteUser"){
             $result = $this->testDB->deleteUser($var1);
         }
+        elseif($method == "getAllUsers"){
+            $result = $this->testDB->getAllUsers();
+        }
 
 
 
