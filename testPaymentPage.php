@@ -6,34 +6,63 @@ class doPayment{
       if(!isset($_SESSION)){
         session_start();
       }
+      $string ='';
 
       include('dbFunctions.php');
       $controller = new controller();
 
       #store relevent data from order.php to session
+      # verification check
 
+      if($_SERVER['REQUEST_METHOD'] === 'GET'){
 
-      #tickets
-      $_SESSION['SeniorNoTicket'] = $_POST['SeniorNoTicket'];
-      $_SESSION['AdultNoTicket'] = $_POST['AdultNoTicket'];
-      $_SESSION['StudentNoTicket'] = $_POST['StudentNoTicket'];
-      $_SESSION['ChildNoTicket'] = $_POST['ChildNoTicket'];
+        $number = $_GET['paynow_number'];
+        $name = $_GET['paynow_name'];
+        $paymentType = $_GET['payment_type'];
 
-      # food
-      $foodDetails = $controller -> run('getAvailableFoodDetails');
-      for ($i = 0; $i < count($foodDetails); $i++) {
-        $result = $foodDetails[$i]['foodName'];
-        $result = str_replace(' ', '_', $result);
-        $_SESSION[$foodDetails[$i]['foodName']] = $_POST[$result];
-      }
-      
-      #seats
-      $string = '';
-      foreach($_POST as $key => $value) {
-        if (strpos($value, '*') !== false){
-          $string .= $value.',';
+        if (preg_match('/^[a-zA-Z ]+$/', $name) && preg_match('/^[0-9]{10}$/', $number)) {
+          // Valid name and phone number, continue with code
+          echo "Name and phone number are valid.";
+        } else {
+          // Invalid name or phone number, display error message
+          echo "Invalid name or phone number.";
+        }
+
+        if ($_GET['payment_type'] == 'PayNow') {
+          #echo'<meta http-equiv="refresh" content="2;url=testPaynowPage.php">';
+        }
+        else if ($_GET['payment_type'] == 'Pay at Counter'){
+          #echo'<meta http-equiv="refresh" content="2;url=testconfirmationPage.php">';
+        }
+        else{
+
         }
       }
+      else if($_SERVER['REQUEST_METHOD'] === 'POST'){
+        #tickets
+        $_SESSION['SeniorNoTicket'] = $_POST['SeniorNoTicket'];
+        $_SESSION['AdultNoTicket'] = $_POST['AdultNoTicket'];
+        $_SESSION['StudentNoTicket'] = $_POST['StudentNoTicket'];
+        $_SESSION['ChildNoTicket'] = $_POST['ChildNoTicket'];
+
+        # food
+        $foodDetails = $controller -> run('getAvailableFoodDetails');
+        for ($i = 0; $i < count($foodDetails); $i++) {
+          $result = $foodDetails[$i]['foodName'];
+          $result = str_replace(' ', '_', $result);
+          $_SESSION[$foodDetails[$i]['foodName']] = $_POST[$result];
+        }
+        
+        #seats
+        $string = '';
+        foreach($_POST as $key => $value) {
+          if (strpos($value, '*') !== false){
+            $string .= $value.',';
+          }
+        }
+      }
+
+      
       $_SESSION['seats'] = $string;
 
 
@@ -93,30 +122,7 @@ class doPayment{
         </body>
         </html>';
 
-        # verification check
-
-        if($_SERVER['REQUEST_METHOD'] === 'GET'){
-
-          $number = $_GET['paynow_number'];
-          $name = $_GET['paynow_name'];
-          $paymentType = $_GET['payment_type'];
-
-          if (preg_match('/^[a-zA-Z ]+$/', $name) && preg_match('/^[0-9]{10}$/', $number)) {
-            // Valid name and phone number, continue with code
-            echo "Name and phone number are valid.";
-          } else {
-            // Invalid name or phone number, display error message
-            echo "Invalid name or phone number.";
-          }
-
-          if ($_GET['payment_type'] == 'PayNow') {
-            echo'<meta http-equiv="refresh" content="2;url=testPaynowPage.php">';
-          }
-          else if ($_GET['payment_type'] == 'Pay at Counter'){
-            echo'<meta http-equiv="refresh" content="2;url=testconfirmationPage.php">';
-          }
-          else{}
-        }
+        
         
         
     }
