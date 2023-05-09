@@ -58,7 +58,7 @@ class doPayment{
                   />
                 </div>
                 <div class="rightside">
-                  <form action="testPaymentPage.php" method = "POST">
+                  <form action="testPaymentPage.php" method = "GET">
                     <h1>Check Out</h1>
                     <h2>Payment Information</h2>
                       <p>Thank You, Please bring along your booking ID and or Proof of Payment when you come to the cinema.</p>
@@ -95,11 +95,11 @@ class doPayment{
 
         # verification check
 
-        if($_SERVER['REQUEST_METHOD'] === 'POST'){
+        if($_SERVER['REQUEST_METHOD'] === 'GET'){
 
-          $number = $_POST['paynow_number'];
-          $name = $_POST['paynow_name'];
-          $paymentType = $_POST['payment_type'];
+          $number = $_GET['paynow_number'];
+          $name = $_GET['paynow_name'];
+          $paymentType = $_GET['payment_type'];
 
           if (preg_match('/^[a-zA-Z ]+$/', $name) && preg_match('/^[0-9]{10}$/', $number)) {
             // Valid name and phone number, continue with code
@@ -108,13 +108,14 @@ class doPayment{
             // Invalid name or phone number, display error message
             echo "Invalid name or phone number.";
           }
-          
-          if ($_POST['payment_type'] == 'PayNow') {
+
+          if ($_GET['payment_type'] == 'PayNow') {
             echo'<meta http-equiv="refresh" content="2;url=testPaynowPage.php">';
           }
-          else{
+          else if ($_GET['payment_type'] == 'Pay at Counter'){
             echo'<meta http-equiv="refresh" content="2;url=testconfirmationPage.php">';
           }
+          else{}
         }
         
         
