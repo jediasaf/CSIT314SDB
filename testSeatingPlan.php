@@ -8,7 +8,7 @@ class doOrder{
       session_start();
     }
 
-    #$loyaltyPoints = $_SESSION['loyaltyPoints'];
+    #$loyaltyPoints = $_SESSION['loyaltypts'];
     #$username = $_SESSION['username'];
     $loyaltyPoints = 100;
     # $username = 'acalafato1x';

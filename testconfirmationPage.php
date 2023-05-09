@@ -13,7 +13,7 @@
           #get relevant info from SESSION
           
           #$username = $_SESSION['username'];
-          #$loyaltyPoints = $_SESSION['loyaltyPoints'];
+          #$loyaltyPoints = $_SESSION['loyaltypts'];
           $loyaltyPoints = 100;
           $username = 'cmelato28';
 

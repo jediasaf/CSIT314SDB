@@ -12,7 +12,6 @@ class doPayment{
 
       #store relevent data from order.php to session
 
-      $msg = '';
 
       #tickets
       $_SESSION['SeniorNoTicket'] = $_POST['SeniorNoTicket'];
@@ -59,7 +58,7 @@ class doPayment{
                   />
                 </div>
                 <div class="rightside">
-                  <form action="testconfirmationPage.php" method = "POST">
+                  <form action="testPaymentPage.php" method = "POST">
                     <h1>Check Out</h1>
                     <h2>Payment Information</h2>
                       <p>Thank You, Please bring along your booking ID and or Proof of Payment when you come to the cinema.</p>
@@ -84,7 +83,7 @@ class doPayment{
                     <button type="submit" class="button">CheckOut</button>
 
                   </form>';
-                  #echo $msg;
+
                 echo'</div>
               </div>
             </div>
@@ -95,17 +94,28 @@ class doPayment{
         </html>';
 
         # verification check
-        /*
+
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
-          if ($_POST['payment_type'] == 'PayNow') {
-            $msg .= '<img src="images/QRcode.png"/>';
-          }
+
           $number = $_POST['paynow_number'];
           $name = $_POST['paynow_name'];
           $paymentType = $_POST['payment_type'];
+
+          if (preg_match('/^[a-zA-Z ]+$/', $name) && preg_match('/^[0-9]{10}$/', $number)) {
+            // Valid name and phone number, continue with code
+            echo "Name and phone number are valid.";
+          } else {
+            // Invalid name or phone number, display error message
+            echo "Invalid name or phone number.";
+          }
           
+          if ($_POST['payment_type'] == 'PayNow') {
+            echo'<meta http-equiv="refresh" content="2;url=testPaynowPage.php">';
+          }
+          else{
+            echo'<meta http-equiv="refresh" content="2;url=testconfirmationPage.php">';
+          }
         }
-        */
         
         
     }
