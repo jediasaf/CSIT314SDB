@@ -97,7 +97,7 @@ class testDB{
     function updateBookings($bookingID,$phonenum,$username,$bookingDate,$movieID,$noOfTickets,$isClaimed,$seats,$adultTicket,$seniorTicket,$studentTicket,$childTicket,$foodNo,$totalPrice){
         $result = $this->conn->query("UPDATE `bookingdb` SET `phoneNo` = '$phonenum' , `username` = '$username' , `bookingDate` = '$bookingDate' ,
          `movieID` = '$movieID' , `noOfTickets` = '$noOfTickets' , `seats` = '$seats' , `isClaimed` = '$isClaimed',
-         `adultTicket` = '$adultTicket', `seniorTicket' = '$seniorTicket',`studentTicket` = '$studentTicket' , `childTicket` = '$childTicket',
+         `adultTicket` = '$adultTicket', `seniorTicket` = '$seniorTicket',`studentTicket` = '$studentTicket' , `childTicket` = '$childTicket',
          `foodNo` = '$foodNo', `totalPrice` = '$totalPrice'
           WHERE `bookingID` = '$bookingID'");
         return $result;

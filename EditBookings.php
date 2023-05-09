@@ -33,7 +33,7 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){
 	 <div class="col-sm-5">
       <div class="input-block">
         <label for="">Booking Date: </label>
-        <input type="text" name="bookingdate" value="'.$result[0]['bookingDate'].'" class="form-control">
+        <input type="date" name="bookingdate" value="'.$result[0]['bookingDate'].'" class="form-control">
       </div>
     </div>
 	
@@ -70,7 +70,7 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){
 	
 	 <div class="col-sm-5">
       <div class="input-block">
-        <label for="">Claim: </label>
+        <label for="">Is Claim: </label>
         <input type="text" name="isclaimed" value="'.$result[0]['isClaimed'].'" class="form-control">
       </div>
     </div>
@@ -85,7 +85,7 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){
     <div class="col-sm-5">
       <div class="input-block">
         <label for="">Number of Adult Ticket: </label>
-        <input type="number" name="adulTicket" value="'.$result[0]['adulTicket'].'" class="form-control">
+        <input type="number" name="adultTicket" value="'.$result[0]['adultTicket'].'" class="form-control">
       </div>
     </div>
 
@@ -205,6 +205,7 @@ else if($_SERVER['REQUEST_METHOD'] === 'POST'){
     echo '<h1>'.$bookingid.'</h1>';*/
 
     if($nooftickets == ($adultTicket + $seniorTicket + $studentTicket + $childTicket)){
+      #echo '<h1>'.$bookingdate.'</h1>';
       $result = $controller->run("updateBookings",$bookingid,$phonenum,$username,$bookingdate,$movieid,$nooftickets,$isclaimed,$seats,$adultTicket,$seniorTicket,$studentTicket,$childTicket,$foodNo,$totalPrice);
 
       #verify the update
