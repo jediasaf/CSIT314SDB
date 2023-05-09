@@ -212,6 +212,28 @@ class testDB{
         $row = $result -> fetch_all(MYSQLI_BOTH);
         return $row;
     }
+    
+    function getFoodFromName($foodName){
+        $result = $this->conn->query("SELECT * FROM `fooddb` WHERE `foodName` = '$foodName'");
+        $row = $result -> fetch_all(MYSQLI_BOTH);
+        return $row;
+    }
+
+    function updateFood($foodName, $quantity, $foodPicName, $status){
+        $result = $this->conn->query("UPDATE `fooddb` SET `quantity` = '$quantity', `foodPicName` = '$foodPicName', `status` ='$status' WHERE `foodName` = '$foodName'");
+        return $result;
+    }
+
+    function deleteFood($foodName){
+        $result = $this->conn->query("DELETE FROM `fooddb` WHERE `foodName` = '$foodName'");
+        return $result;
+    }
+
+    function confirmDeleteFood ($foodName){
+        $result = $this->conn->query("SELECT * FROM `fooddb` WHERE `foodName` = '$foodName'");
+        $rowcount = $result -> num_rows;
+        return $rowcount;
+    }
 
 
 

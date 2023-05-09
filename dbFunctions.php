@@ -108,7 +108,18 @@ class controller{
         else if($method == "getAllFood"){
             $result = $this->testDB->getAllFood();
         }
-        
+        else if($method == "getFoodFromName"){
+            $result = $this->testDB->getFoodFromName($var1);
+        }
+        else if($method == "updateFood"){
+            $result = $this->testDB->updateFood($var1,$var2,$var3,$var4);
+        }
+        else if($method == "deleteFood"){
+            $result = $this->testDB->deleteFood($var1);
+        }
+        else if($method == "confirmDeleteFood"){
+            $result = $this->testDB->confirmDeleteFood($var1);
+        }
 
 
 
