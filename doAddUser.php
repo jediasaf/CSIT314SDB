@@ -24,7 +24,7 @@ if($result > 0){
       $redirect = '<meta http-equiv="refresh" content="5; url='.'AddUser.php'.'" />';
 }else{
     $result = $controller->run("addUser", $phone, $username, $hashedpw, $email, $age, $genre, 0, $role, $seatpref);
-    $redirect = '<meta http-equiv="refresh" content="5; url='.'testUserProfile.php'.'" />';
+    $redirect = '<meta http-equiv="refresh" content="5; url='.'UserProfile.php'.'" />';
     $message = '<div style="border-radius:200px; height:200px; width:200px; background: #F8FAF5; margin:0 auto;">
             <i class="checkmark">✓</i>
           </div><h1>Success</h1>

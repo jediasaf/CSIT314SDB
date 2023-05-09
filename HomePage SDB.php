@@ -73,7 +73,7 @@ class HomePage{
 				<div class="ticket__content">
 					<h4 class="ticket__movie-title">'.$result1[$i]['movieTitle'].'</h4>
 					<p class="ticket__movie-slogan">
-						'.$result1[$i]['description'].'
+					'.substr($result1[$i]['description'],0,150).'...
 					</p>
 					<a href="Order.php?name='.$result1[$i]['movieID'].'">
 					<button class="ticket__buy-btn">Buy now</button>
@@ -113,7 +113,7 @@ echo'
 				<div class="ticket__content">
 					<h4 class="ticket__movie-title">'.$result0[$i]['movieTitle'].'</h4>
 					<p class="ticket__movie-slogan">
-						'.$result0[$i]['description'].'
+						'.substr($result0[$i]['description'],0,150).'...
 					</p>
 				</div>
 			</div>

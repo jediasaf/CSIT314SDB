@@ -65,7 +65,7 @@ class StaffNav {
         }
         
         /* Change this in order to change the Dropdown symbol */
-        li > a::after { content: ' +';}
+        li > a::after { content: " +"";}
         li > a:only-child::after {
             content: "";
         }
