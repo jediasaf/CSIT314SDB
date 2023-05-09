@@ -146,7 +146,7 @@ else{
 
 
 echo'<body>
-<h2 id="fh2">leave a cinema review.</h2>
+<h2 id="fh2" style="margin-top: 100px;">leave a cinema review.</h2>
 <h6 id="fh6">Your review will help other customer and us.</h6>
 
 
