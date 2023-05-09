@@ -197,6 +197,9 @@ class controller{
         else if($method == "getSeatStatus"){
             $result = $this->testDB->getSeatStatus($var1,$var2,$var3);
         }
+        else if($method == "getSeatName"){
+            $result = $this->testDB->getSeatName($var1,$var2,$var3);
+        }
 
 
 

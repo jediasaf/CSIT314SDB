@@ -469,6 +469,12 @@ class testDB{
         return $status;
     }
 
+    function getSeatName($roomID,$rows,$columns){
+        $result = $this->conn->query("SELECT `seatName` FROM `roomspecification$roomID` WHERE `rows` = '$rows' AND `columns` = '$columns'");
+        $row = $result->fetch_all(MYSQLI_BOTH);
+        return $row;
+    }
+
 
 
 
