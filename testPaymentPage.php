@@ -12,6 +12,8 @@ class doPayment{
 
       #store relevent data from order.php to session
 
+      $msg = '';
+
       #tickets
       $_SESSION['SeniorNoTicket'] = $_POST['SeniorNoTicket'];
       $_SESSION['AdultNoTicket'] = $_POST['AdultNoTicket'];
@@ -84,8 +86,10 @@ class doPayment{
                 </div>
                     <p></p>
                     <button type="submit" class="button">CheckOut</button>
-                  </form>
-                </div>
+
+                  </form>';
+                  echo $msg;
+                echo'</div>
               </div>
             </div>
           
@@ -95,9 +99,16 @@ class doPayment{
         </html>';
 
         # verification check
-        $number = $_POST['paynow_number'];
-        $name = $_POST['paynow_name'];
-        $paymentType = $_POST['payment_type'];
+        if($_SERVER['REQUEST_METHOD'] === 'POST'){
+          if ($_POST['payment_type'] == 'PayNow') {
+            $msg .= '<img src="images/QRcode.png"/>';
+          }
+          $number = $_POST['paynow_number'];
+          $name = $_POST['paynow_name'];
+          $paymentType = $_POST['payment_type'];
+
+        }
+
         
         
     }
