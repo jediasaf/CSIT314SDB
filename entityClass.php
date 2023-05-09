@@ -354,6 +354,12 @@ class testDB{
         return $result;
     }
 
+    function getAllUsers(){
+        $result = $this->conn->query("SELECT * FROM `userdb`");
+        $row = $result->fetch_all(MYSQLI_BOTH);
+        return $row;
+    }
+
 }
 
 ?>
