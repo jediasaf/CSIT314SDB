@@ -90,8 +90,8 @@ class AddUser{
           <div class="input-block">
             <label for="role">Role: </label>
             <select class="form-control" name="role" id="role">
-              <option value="manager">Manager</option>
-              <option value="designer">Staff</option>
+              <option value="Manager">Manager</option>
+              <option value="Staff">Staff</option>
             </select>
           </div>
         </div>

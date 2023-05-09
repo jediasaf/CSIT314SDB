@@ -7,6 +7,7 @@ $age = $_POST['age'];
 $genre = $_POST['preferences'];
 $role = $_POST['role'];
 $seatpref = $_POST['seatpref'];
+$hashedpw = hash("sha256","SDB@2023");
 
 include "dbFunctions.php";
 $controller = new controller();
@@ -22,7 +23,7 @@ if($result > 0){
           </div>';
       $redirect = '<meta http-equiv="refresh" content="5; url='.'AddUser.php'.'" />';
 }else{
-    $result = $controller->run("addUser", $phone, $username, $email, $age, $genre, 0, $role, $seatpref);
+    $result = $controller->run("addUser", $phone, $username, $hashedpw, $email, $age, $genre, 0, $role, $seatpref);
     $redirect = '<meta http-equiv="refresh" content="5; url='.'testUserProfile.php'.'" />';
     $message = '<div style="border-radius:200px; height:200px; width:200px; background: #F8FAF5; margin:0 auto;">
             <i class="checkmark">✓</i>

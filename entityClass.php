@@ -297,9 +297,9 @@ class testDB{
         return $row;
     }
 
-    function addUser($phoneNum,$username,$email,$age,$genre,$loyaltypts,$roles,$seat){
-        $result = $this->conn->query("INSERT INTO `userdb` (`phoneNo`, `username`,`email`, `age`, `genrePref`, `loyaltyPts`, `roles`, `seatPref`) 
-        VALUES (".$phoneNum.",'".$username."' , '".$email."', ".$age.", '".$genre."', ".$loyaltypts.", '".$roles."', '".$seat."');");
+    function addUser($phoneNum,$username,$hashedpwd,$email,$age,$genre,$loyaltypts,$roles,$seat){
+        $result = $this->conn->query("INSERT INTO `userdb` (`phoneNo`, `username`,`hashedPassw`,`email`, `age`, `genrePref`, `loyaltyPts`, `roles`, `seatPref`) 
+        VALUES (".$phoneNum.",'".$username."' , '".$hashedpwd."' , '".$email."', ".$age.", '".$genre."', ".$loyaltypts.", '".$roles."', '".$seat."');");
         return $result;
     }
 
