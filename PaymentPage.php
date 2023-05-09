@@ -43,7 +43,7 @@
             <input type="date" class="inputbox" name="exp_date" id="exp_date" required />
         </div>
             <p></p>
-			  <a href="HomePage SDB.php">
+			  <a href="PaynowPage.php">
             <button type="submit" class="button">CheckOut</button>
 				  </a>
           </form>

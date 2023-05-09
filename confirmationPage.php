@@ -66,6 +66,7 @@
    	   	<h5 class="Action">Booking ID: 12345678</h5>
 		   <h5 class="Action">Loyalty Points: 12345678</h5>
 		   <h5 class="Action"> Username: webDesigner</h5>
+		   <h5 class="Action"> Date of Booking : 9-May-2023</h5>
    	   </div>
 
 		 <div class="image-box">
