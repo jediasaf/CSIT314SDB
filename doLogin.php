@@ -89,7 +89,7 @@ class doLogin{
 
         }
         else if($_SESSION['roles'] == "Staff"){
-          echo '<meta http-equiv="refresh" content="5; url='.'CustomerBookings.php'.'" />';
+          echo '<meta http-equiv="refresh" content="5; url='.'ManageBookings.php'.'" />';
 
         }
         else if($_SESSION['roles'] == "Admin"){

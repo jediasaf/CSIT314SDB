@@ -5,10 +5,21 @@ class displayManageBookings{
 
     function display(){
         #include ("navbar.php");
+        include ("dbFunctions.php");
+
+                $controller = new controller();
         if(!isset($_SESSION)){
             session_start();
             #$message = '<h1>UNAUTHORISED. PLEASE DO NOT PROCEED</h1><br><meta http-equiv="refresh" content="5; url='.'HomePage SDB.php'.'" />';
 
+        }
+        $search_bookingID = isset($_GET['bookingID']) ? $_GET['bookingID'] : '';
+        $row = $controller ->run("getBookings");
+        if (!empty($search_bookingID)) {
+            $filtered_rows = array_filter($row, function ($bookingdetails) use ($search_bookingID) {
+                return strpos($bookingdetails['bookingID'], $search_bookingID) !== false;
+            });
+            $row = $filtered_rows;
         }
         
             if($_SESSION['roles'] == "Manager" || $_SESSION['roles'] == "Staff" ){
@@ -19,6 +30,8 @@ class displayManageBookings{
                         1 = claimed
                             
                         </div>
+
+
                 <div class="table-container">
                 <div class="table-wrapper">
                 <div class="table-title">
@@ -27,6 +40,11 @@ class displayManageBookings{
                 </div>
                 </div>
                 </div>
+
+                <form action="?" method="GET">
+                <input type="text" name="bookingID" placeholder="Search booking ID HERE">
+                <input type="submit" name="submit" value="Search">
+                </form>
                 <table class="table table-bordered">
                 <thead>
                 <tr>
@@ -46,36 +64,33 @@ class displayManageBookings{
                 
                 
                 ';
-                include ("dbFunctions.php");
+                
 
-                $controller = new controller();
-                $row = $controller ->run("getBookings");
-
-                for($i = 0; $i < sizeof($row);$i++){
+                foreach($row as $bookingdetails){
                     $message = $message. '<tr>';
-                    $message = $message.  '<td>'.$row[$i]['bookingID'].'</td>';
-                    $message = $message.  '<td>'.$row[$i]['phoneNo'].'</td>';
-                    $message = $message.  '<td>'.$row[$i]['username'].'</td>';
-                    $message = $message.  '<td>'.$row[$i]['bookingDate'].'</td>';
-                    $message = $message.  '<td>'.$row[$i]['movieID'].'</td>';
-                    $message = $message.  '<td>'.$row[$i]['noOfTickets'].'</td>';
-                    $message = $message.  '<td>'.$row[$i]['seats'].'</td>';
-                    $message = $message.  '<td>'.$row[$i]['isClaimed'].'</td>';
-                    if($row[$i]['isClaimed'] == 1){
+                    $message = $message.  '<td>'.$bookingdetails['bookingID'].'</td>';
+                    $message = $message.  '<td>'.$bookingdetails['phoneNo'].'</td>';
+                    $message = $message.  '<td>'.$bookingdetails['username'].'</td>';
+                    $message = $message.  '<td>'.$bookingdetails['bookingDate'].'</td>';
+                    $message = $message.  '<td>'.$bookingdetails['movieID'].'</td>';
+                    $message = $message.  '<td>'.$bookingdetails['noOfTickets'].'</td>';
+                    $message = $message.  '<td>'.$bookingdetails['seats'].'</td>';
+                    $message = $message.  '<td>'.$bookingdetails['isClaimed'].'</td>';
+                    if($bookingdetails['isClaimed'] == 1){
                         $message = $message.  '<td>
                     Ticket Claimed</td>
                     <td>';
                     }
-                    else if ($row[$i]['isClaimed'] == 0){
+                    else if ($bookingdetails['isClaimed'] == 0){
                         $message = $message.  '<td>
-                        <a href="EditBookings.php?action=claim&bookingid='.$row[$i]['bookingID'].'">Click to Claim</td></a>
+                        <a href="EditBookings.php?action=claim&bookingid='.$bookingdetails['bookingID'].'">Click to Claim</td></a>
                         <td>';
                     }
                     #<button class="edit-btn" title="Edit" data-toggle="tooltip">Edit</button>
                     #<button class="delete-btn" title="Delete" data-toggle="tooltip">Delete</button>
-                    $message = $message. '<a href="EditBookings.php?action=edit&bookingid='.$row[$i]['bookingID'].'">Edit</a><br>';
+                    $message = $message. '<a href="EditBookings.php?action=edit&bookingid='.$bookingdetails['bookingID'].'">Edit</a><br>';
                     if($_SESSION['roles'] == "Manager"){
-                        $message = $message. '<a href="EditBookings.php?action=delete&bookingid='.$row[$i]['bookingID'].'">Delete</a>';
+                        $message = $message. '<a href="EditBookings.php?action=delete&bookingid='.$bookingdetails['bookingID'].'">Delete</a>';
                     }
 
                     $message = $message.  '</td>';
