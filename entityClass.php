@@ -250,6 +250,170 @@ class testDB{
         return $rowcount;
     }
 
+    function getDistinctYear(){
+        $result = $this->conn->query("SELECT DISTINCT YEAR(bookingDate) AS Years
+         FROM bookingdb
+         ORDER BY YEARS DESC");
+        $row = $result -> fetch_all(MYSQLI_BOTH);
+        return $row;
+    }
+
+    function getBookingReportAllTime(){
+        $result = $this->conn->query("SELECT count(*) AS bookingCount, 
+        SUM(`seniorTicket`) AS sumSenior,
+        SUM(`adultTicket`) AS sumAdult,
+        SUM(`studentTicket`) AS sumStudent,
+        SUM(`childTicket`) AS sumChild,
+        SUM(`noOfTickets`) AS totalTickets,
+        sum(`totalPrice`) AS totalPrice,
+        SUM(`foodNo`) AS totalFood
+        FROM `bookingdb`");
+        $row = $result -> fetch_all(MYSQLI_BOTH);
+        return $row;
+    }
+
+    function popularMoviesAllTime(){
+        $result = $this->conn->query("SELECT `movieID`, COUNT(*) as count,
+        SUM(`noOfTickets`) AS ticketCount 
+        FROM `bookingdb` 
+        GROUP BY `movieID` 
+        ORDER BY ticketCount DESC");
+        $row = $result -> fetch_all(MYSQLI_BOTH);
+        return $row;
+    }
+
+    function busyDatesAllTime(){
+        $result = $this->conn->query("SELECT `bookingDate`, COUNT(*) as count,
+        SUM(`noOfTickets`) AS ticketCount
+        FROM `bookingdb` 
+        GROUP BY `bookingDate` 
+        ORDER BY ticketCount DESC");
+        $row = $result -> fetch_all(MYSQLI_BOTH);
+        return $row;
+    }
+
+    function getBookingReportYear($year){
+        $result = $this->conn->query("SELECT count(*) AS bookingCount, 
+        SUM(`seniorTicket`) AS sumSenior,
+        SUM(`adultTicket`) AS sumAdult,
+        SUM(`studentTicket`) AS sumStudent,
+        SUM(`childTicket`) AS sumChild,
+        SUM(`noOfTickets`) AS totalTickets,
+        sum(`totalPrice`) AS totalPrice,
+        SUM(`foodNo`) AS totalFood
+        FROM `bookingdb`
+        WHERE YEAR(`bookingDate`) = '$year'
+        ");
+        $row = $result -> fetch_all(MYSQLI_BOTH);
+        return $row;
+    }
+
+    function popularMoviesYear($year){
+        $result = $this->conn->query("SELECT `movieID`, COUNT(*) as count,
+        SUM(`noOfTickets`) AS ticketCount 
+        FROM `bookingdb` 
+        WHERE YEAR(`bookingDate`) = '$year'
+        GROUP BY `movieID` 
+        ORDER BY ticketCount DESC");
+        $row = $result -> fetch_all(MYSQLI_BOTH);
+        return $row;
+    }
+
+    function busyDatesYear($year){
+        $result = $this->conn->query("SELECT `bookingDate`, COUNT(*) as count,
+        SUM(`noOfTickets`) AS ticketCount 
+        FROM `bookingdb` 
+        WHERE YEAR(`bookingDate`) = '$year'
+        GROUP BY `bookingDate` 
+        ORDER BY ticketCount DESC");
+        $row = $result -> fetch_all(MYSQLI_BOTH);
+        return $row;
+    }
+
+    function getBookingReportYearMonth($year,$month){
+        $result = $this->conn->query("SELECT count(*) AS bookingCount, 
+        SUM(`seniorTicket`) AS sumSenior,
+        SUM(`adultTicket`) AS sumAdult,
+        SUM(`studentTicket`) AS sumStudent,
+        SUM(`childTicket`) AS sumChild,
+        SUM(`noOfTickets`) AS totalTickets,
+        sum(`totalPrice`) AS totalPrice,
+        SUM(`foodNo`) AS totalFood
+        FROM `bookingdb`
+        WHERE YEAR(`bookingDate`) = '$year'
+        AND MONTH(`bookingDate`) = '$month'
+        ");
+        $row = $result -> fetch_all(MYSQLI_BOTH);
+        return $row;
+    }
+
+    function popularMoviesYearMonth($year,$month){
+        $result = $this->conn->query("SELECT `movieID`, COUNT(*) as count,
+        SUM(`noOfTickets`) AS ticketCount 
+        FROM `bookingdb` 
+        WHERE YEAR(`bookingDate`) = '$year'
+        AND MONTH(`bookingDate`) = '$month'
+        GROUP BY `movieID` 
+        ORDER BY ticketCount DESC");
+        $row = $result -> fetch_all(MYSQLI_BOTH);
+        return $row;
+    }
+
+    function busyDatesYearMonth($year,$month){
+        $result = $this->conn->query("SELECT `bookingDate`, COUNT(*) as count,
+        SUM(`noOfTickets`) AS ticketCount 
+        FROM `bookingdb` 
+        WHERE YEAR(`bookingDate`) = '$year'
+        AND MONTH(`bookingDate`) = '$month'
+        GROUP BY `bookingDate` 
+        ORDER BY ticketCount DESC");
+        $row = $result -> fetch_all(MYSQLI_BOTH);
+        return $row;
+    }
+
+    function getBookingReportDay($Day){
+        $result = $this->conn->query("SELECT count(*) AS bookingCount, 
+        SUM(`seniorTicket`) AS sumSenior,
+        SUM(`adultTicket`) AS sumAdult,
+        SUM(`studentTicket`) AS sumStudent,
+        SUM(`childTicket`) AS sumChild,
+        SUM(`noOfTickets`) AS totalTickets,
+        sum(`totalPrice`) AS totalPrice,
+        SUM(`foodNo`) AS totalFood
+        FROM `bookingdb`
+        WHERE `bookingDate` 
+        BETWEEN DATE_SUB(CURRENT_DATE(), INTERVAL '$Day' DAY) AND CURDATE()
+        ");
+        $row = $result -> fetch_all(MYSQLI_BOTH);
+        return $row;
+    }
+
+    function popularMoviesDay($Day){
+        $result = $this->conn->query("SELECT `movieID`, COUNT(*) as count,
+        SUM(`noOfTickets`) AS ticketCount 
+        FROM `bookingdb` 
+        WHERE `bookingDate` 
+        BETWEEN DATE_SUB(CURRENT_DATE(), INTERVAL '$Day' DAY) AND CURDATE()
+        GROUP BY `movieID` 
+        ORDER BY ticketCount DESC");
+        $row = $result -> fetch_all(MYSQLI_BOTH);
+        return $row;
+    }
+
+    function busyDatesDay($Day){
+        $result = $this->conn->query("SELECT `bookingDate`, COUNT(*) as count,
+        SUM(`noOfTickets`) AS ticketCount 
+        FROM `bookingdb` 
+        WHERE `bookingDate` 
+        BETWEEN DATE_SUB(CURRENT_DATE(), INTERVAL '$Day' DAY) AND CURDATE()
+        GROUP BY `bookingDate` 
+        ORDER BY ticketCount DESC");
+        $row = $result -> fetch_all(MYSQLI_BOTH);
+        return $row;
+    }
+
+
+
 
 
 

@@ -126,6 +126,47 @@ class controller{
         else if($method == "countRowFood"){
             $result = $this->testDB->countRowFood($var1);
         }
+        else if($method == "getDistinctYear"){
+            $result = $this->testDB->getDistinctYear();
+        }
+        else if($method == "getBookingReportAllTime"){
+            $result = $this->testDB->getBookingReportAllTime();
+        }
+        else if($method == "popularMoviesAllTime"){
+            $result = $this->testDB->popularMoviesAllTime();
+        }
+        else if($method == "busyDatesAllTime"){
+            $result = $this->testDB->busyDatesAllTime();
+        }
+        else if($method == "getBookingReportYear"){
+            $result = $this->testDB->getBookingReportYear($var1);
+        }
+        else if($method == "popularMoviesYear"){
+            $result = $this->testDB->popularMoviesYear($var1);
+        }
+        else if($method == "busyDatesYear"){
+            $result = $this->testDB->busyDatesYear($var1);
+        }
+        else if($method == "getBookingReportYearMonth"){
+            $result = $this->testDB->getBookingReportYearMonth($var1,$var2);
+        }
+        else if($method == "popularMoviesYearMonth"){
+            $result = $this->testDB->popularMoviesYearMonth($var1,$var2);
+        }
+        else if($method == "busyDatesYearMonth"){
+            $result = $this->testDB->busyDatesYearMonth($var1,$var2);
+        }
+        else if($method == "getBookingReportDay"){
+            $result = $this->testDB->getBookingReportDay($var1);
+        }
+        else if($method == "popularMoviesDay"){
+            $result = $this->testDB->popularMoviesDay($var1);
+        }
+        else if($method == "busyDatesDay"){
+            $result = $this->testDB->busyDatesDay($var1);
+        }
+
+
 
 
 
