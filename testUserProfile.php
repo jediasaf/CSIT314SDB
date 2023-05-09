@@ -1,10 +1,8 @@
 <?php
 
-
 class UserProfile{
 
     function display(){
-        #include ("navbar.php");
         if(!isset($_SESSION)){
             session_start();
             #$message = '<h1>UNAUTHORISED. PLEASE DO NOT PROCEED</h1><br><meta http-equiv="refresh" content="5; url='.'HomePage SDB.php'.'" />';
@@ -25,8 +23,9 @@ class UserProfile{
                 <table class="table table-bordered">
                 <thead>
                 <tr>
-                <th>Username</th>
                 <th>Phone</th>
+                <th>Username</th>
+                <th>Password Hashes</th>
                 <th>Email</th>
                 <th>Age</th>
                 <th>Genre Preference</th>
@@ -48,16 +47,21 @@ class UserProfile{
 
                 for($i = 0; $i < sizeof($row);$i++){
                     $message = $message. '<tr>';
-                    $message = $message.  '<td>'.$row[$i]['username'].'</td>';
                     $message = $message.  '<td>'.$row[$i]['phoneNo'].'</td>';
+                    $message = $message.  '<td>'.$row[$i]['username'].'</td>';
+                    $message = $message.  '<td>'.$row[$i]['hashedPassw'].'</td>';
                     $message = $message.  '<td>'.$row[$i]['email'].'</td>';
                     $message = $message.  '<td>'.$row[$i]['age'].'</td>';
                     $message = $message.  '<td>'.$row[$i]['genrePref'].'</td>';
                     $message = $message.  '<td>'.$row[$i]['loyaltyPts'].'</td>';
                     $message = $message.  '<td>'.$row[$i]['roles'].'</td>';
                     $message = $message.  '<td>'.$row[$i]['seatPref'].'</td>';
-                    $message = $message.  '<td><a href="testEditUserProfile.php?action=edit&username='.$row[$i]['username'].'">Edit</a></td>';
-                    $message = $message.  '<td><a href="testEditUserProfile.php?action=delete&username='.$row[$i]['username'].'">Delete</a></td>';
+                    $message = $message. '<td><a href="testEditUserProfile.php?action=edit&username='.$row[$i]['username'].'">Edit</a></td>';
+                    if($_SESSION['roles'] == "Admin"){
+                        $message = $message. '<td><a href="testEditUserProfile.php?action=delete&username='.$row[$i]['username'].'">Delete</a></td>';
+                    }
+
+                    $message = $message.  '</td>';
                     $message = $message.  '</tr>';
                 }
             }
@@ -75,7 +79,7 @@ class UserProfile{
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Manager Manage Bookings</title>
+        <title>View User Profiles</title>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">

@@ -303,6 +303,11 @@ class testDB{
         return $result;
     }
 
+    function deleteUser($username){
+        $result = $this->conn->query("DELETE FROM `userdb` WHERE `username` = '$username'");
+        return $result;
+    }
+
 }
 
 ?>

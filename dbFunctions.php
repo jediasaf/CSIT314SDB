@@ -167,6 +167,9 @@ class controller{
         else if($method == "addUser"){
             $result = $this->testDB->addUser($var1, $var2, $var3, $var4, $var5, $var6, $var7, $var8, $var9);
         }
+        elseif($method == "deleteUser"){
+            $result = $this->testDB->deleteUser($var1);
+        }
 
 
 
