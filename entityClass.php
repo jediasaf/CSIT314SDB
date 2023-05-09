@@ -239,6 +239,21 @@ class testDB{
         return $rowcount;
     }
 
+    function addFood ($foodName, $quantity, $foodPicName, $status){
+        $result = $this->conn->query("INSERT INTO `fooddb`(`foodName`, `quantity`, `foodPicName`, `status`) VALUES ('$foodName','$quantity','$foodPicName','$status')");
+        return $result;
+    }
+
+    function countRowFood($foodName){
+        $result = $this->conn->query("SELECT * FROM `fooddb` WHERE `foodName` = '$foodName'");
+        $rowcount = $result -> num_rows;
+        return $rowcount;
+    }
+
+
+
+
+
 
 
 
@@ -289,6 +304,11 @@ class testDB{
         $status = $row[0]['status'];
         return $status;
     }
+
+
+
+
+
 
 
 

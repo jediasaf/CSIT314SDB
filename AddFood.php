@@ -1,8 +1,94 @@
 <?php
-include ("navbar.php");
-?>
+class AddFood{
+  function display(){
+    include ("navbar.php");
+    include ("dbFunctions.php");
+    $controller = new controller();
+    $message = '';
 
-<!DOCTYPE html>
+    if($_SERVER['REQUEST_METHOD'] === 'POST'){
+      $foodName = $_POST['foodName'];
+      $quantity = $_POST['quantity'];
+      $foodPicName = $_POST['foodPicName'];
+      $status = $_POST['status'];
+
+      $result = $controller -> run("addFood",$foodName, $quantity, $foodPicName, $status);
+
+      if($result){
+        $rowcount = $controller -> run("countRowFood",$foodName);
+        if($rowcount == 1){
+          $message .= 'Add Successful';
+        }
+        else{
+          $message .= 'Add Unsuccessful';
+
+        }
+      }
+      else{
+        $message .= 'Query Unsuccessful';
+      }
+      
+      $message .= '<meta http-equiv="refresh" content="5;URL='.'AddFood.php'.'" />';
+      $message .= '';
+    }
+    else{
+      $message .= '<form action="?" method="Post" class="contact-form">
+      <div class="col-sm-5">
+         <div class="input-block">
+           <label for="">Food Name: </label>
+           <input type="text" name="foodName" class="form-control">
+         </div>
+       </div>
+     
+     <div class="col-sm-5">
+         <div class="input-block">
+           <label for="">Quantity: </label>
+           <input type="text" name="quantity" class="form-control">
+         </div>
+       </div>
+     
+      <div class="col-sm-5">
+       <div class="input-block">
+           <label for="">Food Picture: (.jpg files only)</label>
+           <input type = "text" name = "foodPicName" class="form-control" />
+         </div>
+       </div>
+     
+        
+         <div class="col-sm-5">
+     <div class="input-block">
+       <label for="">Status: </label>
+       <div>
+         <label>
+           <input type="radio" name="status" value="1"> 1
+         </label>
+         <label>
+           <input type="radio" name="status" value="0"> 0
+         </label>
+       </div>
+     </div>
+   </div>
+     
+         
+       <div class="col-md-12">
+       <div class="form-group">
+       <input type="submit" value="Add New Food" class="btn btn-primary">
+       <div class="submitting"></div>
+       </div>
+       </div>
+     
+   </form>';
+    }
+
+
+
+
+
+
+
+
+    echo '
+    <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -27,54 +113,25 @@ include ("navbar.php");
 		<h2>Add New <span style="color:#F8F8F8;"> Food</span></h2>
 		</div>
  <div class="form">
-            <form action="">
-                <div class="row">
-                    <div class="col">
-  <form action="" class="contact-form">
-	 <div class="col-sm-5">
-      <div class="input-block">
-        <label for="">Food Name: </label>
-        <input type="text" class="form-control">
-      </div>
-    </div>
-	
-	<div class="col-sm-5">
-      <div class="input-block">
-        <label for="">Quantity: </label>
-        <input type="text" class="form-control">
-      </div>
-    </div>
-	
-	 <div class="col-sm-5">
-	  <div class="input-block">
-        <label for="">Food Picture: </label>
-        <input type = "file" name = "fileupload" accept = "image/*" />
-      </div>
-    </div>
-	
-		 <div class="col-sm-5">
-      <div class="input-bl<div class="col-sm-5">
-  <div class="input-block">
-    <label for="">Status: </label>
-    <div>
-      <label>
-        <input type="radio" name="status" value="1"> 1
-      </label>
-      <label>
-        <input type="radio" name="status" value="0"> 0
-      </label>
-    </div>
-  </div>
-</div>
-	
-      
-    <div class="col-md-12">
-		<div class="form-group">
-		<input type="submit" value="Add New Food" class="btn btn-primary">
-		<div class="submitting"></div>
-		</div>
-		</div>
-  </div>
-</form>       
+          <div class="row">
+                <div class="col">';
+                  echo $message;
+  echo'
+</div>      
 </body>
 </html>
+    ';
+
+
+
+  }
+}
+
+
+$display = new AddFood();
+$display -> display();
+
+
+
+?>
+

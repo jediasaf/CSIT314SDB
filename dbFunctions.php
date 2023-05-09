@@ -120,6 +120,12 @@ class controller{
         else if($method == "confirmDeleteFood"){
             $result = $this->testDB->confirmDeleteFood($var1);
         }
+        else if($method == "addFood"){
+            $result = $this->testDB->addFood($var1,$var2,$var3,$var4);
+        }
+        else if($method == "countRowFood"){
+            $result = $this->testDB->countRowFood($var1);
+        }
 
 
 
