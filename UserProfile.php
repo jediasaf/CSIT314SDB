@@ -56,9 +56,9 @@ class UserProfile{
                     $message = $message.  '<td>'.$row[$i]['loyaltyPts'].'</td>';
                     $message = $message.  '<td>'.$row[$i]['roles'].'</td>';
                     $message = $message.  '<td>'.$row[$i]['seatPref'].'</td>';
-                    $message = $message. '<td><a href="testEditUserProfile.php?action=edit&username='.$row[$i]['username'].'">Edit</a></td>';
+                    $message = $message. '<td><a href="EditUserProfile.php?action=edit&username='.$row[$i]['username'].'">Edit</a></td>';
                     if($_SESSION['roles'] == "Admin"){
-                        $message = $message. '<td><a href="testEditUserProfile.php?action=delete&username='.$row[$i]['username'].'">Delete</a></td>';
+                        $message = $message. '<td><a href="EditUserProfile.php?action=delete&username='.$row[$i]['username'].'">Delete</a></td>';
                     }
 
                     $message = $message.  '</td>';
@@ -88,15 +88,14 @@ class UserProfile{
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <style type="text/css">
-        @import url("CSS/AllUsers.css");
-
+        @import url("CSS/AllUsers.css"); 
         </style>';
 
 
         echo'
         </head>';
-        #include('navbar.php');
-        include ("AdminNavbar.php");
+        include('navbar.php');
+       
 
         echo'<body>
 

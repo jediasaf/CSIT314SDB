@@ -304,7 +304,7 @@ class testDB{
     }
 
     function adminUpdateUserProfile($username, $phone, $email, $age, $genrepref, $loyaltypts, $role, $seatpref){
-        $result = $this->conn->query("UPDATE `userdb` SET `phoneNo` = $phone, `email` = '$email', `age` = $age, `genrePref` = '$genrepref', `loyaltyPts` = $loyaltypts, `roles` = $role, `seatPref` = $seatpref WHERE `username` = '$username'");
+        $result = $this->conn->query("UPDATE `userdb` SET `phoneNo` = '$phone', `email` = '$email', `age` = '$age', `genrePref` = '$genrepref', `loyaltyPts` = '$loyaltypts', `roles` = '$role', `seatPref` = '$seatpref' WHERE `username` = '$username'");
         return $result;
     }
 
