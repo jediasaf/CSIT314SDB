@@ -42,6 +42,12 @@ class MyBookings{
 <th>Movie ID</th>
 <th>No.Of Tickets</th>
 <th>Seat Detail</th>
+<th>Adult Seat</th>
+<th>Senior Seat</th>
+<th>StudentSeat</th>
+<th>Child Seat</th>
+<th>Number of Food</th>
+<th>Total Price</th>
 </tr>
 </thead>
 <tbody>';
@@ -58,6 +64,12 @@ for($i = 0; $i < sizeof($row); $i ++){
     echo '<td>'.$movieTitle.'</td>';
     echo '<td>'.$row[$i]['noOfTickets'].'</td>';
     echo '<td>'.$row[$i]['seats'].'</td>';
+    echo '<td>'.$row[$i]['adultTicket'].'</td>';
+    echo '<td>'.$row[$i]['seniorTicket'].'</td>';
+    echo '<td>'.$row[$i]['studentTicket'].'</td>';
+    echo '<td>'.$row[$i]['childTicket'].'</td>';
+    echo '<td>'.$row[$i]['foodNo'].'</td>';
+    echo '<td>'.$row[$i]['totalPrice'].'</td>';
 
     echo '</tr>';
 }

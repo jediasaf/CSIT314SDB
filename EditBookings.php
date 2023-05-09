@@ -81,6 +81,48 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){
         <input type="text" name="seats" value="'.$result[0]['seats'].'" class="form-control">
       </div>
     </div>
+
+    <div class="col-sm-5">
+      <div class="input-block">
+        <label for="">Number of Adult Ticket: </label>
+        <input type="number" name="adulTicket" value="'.$result[0]['adulTicket'].'" class="form-control">
+      </div>
+    </div>
+
+    <div class="col-sm-5">
+      <div class="input-block">
+        <label for="">Number of Senior Ticket: </label>
+        <input type="number" name="seniorTicket" value="'.$result[0]['seniorTicket'].'" class="form-control">
+      </div>
+    </div>
+
+    <div class="col-sm-5">
+      <div class="input-block">
+        <label for="">Number of Student Ticket: </label>
+        <input type="number" name="studentTicket" value="'.$result[0]['studentTicket'].'" class="form-control">
+      </div>
+    </div>
+
+    <div class="col-sm-5">
+      <div class="input-block">
+        <label for="">Number of Child Ticket: </label>
+        <input type="number" name="childTicket" value="'.$result[0]['childTicket'].'" class="form-control">
+      </div>
+    </div>
+
+    <div class="col-sm-5">
+      <div class="input-block">
+        <label for="">Food Purchased: </label>
+        <input type="number" name="foodNo" value="'.$result[0]['foodNo'].'" class="form-control">
+      </div>
+    </div>
+
+    <div class="col-sm-5">
+      <div class="input-block">
+        <label for="">Total Price: </label>
+        <input type="number" name="totalPrice" value="'.$result[0]['totalPrice'].'" class="form-control">
+      </div>
+    </div>
       
     <div class="col-md-12">
 		<div class="form-group">
@@ -93,28 +135,41 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){
   }
   else if($action == "delete"){
     $message =  '<form action="?" method="POST">';
-    $message = $message.'<h4 style="text-align: left; white-space: pre;">Booking ID                : '.$result[0]['bookingID'].'</h4>';
-    $message = $message.'<h4 style="text-align: left; white-space: pre;">Phone Number        : '.$result[0]['phoneNo'].'</h4>';
-    $message = $message.'<h4 style="text-align: left; white-space: pre;">Username                 : '.$result[0]['username'].'</h4>';
-    $message = $message.'<h4 style="text-align: left; white-space: pre;">Booking Date            : '.$result[0]['bookingDate'].'</h4>';
-    $message = $message.'<h4 style="text-align: left; white-space: pre;">Movie ID                    : '.$result[0]['movieID'].'</h4>';
-    $message = $message.'<h4 style="text-align: left; white-space: pre;">Number of tickets    : '.$result[0]['noOfTickets'].'</h4>';
-    $message = $message.'<h4 style="text-align: left; white-space: pre;">Seat Details               : '.$result[0]['seats'].'</h4>';
-    $message = $message.'<h4 style="text-align: left; white-space: pre;">isClaimed                   : '.$result[0]['isClaimed'].'</h4>';
+    $message = $message.'<h4 style="text-align: left; white-space: pre;">Booking ID                              : '.$result[0]['bookingID'].'</h4>';
+    $message = $message.'<h4 style="text-align: left; white-space: pre;">Phone Number                      : '.$result[0]['phoneNo'].'</h4>';
+    $message = $message.'<h4 style="text-align: left; white-space: pre;">Username                               : '.$result[0]['username'].'</h4>';
+    $message = $message.'<h4 style="text-align: left; white-space: pre;">Booking Date                          : '.$result[0]['bookingDate'].'</h4>';
+    $message = $message.'<h4 style="text-align: left; white-space: pre;">Movie ID                                  : '.$result[0]['movieID'].'</h4>';
+    $message = $message.'<h4 style="text-align: left; white-space: pre;">Number of tickets                  : '.$result[0]['noOfTickets'].'</h4>';
+    $message = $message.'<h4 style="text-align: left; white-space: pre;">Seat Details                             : '.$result[0]['seats'].'</h4>';
+    $message = $message.'<h4 style="text-align: left; white-space: pre;">isClaimed                                 : '.$result[0]['isClaimed'].'</h4>';
+    $message = $message.'<h4 style="text-align: left; white-space: pre;">Adult Tickets                            : '.$result[0]['adultTicket'].'</h4>';
+    $message = $message.'<h4 style="text-align: left; white-space: pre;">Senior Tickets                          : '.$result[0]['seniorTicket'].'</h4>';
+    $message = $message.'<h4 style="text-align: left; white-space: pre;">Student Tickets                        : '.$result[0]['studentTicket'].'</h4>';
+    $message = $message.'<h4 style="text-align: left; white-space: pre;">Child tickets                              : '.$result[0]['childTicket'].'</h4>';
+    $message = $message.'<h4 style="text-align: left; white-space: pre;">Number of Food Purchased  : '.$result[0]['foodNo'].'</h4>';
+    $message = $message.'<h4 style="text-align: left; white-space: pre;">Total Price                                 : '.$result[0]['totalPrice'].'</h4>';
     $message = $message.'<input type="hidden" name="bookingid" value="'.$result[0]['bookingID'].'" >';
     $message = $message.'<input type="submit" name="submit" value="Delete">';
     $message = $message.'</form>';
   }
   else if($action == "claim"){
     $message =  '<form action="?" method="POST">';
-    $message = $message.'<h4 style="text-align: left; white-space: pre;">Booking ID                : '.$result[0]['bookingID'].'</h4>';
-    $message = $message.'<h4 style="text-align: left; white-space: pre;">Phone Number        : '.$result[0]['phoneNo'].'</h4>';
-    $message = $message.'<h4 style="text-align: left; white-space: pre;">Username                 : '.$result[0]['username'].'</h4>';
-    $message = $message.'<h4 style="text-align: left; white-space: pre;">Booking Date            : '.$result[0]['bookingDate'].'</h4>';
-    $message = $message.'<h4 style="text-align: left; white-space: pre;">Movie ID                    : '.$result[0]['movieID'].'</h4>';
-    $message = $message.'<h4 style="text-align: left; white-space: pre;">Number of tickets    : '.$result[0]['noOfTickets'].'</h4>';
-    $message = $message.'<h4 style="text-align: left; white-space: pre;">Seat Details               : '.$result[0]['seats'].'</h4>';
-    $message = $message.'<h4 style="text-align: left; white-space: pre;">isClaimed                   : '.$result[0]['isClaimed'].'</h4>';
+    $message = $message.'<h4 style="text-align: left; white-space: pre;">Booking ID                              : '.$result[0]['bookingID'].'</h4>';
+    $message = $message.'<h4 style="text-align: left; white-space: pre;">Phone Number                      : '.$result[0]['phoneNo'].'</h4>';
+    $message = $message.'<h4 style="text-align: left; white-space: pre;">Username                               : '.$result[0]['username'].'</h4>';
+    $message = $message.'<h4 style="text-align: left; white-space: pre;">Booking Date                          : '.$result[0]['bookingDate'].'</h4>';
+    $message = $message.'<h4 style="text-align: left; white-space: pre;">Movie ID                                  : '.$result[0]['movieID'].'</h4>';
+    $message = $message.'<h4 style="text-align: left; white-space: pre;">Number of tickets                  : '.$result[0]['noOfTickets'].'</h4>';
+    $message = $message.'<h4 style="text-align: left; white-space: pre;">Seat Details                             : '.$result[0]['seats'].'</h4>';
+    $message = $message.'<h4 style="text-align: left; white-space: pre;">isClaimed                                 : '.$result[0]['isClaimed'].'</h4>';
+
+    $message = $message.'<h4 style="text-align: left; white-space: pre;">Adult Tickets                            : '.$result[0]['adultTicket'].'</h4>';
+    $message = $message.'<h4 style="text-align: left; white-space: pre;">Senior Tickets                          : '.$result[0]['seniorTicket'].'</h4>';
+    $message = $message.'<h4 style="text-align: left; white-space: pre;">Student Tickets                        : '.$result[0]['studentTicket'].'</h4>';
+    $message = $message.'<h4 style="text-align: left; white-space: pre;">Child tickets                              : '.$result[0]['childTicket'].'</h4>';
+    $message = $message.'<h4 style="text-align: left; white-space: pre;">Number of Food Purchased  : '.$result[0]['foodNo'].'</h4>';
+    $message = $message.'<h4 style="text-align: left; white-space: pre;">Total Price                                 : '.$result[0]['totalPrice'].'</h4>';
     $message = $message.'<input type="hidden" name="bookingid" value="'.$result[0]['bookingID'].'" >';
     $message = $message.'<input type="submit" name="submit" value="Claim">';
     $message = $message.'</form>';
@@ -132,6 +187,13 @@ else if($_SERVER['REQUEST_METHOD'] === 'POST'){
     $bookingdate = $_POST['bookingdate'];
     $username = $_POST['username'];
     $bookingid = $_POST['bookingid'];
+
+    $adultTicket = $_POST['adultTicket'];
+    $seniorTicket = $_POST['seniorTicket'];
+    $studentTicket = $_POST['studentTicket'];
+    $childTicket = $_POST['childTicket'];
+    $foodNo = $_POST['foodNo'];
+    $totalPrice = $_POST['totalPrice'];
     /*
     echo '<h1>'.$seats.'</h1>';
     echo '<h1>'.$isclaimed.'</h1>';
@@ -141,20 +203,32 @@ else if($_SERVER['REQUEST_METHOD'] === 'POST'){
     echo '<h1>'.$bookingdate.'</h1>';
     echo '<h1>'.$username.'</h1>';
     echo '<h1>'.$bookingid.'</h1>';*/
-    $result = $controller->run("updateBookings",$bookingid,$phonenum,$username,$bookingdate,$movieid,$nooftickets,$isclaimed,$seats);
 
-    #verify the update
-    if($result){
-      $result = $controller->run("getBookingFromID",$bookingid);
-      if($result[0]['username'] == $username && $result[0]['bookingDate'] == $bookingdate && $result[0]['phoneNo'] == $phonenum 
-      && $result[0]['movieID'] == $movieid && $result[0]['noOfTickets'] == $nooftickets && $result[0]['seats'] == $seats
-      && $result[0]['isClaimed'] == $isclaimed)
-      $message = 'Update Successful';
+    if($nooftickets == ($adultTicket + $seniorTicket + $studentTicket + $childTicket)){
+      $result = $controller->run("updateBookings",$bookingid,$phonenum,$username,$bookingdate,$movieid,$nooftickets,$isclaimed,$seats,$adultTicket,$seniorTicket,$studentTicket,$childTicket,$foodNo,$totalPrice);
+
+      #verify the update
+      if($result){
+        $result = $controller->run("getBookingFromID",$bookingid);
+        if($result[0]['username'] == $username && $result[0]['bookingDate'] == $bookingdate && $result[0]['phoneNo'] == $phonenum 
+        && $result[0]['movieID'] == $movieid && $result[0]['noOfTickets'] == $nooftickets && $result[0]['seats'] == $seats
+        && $result[0]['isClaimed'] == $isclaimed && $result[0]['adultTicket'] == $adultTicket && $result[0]['seniorTicket'] == $seniorTicket && $result[0]['studentTicket'] == $studentTicket &&
+         $result[0]['childTicket'] == $childTicket && $result[0]['foodNo'] == $foodNo && $result[0]['totalPrice'] == $totalPrice)
+        $message = 'Update Successful';
+      }
+      else{
+        $message = 'Update Unsuccessful';
+      }
+      $message = $message.'<meta http-equiv="refresh" content="5; url='.'ManageBookings.php'.'" />';
     }
+
     else{
-      $message = 'Update Unsuccessful';
+      $message = 'Invalid Tickets';
+      $message = $message.'<meta http-equiv="refresh" content="5; url='.'EditBookings.php?action=edit&bookingid='.$bookingid.'" />';
+
+
     }
-    $message = $message.'<meta http-equiv="refresh" content="5; url='.'ManageBookings.php'.'" />';
+    
   }
   else if($_POST['submit'] == "Delete"){
     $bookingid = $_POST['bookingid'];

@@ -55,6 +55,14 @@ class displayManageBookings{
                 <th>Movie ID</th>
                 <th>No.Of Tickets</th>
                 <th>Seat Details</th>
+
+                <th>Adult Ticket</th>
+                <th>Senior Ticket</th>
+                <th>Student Ticket</th>
+                <th>Child Ticket</th>
+                <th>Number of Food</th>
+                <th>Total Price</th>
+
                 <th>Status</th>
                 <th>Claim</th>
                 <th>Actions</th>
@@ -75,6 +83,16 @@ class displayManageBookings{
                     $message = $message.  '<td>'.$bookingdetails['movieID'].'</td>';
                     $message = $message.  '<td>'.$bookingdetails['noOfTickets'].'</td>';
                     $message = $message.  '<td>'.$bookingdetails['seats'].'</td>';
+
+
+                    $message = $message.  '<td>'.$bookingdetails['adultTicket'].'</td>';
+                    $message = $message.  '<td>'.$bookingdetails['seniorTicket'].'</td>';
+                    $message = $message.  '<td>'.$bookingdetails['studentTicket'].'</td>';
+                    $message = $message.  '<td>'.$bookingdetails['childTicket'].'</td>';
+                    $message = $message.  '<td>'.$bookingdetails['foodNo'].'</td>';
+                    $message = $message.  '<td>'.$bookingdetails['totalPrice'].'</td>';
+
+
                     $message = $message.  '<td>'.$bookingdetails['isClaimed'].'</td>';
                     if($bookingdetails['isClaimed'] == 1){
                         $message = $message.  '<td>
