@@ -13,29 +13,32 @@ class doPayment{
       #store relevent data from order.php to session
 
       #tickets
-      /*
-      $SESSION['SeniorNoTicket'] = $_POST['SeniorNoTicket'];
-      $SESSION['AdultNoTicket'] = $_POST['AdultNoTicket'];
-      $SESSION['StudentNoTicket'] = $_POST['StudentNoTicket'];
-      $SESSION['ChildNoTicket'] = $_POST['ChildNoTicket'];
-      $SESSION[''] = $_POST['SeniorNoTicket'];
-      $SESSION[''] = $_POST['SeniorNoTicket'];
-      $SESSION[''] = $_POST['SeniorNoTicket'];
-      $SESSION[''] = $_POST['SeniorNoTicket'];
+      $_SESSION['SeniorNoTicket'] = $_POST['SeniorNoTicket'];
+      $_SESSION['AdultNoTicket'] = $_POST['AdultNoTicket'];
+      $_SESSION['StudentNoTicket'] = $_POST['StudentNoTicket'];
+      $_SESSION['ChildNoTicket'] = $_POST['ChildNoTicket'];
+      $_SESSION[''] = $_POST['SeniorNoTicket'];
+      $_SESSION[''] = $_POST['SeniorNoTicket'];
+      $_SESSION[''] = $_POST['SeniorNoTicket'];
+      $_SESSION[''] = $_POST['SeniorNoTicket'];
+
       # food
       $foodDetails = $controller -> run('getAvailableFoodDetails');
       for ($i = 0; $i < count($foodDetails); $i++) {
-        $SESSION[$foodDetails[$i]['foodName']] = $_POST[$foodDetails[$i]['foodName']];
+        $result = $foodDetails[$i]['foodName'];
+        $result = str_replace(' ', '_', $result);
+        $_SESSION[$foodDetails[$i]['foodName']] = $_POST[$result];
       }
-      */
+      
       #seats
+      $string = '';
       foreach($_POST as $key => $value) {
         if (strpos($value, '*') !== false){
           $string .= $value.',';
         }
       }
-      $SESSION['seats'] = $string;
-      $test = $SESSION['seats'];
+      $_SESSION['seats'] = $string;
+
 
 
       echo'<!doctype html>
@@ -58,7 +61,7 @@ class doPayment{
                   />
                 </div>
                 <div class="rightside">
-                  <form action="testPaymentPage.php" method"POST">
+                  <form action="testPaymentPage.php" method = "POST">
                     <h1>Check Out</h1>
                     <h2>Payment Information</h2>
                       <p>Thank You, Please bring along your booking ID and or Proof of Payment when you come to the cinema.</p>
@@ -91,9 +94,11 @@ class doPayment{
         </body>
         </html>';
 
+        # verification check
         $number = $_POST['paynow_number'];
         $name = $_POST['paynow_name'];
         $paymentType = $_POST['payment_type'];
+        
         
     }
 }

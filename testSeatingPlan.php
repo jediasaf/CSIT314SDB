@@ -187,19 +187,19 @@ class doOrder{
     <tbody >
     <tr style="margin-bottom: 5px; margin-top: 10px;">
         <td style="padding-right:10px">Senior - $6 per ticket</td>
-        <td><input name="SeniorNoTicket" type="number"></td>
+        <td><input name="SeniorNoTicket" value = "0" type="number"></td>
     </tr>
     <tr>
         <td style="padding-right:10px">Adult - $12 per ticket</td>
-        <td><input name="AdultNoTicket" type="number"></td>
+        <td><input name="AdultNoTicket" value = "0" type="number"></td>
     </tr>
     <tr>
         <td style="padding-right:10px">Student - $8 per ticket</td>
-        <td><input name="StudentNoTicket" type="number"></td>
+        <td><input name="StudentNoTicket" value = "0" type="number"></td>
     </tr>
     <tr>
         <td style="padding-right:10px">Child - $6 per ticket</td>
-        <td><input name="ChildNoTicket" type="number"></td>
+        <td><input name="ChildNoTicket" value = "0"type="number"></td>
     </tr>    
 </tbody>
 	  </table>
@@ -212,7 +212,7 @@ class doOrder{
   for ($i = 0; $i < count($foodDetails); $i++) {
     echo'<tr>';
     echo'<td>'.$foodDetails[$i]['foodName'].'</td>';
-    echo'<td style="padding-right:10px"><input name="'.$foodDetails[$i]['foodName'].'" type="number"></td>';
+    echo'<td style="padding-right:10px"><input name="'.$foodDetails[$i]['foodName'].'" value = "0" type="number"></td>';
     echo'</tr>';
   }
 	
