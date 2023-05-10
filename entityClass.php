@@ -475,8 +475,9 @@ class testDB{
         return $row;
     }
 
-    function updateBookingdb(){
-        
+    function updateBookingdb($number,$username,$bookingDate,$movieId,$noOfTickets,$seats,$adultTik,$seniorTik,$studentTik,$childTik,$foodNum,$totalPrice){
+        $result = $this->conn->query("INSERT INTO `bookingdb`(`phoneNo`, `username`, `bookingDate`, `movieID`, `noOfTickets`, `seats`, `adultTicket`, `seniorTicket`, `studentTicket`, `childTicket`, `foodNo`, `totalPrice`) VALUES ('$number','$username','$bookingDate','$movieId','$noOfTickets','$seats','$adultTik','$seniorTik','$studentTik','$childTik','$foodNum','$totalPrice')");
+        return $result;
     }
 
 

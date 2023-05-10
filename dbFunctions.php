@@ -200,11 +200,8 @@ class controller{
         else if($method == "getSeatName"){
             $result = $this->testDB->getSeatName($var1,$var2,$var3);
         }
-        else if($method == "updateBookingdbStaff"){
-            $result = $this->testDB->updateBookingdbStaff($var1,$var2,$var3,$var4,$var5,$var6,$var7,$var8,$var9,$var10,$var11,$var12);
-        }
-        else if($method == "updateBookingdbCustomer"){
-            $result = $this->testDB->updateBookingdbCustomer($var1,$var2,$var3,$var4,$var5,$var6,$var7,$var8,$var9,$var10,$var11,$var12);
+        else if($method == "updateBookingdb"){
+            $result = $this->testDB->updateBookingdb($var1,$var2,$var3,$var4,$var5,$var6,$var7,$var8,$var9,$var10,$var11,$var12);
         }
 
 
