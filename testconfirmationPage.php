@@ -14,13 +14,17 @@
           
           #$username = $_SESSION['username'];
           #$loyaltyPoints = $_SESSION['loyaltypts'];
+          #$number = $_SESSION['phoneNo'];
+
           $loyaltyPoints = 100;
           $username = 'cmelato28';
+          $number = 12345678;
 
           $numSeniorTik = $_SESSION['SeniorNoTicket'];
           $numAdultTik = $_SESSION['AdultNoTicket'];
           $numStudentTik = $_SESSION['StudentNoTicket'];
           $numChildTik = $_SESSION['ChildNoTicket'];
+          $totalTik = $numSeniorTik + $numAdultTik + $numStudentTik + $numChildTik;
           $seniorTotal = $numSeniorTik * 6;
           $adultTotal = $numAdultTik * 12;
           $studentTotal = $numStudentTik * 8;
@@ -82,6 +86,12 @@
           $totalBill = $seniorTotal + $adultTotal + $childTotal + $studentTotal + ($totalFoodOrder * 8);
 
           $currentDate = date("Y-m-d");
+
+          $msg ='';
+          if($_SERVER['REQUEST_METHOD'] === 'GET'){
+            $result = $controller ->run('updateBookingdb',$number,$username,$currentDate,$movieID,$totalTik,$seatsOrder,$numAdultTik,$numSeniorTik,$numStudentTik,$numChildTik,$totalFoodOrder,$totalBill);
+            $msg .='    <a href="" onclick="window.print()">Print Screen</a>';
+          }
 
             echo'<!doctype html>
             <html>
@@ -297,7 +307,8 @@
                   <h2>Dear, Website Designer</h2>
                     <p>Your booking has been successful,<br/> looking forward to see u in the cinema!</p>
                   </div>
-                
+
+                <form action="testconfirmationPage.php" method = "GET">
                 <div class="confirmationtable">
                   <body class="shoppingCart">
               <div style="min-height: 1350px" class="CartContainer">
@@ -427,11 +438,8 @@
                                        
                                     </tr>';
                                 }
-                      
+                                
                           echo'<tr><td>
-                        <input type="checkbox" id="redeemPoints" name="redeemPoints" value="redeemPts">
-            <label for="redeemPoints"> Redeem My Points</label><br></td></tr>
-                      
                         
                                     <tr>
                           
@@ -448,11 +456,12 @@
                 <a href="HomePage SDB.php">
                   <button class="button">Checkout</button>
                  </a>
+                <form>
                   </div>
                     </div>
-                </div>	
-                    </div>
-                
+                </div>	';
+                echo$msg;
+                    echo'</div>
                 </body>
             </html>
             <body>
