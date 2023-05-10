@@ -309,7 +309,8 @@ filter.addEventListener("change", function() {
         <div class="table-wrapper">
         <div class="table-title">
         <div class="row">
-        <div class="col-sm-4">';
+        <div class="col-sm-4">
+		';
         
         echo $message;
         echo '
