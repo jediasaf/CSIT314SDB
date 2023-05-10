@@ -12,7 +12,7 @@ class ListAllUsers{
             if($_SESSION['roles'] == "Admin"){
                 $message = '
                 <div class="searchbar">
-                <form action="SearchUser.php" class="search-bar">
+                <form action="SearchUser.php" class="search-bar" method = "GET">
                     <input type="text" placeholder="Search User" name="name">
                     <input type="submit" value="Search">
                 </form>
@@ -41,10 +41,7 @@ class ListAllUsers{
                 <th>View Profile</th>
                 </tr>
                 </thead>
-                <tbody>
-                
-                
-                ';
+                <tbody>';
                 include ("dbFunctions.php");
 
                 $controller = new controller();
