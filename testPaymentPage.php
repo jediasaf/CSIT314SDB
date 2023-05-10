@@ -31,6 +31,8 @@ class doPayment{
           else {
           }
           #this closes the regex 
+        }else{
+          echo'invalid input, please try again';
         }
         #this closes the check if request method is get
       }
