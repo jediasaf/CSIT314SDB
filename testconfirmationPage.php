@@ -291,7 +291,7 @@
                 
                 <div class="confirmationtable">
                   <body class="shoppingCart">
-              <div style="min-height: 1200px" class="CartContainer">
+              <div style="min-height: 1350px" class="CartContainer">
                     <div class="Header">
                       <h3 class="Heading">&nbsp;</h3><h3 class="Heading">&nbsp;</h3><h3 class="Heading">Your Booking</h3>
                    <h5 class="Action">Loyalty Points: '.$loyaltyPoints.'</h5>
