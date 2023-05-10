@@ -29,6 +29,7 @@
             <input type="text" class="inputbox" name="paynow_number" id="paynow_number" required />
 			  <p>PayNow Number</p>
             <input type="number" class="inputbox" name="paynow_number" id="paynow_number" required />
+			  
 
 
             <p>Payment Type</p>

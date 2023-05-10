@@ -108,11 +108,11 @@ class doPayment{
                       <option value="PayNow">PayNow</option>
                       <option value="Pay at Counter">Pay at Counter</option>
                     </select>
-        <div class="paymentdate">
         
-
-                </div>
-                    <p></p>
+<input type="checkbox" id="redeemPoints" name="redeemPoints" value="redeemPts">
+<label for="redeemPoints" style="font-size: larger;"> Redeem My Points* </label>
+               
+                    <p style="font-size: smaller;">*All points will be redeemed for 1 time use(100 Points = $1)</p>
                     <button type="submit" class="button">CheckOut</button>
                     ';
                     echo $msg;

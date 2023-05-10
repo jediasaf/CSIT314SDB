@@ -355,8 +355,7 @@
                         </tr>
 					
 							<tr><td>
-						<input type="checkbox" id="redeemPoints" name="redeemPoints" value="redeemPts">
-<label for="redeemPoints"> Redeem My Points</label><br></td></tr>
+						<br></td></tr>
 					
 						
                         <tr>
