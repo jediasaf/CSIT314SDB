@@ -21,7 +21,7 @@ class AddMovie{
       $rantings = $_POST['rantings'];
       $trailerLink = $_POST['trailerLink'];
       $moviePicName = $_POST['moviePicName']; 
-      $availability = $_POST['availability'];
+      $availability = '0';
 
       $changedmovieID = $controller->run("escapeString",$movieID);
       $changedmovieTitle = $controller->run("escapeString",$movieTitle);
@@ -193,18 +193,7 @@ class AddMovie{
           <label for="">Movie Poster: (must be a png file)</label>
           <input type="text" name="moviePicName" class="form-control" />
         </div>
-      </div>
-      
-      <div class="col-sm-5">
-      <div class="input-block">
-          <label for="">Availability: </label>
-          <select type="text" name="availability" class="form-control">
-          <option value="0">0</option>
-          <option value="1">1</option>
-          </select>
-        </div>
-      </div>
-      
+      </div>      
         
       <div class="col-md-12">
       <div class="form-group">
