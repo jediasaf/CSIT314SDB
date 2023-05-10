@@ -215,7 +215,7 @@
 		
 		<div class="confirmationtable">
 			<body class="shoppingCart">
-	<div style="min-height: 1600px" class="CartContainer">
+	<div style="min-height: 1200px" class="CartContainer">
    	   <div class="Header">
    	   	<h3 class="Heading">&nbsp;</h3><h3 class="Heading">&nbsp;</h3><h3 class="Heading">Your Booking</h3>
    	   	<h5 class="Action">Booking ID: 12345678</h5>
@@ -224,10 +224,6 @@
 		   <h5 class="Action"> Date of Booking : 9-May-2023</h5>
    	   </div>
 		
-
-		 <div class="image-box">
-   	   	  	<img margin-left="10px" src="Images/MovieImage/AWhiskerAway2020.png" style={{ height="200px" }} />
-   	   	  </div>
 		<h4 style="text-align: center; margin-bottom: 10px; margin-top: 10px;">Movie Name : </h4>
 		<h4 style="text-align: center; margin-bottom: 30px;">Booked Seats Number : </h4>
 		<div class="col-lg-9 col-md-9 col-xs-12">
@@ -373,6 +369,9 @@
 							<td>-</td>
                         </tr>
 						<tr>
+						<td style="font-size: larger">Food and Beverages</td>
+						</tr>
+						<tr>
                             <td class="hidden-xs">Image</td>
                             <td>Food Name</td>
                             <td>Amount</td>
@@ -399,10 +398,10 @@
                         <tr>
                             <td class="hidden-xs">
                                 <a href="#">
-                                    
+                                    <img margin-left="10px" src="Images/Combo/BurgerCombo.jpg" style={{ height="80px" }} />
                                 </a>
                             </td>
-                            <td><a href="#">Fries Combo</a>
+                            <td><a href="#">Burger Combo</a>
                             </td>
                             
                             <td>
@@ -411,51 +410,7 @@
                             <td class="price">$ 20.63</td>
                             <td>$ 41.26</td>
                         </tr>
-						<tr>
-                            <td class="hidden-xs">
-                                <a href="#">
-                                    
-                                </a>
-                            </td>
-                            <td><a href="#">Fries Combo</a>
-                            </td>
-                            
-                            <td>
-                                <div class="input-group bootstrap-touchspin"><input type="text" name="" value="2" class="input-qty form-control text-center" style="display: block; width: 50px; height: 30px; border-radius: 25px; text-align: center;"><span class="input-group-addon bootstrap-touchspin-postfix" style="display: none;"></span></div>
-                            </td>
-                            <td class="price">$ 20.63</td>
-                            <td>$ 41.26</td>
-                        </tr>
-						<tr>
-                            <td class="hidden-xs">
-                                <a href="#">
-                                    
-                                </a>
-                            </td>
-                            <td><a href="#">Fries Combo</a>
-                            </td>
-                           
-                            <td>
-                                <div class="input-group bootstrap-touchspin"><input type="text" name="" value="2" class="input-qty form-control text-center" style="display: block; width: 50px; height: 30px; border-radius: 25px; text-align: center;"><span class="input-group-addon bootstrap-touchspin-postfix" style="display: none;"></span></div>
-                            </td>
-                            <td class="price">$ 20.63</td>
-                            <td>$ 41.26</td>
-                        </tr>
-						<tr>
-                            <td class="hidden-xs">
-                                <a href="#">
-                                    
-                                </a>
-                            </td>
-                            <td><a href="#">Fries Combo</a>
-                            </td>
-                           
-                            <td>
-                                <div class="input-group bootstrap-touchspin"><input type="text" name="" value="2" class="input-qty form-control text-center" style="display: block; width: 50px; height: 30px; border-radius: 25px; text-align: center;"><span class="input-group-addon bootstrap-touchspin-postfix" style="display: none;"></span></div>
-                            </td>
-                            <td class="price">$ 20.63</td>
-                            <td>$ 41.26</td>
-                        </tr>
+					
 						
                         <tr>
                             <td colspan="6" align="right">Total</td>
