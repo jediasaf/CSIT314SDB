@@ -8,6 +8,7 @@ class doPayment{
       }
       $string ='';
       $msg = '';
+      $seats = '';
 
       include('dbFunctions.php');
       $controller = new controller();
@@ -59,11 +60,13 @@ class doPayment{
             $string .= $value.',';
           }
         }
+
+        $_SESSION['seats'] = $string;
+        $seats = $_SESSION['seats'];
       }
 
       
-      $_SESSION['seats'] = $string;
-      $seats = $_SESSION['seats'];
+      
       
 
 

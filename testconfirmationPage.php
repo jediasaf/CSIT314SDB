@@ -52,7 +52,7 @@
           $seats = $_SESSION['seats'];
           echo'<h1>'.$seats.'</h1>';
           $pairs = explode(",",$seats);
-          $seatsOrdered = '';
+          $seatsOrder = '';
           foreach ($pairs as $pair){
             $numbers = explode("*",$pair);
             $row = $numbers[0];
