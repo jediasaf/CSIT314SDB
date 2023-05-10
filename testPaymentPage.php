@@ -16,11 +16,25 @@ class doPayment{
       #store relevent data from order.php to session
       # verification check
 
+      $loyaltyPoints = $_SESSION['loyaltypts'];
+      #$loyaltyPoints = 456;
+
       if($_SERVER['REQUEST_METHOD'] === 'GET'){
 
         $number = $_GET['paynow_number'];
         $name = $_GET['paynow_name'];
         $paymentType = $_GET['payment_type'];
+
+        if (isset($_GET['redeemPoints'])){
+          $true = $_GET['redeemPoints'];
+          $pointsDeducted = floor($loyaltyPoints / 100) * 100;
+          $amountSaved = $pointsDeducted / 100;
+          $_SESSION['amountSaved'] = $amountSaved;
+          $result = $controller -> run('redeemPoints',$_SESSION['phoneNo'],$pointsDeducted);
+        }
+        else{
+          $_SESSION['amountSaved'] = 0;
+        }
 
         if (preg_match('/^[a-zA-Z ]+$/', $name) && preg_match('/^[0-9]{8,10}$/', $number)) {
           // Valid name and phone number, continue with code
@@ -94,7 +108,7 @@ class doPayment{
                   <form action="testPaymentPage.php" method = "GET">
                     <h1>Check Out</h1>
                     <h2>Payment Information</h2>
-                      <p>Thank You, Please'.$seats.' bring along your booking ID and or Proof of Payment when you come to the cinema.</p>
+                      <p>Thank You, Please bring along your booking ID and or Proof of Payment when you come to the cinema.</p>
                       
                     <p>Name</p>
                     <input type="text" class="inputbox" name="paynow_name" id="paynow_name" required />

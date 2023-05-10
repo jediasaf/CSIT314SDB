@@ -475,8 +475,13 @@ class testDB{
         return $row;
     }
 
-    function updateBookingdb($number,$username,$bookingDate,$movieId,$noOfTickets,$seats,$adultTik,$seniorTik,$studentTik,$childTik,$foodNum,$totalPrice){
-        $result = $this->conn->query("INSERT INTO `bookingdb`(`phoneNo`, `username`, `bookingDate`, `movieID`, `noOfTickets`, `seats`, `adultTicket`, `seniorTicket`, `studentTicket`, `childTicket`, `foodNo`, `totalPrice`) VALUES ('$number','$username','$bookingDate','$movieId','$noOfTickets','$seats','$adultTik','$seniorTik','$studentTik','$childTik','$foodNum','$totalPrice')");
+    function updateBookingdb($number,$username,$bookingDate,$movieId,$noOfTickets,$seats,$adultTik,$seniorTik,$studentTik,$childTik,$foodNum,$totalPrice,$claim){
+        $result = $this->conn->query("INSERT INTO `bookingdb`(`phoneNo`, `username`, `bookingDate`, `movieID`, `noOfTickets`, `seats`, `adultTicket`, `seniorTicket`, `studentTicket`, `childTicket`, `foodNo`, `totalPrice`, `isClaimed`) VALUES ('$number','$username','$bookingDate','$movieId','$noOfTickets','$seats','$adultTik','$seniorTik','$studentTik','$childTik','$foodNum','$totalPrice','$claim')");
+        return $result;
+    }
+
+    function redeemPoints($number,$redeemedPoints){
+        $result = $this->conn->query("UPDATE `userdb` SET `loyaltyPts`= `loyaltyPts` - '$redeemedPoints' WHERE `phoneNo` = '$number'");
         return $result;
     }
 

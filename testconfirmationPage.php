@@ -12,13 +12,13 @@
 
           #get relevant info from SESSION
           
-          #$username = $_SESSION['username'];
-          #$loyaltyPoints = $_SESSION['loyaltypts'];
-          #$number = $_SESSION['phoneNo'];
+          $username = $_SESSION['username'];
+          $loyaltyPoints = $_SESSION['loyaltypts'];
+          $number = $_SESSION['phoneNo'];
 
-          $loyaltyPoints = 100;
-          $username = 'cmelato28';
-          $number = 12345678;
+          #$loyaltyPoints = 100;
+          #$username = 'cmelato28';
+          #$number = 12345678;
 
           $numSeniorTik = $_SESSION['SeniorNoTicket'];
           $numAdultTik = $_SESSION['AdultNoTicket'];
@@ -83,13 +83,13 @@
 
 
 
-          $totalBill = $seniorTotal + $adultTotal + $childTotal + $studentTotal + ($totalFoodOrder * 8);
+          $totalBill = ($seniorTotal + $adultTotal + $childTotal + $studentTotal + ($totalFoodOrder * 8)) - $_SESSION['amountSaved'];
 
           $currentDate = date("Y-m-d");
-
+          $claim = 0;
           $msg ='';
           if($_SERVER['REQUEST_METHOD'] === 'GET'){
-            $result = $controller ->run('updateBookingdb',$number,$username,$currentDate,$movieID,$totalTik,$seatsOrder,$numAdultTik,$numSeniorTik,$numStudentTik,$numChildTik,$totalFoodOrder,$totalBill);
+            $result = $controller ->run('updateBookingdb',$number,$username,$currentDate,$movieID,$totalTik,$seatsOrder,$numAdultTik,$numSeniorTik,$numStudentTik,$numChildTik,$totalFoodOrder,$totalBill,$claim);
             $msg .='    <a href="" onclick="window.print()">Print Screen</a>';
           }
 
