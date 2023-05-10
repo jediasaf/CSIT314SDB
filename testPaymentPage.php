@@ -29,8 +29,10 @@ class doPayment{
             echo'<meta http-equiv="refresh" content="2;url=testconfirmationPage.php">';
           }
           else {
-          } 
-
+          }
+          #this closes the regex 
+        }
+        #this closes the check if request method is get
       }
       else if($_SERVER['REQUEST_METHOD'] === 'POST'){
         #tickets
@@ -120,7 +122,7 @@ class doPayment{
         
         
         
-    }
+    
   } 
 }
 
