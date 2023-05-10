@@ -218,13 +218,12 @@
 	<div style="min-height: 1200px" class="CartContainer">
    	   <div class="Header">
    	   	<h3 class="Heading">&nbsp;</h3><h3 class="Heading">&nbsp;</h3><h3 class="Heading">Your Booking</h3>
-   	   	<h5 class="Action">Booking ID: 12345678</h5>
 		   <h5 class="Action">Loyalty Points: 12345678</h5>
 		   <h5 class="Action"> Username: webDesigner</h5>
 		   <h5 class="Action"> Date of Booking : 9-May-2023</h5>
    	   </div>
 		
-		<h4 style="text-align: center; margin-bottom: 10px; margin-top: 10px;">Movie Name : </h4>
+		
 		<h4 style="text-align: center; margin-bottom: 30px;">Booked Seats Number : </h4>
 		<div class="col-lg-9 col-md-9 col-xs-12">
         <div class="col-lg-12 col-xs-12 hero-feature">
@@ -237,8 +236,8 @@
                             <td>Ticket Type</td>
                             <td>Amount</td>
 							<td>Ticket Price</td>
-                            <td>Sub Total</td>
-							<td>Points</td>
+                            <td>Sub-Total</td>
+							
                 
                         </tr>
                     </thead>
@@ -251,22 +250,13 @@
                             </td>
                             <td><a href="#">A Whisker Away</a>
                             </td>
-                            <td>
-                                <select name="">
-									  <option value="" selected="selected">Choose Ticket Type</option>
-                                    <option value="">Adult</option>
-									<option value="">Student</option>
-									<option value="">Senior</option>
-									<option value="">Child</option>
-                                  
-                                </select>
+                            <td><a href="#">Adult</a>
                             </td>
-                            <td>
-                                <div class="input-group bootstrap-touchspin"><input type="text" name="" value="1" class="input-qty form-control text-center" style="display: block; width: 50px; height: 30px; border-radius: 25px; text-align: center;"><span class="input-group-addon bootstrap-touchspin-postfix" style="display: none;"></span></div>
+                            <td><a href="#">1</a>
                             </td>
                             <td class="price">$ 122.21</td>
                             <td>$ 122.21</td>
-							<td>-</td>
+							
                         </tr>
                         <tr>
                             <td class="hidden-xs">
@@ -276,22 +266,14 @@
                             </td>
                             <td><a href="#">A Whisker Away</a>
                             </td>
-                            <td>
-                                <select name="">
-									  <option value="" selected="selected">Choose Ticket Type</option>
-                                    <option value="">Adult</option>
-									<option value="">Student</option>
-									<option value="">Senior</option>
-									<option value="">Child</option>
-                                  
-                                </select>
+                             <td><a href="#">Child</a>
                             </td>
-                            <td>
-                                <div class="input-group bootstrap-touchspin"><input type="text" name="" value="2" class="input-qty form-control text-center" style="display: block; width: 50px; height: 30px; border-radius: 25px; text-align: center;"><span class="input-group-addon bootstrap-touchspin-postfix" style="display: none;"></span></div>
+                           </td>
+                            <td><a href="#">1</a>
                             </td>
                             <td class="price">$ 20.63</td>
                             <td>$ 41.26</td>
-							<td>Points has been used</td>
+							
                         </tr>
 						<tr>
                             <td class="hidden-xs">
@@ -301,22 +283,14 @@
                             </td>
                             <td><a href="#">A Whisker Away</a>
                             </td>
-                            <td>
-                                <select name="">
-									  <option value="" selected="selected">Choose Ticket Type</option>
-                                    <option value="">Adult</option>
-									<option value="">Student</option>
-									<option value="">Senior</option>
-									<option value="">Child</option>
-                                  
-                                </select>
+                             <td><a href="#">Senior</a>
                             </td>
-                            <td>
-                                <div class="input-group bootstrap-touchspin"><input type="text" name="" value="2" class="input-qty form-control text-center" style="display: block; width: 50px; height: 30px; border-radius: 25px; text-align: center;"><span class="input-group-addon bootstrap-touchspin-postfix" style="display: none;"></span></div>
+                            </td>
+                            <td><a href="#">1</a>
                             </td>
                             <td class="price">$ 20.63</td>
                             <td>$ 41.26</td>
-							<td>-</td>
+							
                         </tr>
 						<tr>
                             <td class="hidden-xs">
@@ -326,48 +300,16 @@
                             </td>
                             <td><a href="#">A Whisker Away</a>
                             </td>
-                            <td>
-                                <select name="">
-									  <option value="" selected="selected">Choose Ticket Type</option>
-                                    <option value="">Adult</option>
-									<option value="">Student</option>
-									<option value="">Senior</option>
-									<option value="">Child</option>
-                                  
-                                </select>
+                             <td><a href="#">Student</a>
                             </td>
-                            <td>
-                                <div class="input-group bootstrap-touchspin"><input type="text" name="" value="2" class="input-qty form-control text-center" style="display: block; width: 50px; height: 30px; border-radius: 25px; text-align: center;"><span class="input-group-addon bootstrap-touchspin-postfix" style="display: none;"></span></div>
+                            </td>
+                            <td><a href="#">1</a>
                             </td>
                             <td class="price">$ 20.63</td>
                             <td>$ 41.26</td>
-							<td>-</td>
+							
                         </tr>
-						<tr>
-                            <td class="hidden-xs">
-                                <a href="#">
-                                    
-                                </a>
-                            </td>
-                            <td><a href="#">A Whisker Away</a>
-                            </td>
-                            <td>
-                                <select name="">
-									  <option value="" selected="selected">Choose Ticket Type</option>
-                                    <option value="">Adult</option>
-									<option value="">Student</option>
-									<option value="">Senior</option>
-									<option value="">Child</option>
-                                  
-                                </select>
-                            </td>
-                            <td>
-                                <div class="input-group bootstrap-touchspin"><input type="text" name="" value="2" class="input-qty form-control text-center" style="display: block; width: 50px; height: 30px; border-radius: 25px; text-align: center;"><span class="input-group-addon bootstrap-touchspin-postfix" style="display: none;"></span></div>
-                            </td>
-                            <td class="price">$ 20.63</td>
-                            <td>$ 41.26</td>
-							<td>-</td>
-                        </tr>
+						
 						<tr>
 						<td style="font-size: larger">Food and Beverages</td>
 						</tr>
@@ -375,10 +317,11 @@
                             <td class="hidden-xs">Image</td>
                             <td>Food Name</td>
                             <td>Amount</td>
-							<td>Combo Price</td>
-                            <td>Sub Total</td>
+							<td>Sub-Total</td>
+                
                 
                         </tr>
+				
                     </thead>
                     <tbody>
                         <tr>
@@ -389,11 +332,11 @@
                             </td>
                             <td><a href="#">Fries Combo</a>
                             </td>
-                            <td>
-                                <div class="input-group bootstrap-touchspin"><input type="text" name="" value="1" class="input-qty form-control text-center" style="display: block; width: 50px; height: 30px; border-radius: 25px; text-align: center;"><span class="input-group-addon bootstrap-touchspin-postfix" style="display: none;"></span></div>
+                           </td>
+                            <td><a href="#">1</a>
                             </td>
                             <td class="price">$ 122.21</td>
-                            <td>$ 122.21</td>
+                           
                         </tr>
                         <tr>
                             <td class="hidden-xs">
@@ -404,24 +347,31 @@
                             <td><a href="#">Burger Combo</a>
                             </td>
                             
-                            <td>
-                                <div class="input-group bootstrap-touchspin"><input type="text" name="" value="2" class="input-qty form-control text-center" style="display: block; width: 50px; height: 30px; border-radius: 25px; text-align: center;"><span class="input-group-addon bootstrap-touchspin-postfix" style="display: none;"></span></div>
+                            </td>
+                            <td><a href="#">1</a>
                             </td>
                             <td class="price">$ 20.63</td>
-                            <td>$ 41.26</td>
+                            
                         </tr>
+					
+							<tr><td>
+						<input type="checkbox" id="redeemPoints" name="redeemPoints" value="redeemPts">
+<label for="redeemPoints"> Redeem My Points</label><br></td></tr>
 					
 						
                         <tr>
+							
                             <td colspan="6" align="right">Total</td>
                             <td class="total" colspan="2"><b>$ 163.47</b>
                             </td>
                         </tr>
 						
-						
+							
                     </tbody>
+
 				</table>
-	  <a href="PaymentPage.php">
+
+	  <a href="HomePage SDB.php">
    	 <button class="button">Checkout</button>
 		 </a>
 			</div>
