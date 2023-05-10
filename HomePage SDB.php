@@ -136,7 +136,7 @@ echo'
 			echo'
 			<div class="main-container">
 				<div class="poster-container">
-					<a href="MoviePage.php"><img src="Images/Combo/'.$food[$i]['foodPicName'].'" class="poster" /></a>
+					<a href="MoviePage.php"><img style="height: 124px;" src="Images/Combo/'.$food[$i]['foodPicName'].'" class="poster" /></a>
 				</div>
 				<div class="food-container">
 					<div class="food__content">
