@@ -1,79 +1,100 @@
 <?php
-$email = $_POST['email'];
-$star = $_POST['star'];
-$text = $_POST['text'];
 
-include "dbFunctions.php";
-$controller = new controller();
-$result = $controller -> run("addReview",$email,$text, $star);
+class doReview{
+  function display(){
+    include('navbar.php');
+    include ("dbFunctions.php");
+    $email = $_POST['email'];
+    $star = $_POST['star'];
+    $text = $_POST['text'];
+    $controller = new controller();
+    $result = $controller -> run("addReview",$email,$text, $star);
 
-if($result){
-	$message = '<div class="card">
-        <div style="border-radius:200px; height:200px; width:200px; background: #F8FAF5; margin:0 auto;">
-          <i class="checkmark">✓</i>
-        </div>
-        
-          <h1>Success</h1>
-          <p>Thanks for leaving a review! <br/> Your review has been successfully submitted :)
-        <br/>Redirecting to HomePage in 5 seconds.  </p>
-        </div>';
-        echo '<meta http-equiv="refresh" content="5; url='.'MoviePage.php'.'" />';
-}else {
-    $message = '<div class="card">
-        <div style="border-radius:200px; height:200px; width:200px; background: #F8FAF5; margin:0 auto;">
-          <i class="checkmark">✘</i>
-        </div>
-        
-          <h1>Error</h1>
-          <p>Sorry, there was an error submitting your review. Please try again later.</p>
-        </div>';
-    $redirect = '<meta http-equiv="refresh" content="5; url='.'MoviePage.php'.'" />';
-}
+    
+    if($result){
+      $message = '<div class="card">
+            <div style="border-radius:200px; height:200px; width:200px; background: #F8FAF5; margin:0 auto;">
+              <i class="checkmark">✓</i>
+            </div>
+            
+              <h1>Success</h1>
+              <p>Thanks for leaving a review! <br/> Your review has been successfully submitted :)
+            <br/>Redirecting to HomePage in 5 seconds.  </p>
+            </div>';
+            $message.= '<meta http-equiv="refresh" content="5; url='.'MoviePage.php'.'" />';
+    }else {
+        $message = '<div class="card">
+            <div style="border-radius:200px; height:200px; width:200px; background: #F8FAF5; margin:0 auto;">
+              <i class="checkmark">✘</i>
+            </div>
+            
+              <h1>Error</h1>
+              <p>Sorry, there was an error submitting your review. Please try again later.</p>
+            </div>';
+        $message.= '<meta http-equiv="refresh" content="5; url='.'MoviePage.php#feedback'.'" />';
+    }
 
-?>
-
-<!doctype html>
+    echo '
+    <!doctype html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Submit Review</title>
 <style type="text/css">
-@import url("CSS/AboutUs.css");
+          body {
+            text-align: center;
+            padding: 40px 0;
+          margin: 0 auto;
+            background: black;
+          }
+            h1 {
+              color: #88B04B;
+              font-family: "Nunito Sans", "Helvetica Neue", sans-serif;
+              font-weight: 900;
+              font-size: 40px;
+              margin-bottom: 10px;
+            }
+        h2{
+           color: #88B04B;
+              font-family: "Nunito Sans", "Helvetica Neue", sans-serif;
+              font-weight: 900;
+              font-size: 30px;
+              margin-bottom: 10px;
+        }
+            p {
+              color: #404F5E;
+              font-family: "Nunito Sans", "Helvetica Neue", sans-serif;
+              font-size:20px;
+              margin: 0;
+            }
+          i {
+            color: #9ABC66;
+            font-size: 100px;
+            line-height: 200px;
+            margin-left:-15px;
+          }
+          .card {
+            background: white;
+            padding: 60px;
+            border-radius: 4px;
+            box-shadow: 0 2px 3px #C8D0D8;
+            display: inline-block;
+            margin: 0 auto;
+          }
+
 </style>
 <link href="CSS/MoviePage.css" rel="stylesheet" type="text/css">
 </head>
 	<div class="hero">
 
-		<?php include('navbar.php');?>
+		
 </div>
 <body>
-<div class="responsive-container-block bigContainer">
-  <div class="responsive-container-block Container bottomContainer">
-    <div class="ultimateImg">
-      <img class="mainImg" src="Images/D.png">
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-    </div>
-    <div class="allText bottomText">
-      <p class="text-blk headingText">
-        About Us.
-      </p>
-      <p class="text-blk subHeadingText">
-        Pop-Up Cinema.
-      </p>
-      <p class="text-blk description">
-      we are the first pop-up cinema in town<br>
-	we bring your memories back of mixture of carnival and cinema at the same time.&nbsp;&nbsp; 
-		<?php 
-		echo $message;
-		?>
-		</p>
-    </div>
-  </div>
+<div class="responsive-container-block bigContainer">';
+		 
+echo $message;
+echo'
+  
 </div>
 </body>
 	<footer> 
@@ -81,10 +102,21 @@ if($result){
 			<p>Pop-Up Cinema in Town</p>
 </footer>
 </html>
-<script>
-		let subMenu = document.getElementById("subMenu");
-		
-		function toggleMenu(){
-			subMenu.classList.toggle("open-menu");
-		}
-	</script>
+    ';
+
+
+
+
+
+
+  }
+}
+
+
+$display = new doReview();
+$display -> display();
+
+
+?>
+
+

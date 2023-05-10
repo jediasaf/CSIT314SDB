@@ -503,7 +503,7 @@ class testDB{
     }
 
     function addReview($email, $text, $stars){
-        $result = $this->conn->query("INSERT INTO `reviewdb` (`email`,`reviewText`, `reviewStars`) VALUES ('$email','$text', '$stars')");
+        $result = $this->conn->query("INSERT INTO `reviewsdb` (`email`,`reviewText`, `reviewStars`) VALUES ('$email','$text', '$stars')");
         return $result;
     }
 
