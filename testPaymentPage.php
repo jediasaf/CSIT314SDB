@@ -20,23 +20,17 @@ class doPayment{
         $name = $_GET['paynow_name'];
         $paymentType = $_GET['payment_type'];
 
-        if (preg_match('/^[a-zA-Z ]+$/', $name) && preg_match('/^[0-9]{10}$/', $number)) {
+        if (preg_match('/^[a-zA-Z ]+$/', $name) && preg_match('/^[0-9]{8,10}$/', $number)) {
           // Valid name and phone number, continue with code
-          echo "Name and phone number are valid.";
-        } else {
-          // Invalid name or phone number, display error message
-          echo "Invalid name or phone number.";
-        }
+          if ($_GET['payment_type'] == 'PayNow') {
+            echo'<meta http-equiv="refresh" content="2;url=testPaynowPage.php">';
+          }
+          else if ($_GET['payment_type'] == 'Pay at Counter'){
+            echo'<meta http-equiv="refresh" content="2;url=testconfirmationPage.php">';
+          }
+          else {
+          } 
 
-        if ($_GET['payment_type'] == 'PayNow') {
-          #echo'<meta http-equiv="refresh" content="2;url=testPaynowPage.php">';
-        }
-        else if ($_GET['payment_type'] == 'Pay at Counter'){
-          #echo'<meta http-equiv="refresh" content="2;url=testconfirmationPage.php">';
-        }
-        else{
-
-        }
       }
       else if($_SERVER['REQUEST_METHOD'] === 'POST'){
         #tickets
@@ -64,6 +58,7 @@ class doPayment{
 
       
       $_SESSION['seats'] = $string;
+      
 
 
 
@@ -90,7 +85,7 @@ class doPayment{
                   <form action="testPaymentPage.php" method = "GET">
                     <h1>Check Out</h1>
                     <h2>Payment Information</h2>
-                      <p>Thank You, Please bring along your booking ID and or Proof of Payment when you come to the cinema.</p>
+                      <p>Thank You, Please'.$string.' bring along your booking ID and or Proof of Payment when you come to the cinema.</p>
                       
                     <p>Name</p>
                     <input type="text" class="inputbox" name="paynow_name" id="paynow_name" required />
@@ -111,9 +106,9 @@ class doPayment{
                     <p></p>
                     <button type="submit" class="button">CheckOut</button>
 
-                  </form>';
+                  </form>
 
-                echo'</div>
+                </div>
               </div>
             </div>
           
@@ -126,6 +121,7 @@ class doPayment{
         
         
     }
+  } 
 }
 
 $doPayment = new doPayment();
