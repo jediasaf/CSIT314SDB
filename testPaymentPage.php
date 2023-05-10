@@ -7,6 +7,7 @@ class doPayment{
         session_start();
       }
       $string ='';
+      $msg = '';
 
       include('dbFunctions.php');
       $controller = new controller();
@@ -23,16 +24,16 @@ class doPayment{
         if (preg_match('/^[a-zA-Z ]+$/', $name) && preg_match('/^[0-9]{8,10}$/', $number)) {
           // Valid name and phone number, continue with code
           if ($_GET['payment_type'] == 'PayNow') {
-            echo'<meta http-equiv="refresh" content="2;url=testPaynowPage.php">';
+            $msg .= '<meta http-equiv="refresh" content="2;url=testPaynowPage.php">';
           }
           else if ($_GET['payment_type'] == 'Pay at Counter'){
-            echo'<meta http-equiv="refresh" content="2;url=testconfirmationPage.php">';
+            $msg .= '<meta http-equiv="refresh" content="2;url=testconfirmationPage.php">';
           }
           else {
           }
           #this closes the regex 
         }else{
-          echo'invalid input, please try again';
+          $msg .= 'invalid input, please try again';
         }
         #this closes the check if request method is get
       }
@@ -62,6 +63,7 @@ class doPayment{
 
       
       $_SESSION['seats'] = $string;
+      $seats = $_SESSION['seats'];
       
 
 
@@ -89,7 +91,7 @@ class doPayment{
                   <form action="testPaymentPage.php" method = "GET">
                     <h1>Check Out</h1>
                     <h2>Payment Information</h2>
-                      <p>Thank You, Please'.$string.' bring along your booking ID and or Proof of Payment when you come to the cinema.</p>
+                      <p>Thank You, Please'.$seats.' bring along your booking ID and or Proof of Payment when you come to the cinema.</p>
                       
                     <p>Name</p>
                     <input type="text" class="inputbox" name="paynow_name" id="paynow_name" required />
@@ -109,7 +111,9 @@ class doPayment{
                 </div>
                     <p></p>
                     <button type="submit" class="button">CheckOut</button>
-
+                    ';
+                    echo $msg;
+                    echo'
                   </form>
 
                 </div>

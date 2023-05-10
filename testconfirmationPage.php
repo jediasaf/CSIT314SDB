@@ -28,9 +28,11 @@
           
 
           $totalFoodOrder = 0;
+          $foodSubtotal = array();
           $foodDetails = $controller -> run('getAvailableFoodDetails');
           for ($i = 0; $i < count($foodDetails); $i++) {
             $totalFoodOrder += $_SESSION[$foodDetails[$i]['foodName']];
+            array_push($foodSubtotal, $_SESSION[$foodDetails[$i]['foodName']] * 8);
           }
 
 
@@ -45,7 +47,10 @@
           $roomPlan = $controller -> run('getRoomPlan',$movieID);
           $roomID = $roomPlan[0]['roomID'];
 
+          
+
           $seats = $_SESSION['seats'];
+          echo'<h1>'.$seats.'</h1>';
           $pairs = explode(",",$seats);
           $seatsOrdered = '';
           foreach ($pairs as $pair){
@@ -412,9 +417,9 @@
                                         <td><a href="#">'.$foodDetails[$i]['foodName'].'</a>
                                         </td>
                                        </td>
-                                        <td><a href="#">1</a>
+                                        <td><a href="#">'.$_SESSION[$foodDetails[$i]['foodName']].'</a>
                                         </td>
-                                        <td class="price">$8</td>
+                                        <td class="price">$'.$foodSubtotal[$i].'</td>
                                        
                                     </tr>';
                                 }
@@ -427,7 +432,7 @@
                                     <tr>
                           
                                         <td colspan="6" align="right">Total</td>
-                                        <td class="total" colspan="2"><b>$ 163.47</b>
+                                        <td class="total" colspan="2"><b>$'.$totalBill.'</b>
                                         </td>
                                     </tr>
                         
