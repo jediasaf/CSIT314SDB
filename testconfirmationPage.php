@@ -50,15 +50,15 @@
           
 
           $seats = $_SESSION['seats'];
-          echo'<h1>'.$seats.'</h1>';
+          $length = strlen($seats);
+          $seats = substr($seats, 0, $length - 1);
           $pairs = explode(",",$seats);
           for ($i = 0; $i < count($pairs); $i++){
-            echo'<h1>'.$pairs[$i].'</h1>';
+
           }
           $seatsOrder = '';
           foreach ($pairs as $pair){
             $numbers = explode("*",$pair);
-            echo'<h1>'.$numbers[0],$numbers[1].'</h1>';
             $row = $numbers[0];
             $col = $numbers[1];
             $result = $controller -> run('getSeatName',$roomID,$row,$col);
@@ -66,7 +66,7 @@
           }
           
           $delimiter = ", ";
-          $count = 2;
+          $count = 1;
           #Find the position of the last occurrence of the delimiter
           $lastDelimiterPosition = strrpos($seatsOrder, $delimiter);
           #Remove the last two delimiters

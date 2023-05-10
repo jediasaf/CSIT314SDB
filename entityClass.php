@@ -2,7 +2,7 @@
 
 class testDB{
     private $conn;
-    function __construct($servername = "localhost", $dbusername = "root", $password = "", $dbname = "testdb"){
+    function __construct($servername = "localhost", $dbusername = "root", $password = "", $dbname = "testdb") {
         $this->conn = new mysqli($servername, $dbusername, $password, $dbname);
         if ($this->conn->connect_error) {
             die("Connection failed: " . $this->conn->connect_error);
@@ -475,6 +475,10 @@ class testDB{
         return $row;
     }
 
+    function updateBookingdb(){
+        
+    }
+
 
 
 
@@ -541,6 +545,7 @@ class testDB{
         $rowcount = $result -> num_rows;
         return $rowcount;
     }
+    
 
 }
 
