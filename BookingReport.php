@@ -214,8 +214,8 @@ class BookingReport{
             
             <form action="?" method="POST">
             <div style="display:block;">
-  <label for="filter">Filter:</label>
-  <select id="filter" name="filter">
+  <label for="filter">Filter :</label>
+  <select style="border: 1px solid black; width: 180px; height 60px; border-radius: 20px;" id="filter" name="filter">
     <option value="none">--Select Filter--</option>
     <option value="all-time">All Time</option>
     <option value="year">Year</option>
@@ -256,7 +256,7 @@ class BookingReport{
     </select>
   </div>
   
-  <input type="submit" value="Generate Report">
+  <input type="submit" value="Generate Report" style="border-radius: 25px; width: 180px; margin-top: 40px; box-shadow: 2px 2px 2px gray; ">
 </form>
             
 <script>
@@ -302,7 +302,7 @@ filter.addEventListener("change", function() {
         
         <body>
                 <div id="content">
-                <h2>Booking Reports</h2>
+                <h2 style="text-decoration:underline black; text-underline-offset: 12px; margin-bottom: 60px;">Booking Reports</h2>
                 </div>
         
                 <div class="table-container">
