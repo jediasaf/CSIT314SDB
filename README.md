@@ -24,5 +24,13 @@ Installation guide for Xampp
     collation: utf8_general_ci   
 11. After the database has been created navigate into the database
 12. click on import on the top tab
-13. import every csv file into the database
-14.           
+13. import every csv file except UseDBPlaintext.csv into the database using the following method
+    a. choose file
+    b. select the file to import
+    c. scroll to the bottom of the file and enable "the first line of the file contains the table column names" undere format-specific options:
+    d. repeat the steps for all the files
+
+
+If there is problem starting up mysql server due to port being occupied
+change the port number to 3307
+
