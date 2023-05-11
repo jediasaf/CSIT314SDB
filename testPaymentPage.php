@@ -16,8 +16,8 @@ class doPayment{
       #store relevent data from order.php to session
       # verification check
 
-      $loyaltyPoints = $_SESSION['loyaltypts'];
-      #$loyaltyPoints = 456;
+      #$loyaltyPoints = $_SESSION['loyaltypts'];
+      $loyaltyPoints = 456;
 
       if($_SERVER['REQUEST_METHOD'] === 'GET'){
 

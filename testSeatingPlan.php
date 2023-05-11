@@ -8,15 +8,15 @@ class doOrder{
       session_start();
     }
 
-    $loyaltyPoints = $_SESSION['loyaltypts'];
-    $username = $_SESSION['username'];
-    #$loyaltyPoints = 100;
+    #$loyaltyPoints = $_SESSION['loyaltypts'];
+    #$username = $_SESSION['username'];
+    $loyaltyPoints = 100;
     #$username = 'acalafato1x';
-    #$username = 'cmelato28';
+    $username = 'cmelato28';
     
-    $movieID = $_GET['name'];
-    $_SESSION['movieID'] = $movieID;
-    #$movieID = 'Belle2021';
+    #$movieID = $_GET['name'];
+    #$_SESSION['movieID'] = $movieID;
+    $movieID = 'Belle2021';
 
     include('dbFunctions.php');
     

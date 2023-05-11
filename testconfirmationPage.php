@@ -12,13 +12,13 @@
 
           #get relevant info from SESSION
           
-          $username = $_SESSION['username'];
-          $loyaltyPoints = $_SESSION['loyaltypts'];
-          $number = $_SESSION['phoneNo'];
+          #$username = $_SESSION['username'];
+          #$loyaltyPoints = $_SESSION['loyaltypts'];
+          #$number = $_SESSION['phoneNo'];
 
-          #$loyaltyPoints = 100;
-          #$username = 'cmelato28';
-          #$number = 12345678;
+          $loyaltyPoints = 100;
+          $username = 'cmelato28';
+          $number = 12345678;
 
           $numSeniorTik = $_SESSION['SeniorNoTicket'];
           $numAdultTik = $_SESSION['AdultNoTicket'];
