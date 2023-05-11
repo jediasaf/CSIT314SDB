@@ -43,8 +43,11 @@ class doOrder{
     # room ID, rows and cols
     $roomPlan = $controller -> run('getRoomPlan',$movieID);
     $roomID = $roomPlan[0]['roomID'];
+    $_SESSION['roomID'] = $roomID;
     $row = $roomPlan[0]['rows'];
+    $_SESSION['row'] = $row;
     $cols = $roomPlan[0]['columns'];
+    $_SESSION['cols'] = $cols;
 
     # get seatName and availability
     $roomSpecs = $controller ->run('getRoomSpecs',$roomID);
@@ -134,6 +137,8 @@ class doOrder{
     echo '<h2>SCREEN</h2>';
     echo '</div>';
 
+    echo '<h1 style = "color: white">'.$_SESSION['invalid'].'</h1>';
+    
     
     #cleaning
     echo '<br><br><br><br>';

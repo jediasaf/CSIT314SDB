@@ -54,6 +54,7 @@
           
 
           $seats = $_SESSION['seats'];
+          echo '<h1>'.$seats.'</h1>';
           $length = strlen($seats);
           $seats = substr($seats, 0, $length - 1);
           $pairs = explode(",",$seats);

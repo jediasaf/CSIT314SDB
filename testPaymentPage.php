@@ -19,7 +19,77 @@ class doPayment{
       #$loyaltyPoints = $_SESSION['loyaltypts'];
       $loyaltyPoints = 456;
 
-      if($_SERVER['REQUEST_METHOD'] === 'GET'){
+      if($_SERVER['REQUEST_METHOD'] === 'POST'){
+
+        $_SESSION['SeniorNoTicket'] = $_POST['SeniorNoTicket'];
+        $_SESSION['AdultNoTicket'] = $_POST['AdultNoTicket'];
+        $_SESSION['StudentNoTicket'] = $_POST['StudentNoTicket'];
+        $_SESSION['ChildNoTicket'] = $_POST['ChildNoTicket'];
+        $totalTickets = $_SESSION['SeniorNoTicket'] + $_SESSION['AdultNoTicket'] + $_SESSION['StudentNoTicket'] + $_SESSION['ChildNoTicket'];
+
+        # food
+        $foodDetails = $controller -> run('getAvailableFoodDetails');
+        for ($i = 0; $i < count($foodDetails); $i++) {
+          $result = $foodDetails[$i]['foodName'];
+          $result = str_replace(' ', '_', $result);
+          $_SESSION[$foodDetails[$i]['foodName']] = $_POST[$result];
+        }
+        
+        #seats
+        $string = '';
+        $hasAsterisk = false;
+        $count = 0;
+        foreach($_POST as $key => $value) {
+          if (strpos($value, '*') !== false){
+            $hasAsterisk = true;
+            $count += 1;
+          }
+        }
+        if($hasAsterisk) {
+          if($count > $totalTickets or $count < $totalTickets && $count !== 0){
+            # seat selected but does not match ticket count
+            $_SESSION['invalid'] = 'Seats selected do not match ticket amount';
+            $msg .= '<meta http-equiv="refresh" content="2;url=testSeatingPlan.php">';
+          } else {
+            # seats selected and ticket count match
+            echo'<h1>'.$seats.'</h1>';
+            $_SESSION['invalid'] = '';
+            $string .= $value.',';
+            $_SESSION['seats'] = $string;
+            $seats = $_SESSION['seats'];
+            echo'<h1>'.$seats.'</h1>';
+            echo'<h1>'.$string.'</h1>';
+          }
+        } else {
+          # seat not selected
+          for($r = 1 ; $r <= $_SESSION['row']; $r++ ){
+            for($c = 1 ; $c <= $_SESSION['cols']; $c++){
+              $result = $controller -> run("getSeatStatus",$_SESSION['roomID'],$r,$c);
+              if($result == 1){
+                #seat already booked
+              } 
+              else if($result == 0){
+                #seat open for booking
+                for($i = 0; $i < $count; $i++){
+                  $seatNames = $controller -> run("getSeatName",$_SESSION['roomID'],$r,$c);
+                  $string .= $seatNames[0]['seatName'].',';
+                }
+                $_SESSION['seats'] = $string;
+                $seats = $_SESSION['seats'];
+                echo'<h1>'.$seats.'</h1>';
+              }
+            }
+          }
+
+        }
+
+
+
+
+        #this closes the check if request method is get
+      }
+      else if($_SERVER['REQUEST_METHOD'] === 'GET'){
+
 
         $number = $_GET['paynow_number'];
         $name = $_GET['paynow_name'];
@@ -50,33 +120,6 @@ class doPayment{
         }else{
           $msg .= 'invalid input, please try again';
         }
-        #this closes the check if request method is get
-      }
-      else if($_SERVER['REQUEST_METHOD'] === 'POST'){
-        #tickets
-        $_SESSION['SeniorNoTicket'] = $_POST['SeniorNoTicket'];
-        $_SESSION['AdultNoTicket'] = $_POST['AdultNoTicket'];
-        $_SESSION['StudentNoTicket'] = $_POST['StudentNoTicket'];
-        $_SESSION['ChildNoTicket'] = $_POST['ChildNoTicket'];
-
-        # food
-        $foodDetails = $controller -> run('getAvailableFoodDetails');
-        for ($i = 0; $i < count($foodDetails); $i++) {
-          $result = $foodDetails[$i]['foodName'];
-          $result = str_replace(' ', '_', $result);
-          $_SESSION[$foodDetails[$i]['foodName']] = $_POST[$result];
-        }
-        
-        #seats
-        $string = '';
-        foreach($_POST as $key => $value) {
-          if (strpos($value, '*') !== false){
-            $string .= $value.',';
-          }
-        }
-
-        $_SESSION['seats'] = $string;
-        $seats = $_SESSION['seats'];
       }
 
       
