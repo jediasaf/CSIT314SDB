@@ -80,6 +80,7 @@ class StaffNav {
         <nav>
                 <ul>
                         <li><a href="ManageBookings.php">Customer Bookings</a>
+                        <li><a href="ViewCustomers.php">View Customer</a>
                     </ul>
                 </nav>';
     }
