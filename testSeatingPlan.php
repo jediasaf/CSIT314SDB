@@ -57,6 +57,8 @@ class doOrder{
     # get details from fooddb
     $foodDetails = $controller -> run('getAvailableFoodDetails');
 
+    $_SESSION['seats'] = '';
+
     echo'<!doctype html>
     <html>
     <head>

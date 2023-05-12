@@ -24,7 +24,12 @@ class doPaynow{
     $totalFoodOrder += $_SESSION[$foodDetails[$i]['foodName']];
     }
 
-    $totalBill = ($seniorTotal + $adultTotal + $childTotal + $studentTotal + ($totalFoodOrder * 8)) - $_SESSION['amountSaved'];
+    if($_SESSION['amountSaved'] == 'invalid amount of points'){
+      $amountSaved = 0;
+    } else {
+      $amountSaved = substr($_SESSION['amountSaved'], 1);
+    }
+    $totalBill = ($seniorTotal + $adultTotal + $childTotal + $studentTotal + ($totalFoodOrder * 8)) - $amountSaved;
     $seats = $_SESSION['seats'];
 
     echo'<!doctype html>
@@ -51,7 +56,7 @@ class doPaynow{
                 <h1></h1>
                 <h2>PayNow QR Code</h2>
                   <p>Thank You for your order, Please scan the QR code below for confirming your booking.</p>
-                  <h2>Total : $'.$totalBill.'</h2>
+                  <h2>Total : $'.$totalBill.' <br>Amount deducted by points redemption:'.$_SESSION['amountSaved'].'</h2>
                   <img src="Images/paynow.png"> 
                 <p></p>
                   <a href="HomePage SDB.php">

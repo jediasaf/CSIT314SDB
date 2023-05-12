@@ -51,40 +51,52 @@
           $roomPlan = $controller -> run('getRoomPlan',$movieID);
           $roomID = $roomPlan[0]['roomID'];
 
-          
-
-          $seats = $_SESSION['seats'];
-          echo '<h1>'.$seats.'</h1>';
-          $length = strlen($seats);
-          $seats = substr($seats, 0, $length - 1);
-          $pairs = explode(",",$seats);
-          for ($i = 0; $i < count($pairs); $i++){
-
-          }
           $seatsOrder = '';
-          foreach ($pairs as $pair){
-            $numbers = explode("*",$pair);
-            $row = $numbers[0];
-            $col = $numbers[1];
-            $result = $controller -> run('getSeatName',$roomID,$row,$col);
-            $seatsOrder .= $result[0]['seatName'].', ';
+
+          if ($_SESSION['seats'] != ''){
+
+            $seats = $_SESSION['seats'];
+            echo '<h1>'.$seats.'</h1>';
+            $length = strlen($seats);
+            $seats = substr($seats, 0, $length - 1);
+            echo '<h1>'.$seats.'</h1>';
+            $pairs = explode(",",$seats);
+            for ($i = 0; $i < count($pairs); $i++){
+  
+            }
+            $seatsOrder = '';
+            echo '<h1>'.$pairs.'</h1>';
+            foreach ($pairs as $pair){
+              $numbers = explode("*",$pair);
+              $row = $numbers[0];
+              $col = $numbers[1];
+              $result = $controller -> run('getSeatName',$roomID,$row,$col);
+              $seatsOrder .= $result[0]['seatName'].', ';
+            }
+            
+            $delimiter = ", ";
+            $count = 1;
+            #Find the position of the last occurrence of the delimiter
+            $lastDelimiterPosition = strrpos($seatsOrder, $delimiter);
+            #Remove the last two delimiters
+            if ($lastDelimiterPosition !== false) {
+            $seatsOrder = substr($seatsOrder, 0, $lastDelimiterPosition - ($count - 1) * strlen($delimiter));
+            }
+          } else {
+            $seatsOrder = $_SESSION['seatsP'];
           }
-          
-          $delimiter = ", ";
-          $count = 1;
-          #Find the position of the last occurrence of the delimiter
-          $lastDelimiterPosition = strrpos($seatsOrder, $delimiter);
-          #Remove the last two delimiters
-          if ($lastDelimiterPosition !== false) {
-          $seatsOrder = substr($seatsOrder, 0, $lastDelimiterPosition - ($count - 1) * strlen($delimiter));
-          }
+
 
           #get current date
           $currentDate = date('Y-m-d');
 
+          if($_SESSION['amountSaved'] == 'invalid amount of points'){
+            $amountSaved = 0;
+          } else {
+            $amountSaved = substr($_SESSION['amountSaved'], 1);
+          }
+          $totalBill = ($seniorTotal + $adultTotal + $childTotal + $studentTotal + ($totalFoodOrder * 8)) - $amountSaved;
 
-
-          $totalBill = ($seniorTotal + $adultTotal + $childTotal + $studentTotal + ($totalFoodOrder * 8)) - $_SESSION['amountSaved'];
 
           $currentDate = date("Y-m-d");
           $claim = 0;
@@ -445,7 +457,7 @@
                                     <tr>
                           
                                         <td colspan="6" align="right">Total</td>
-                                        <td class="total" colspan="2"><b>$'.$totalBill.'</b>
+                                        <td class="total" colspan="2"><b>$'.$totalBill.' <br>Amount deducted by points redemption:'.$_SESSION['amountSaved'].'</b>
                                         </td>
                                     </tr>
                         
