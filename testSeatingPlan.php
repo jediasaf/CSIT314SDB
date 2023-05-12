@@ -18,6 +18,8 @@ class doOrder{
     #$_SESSION['movieID'] = $movieID;
     $movieID = 'Belle2021';
 
+    
+
     include('dbFunctions.php');
     
     $controller = new controller();
@@ -139,7 +141,12 @@ class doOrder{
     echo '<h2>SCREEN</h2>';
     echo '</div>';
 
-    echo '<h1 style = "color: white">'.$_SESSION['invalid'].'</h1>';
+    if($_SESSION['invalid'] != ''){
+      echo '<h1 style = "color: white">'.$_SESSION['invalid'].'</h1>';
+    } else {
+      $_SESSION['invalid'] = '';
+    }
+    
     
     
     #cleaning

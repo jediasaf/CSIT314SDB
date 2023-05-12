@@ -20,6 +20,8 @@
           $username = 'cmelato28';
           $number = 12345678;
 
+          $_SESSION['invalid'] = '';
+
           $numSeniorTik = $_SESSION['SeniorNoTicket'];
           $numAdultTik = $_SESSION['AdultNoTicket'];
           $numStudentTik = $_SESSION['StudentNoTicket'];

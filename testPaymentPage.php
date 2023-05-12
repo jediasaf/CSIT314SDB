@@ -19,7 +19,7 @@ class doPayment{
       #$loyaltyPoints = $_SESSION['loyaltypts'];
       #$seatPref = $_SESSION['seatPref'];
       $seatPref = 'front';
-      $loyaltyPoints = 456;
+      $loyaltyPoints = 99;
 
       if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
