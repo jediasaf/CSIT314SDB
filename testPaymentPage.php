@@ -17,6 +17,8 @@ class doPayment{
       # verification check
 
       #$loyaltyPoints = $_SESSION['loyaltypts'];
+      #$seatPref = $_SESSION['seatPref'];
+      $seatPref = 'front';
       $loyaltyPoints = 456;
 
       if($_SERVER['REQUEST_METHOD'] === 'POST'){
@@ -39,6 +41,7 @@ class doPayment{
         $string = '';
         $hasAsterisk = false;
         $count = 0;
+        $stop = 0;
         foreach($_POST as $key => $value) {
           if (strpos($value, '*') !== false){
             $hasAsterisk = true;
@@ -51,40 +54,54 @@ class doPayment{
             $_SESSION['invalid'] = 'Seats selected do not match ticket amount';
             $msg .= '<meta http-equiv="refresh" content="2;url=testSeatingPlan.php">';
           } else {
-            # seats selected and ticket count match
-            echo'<h1>'.$seats.'</h1>';
-            $_SESSION['invalid'] = '';
-            $string .= $value.',';
-            $_SESSION['seats'] = $string;
-            $seats = $_SESSION['seats'];
-            echo'<h1>'.$seats.'</h1>';
-            echo'<h1>'.$string.'</h1>';
+            # seats selected and ticket count match 
           }
         } else {
-          # seat not selected
-          for($r = 1 ; $r <= $_SESSION['row']; $r++ ){
-            for($c = 1 ; $c <= $_SESSION['cols']; $c++){
-              $result = $controller -> run("getSeatStatus",$_SESSION['roomID'],$r,$c);
-              if($result == 1){
+          # seat not selected (use preference)
+          if ($seatPref == 'back'){
+            for($r = 1 ; $r <= $_SESSION['row']; $r++ ){
+              for($c = 1 ; $c <= $_SESSION['cols']; $c++){
+                $result = $controller -> run("getSeatStatus",$_SESSION['roomID'],$r,$c);
+                if($result == 1){
                 #seat already booked
               } 
-              else if($result == 0){
+              else if($result == 0 && $stop < $totalTickets){
                 #seat open for booking
-                for($i = 0; $i < $count; $i++){
-                  $seatNames = $controller -> run("getSeatName",$_SESSION['roomID'],$r,$c);
-                  $string .= $seatNames[0]['seatName'].',';
+                $result = $controller -> run("getSeatName",$_SESSION['roomID'],$r,$c);
+                $string .= $result[0]['seatName'].', ';
+                $stop++;
+                } else {
                 }
-                $_SESSION['seats'] = $string;
-                $seats = $_SESSION['seats'];
-                echo'<h1>'.$seats.'</h1>';
               }
             }
+            $string = substr($string, 0, -2);
+            $_SESSION['seatsP'] = $string;
+            $seatsP = $_SESSION['seatsP'];
+            echo'<h1>'.$seatsP.'</h1>';
+
+          } else if ($seatPref == 'front'){
+
+            for($r = $_SESSION['row'] ; $r >= 1 ; $r-- ){
+              for($c = $_SESSION['cols'] ; $c >= 1 ; $c--){
+                $result = $controller -> run("getSeatStatus",$_SESSION['roomID'],$r,$c);
+                if($result == 1){
+                #seat already booked
+              } 
+              else if($result == 0 && $stop < $totalTickets){
+                #seat open for booking
+                $result = $controller -> run("getSeatName",$_SESSION['roomID'],$r,$c);
+                $string .= $result[0]['seatName'].', ';
+                $stop++;
+                } else {
+                }
+              }
+            }
+            $string = substr($string, 0, -2);
+            $_SESSION['seatsP'] = $string;
+            $seatsP = $_SESSION['seatsP'];
+            echo'<h1>'.$seatsP.'</h1>';
           }
-
-        }
-
-
-
+          }
 
         #this closes the check if request method is get
       }
@@ -95,24 +112,49 @@ class doPayment{
         $name = $_GET['paynow_name'];
         $paymentType = $_GET['payment_type'];
 
-        if (isset($_GET['redeemPoints'])){
-          $true = $_GET['redeemPoints'];
-          $pointsDeducted = floor($loyaltyPoints / 100) * 100;
-          $amountSaved = $pointsDeducted / 100;
-          $_SESSION['amountSaved'] = $amountSaved;
-          $result = $controller -> run('redeemPoints',$_SESSION['phoneNo'],$pointsDeducted);
-        }
-        else{
-          $_SESSION['amountSaved'] = 0;
-        }
+
 
         if (preg_match('/^[a-zA-Z ]+$/', $name) && preg_match('/^[0-9]{8,10}$/', $number)) {
           // Valid name and phone number, continue with code
           if ($_GET['payment_type'] == 'PayNow') {
-            $msg .= '<meta http-equiv="refresh" content="2;url=testPaynowPage.php">';
+            if (isset($_GET['redeemPoints'])){
+              if($loyaltyPoints >= 100){
+                $true = $_GET['redeemPoints'];
+                $pointsDeducted = floor($loyaltyPoints / 100) * 100;
+                $_SESSION['loyaltypts'] = $_SESSION['loyaltypts'] - $pointsDeducted;
+                $amountSaved = $pointsDeducted / 100;
+                $_SESSION['amountSaved'] = '$'.$amountSaved;
+                $result = $controller -> run('redeemPoints',$_SESSION['phoneNo'],$pointsDeducted);
+                $msg .= '<meta http-equiv="refresh" content="2;url=testPaynowPage.php">';
+              } else {
+                $_SESSION['amountSaved'] = 'invalid amount of points';
+                $msg .= '<meta http-equiv="refresh" content="2;url=testPaynowPage.php">';
+              }
+            }
+            else{
+              $_SESSION['amountSaved'] = 0;
+              $msg .= '<meta http-equiv="refresh" content="2;url=testPaynowPage.php">';
+            }
           }
           else if ($_GET['payment_type'] == 'Pay at Counter'){
-            $msg .= '<meta http-equiv="refresh" content="2;url=testconfirmationPage.php">';
+            if (isset($_GET['redeemPoints'])){
+              if($loyaltyPoints >= 100){
+                $true = $_GET['redeemPoints'];
+                $pointsDeducted = floor($loyaltyPoints / 100) * 100;
+                $_SESSION['loyaltypts'] = $_SESSION['loyaltypts'] - $pointsDeducted;
+                $amountSaved = $pointsDeducted / 100;
+                $_SESSION['amountSaved'] = $amountSaved;
+                $result = $controller -> run('redeemPoints',$_SESSION['phoneNo'],$pointsDeducted);
+                $msg .= '<meta http-equiv="refresh" content="2;url=testPaynowPage.php">';
+              } else {
+                $_SESSION['amountSaved'] = 'invalid amount of points';
+                $msg .= '<meta http-equiv="refresh" content="2;url=testPaynowPage.php">';
+              }
+            }
+            else{
+              $_SESSION['amountSaved'] = 0;
+              $msg .= '<meta http-equiv="refresh" content="2;url=testPaynowPage.php">';
+            }
           }
           else {
           }
