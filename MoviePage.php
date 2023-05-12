@@ -44,7 +44,7 @@ if(isset($_GET['name'])){
                   echo'<p class="ticket__movie-slogan">
                   '.substr($result1[$i]['description'],0,150).'...
                   </p>';
-                  echo'<a href="Order.php?name="'.$result1[$i]["movieID"].'">';
+                  echo'<a href="Order.php?name='.$result1[$i]["movieID"].'">';
                   echo'<button class="ticket__buy-btn">Buy now</button>';
                   echo' </a>';
                   echo'</div>';

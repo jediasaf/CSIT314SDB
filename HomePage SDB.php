@@ -75,7 +75,7 @@ class HomePage{
 					<p class="ticket__movie-slogan">
 					'.substr($result1[$i]['description'],0,150).'...
 					</p>
-					<a href="Order.php?name="'.$result1[$i]['movieID'].'">
+					<a href="Order.php?name='.$result1[$i]['movieID'].'">
 					<button class="ticket__buy-btn">Buy now</button>
 						</a>
 				</div>
