@@ -485,6 +485,13 @@ class testDB{
         return $result;
     }
 
+    function gainPoints($number,$gainedPoints){
+        $result = $this->conn->query("UPDATE `userdb` SET `loyaltyPts`= `loyaltyPts` + '$gainedPoints' WHERE `phoneNo` = '$number'");
+        return $result;
+    }
+
+
+
 
 
 
