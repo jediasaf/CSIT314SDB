@@ -20,6 +20,10 @@ class UserProfile{
                 </div>
                 </div>
                 </div>
+                <form action="?" method="GET">
+                <input type="text" name="name" placeholder="Search username HERE">
+                <input type="submit" name="submit" value="Search">
+                </form>
                 <table class="table table-bordered">
                 <thead>
                 <tr>
@@ -41,9 +45,15 @@ class UserProfile{
                 
                 ';
                 include ("dbFunctions.php");
-
                 $controller = new controller();
                 $row = $controller ->run("retrieveUserDB");
+                $search_username = isset($_GET['name']) ? $_GET['name'] : '';
+                if (!empty($search_username)) {
+                    $filtered_rows = array_filter($row, function ($userdetails) use ($search_username) {
+                        return strpos($userdetails['username'], $search_username) !== false;
+                    });
+                    $row = $filtered_rows;
+                }
 
                 for($i = 0; $i < sizeof($row);$i++){
                     $message = $message. '<tr>';
