@@ -111,6 +111,14 @@ class EditShow{
         if($result){
           $check = $controller -> run("getRoomPlanFromID",$roomID);
 
+          for($r = 1; $r <= $rows; $r++){
+            for($c = 1; $c <= $columns; $c++){
+              $update = $controller -> run("updateRoomSpec0",$roomID,$r,$c);
+            }
+          }
+
+
+
           if($check[0]['movieID'] == $movieID && $check[0]['rows'] == $rows && $check[0]['columns'] == $columns && $check[0]['capacity'] == $capacity){
             $message = $message.'Update successful';
           }
@@ -129,6 +137,7 @@ class EditShow{
       else{
         $roomID = $_POST['roomID'];
         $result = $controller -> run("resetRoomPlan",$roomID);
+        $result1 = $controller -> run("resetRoomSpec",$roomID);
 
         if($result){
           $check = $controller -> run("getRoomPlanFromID",$roomID);

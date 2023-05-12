@@ -165,6 +165,12 @@ class controller{
         else if($method == "busyDatesDay"){
             $result = $this->testDB->busyDatesDay($var1);
         }
+        else if($method == "resetRoomSpec"){
+            $result = $this->testDB->resetRoomSpec($var1);
+        }
+        else if($method == "updateRoomSpec0"){
+            $result = $this->testDB->updateRoomSpec0($var1,$var2,$var3);
+        }
 
 
 

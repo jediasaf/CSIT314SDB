@@ -412,6 +412,16 @@ class testDB{
         return $row;
     }
 
+    function resetRoomSpec($roomID){
+        $result = $this->conn->query("UPDATE `roomspecification$roomID` SET `status` = 100 WHERE 1");
+        return $result;
+    }
+
+    function updateRoomSpec0($roomID,$row,$column){
+        $result = $this->conn->query("UPDATE `roomspecification$roomID` SET `status` = 0 WHERE `rows` = $row AND `columns` = $column");
+        return $result;
+    }
+
 
 
 

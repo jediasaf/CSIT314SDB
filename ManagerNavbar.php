@@ -84,11 +84,8 @@ class ManagerNav{
                         <ul>
                             <li><a href="AddMovie.php">Add Movie</a></li>
                         </ul>
-                        <li><a href="ManageShows.php">Manage Shows</a>
-                        <!--First Tier Drop Down-->
-                        <ul>
-                            <li><a href="AddShow.php">Add Show</a></li>
-                        </ul>
+                        <li><a href="ManageShows.php">Manage Shows</a></li>
+            
                         <li><a href="BookingReport.php">Reports</a>
                         <li><a href="ManageFood.php">Manage Food</a>
                         <ul>
