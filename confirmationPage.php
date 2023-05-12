@@ -7,7 +7,7 @@
             session_start();
           }
 
-          include('navbar.php');
+
           include('dbFunctions.php');
           $controller = new controller();
 
@@ -88,7 +88,7 @@
             }
           } else {
             $seatsOrder = $_SESSION['seatsP'];
-            $_SESSION['seatP'] = '';
+            $_SESSION['seatsP'] = '';
           }
 
 
@@ -114,7 +114,7 @@
             $result = $controller ->run('updateBookingdb',$number,$username,$currentDate,$movieID,$totalTik,$seatsOrder,$numAdultTik,$numSeniorTik,$numStudentTik,$numChildTik,$totalFoodOrder,$totalBill,$claim);
             $msg .='    <a href="" onclick="window.print()">Print Screen</a>';
           }
-
+          include('navbar.php');
             echo'<!doctype html>
             <html>
             <head>
@@ -336,7 +336,7 @@
               <div style="min-height: 1350px" class="CartContainer">
                     <div class="Header">
                       <h3 class="Heading">&nbsp;</h3><h3 class="Heading">&nbsp;</h3><h3 class="Heading">Your Booking</h3>
-                   <h5 class="Action">Loyalty Points: '.$loyaltyPoints.'</h5>
+                   <h5 class="Action">Loyalty Points: '.$_SESSION['loyaltypts'].'</h5>
                    <h5 class="Action"> Username: '.$username.'</h5>
                    <h5 class="Action"> Date of Booking : '.$currentDate.'</h5>
                     </div>
