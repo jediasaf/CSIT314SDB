@@ -539,20 +539,6 @@ class testDB{
         $row = $result->fetch_all(MYSQLI_BOTH);
         return $row;
     }
-
-    function searchUser($username){
-        $result = $this->conn->query("SELECT * from `userdb` where `username` LIKE '%$username%'");
-        $row = $result -> fetch_all(MYSQLI_BOTH);
-        return $row;
-    }
-
-    function searchUserNum($username){
-        $result = $this->conn->query("SELECT * from `userdb` where `username` LIKE '%$username%'");
-        $rowcount = $result -> num_rows;
-        return $rowcount;
-    }
-    
-
 }
 
 ?>
