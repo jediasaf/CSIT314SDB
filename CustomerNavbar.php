@@ -80,6 +80,7 @@ class CustomerNav{
         <nav>
                 <ul>
                         <li><a href="MyBookings.php">My Bookings</a></li>
+                        <li><a href="ViewProfile.php?username='.$_SESSION['username'].'">View Profile</a></li>
                         <li><a href="MoviePage.php#feedback">Submit Cinema Review</a></li>
                     </ul>
                 </nav>';

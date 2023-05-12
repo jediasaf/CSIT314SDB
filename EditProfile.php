@@ -59,7 +59,7 @@ class EditProfile{
           <br>
             <!-- submit button -->
           <a href="LoginPage.php">
-            <button type="submit">Register</button>
+            <button type="submit">Update</button>
           </a>
           </div>
       </form>
