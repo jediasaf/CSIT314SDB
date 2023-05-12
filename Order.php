@@ -14,9 +14,15 @@ class doOrder{
     #$username = 'acalafato1x';
     #$username = 'cmelato28';
     
-    $movieID = $_GET['name'];
-    $_SESSION['movieID'] = $movieID;
-    #$movieID = 'Belle2021';
+    if(isset($_GET['name'])){
+      $movieID = $_GET['name'];
+      $_SESSION['movieID'] = $movieID;
+      $_SESSION['invalid'] = '';
+    } else {
+      $movieID = $_SESSION['movieID'];
+    }
+
+
 
     
 

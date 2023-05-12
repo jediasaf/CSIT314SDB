@@ -7,6 +7,7 @@
             session_start();
           }
 
+          include('navbar.php');
           include('dbFunctions.php');
           $controller = new controller();
 
@@ -42,8 +43,8 @@
           }
 
 
-          #$movieID = $_SESSION['movieID'];
-          $movieID = 'Belle2021';
+          $movieID = $_SESSION['movieID'];
+          #$movieID = 'Belle2021';
 
           $movieDetails = $controller -> run('getMovieFromID',$movieID);
           $moviePicName = $movieDetails[0]['moviePicName'];
@@ -53,21 +54,21 @@
           $roomPlan = $controller -> run('getRoomPlan',$movieID);
           $roomID = $roomPlan[0]['roomID'];
 
+          echo $_SESSION['seats'];
+
           $seatsOrder = '';
 
           if ($_SESSION['seats'] != ''){
 
             $seats = $_SESSION['seats'];
-            echo '<h1>'.$seats.'</h1>';
             $length = strlen($seats);
             $seats = substr($seats, 0, $length - 1);
-            echo '<h1>'.$seats.'</h1>';
             $pairs = explode(",",$seats);
             for ($i = 0; $i < count($pairs); $i++){
   
             }
             $seatsOrder = '';
-            echo '<h1>'.$pairs.'</h1>';
+
             foreach ($pairs as $pair){
               $numbers = explode("*",$pair);
               $row = $numbers[0];
@@ -85,7 +86,7 @@
             $seatsOrder = substr($seatsOrder, 0, $lastDelimiterPosition - ($count - 1) * strlen($delimiter));
             }
           } else {
-            $seatsOrder = $_SESSION['seatsP'];
+            $_SESSION['seatsP'] = $seatsOrder;
           }
 
 
@@ -93,6 +94,8 @@
           $currentDate = date('Y-m-d');
 
           if($_SESSION['amountSaved'] == 'invalid amount of points'){
+            $amountSaved = 0;
+          } else if($_SESSION['amountSaved'] == 0) {
             $amountSaved = 0;
           } else {
             $amountSaved = substr($_SESSION['amountSaved'], 1);
@@ -321,7 +324,7 @@
                   </div>
                     <h1>Success</h1> 
                   <h2>Dear, Website Designer</h2>
-                    <p>Your booking has been successful,<br/> looking forward to see u in the cinema!</p>
+                    <p>Your booking has been successful,<br/> Looking forward to seeing you again soon!</p>
                   </div>
 
                 <form action="confirmationPage.php" method = "GET">

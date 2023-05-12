@@ -26,6 +26,8 @@ class doPaynow{
 
     if($_SESSION['amountSaved'] == 'invalid amount of points'){
       $amountSaved = 0;
+    } else if($_SESSION['amountSaved'] == 0){
+      $amountSaved = 0;
     } else {
       $amountSaved = substr($_SESSION['amountSaved'], 1);
     }
