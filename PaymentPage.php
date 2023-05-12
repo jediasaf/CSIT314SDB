@@ -44,6 +44,14 @@ class doPayment{
         $stop = 0;
         foreach($_POST as $key => $value) {
           if (strpos($value, '*') !== false){
+            $seatcoords = explode('*',$value);
+            echo $_SESSION['roomID'];
+            $row = $seatcoords[0];
+            $col = $seatcoords[1];
+            $result = $controller -> run("getSeatName",$_SESSION['roomID'],$row,$col);
+            $seatStatusChange = $controller -> run("updateSeatStatus",$result[0]['seatName']);
+            $string .= $result[0]['seatName'].', ';
+            $_SESSION['seats'] = $string;
             $hasAsterisk = true;
             $count += 1;
           }
