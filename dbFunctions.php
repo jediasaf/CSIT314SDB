@@ -246,12 +246,6 @@ class controller{
         elseif($method == "getAllUsers"){
             $result = $this->testDB->getAllUsers();
         }
-        elseif($method == "searchUser"){
-            $result = $this->testDB->searchUser($var1);
-        }
-        elseif($method == "searchUserNum"){
-            $result = $this->testDB->searchUserNum($var1);
-        }
 
 
 
