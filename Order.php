@@ -84,7 +84,7 @@ class doOrder{
     </style>
     </head>';
     
-    #include('navbar.php');
+    include('navbar.php');
 
     echo'<body>
     <div class="movie-container">
