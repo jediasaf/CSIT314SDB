@@ -212,7 +212,12 @@ class controller{
         else if($method == "redeemPoints"){
             $result = $this->testDB->redeemPoints($var1,$var2);
         }
-
+        else if($method == "gainPoints"){
+            $result = $this->testDB->gainPoints($var1,$var2);
+        }
+        else if($method == "updateSeatStatus"){
+            $result = $this->testDB->updateSeatStatus($var1,$var2);
+        }
 
 
 
@@ -246,6 +251,12 @@ class controller{
         elseif($method == "getAllUsers"){
             $result = $this->testDB->getAllUsers();
         }
+        elseif($method == "searchUser"){
+            $result = $this->testDB->searchUser($var1);
+        }
+        elseif($method == "searchUserNum"){
+            $result = $this->testDB->searchUserNum($var1);
+        }
 
 
 
@@ -258,6 +269,12 @@ class controller{
         }
 
         */
+
+        else{
+            $result = '';
+        }
+
+
         return $result;
    }
 

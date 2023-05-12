@@ -68,6 +68,7 @@ class doPayment{
               else if($result == 0 && $stop < $totalTickets){
                 #seat open for booking
                 $result = $controller -> run("getSeatName",$_SESSION['roomID'],$r,$c);
+                $seatStatusChange = $controller -> run("updateSeatStatus",$result[0]['seatName']);
                 $string .= $result[0]['seatName'].', ';
                 $stop++;
                 } else {
@@ -77,7 +78,6 @@ class doPayment{
             $string = substr($string, 0, -2);
             $_SESSION['seatsP'] = $string;
             $seatsP = $_SESSION['seatsP'];
-            echo'<h1>'.$seatsP.'</h1>';
 
           } else if ($seatPref == 'front'){
 
@@ -90,6 +90,7 @@ class doPayment{
               else if($result == 0 && $stop < $totalTickets){
                 #seat open for booking
                 $result = $controller -> run("getSeatName",$_SESSION['roomID'],$r,$c);
+                $seatStatusChange = $controller -> run("updateSeatStatus",$_SESSION['roomID'],$result[0]['seatName']);
                 $string .= $result[0]['seatName'].', ';
                 $stop++;
                 } else {
@@ -97,9 +98,9 @@ class doPayment{
               }
             }
             $string = substr($string, 0, -2);
+            
             $_SESSION['seatsP'] = $string;
             $seatsP = $_SESSION['seatsP'];
-            echo'<h1>'.$seatsP.'</h1>';
           }
           }
 
@@ -145,15 +146,15 @@ class doPayment{
                 $amountSaved = $pointsDeducted / 100;
                 $_SESSION['amountSaved'] = $amountSaved;
                 $result = $controller -> run('redeemPoints',$_SESSION['phoneNo'],$pointsDeducted);
-                $msg .= '<meta http-equiv="refresh" content="2;url=PaynowPage.php">';
+                $msg .= '<meta http-equiv="refresh" content="2;url=confirmationPage.php">';
               } else {
                 $_SESSION['amountSaved'] = 'invalid amount of points';
-                $msg .= '<meta http-equiv="refresh" content="2;url=PaynowPage.php">';
+                $msg .= '<meta http-equiv="refresh" content="2;url=confirmationPage.php">';
               }
             }
             else{
               $_SESSION['amountSaved'] = 0;
-              $msg .= '<meta http-equiv="refresh" content="2;url=PaynowPage.php">';
+              $msg .= '<meta http-equiv="refresh" content="2;url=confirmationPage.php">';
             }
           }
           else {

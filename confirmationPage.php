@@ -74,6 +74,7 @@
               $row = $numbers[0];
               $col = $numbers[1];
               $result = $controller -> run('getSeatName',$roomID,$row,$col);
+              $seatStatusChange = $controller -> run("updateSeatStatus",$result[0]['seatName']);
               $seatsOrder .= $result[0]['seatName'].', ';
             }
             
@@ -86,7 +87,8 @@
             $seatsOrder = substr($seatsOrder, 0, $lastDelimiterPosition - ($count - 1) * strlen($delimiter));
             }
           } else {
-            $_SESSION['seatsP'] = $seatsOrder;
+            $seatsOrder = $_SESSION['seatsP'];
+            $_SESSION['seatP'] = '';
           }
 
 
@@ -102,7 +104,8 @@
           }
           $totalBill = ($seniorTotal + $adultTotal + $childTotal + $studentTotal + ($totalFoodOrder * 8)) - $amountSaved;
 
-          $gainedPoints = $controller ->run('gainPoints',$number,$amountSaved);
+          $_SESSION['loyaltypts'] = $_SESSION['loyaltypts'] + $totalBill;
+          $gainedPoints = $controller ->run('gainPoints',$number,$totalBill);
 
           $currentDate = date("Y-m-d");
           $claim = 0;
@@ -327,7 +330,7 @@
                     <p>Your booking has been successful,<br/> Looking forward to seeing you again soon!</p>
                   </div>
 
-                <form action="confirmationPage.php" method = "GET">
+                <form action="HomePage SDB.php" method = "GET">
                 <div class="confirmationtable">
                   <body class="shoppingCart">
               <div style="min-height: 1350px" class="CartContainer">

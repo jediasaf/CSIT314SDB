@@ -500,6 +500,10 @@ class testDB{
         return $result;
     }
 
+    function updateSeatStatus($roomID,$seatName){
+        $result = $this->conn->query("UPDATE `roomspecification$roomID` SET `status` = 1 WHERE `seatName` = '$seatName'");
+        return $result;
+    }
 
 
 
