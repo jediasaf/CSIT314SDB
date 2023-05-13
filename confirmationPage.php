@@ -70,8 +70,8 @@
 
             foreach ($pairs as $pair){
               $numbers = explode("*",$pair);
-              $row = $numbers[0];
-              $col = $numbers[1];
+              $col = $numbers[0];
+              $row = $numbers[1];
               $result = $controller -> run('getSeatName',$roomID,$row,$col);
               $seatStatusChange = $controller -> run("updateSeatStatus",$roomID,$result[0]['seatName']);
               $seatsOrder .= $result[0]['seatName'].', ';
@@ -101,6 +101,7 @@
           } else {
             $amountSaved = substr($_SESSION['amountSaved'], 1);
           }
+          
           $totalBill = ($seniorTotal + $adultTotal + $childTotal + $studentTotal + ($totalFoodOrder * 8)) - $amountSaved;
 
           $_SESSION['loyaltypts'] = $_SESSION['loyaltypts'] + $totalBill;
