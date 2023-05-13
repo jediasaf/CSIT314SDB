@@ -54,7 +54,6 @@
           $roomPlan = $controller -> run('getRoomPlan',$movieID);
           $roomID = $roomPlan[0]['roomID'];
 
-          echo $_SESSION['seats'];
 
           $seatsOrder = '';
 
@@ -74,7 +73,7 @@
               $row = $numbers[0];
               $col = $numbers[1];
               $result = $controller -> run('getSeatName',$roomID,$row,$col);
-              $seatStatusChange = $controller -> run("updateSeatStatus",$result[0]['seatName']);
+              $seatStatusChange = $controller -> run("updateSeatStatus",$roomID,$result[0]['seatName']);
               $seatsOrder .= $result[0]['seatName'].', ';
             }
             
