@@ -81,6 +81,7 @@ class StaffNav {
                 <ul>
                         <li><a href="ManageBookings.php">Customer Bookings</a>
                         <li><a href="ViewCustomers.php">View Customer</a>
+                        <li><a href="ManageShows.php">View Shows</a>
                     </ul>
                 </nav>';
     }
