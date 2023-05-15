@@ -44,7 +44,7 @@ class EditProfile{
           <option value="Thriller">Thriller</option>
           <option value="Adventure">Adventure</option>
           <option value="Horror">Horror</option>
-          <option value="Fantasy">Fantasy</option>
+          <option value="Documentary">Documentary</option>
           <option value="Fantasy">Fantasy</option>
             <option value="Drama">Drama</option>
             <option value="Animation">Animation</option>
