@@ -41,7 +41,7 @@ class EditFood{
        
      <div class="col-sm-5">
        <div class="input-block">
-         <label for="">Status: (Current Status = '.$row[0]['status'].'</label>
+         <label for="">Status: (Current Status = '.$row[0]['status'].')</label>
          <div>
            <label>
              <input type="radio" name="status" value="1"> 1
