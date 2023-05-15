@@ -47,6 +47,7 @@ class ManageMovies{
         <th>Description</th>
         <th>Cast</th>
         <th>Ratings</th>
+        <th>Genre</th>
         <th>Movie Picture</th>
         <th>Actions</th>
         </tr>
@@ -62,6 +63,7 @@ class ManageMovies{
             echo '<td width=600>'.$result[$i]['description'].'</td>';
             echo '<td width=100>'.$result[$i]['actor_1_name'].', '.$result[$i]['actor_2_name'].', '.$result[$i]['actor_3_name'].'</td>';
             echo '<td width=100>'.$result[$i]['rantings'].'</td>';
+            echo '<td width=100>'.$result[$i]['genres'].'</td>';
             echo '<td width=90 height=160><img src="Images/MovieImage/'.$result[$i]['moviePicName'].'" alt="" height=160 width=90/></td>';
             echo '<td><a href=EditMovie.php?action=edit&movieid='.$result[$i]['movieID'].'>Edit</a><br><br>
 

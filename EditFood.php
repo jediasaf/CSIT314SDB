@@ -42,13 +42,27 @@ class EditFood{
      <div class="col-sm-5">
        <div class="input-block">
          <label for="">Status: (Current Status = '.$row[0]['status'].')</label>
-         <div>
-           <label>
-             <input type="radio" name="status" value="1"> 1
-           </label>
-           <label>
-             <input type="radio" name="status" value="0"> 0
-           </label>
+         <div>';
+
+        if($row[0]['status'] == 1){
+          $message .= '<label>
+          <input type="radio" name="status" value="1" checked> 1
+        </label>
+        <label>
+          <input type="radio" name="status" value="0"> 0
+        </label>';
+        }
+        else{
+          $message .= '<label>
+          <input type="radio" name="status" value="1"> 1
+        </label>
+        <label>
+          <input type="radio" name="status" value="0" checked> 0
+        </label>';
+        }
+
+
+           $message .='
          </div>
        </div>
      </div>
