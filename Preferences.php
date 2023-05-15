@@ -60,7 +60,6 @@ class Preferences{
 				<select name="seatPref" id="role">
 				  <option value="none">None</option>
 				  <option value="back">Back</option>
-				  <option value="center">Center</option>
 				  <option value="front">Front</option>
 				  </select>
 				<br>
