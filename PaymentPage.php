@@ -30,12 +30,15 @@ class doPayment{
         $totalTickets = $_SESSION['SeniorNoTicket'] + $_SESSION['AdultNoTicket'] + $_SESSION['StudentNoTicket'] + $_SESSION['ChildNoTicket'];
 
         # food
+        /*
         $foodDetails = $controller -> run('getAvailableFoodDetails');
         for ($i = 0; $i < count($foodDetails); $i++) {
           $result = $foodDetails[$i]['foodName'];
           $result = str_replace(' ', '_', $result);
           $_SESSION[$foodDetails[$i]['foodName']] = $_POST[$result];
         }
+        */
+        $_SESSION['numFoodCombos'] = $_POST['foodcombos'];
         
         #seats
         $string = '';

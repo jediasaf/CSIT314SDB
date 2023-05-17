@@ -18,11 +18,13 @@ class doPaynow{
     $studentTotal = $numStudentTik * 8;
     $childTotal = $numChildTik * 6;
 
+    /*
     $totalFoodOrder = 0;
     $foodDetails = $controller -> run('getAvailableFoodDetails');
     for ($i = 0; $i < count($foodDetails); $i++) {
     $totalFoodOrder += $_SESSION[$foodDetails[$i]['foodName']];
     }
+    */
 
     if($_SESSION['amountSaved'] == 'invalid amount of points'){
       $amountSaved = 0;
@@ -31,7 +33,7 @@ class doPaynow{
     } else {
       $amountSaved = substr($_SESSION['amountSaved'], 1);
     }
-    $totalBill = ($seniorTotal + $adultTotal + $childTotal + $studentTotal + ($totalFoodOrder * 8)) - $amountSaved;
+    $totalBill = ($seniorTotal + $adultTotal + $childTotal + $studentTotal + ($_SESSION['numFoodCombos'] * 8)) - $amountSaved;
     $seats = $_SESSION['seats'];
 
     echo'<!doctype html>

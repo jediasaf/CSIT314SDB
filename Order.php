@@ -8,6 +8,7 @@ class doOrder{
       session_start();
     }
 
+
     $loyaltyPoints = $_SESSION['loyaltypts'];
     $username = $_SESSION['username'];
     #$loyaltyPoints = 100;
@@ -164,36 +165,18 @@ class doOrder{
     #cleaning
     echo '<br><br><br><br>';
 
-    #display available food
-    echo'</div>
-    </body>
-	  <body>
-    <h2>food &amp; beverages.</h2>
-		<div class="hero-container">';
-    for ($i = 0; $i < count($foodDetails); $i++) {
-      echo'<div class="main-container">
-      <div class="poster-container">';
-      echo'<a href="#"><img src="Images/Combo/'.$foodDetails[$i]['foodPicName'].'" class="poster" /></a>';
-      echo'</div>
-      <div class="food-container">
-      <div class="food__content">';
-      echo'<p class="food__current-price">$8.00</p>';
-      echo'<h4 class="food__movie-title">'.$foodDetails[$i]['foodName'].'</h4>';
-      echo'<p class="food__movie-slogan">'.$foodDetails[$i]['foodName'].'</p>';
-      echo'</div>
-      </div>
-      </div>';
-    }
-    echo'</div>
-    </body>';
 
     echo'
 	<body class="shoppingCart">
 	<div class="CartContainer">
    	   <div class="Header">
-   	   	<h3 class="Heading">&nbsp;</h3><h3 class="Heading">&nbsp;</h3><h3 class="Heading">Shopping Cart</h3>
-		   <h5 class="Action">Loyalty Points: '.$loyaltyPoints.'</h5>
-		   <h5 class="Action"> Username: '.$username.'</h5>
+   	   	<h3 class="Heading">&nbsp;</h3><h3 class="Heading">&nbsp;</h3><h3 class="Heading">Shopping Cart</h3>';
+          if ($_SESSION['roles'] == 'Customer'){
+            echo'<h5 class="Action">Loyalty Points: '.$_SESSION['loyaltypts'].'</h5>';
+          } else {
+            
+          }
+		   echo'<h5 class="Action"> Username: '.$username.'</h5>
    	   </div>
 
    	   <div class="Cart-Items">
@@ -223,17 +206,14 @@ class doOrder{
 </tbody>
 	  </table>
 	  <table>
-<th  style="padding-right:10px" class="foodType">Food Choice</th>
+<th  style="padding-right:10px" class="foodType"></th>
 <th  class="numTickets">Number of Combos</th>
 	<tbody style="margin-bottom: 5px; margin-top: 10px;">';
 
-
-  for ($i = 0; $i < count($foodDetails); $i++) {
     echo'<tr>';
-    echo'<td>'.$foodDetails[$i]['foodName'].'</td>';
-    echo'<td style="padding-right:10px"><input name="'.$foodDetails[$i]['foodName'].'" value = "0" type="number" min = "0"></td>';
+    echo'<td>Food Combos</td>';
+    echo'<td style="padding-right:10px"><input name="foodcombos" value = "0" type="number" min = "0"></td>';
     echo'</tr>';
-  }
 	
 
 
