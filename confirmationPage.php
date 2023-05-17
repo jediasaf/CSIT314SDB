@@ -34,6 +34,8 @@
           $childTotal = $numChildTik * 6;
           
 
+          $foodSubTotal = $_SESSION['numFoodCombos'] * 8;
+          /*
           $totalFoodOrder = 0;
           $foodSubtotal = array();
           $foodDetails = $controller -> run('getAvailableFoodDetails');
@@ -41,6 +43,7 @@
             $totalFoodOrder += $_SESSION[$foodDetails[$i]['foodName']];
             array_push($foodSubtotal, $_SESSION[$foodDetails[$i]['foodName']] * 8);
           }
+          */
 
 
           $movieID = $_SESSION['movieID'];
@@ -102,7 +105,7 @@
             $amountSaved = substr($_SESSION['amountSaved'], 1);
           }
           
-          $totalBill = ($seniorTotal + $adultTotal + $childTotal + $studentTotal + ($totalFoodOrder * 8)) - $amountSaved;
+          $totalBill = ($seniorTotal + $adultTotal + $childTotal + $studentTotal + ($_SESSION['numFoodCombos'] * 8)) - $amountSaved;
 
           $_SESSION['loyaltypts'] = $_SESSION['loyaltypts'] + $totalBill;
           $gainedPoints = $controller ->run('gainPoints',$number,$totalBill);
@@ -111,7 +114,7 @@
           $claim = 0;
           $msg ='';
           if($_SERVER['REQUEST_METHOD'] === 'GET'){
-            $result = $controller ->run('updateBookingdb',$number,$username,$currentDate,$movieID,$totalTik,$seatsOrder,$numAdultTik,$numSeniorTik,$numStudentTik,$numChildTik,$totalFoodOrder,$totalBill,$claim);
+            $result = $controller ->run('updateBookingdb',$number,$username,$currentDate,$movieID,$totalTik,$seatsOrder,$numAdultTik,$numSeniorTik,$numStudentTik,$numChildTik,$_SESSION['numFoodCombos'],$totalBill,$claim);
             $msg .='    <a href="" onclick="window.print()">Print Screen</a>';
           }
           include('navbar.php');
@@ -430,11 +433,9 @@
                                     </tr>
                         
                         <tr>
-                        <td style="font-size: larger">Food and Beverages</td>
+                        <td style="font-size: larger">Food Combos</td>
                         </tr>
                         <tr>
-                                        <td class="hidden-xs">Image</td>
-                                        <td>Food Name</td>
                                         <td>Amount</td>
                           <td>Sub-Total</td>
                             
@@ -444,22 +445,15 @@
                                 </thead>
                                 <tbody>';
 
-                                for ($i = 0; $i < count($foodDetails); $i++) {
                                     echo'<tr>
-                                        <td class="hidden-xs">
-                                            <a href="#">
-                                                <img margin-left="10px" src="Images/Combo/'.$foodDetails[$i]['foodPicName'].'" style={{ height="80px" }} />
-                                            </a>
-                                        </td>
-                                        <td><a href="#">'.$foodDetails[$i]['foodName'].'</a>
                                         </td>
                                        </td>
-                                        <td><a href="#">'.$_SESSION[$foodDetails[$i]['foodName']].'</a>
+                                        <td><a href="#">'.$_SESSION['numFoodCombos'].'</a>
                                         </td>
-                                        <td class="price">$'.$foodSubtotal[$i].'</td>
+                                        <td class="price">$'.$foodSubTotal.'</td>
                                        
                                     </tr>';
-                                }
+                                
                                 
                           echo'<tr><td>
                         
