@@ -4,7 +4,9 @@ session_start();
 #retrieve form data
 $email = $_POST['email'];
 $age = $_POST['age'];
-$preferences = $_POST['role'];
+$preferences = $_POST['genrepref'];
+$seatpref = $_POST['seatpref'];
+$phone = $_POST['phone'];
 
 #connect to database and select the user from database
 include "dbFunctions.php";
@@ -13,7 +15,7 @@ $result = $controller->run("retrieveUser", $_SESSION['username']);
 
 # update the user records
 if($result){
-	$result = $controller->run("updateUserInfo", $email, $age, $preferences, $_SESSION['username']);
+	$result = $controller->run("updateUserInfo", $email, $age, $preferences, $seatpref, $phone, $_SESSION['username']);
 	$message = '<div class="card">
         <div style="border-radius:200px; height:200px; width:200px; background: #F8FAF5; margin:0 auto;">
           <i class="checkmark">✓</i>

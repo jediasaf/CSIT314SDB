@@ -231,7 +231,7 @@ class controller{
             $result = $this->testDB->retrieveUser($var1);
         }
         else if($method == "updateUserInfo"){
-            $result = $this->testDB->updateUserInfo($var1, $var2, $var3, $var4);
+            $result = $this->testDB->updateUserInfo($var1, $var2, $var3, $var4, $var5, $var6);
         }
         else if($method == "addReview"){
             $result = $this->testDB->addReview($var1, $var2, $var3);
