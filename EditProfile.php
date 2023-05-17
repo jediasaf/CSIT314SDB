@@ -24,7 +24,7 @@ class EditProfile{
             <label for="email"><b>Email</b></label>
             <input
               type="text"
-              placeholder="Enter Email"
+              placeholder="'.$_SESSION['email'].'"
               name="email"
               id="email"
             />
@@ -32,13 +32,13 @@ class EditProfile{
           <label for="Age"><b>Age</b></label>
             <input
               type="number"
-              placeholder="Enter Your Age"
+              placeholder="'.$_SESSION['age'].'"
               name="age"
               id="age"
             />
          <label for="Preferences"><b>Preferences</b></label> <br>
           <select name="role" id="role">
-          <option value="No Preferences">Choose your preference</option>
+          <option value="None">Choose your preference</option>
           <option value="Thriller">Thriller</option>
           <option value="Adventure">Adventure</option>
           <option value="Horror">Horror</option>
