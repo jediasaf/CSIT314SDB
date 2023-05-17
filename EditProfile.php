@@ -70,9 +70,9 @@ class EditProfile{
           </select>
           <br>
             <!-- submit button -->
-          <a href="LoginPage.php">
-            <button type="submit">Update</button>
-          </a>
+          
+          <button type="submit">Update</button>
+          
           </div>
       </form>
           </div>
