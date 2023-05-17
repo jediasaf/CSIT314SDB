@@ -27,7 +27,6 @@ class EditProfile{
               placeholder="Enter Email"
               name="email"
               id="email"
-              required
             />
     
           <label for="Age"><b>Age</b></label>
@@ -36,7 +35,6 @@ class EditProfile{
               placeholder="Enter Your Age"
               name="age"
               id="age"
-              required
             />
          <label for="Preferences"><b>Preferences</b></label> <br>
           <select name="role" id="role">
