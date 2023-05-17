@@ -326,7 +326,7 @@
                     <i class="checkmark">✓</i>
                   </div>
                     <h1>Success</h1> 
-                  <h2>Dear, Website Designer</h2>
+                  <h2>Dear, '.$username.'</h2>
                     <p>Your booking has been successful,<br/> Looking forward to seeing you again soon!</p>
                   </div>
 
