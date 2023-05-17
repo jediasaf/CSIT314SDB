@@ -144,7 +144,7 @@ else{
 }
 
 
-
+if($_SESSION['roles']=="customer"){
 echo'<body>
 <h2 id="fh2" style="margin-top: 100px;">leave a cinema review.</h2>
 <h6 id="fh6">Your review will help other customer and us.</h6>
@@ -194,8 +194,9 @@ echo'<body>
  <button type="submit" class="btn btn-primary">Submit</button>
 
 
-</form>
-	
+</form>';
+}
+	echo'
 	</body>
  <footer> 
 			<h3>Software Development Board 2023</h3><br>

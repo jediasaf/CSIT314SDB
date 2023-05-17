@@ -14,6 +14,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 	$oldhashed = hash("sha256",$old);
 	$new = $_POST['new'];
 	$newhashed = hash("sha256",$new);
+	$role = $_SESSION['roles'];
 	
 
 	/*
@@ -25,8 +26,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
 
 	$controller = new controller();
-	$result = $controller->run("updatePassword",$username,$oldhashed,$newhashed);
-	$validatePasswordChange = $controller -> run("validatePasswordChange",$username);
+	$result = $controller->run("updatePassword",$username,$oldhashed,$newhashed,$role);
+	$validatePasswordChange = $controller -> run("validatePasswordChange",$username,$role);
 
 	if($result == 1){
 		if($validatePasswordChange[0]['hashedPassw'] == $newhashed){

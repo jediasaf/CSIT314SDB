@@ -25,7 +25,8 @@ class LogOut{
 echo'
 </div>
 <center>
-<div style="background:black" class="content">';
+<div style="background:black" class="content">
+<h1> GoodBye </h1>';
 			
 			session_destroy();
             echo '<meta http-equiv="refresh" content="2; url='.'HomePage SDB.php'.'" />';

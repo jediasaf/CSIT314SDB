@@ -22,7 +22,7 @@ class displayManageBookings{
             $row = $filtered_rows;
         }
         
-            if($_SESSION['roles'] == "Manager" || $_SESSION['roles'] == "Staff" ){
+            if($_SESSION['roles'] == "manager" || $_SESSION['roles'] == "staff" ){
                 $message = '
                 <thead>
                 <div>Status Codes:<br>
@@ -107,7 +107,7 @@ class displayManageBookings{
                     #<button class="edit-btn" title="Edit" data-toggle="tooltip">Edit</button>
                     #<button class="delete-btn" title="Delete" data-toggle="tooltip">Delete</button>
                     $message = $message. '<a href="EditBookings.php?action=edit&bookingid='.$bookingdetails['bookingID'].'">Edit</a><br>';
-                    if($_SESSION['roles'] == "Manager"){
+                    if($_SESSION['roles'] == "manager"){
                         $message = $message. '<a href="EditBookings.php?action=delete&bookingid='.$bookingdetails['bookingID'].'">Delete</a>';
                     }
 
