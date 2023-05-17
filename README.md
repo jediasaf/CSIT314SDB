@@ -24,6 +24,11 @@ Installation guide for Xampp
     collation: utf8_general_ci   
 11. After the database has been created navigate into the database
 12. click on import on the top tab
+
+13. Import the file under Github/SQL/testdb.sql
+
+if theres an error do the step indicated below instead
+
 13. import every csv file except UseDBPlaintext.csv into the database using the following method
     a. choose file
     b. select the file to import
