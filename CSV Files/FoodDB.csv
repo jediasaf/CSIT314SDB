@@ -1,5 +1,5 @@
-﻿foodName,quantity,foodPicName,status
-Popcorn Combo,1000,PopcornCombo.jpg,1
-Fries Combo,1000,FriesCombo.jpg,0
-Meatball Combo,700,MeatballCombo.jpg,0
-Burger Combo,1000,BurgerCombo.jpg,1
+﻿foodName,quantity,foodPicName,status,username,dateLastModified
+Popcorn Combo,1000,PopcornCombo.jpg,1,cflewittg,2023-05-17
+Fries Combo,1000,FriesCombo.jpg,0,ndavidowsky2o,2023-05-17
+Meatball Combo,700,MeatballCombo.jpg,0,ndavidowsky2o,2023-05-17
+Burger Combo,1000,BurgerCombo.jpg,1,cflewittg,2023-05-17
