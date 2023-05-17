@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 17, 2023 at 03:56 PM
+-- Generation Time: May 17, 2023 at 04:39 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -24,10 +24,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admindb`
+-- Table structure for table `admin`
 --
 
-CREATE TABLE `admindb` (
+CREATE TABLE `admin` (
   `phoneNo` int(8) DEFAULT NULL,
   `username` varchar(8) DEFAULT NULL,
   `hashedPassw` varchar(64) DEFAULT NULL,
@@ -36,10 +36,10 @@ CREATE TABLE `admindb` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `admindb`
+-- Dumping data for table `admin`
 --
 
-INSERT INTO `admindb` (`phoneNo`, `username`, `hashedPassw`, `email`, `age`) VALUES
+INSERT INTO `admin` (`phoneNo`, `username`, `hashedPassw`, `email`, `age`) VALUES
 (89156711, 'cheildsj', '23ace6b0ae429da9074a4b58dab077f88d4d94129bb06ff6c2660146ec035867', 'cvankeevj@time.com', 39);
 
 -- --------------------------------------------------------
@@ -94,10 +94,10 @@ INSERT INTO `bookingdb` (`bookingID`, `phoneNo`, `username`, `bookingDate`, `mov
 -- --------------------------------------------------------
 
 --
--- Table structure for table `customerdb`
+-- Table structure for table `customer`
 --
 
-CREATE TABLE `customerdb` (
+CREATE TABLE `customer` (
   `phoneNo` int(8) DEFAULT NULL,
   `username` varchar(15) DEFAULT NULL,
   `hashedPassw` varchar(64) DEFAULT NULL,
@@ -109,10 +109,10 @@ CREATE TABLE `customerdb` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `customerdb`
+-- Dumping data for table `customer`
 --
 
-INSERT INTO `customerdb` (`phoneNo`, `username`, `hashedPassw`, `email`, `age`, `genrePref`, `loyaltyPts`, `seatPref`) VALUES
+INSERT INTO `customer` (`phoneNo`, `username`, `hashedPassw`, `email`, `age`, `genrePref`, `loyaltyPts`, `seatPref`) VALUES
 (88999886, 'acalafato1x', 'b322959e3d2762be6ad6c87a2ad821dca3424634e9759c8fdd6820db55aea3e8', 'icrocombe1x@alexa.com', 45, 'Documentary', 322, 'back'),
 (94253426, 'acrossingham2l', 'f55c46dd66d8937d1c88ea7280561982189041a5b13799ddc26ad5668b9f942d', 'pmcairt2l@jimdo.com', 6, 'Thriller', 513, 'front'),
 (90204648, 'agluyus10', '13427f0673a23e09ed410ba8564954738bf90dedd2aeb6127715e8d16f962fc2', 'tgluyus10@mediafire.com', 69, 'Comedy', 981, 'back'),
@@ -229,10 +229,10 @@ INSERT INTO `fooddb` (`foodName`, `quantity`, `foodPicName`, `status`, `username
 -- --------------------------------------------------------
 
 --
--- Table structure for table `managerdb`
+-- Table structure for table `manager`
 --
 
-CREATE TABLE `managerdb` (
+CREATE TABLE `manager` (
   `phoneNo` int(8) DEFAULT NULL,
   `username` varchar(13) DEFAULT NULL,
   `hashedPassw` varchar(64) DEFAULT NULL,
@@ -243,10 +243,10 @@ CREATE TABLE `managerdb` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `managerdb`
+-- Dumping data for table `manager`
 --
 
-INSERT INTO `managerdb` (`phoneNo`, `username`, `hashedPassw`, `email`, `age`, `aUsername`, `dateLastModified`) VALUES
+INSERT INTO `manager` (`phoneNo`, `username`, `hashedPassw`, `email`, `age`, `aUsername`, `dateLastModified`) VALUES
 (88100004, 'cflewittg', 'fe250ff67a6e5e78ee041162111f45900c131f26aa6901107e766e8fc79391ba', 'cwedgeg@guardian.co.uk', 31, 'cheildsj', '2023-02-22'),
 (94940982, 'ndavidowsky2o', '495c72026c94b6269a2fd23b124f8cb28792105e932e9ec52874f64b080e1f11', 'rsanchis2o@latimes.com', 63, 'cheildsj', '2022-12-04');
 
@@ -1255,10 +1255,10 @@ INSERT INTO `roomspecification6` (`roomID`, `seatName`, `rows`, `columns`, `stat
 -- --------------------------------------------------------
 
 --
--- Table structure for table `staffdb`
+-- Table structure for table `staff`
 --
 
-CREATE TABLE `staffdb` (
+CREATE TABLE `staff` (
   `phoneNo` int(8) DEFAULT NULL,
   `username` varchar(11) DEFAULT NULL,
   `hashedPassw` varchar(64) DEFAULT NULL,
@@ -1269,10 +1269,10 @@ CREATE TABLE `staffdb` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `staffdb`
+-- Dumping data for table `staff`
 --
 
-INSERT INTO `staffdb` (`phoneNo`, `username`, `hashedPassw`, `email`, `age`, `aUsername`, `dateLastModified`) VALUES
+INSERT INTO `staff` (`phoneNo`, `username`, `hashedPassw`, `email`, `age`, `aUsername`, `dateLastModified`) VALUES
 (88260384, 'bmuston15', '4b4ff948b77f9bca76d5c37c643475b693f76d2dad92f8c1331d4be62f416e01', 'lputterill15@wordpress.com', 52, 'cheildsj', '2023-01-03'),
 (88369025, 'cdickie2j', 'de017288dd8f0c1dd0631929c7f33ddc0a01324c50bd0073f858e024297f2120', 'ebriscam2j@yale.edu', 49, 'cheildsj', '2023-02-15'),
 (96900162, 'crosson9', '4d248efb678cdcf1f4e331e84ce277a459a140846b39a09cf7ccf3d60546b7f4', 'jsoftley9@google.de', 52, 'cheildsj', '2022-12-04'),
