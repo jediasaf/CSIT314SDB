@@ -75,12 +75,19 @@ class displayNav{
 								<img src="Images/profile.png"/> 
 								<p>Edit Profile</p>
 								<span>></span>
-							</a>
-							<a href="Preferences.php" class="sub-menu-link">
+							</a>';
+
+
+							if($_SESSION['roles'] == "customer"){
+								echo'
+								<a href="Preferences.php" class="sub-menu-link">
 								<img src="Images/setting.png" />
 								<p>Preferences</p>
 								<span>></span>
-							</a>
+							</a>';
+							}
+
+echo'
 							<a href="CP.php" class="sub-menu-link">
                 <img src="Images/setting.png" />
                 <p>Change Password</p>

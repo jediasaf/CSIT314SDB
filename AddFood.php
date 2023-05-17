@@ -12,7 +12,7 @@ class AddFood{
       $foodPicName = $_POST['foodPicName'];
       $status = $_POST['status'];
 
-      $result = $controller -> run("addFood",$foodName, $quantity, $foodPicName, $status);
+      $result = $controller -> run("addFood",$foodName, $quantity, $foodPicName, $status,$_SESSION['username'],date("Y-m-d"));
 
       if($result){
         $rowcount = $controller -> run("countRowFood",$foodName);
