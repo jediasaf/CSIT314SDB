@@ -236,8 +236,11 @@ class controller{
         else if($method == "addReview"){
             $result = $this->testDB->addReview($var1, $var2, $var3);
         }
-        else if($method == "retrieveUserDB"){
-            $result = $this->testDB->retrieveUserDB();
+        else if($method == "retrieveStaff"){
+            $result = $this->testDB->retrieveStaff();
+        }
+        else if($method == "retrieveManager"){
+            $result = $this->testDB->retrieveManager();
         }
         else if($method == "adminUpdateUserProfile"){
             $result = $this->testDB->adminUpdateUserProfile($var1, $var2, $var3, $var4, $var5, $var6, $var7, $var8);

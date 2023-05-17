@@ -538,8 +538,13 @@ class testDB{
         return $result;
     }
 
-    function retrieveUserDB(){
-        $result = $this->conn->query("SELECT * from `userdb` WHERE `roles` = 'Staff' OR `roles` = 'Manager'");
+    function retrieveStaff(){
+        $result = $this->conn->query("SELECT * from `staff`");
+        $row = $result->fetch_all(MYSQLI_BOTH);
+        return $row;
+    }
+    function retrieveManager(){
+        $result = $this->conn->query("SELECT * from `manager`");
         $row = $result->fetch_all(MYSQLI_BOTH);
         return $row;
     }
