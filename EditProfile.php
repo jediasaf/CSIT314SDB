@@ -36,8 +36,22 @@ class EditProfile{
               name="age"
               id="age"
             />
-         <label for="Preferences"><b>Preferences</b></label> <br>
-          <select name="role" id="role">
+            <label for="Phone"><b>Phone Number</b></label>
+            <input
+              type="number"
+              placeholder="'.$_SESSION['phoneNo'].'"
+              name="phone"
+              id="phone"
+            />
+            <label for="seat"><b>Seat Preferences</b></label> <br>
+          <select name="seatpref" id="seatpref">
+          <option value="None">Choose your preference</option>
+          <option value="front">Front</option>
+          <option value="back">Back</option>
+          </select>
+          <br>
+         <label for="Preferences"><b>Genre Preferences</b></label> <br>
+          <select name="genrepref" id="genrepref">
           <option value="None">Choose your preference</option>
           <option value="Thriller">Thriller</option>
           <option value="Adventure">Adventure</option>

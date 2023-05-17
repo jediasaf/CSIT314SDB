@@ -523,8 +523,8 @@ class testDB{
         return $row;
     }
 
-    function updateUserInfo($email,  $age, $preferences, $username){
-        $result = $this->conn->query("UPDATE `userdb` SET `email` = '$email', `age` = $age, `genrePref` = '$preferences' WHERE `username` = '$username'");
+    function updateUserInfo($email,  $age, $preferences, $seatpref, $phone, $username){
+        $result = $this->conn->query("UPDATE `userdb` SET `email` = '$email', `age` = $age, `genrePref` = '$preferences', `seatPref` = '$seatpref', `phoneNo` = $phone WHERE `username` = '$username'");
         return $result;
     }
 
