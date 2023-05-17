@@ -338,8 +338,13 @@
                   <body class="shoppingCart">
               <div style="min-height: 1350px" class="CartContainer">
                     <div class="Header">
-                      <h3 class="Heading">&nbsp;</h3><h3 class="Heading">&nbsp;</h3><h3 class="Heading">Your Booking</h3>
-                   <h5 class="Action">Loyalty Points: '.$_SESSION['loyaltypts'].'</h5>
+                      <h3 class="Heading">&nbsp;</h3><h3 class="Heading">&nbsp;</h3><h3 class="Heading">Your Booking</h3>';
+                      if ($_SESSION['roles'] == 'Customer'){
+                        echo'<h5 class="Action">Loyalty Points: '.$_SESSION['loyaltypts'].'</h5>';
+                      } else {
+                        
+                      }
+                   echo'
                    <h5 class="Action"> Username: '.$username.'</h5>
                    <h5 class="Action"> Date of Booking : '.$currentDate.'</h5>
                     </div>

@@ -170,9 +170,13 @@ class doOrder{
 	<body class="shoppingCart">
 	<div class="CartContainer">
    	   <div class="Header">
-   	   	<h3 class="Heading">&nbsp;</h3><h3 class="Heading">&nbsp;</h3><h3 class="Heading">Shopping Cart</h3>
-		   <h5 class="Action">Loyalty Points: '.$loyaltyPoints.'</h5>
-		   <h5 class="Action"> Username: '.$username.'</h5>
+   	   	<h3 class="Heading">&nbsp;</h3><h3 class="Heading">&nbsp;</h3><h3 class="Heading">Shopping Cart</h3>';
+          if ($_SESSION['roles'] == 'Customer'){
+            echo'<h5 class="Action">Loyalty Points: '.$_SESSION['loyaltypts'].'</h5>';
+          } else {
+            
+          }
+		   echo'<h5 class="Action"> Username: '.$username.'</h5>
    	   </div>
 
    	   <div class="Cart-Items">
