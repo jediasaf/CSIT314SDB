@@ -1,6 +1,6 @@
 <?php
 
-class StaffPage{
+class ManagerPage{
 
     function display(){
         if(!isset($_SESSION)){
@@ -40,7 +40,7 @@ class StaffPage{
         ';
         include ("dbFunctions.php");
         $controller = new controller();
-        $row = $controller ->run("retrieveStaffDB");
+        $row = $controller ->run("retrieveManagerDB");
 
         for($i = 0; $i < sizeof($row);$i++){
             $message = $message. '<tr>';
@@ -51,8 +51,8 @@ class StaffPage{
             $message = $message.  '<td>'.$row[$i]['age'].'</td>';
             $message = $message.  '<td>'.$row[$i]['aUsername'].'</td>';
             $message = $message.  '<td>'.$row[$i]['dateLastModified'].'</td>';
-            $message = $message. '<td><a href="EditStaffProfile.php?action=edit&username='.$row[$i]['username'].'">Edit</a></td>';
-            $message = $message. '<td><a href="EditStaffProfile.php?action=delete&username='.$row[$i]['username'].'">Delete</a></td>';
+            $message = $message. '<td><a href="EditManagerProfile.php?action=edit&username='.$row[$i]['username'].'">Edit</a></td>';
+            $message = $message. '<td><a href="EditManagerProfile.php?action=delete&username='.$row[$i]['username'].'">Delete</a></td>';
             
 
             $message = $message.  '</td>';
@@ -119,7 +119,7 @@ class StaffPage{
     
 }
 
-$display = new StaffPage();
+$display = new ManagerPage();
 $display->display();
 
 

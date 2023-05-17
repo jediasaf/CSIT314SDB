@@ -121,7 +121,7 @@ class doLogin{
 
         }
         else if($_SESSION['roles'] == "admin"){
-          echo '<meta http-equiv="refresh" content="5; url='.'UserProfile.php'.'" />';
+          echo '<meta http-equiv="refresh" content="5; url='.'StaffPage.php'.'" />';
 
         }
     }

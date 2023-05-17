@@ -517,19 +517,39 @@ class testDB{
 
 
     # Mayuri
-    function retrieveUser($username){
-        $result = $this->conn->query("SELECT * from `userdb` where `username` = '$username'");
+    function retrieveStaff($username){
+        $result = $this->conn->query("SELECT * from `staff` where `username` = '$username'");
+        $row = $result->fetch_all(MYSQLI_BOTH);
+        return $row;
+    }
+    function retrieveManager($username){
+        $result = $this->conn->query("SELECT * from `manager` where `username` = '$username'");
         $row = $result->fetch_all(MYSQLI_BOTH);
         return $row;
     }
 
     function updateUserInfo($email,  $age, $preferences, $seatpref, $phone, $username){
-        $result = $this->conn->query("UPDATE `userdb` SET `email` = '$email', `age` = $age, `genrePref` = '$preferences', `seatPref` = '$seatpref', `phoneNo` = $phone WHERE `username` = '$username'");
+        $result = $this->conn->query("UPDATE `customer` SET `email` = '$email', `age` = $age, `genrePref` = '$preferences', `seatPref` = '$seatpref', `phoneNo` = $phone WHERE `username` = '$username'");
         return $result;
     }
 
-    function adminUpdateUserProfile($username, $phone, $email, $age, $genrepref, $loyaltypts, $role, $seatpref){
-        $result = $this->conn->query("UPDATE `userdb` SET `phoneNo` = '$phone', `email` = '$email', `age` = '$age', `genrePref` = '$genrepref', `loyaltyPts` = '$loyaltypts', `roles` = '$role', `seatPref` = '$seatpref' WHERE `username` = '$username'");
+    function updateManager($username, $phone, $email, $age, $admin, $date){
+        $result = $this->conn->query("UPDATE `manager` SET `phoneNo` = '$phone', `email` = '$email', `aUsername` = '$admin', `dateLastModified` = '$date' WHERE `username` = '$username'");
+        return $result;
+    }
+
+    function deleteManager($username){
+        $result = $this->conn->query("DELETE FROM `manager` WHERE `username` = '$username'");
+        return $result;
+    }
+
+    function updateStaff($username, $phone, $email, $age, $admin, $date){
+        $result = $this->conn->query("UPDATE `staff` SET `phoneNo` = '$phone', `email` = '$email', `aUsername` = '$admin', `dateLastModified` = '$date' WHERE `username` = '$username'");
+        return $result;
+    }
+
+    function deleteStaff($username){
+        $result = $this->conn->query("DELETE FROM `staff` WHERE `username` = '$username'");
         return $result;
     }
 
@@ -538,12 +558,12 @@ class testDB{
         return $result;
     }
 
-    function retrieveStaff(){
+    function retrieveStaffDB(){
         $result = $this->conn->query("SELECT * from `staff`");
         $row = $result->fetch_all(MYSQLI_BOTH);
         return $row;
     }
-    function retrieveManager(){
+    function retrieveManagerDB(){
         $result = $this->conn->query("SELECT * from `manager`");
         $row = $result->fetch_all(MYSQLI_BOTH);
         return $row;
@@ -555,16 +575,7 @@ class testDB{
         return $result;
     }
 
-    function deleteUser($username){
-        $result = $this->conn->query("DELETE FROM `userdb` WHERE `username` = '$username'");
-        return $result;
-    }
-
-    function getAllUsers(){
-        $result = $this->conn->query("SELECT * FROM `userdb`");
-        $row = $result->fetch_all(MYSQLI_BOTH);
-        return $row;
-    }
+    
 }
 
 ?>

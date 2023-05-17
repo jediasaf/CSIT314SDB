@@ -1,6 +1,6 @@
 <?php
 include("navbar.php");
-class EditUserProfile{
+class EditStaffProfile{
     function display(){
       include ("dbFunctions.php");
       $message = "";
@@ -9,7 +9,7 @@ class EditUserProfile{
         $action = $_GET['action'];
         $username = $_GET['username'];
         #print_r($_GET);
-        $result = $controller->run("retrieveUser", $username);
+        $result = $controller->run("retrieveStaff", $username);
 
         if ($action == "edit"){
               echo '
@@ -70,60 +70,20 @@ class EditUserProfile{
                     <input type="text" name="age" class="form-control" value="'.$result[0]['age'].'">
                   </div>
                 </div>
-              
-              <div class="col-sm-5">
-              <div class="input-block">
-                <label for="genre">Genre Preference: </label>
-                <select id="genre" name="genre" class="form-control" value="'.$result[0]['genrePref'].'">
-                  <option value="Thriller">Thriller</option>
-                  <option value="Adventure">Adventure</option>
-                  <option value="Horror">Horror</option>
-                  <option value="Fantasy">Fantasy</option>
-                <option value="Drama">Drama</option>
-                <option value="Animation">Animation</option>
-                <option value="Comedy">Comedy</option>
-                <option value="Crime">Crime</option>
-                <option value="Mystery">Mystery</option>
-                  <option value="Romance">Romance</option>
-                <option value="Action">Action</option>
-                <option value="Sci-Fi">Sci-Fi</option>
-                <option value="Musical">Musical</option>
-                </select>
-              </div>
-            </div>
 
-            <div class="col-sm-5">
-                  <div class="input-block">
-                    <label for="">Loyalty Points: </label>
-                    <input type="text" name="loyaltypts" class="form-control" value="'.$result[0]['loyaltyPts'].'">
-                  </div>
+              <div class="col-sm-5">
+                <div class="input-block">
+                  <label for="">Admin Name: </label>
+                  <input type="text" name="admin" class="form-control" value="'.$result[0]['aUsername'].'">
                 </div>
-            
-              
+              </div>
               <div class="col-sm-5">
               <div class="input-block">
-                <label for="">Role: </label>
-                <select class="form-control" name="role" value="'.$result[0]['roles'].'">
-                  <option value="Manager">Manager</option>
-                  <option value="Staff">Staff</option>
-                </select>
+                <label for="">Date Modified:  </label>
+                <input type="date" name="date" class="form-control" value="'.$result[0]['dateLastModified'].'">
               </div>
             </div>
-            
-              
-            <div class="col-sm-5">
-              <div class="input-block">
-                <label for="">Seat Preference: </label>
-                <select class="form-control" name="seatpref" value="'.$result[0]['seatPref'].'">
-                  <option value="window">Front</option>
-                  <option value="aisle">Back</option>
-                  <option value="middle">Center</option>
-                <option value="middle">None</option>
-                </select>
-              </div>
-            </div>
-            
-              
+            <br>
                   
             <div class="col-md-12">
             <div class="form-group">
@@ -138,121 +98,88 @@ class EditUserProfile{
         }
         elseif($action == "delete"){
           echo '
-            <!DOCTYPE html>
-            <html lang="en">
-            <head>
-            <meta charset="utf-8">
-            <meta http-equiv="X-UA-Compatible" content="IE=edge">
-            <meta name="viewport" content="width=device-width, initial-scale=1">
-            <title>Admin Edit User Profiles</title>
-            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
-            <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-            <style type="text/css">
-            @import url("CSS/ManagerCSS.css");
-            </style>
-            </head>
-            
-            <body>
-            
-                <center>
-                    <div id="content">
-                <h2>Edit <span style="color:#F8F8F8;"> User Profile</span></h2>
-                </div>
-            <div class="form">
-                            <div class="row">
-                                <div class="col">
-              <form action="?" method="POST" class="contact-form">
-              <div class="col-sm-5">
-                  <div class="input-block">
-                    <label for="">Username: </label>
-                    <input type="text" name="username" class="form-control" value="'.$result[0]['username'].'" readonly>
-                  </div>
-                </div>
-              
-              <div class="col-sm-5">
-                  <div class="input-block">
-                    <label for="">Phone: </label>
-                    <input type="text" name="phone" class="form-control" value="'.$result[0]['phoneNo'].'" readonly>
-                  </div>
-                </div>
-              
-              <div class="col-sm-5">
-                  <div class="input-block">
-                    <label for="">Email: </label>
-                    <input type="text" name="email" class="form-control" value="'.$result[0]['email'].'" readonly>
-                  </div>
-                </div>
-              
-                
-              <div class="col-sm-5">
-                  <div class="input-block">
-                    <label for="">Age: </label>
-                    <input type="text" name="age" class="form-control" value="'.$result[0]['age'].'" readonly>
-                  </div>
-                </div>
-              
-              <div class="col-sm-5">
-              <div class="input-block">
-                <label for="genre">Genre Preference: </label>
-                <select id="genre" name="genre" class="form-control" value="'.$result[0]['genrePref'].'" disabled>
-                  <option value="Thriller">Thriller</option>
-                  <option value="Adventure">Adventure</option>
-                  <option value="Horror">Horror</option>
-                  <option value="Fantasy">Fantasy</option>
-                <option value="Drama">Drama</option>
-                <option value="Animation">Animation</option>
-                <option value="Comedy">Comedy</option>
-                <option value="Crime">Crime</option>
-                <option value="Mystery">Mystery</option>
-                  <option value="Romance">Romance</option>
-                <option value="Action">Action</option>
-                <option value="Sci-Fi">Sci-Fi</option>
-                <option value="Musical">Musical</option>
-                </select>
+          <!DOCTYPE html>
+          <html lang="en">
+          <head>
+          <meta charset="utf-8">
+          <meta http-equiv="X-UA-Compatible" content="IE=edge">
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+          <title>Admin Edit User Profiles</title>
+          <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
+          <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+          <style type="text/css">
+          @import url("CSS/ManagerCSS.css");
+          </style>
+          </head>
+          
+          <body>
+          
+              <center>
+                  <div id="content">
+              <h2>Edit <span style="color:#F8F8F8;"> User Profile</span></h2>
               </div>
-            </div>
-            
-              
-              <div class="col-sm-5">
-              <div class="input-block">
-                <label for="">Role: </label>
-                <select class="form-control" name="role" value="'.$result[0]['roles'].'" disabled>
-                  <option value="Manager">Manager</option>
-                  <option value="Staff">Staff</option>
-                </select>
+          <div class="form">
+                          <div class="row">
+                              <div class="col">
+            <form action="?" method="POST" class="contact-form">
+            <div class="col-sm-5">
+                <div class="input-block">
+                  <label for="">Username: </label>
+                  <input type="text" name="username" class="form-control" value="'.$result[0]['username'].'" readonly>
+                </div>
               </div>
-            </div>
+            
+            <div class="col-sm-5">
+                <div class="input-block">
+                  <label for="">Phone: </label>
+                  <input type="text" name="phone"class="form-control" value="'.$result[0]['phoneNo'].'" readonly>
+                </div>
+              </div>
+            
+            <div class="col-sm-5">
+                <div class="input-block">
+                  <label for="">Email: </label>
+                  <input type="text" name="email" class="form-control" value="'.$result[0]['email'].'" readonly>
+                </div>
+              </div>
             
               
             <div class="col-sm-5">
+                <div class="input-block">
+                  <label for="">Age: </label>
+                  <input type="text" name="age" class="form-control" value="'.$result[0]['age'].'" readonly>
+                </div>
+              </div>
+
+            <div class="col-sm-5">
               <div class="input-block">
-                <label for="">Seat Preference: </label>
-                <select class="form-control" name="seatpref" value="'.$result[0]['seatPref'].'" disabled>
-                  <option value="window">Front</option>
-                  <option value="aisle">Back</option>
-                  <option value="middle">Center</option>
-                <option value="middle">None</option>
-                </select>
+                <label for="">Admin Name: </label>
+                <input type="text" name="admin" class="form-control" value="'.$result[0]['aUsername'].'" readonly>
               </div>
             </div>
-            
-              
-                  
-            <div class="col-md-12">
-            <div class="form-group">
-            <input type="submit" name="submit" value="Delete" class="btn btn-primary">
-            <div class="submitting"></div>
+            <div class="col-sm-5">
+            <div class="input-block">
+              <label for="">Date Modified:  </label>
+              <input type="date" name="date" class="form-control" value="'.$result[0]['dateLastModified'].'" readonly>
             </div>
-            </div>
-              </div>
-            </form>       
-            </body>
-            </html>';
+          </div>
+            <br>
+                
+          <div class="col-md-12">
+          <div class="form-group">
+          <input type="submit" name="submit" value="Edit" class="btn btn-primary">
+          <div class="submitting"></div>
+          </div>
+          </div>
+          </div>
+          </form>       
+          </body>
+          </html>';
           
         }
       } elseif($_SERVER['REQUEST_METHOD'] === 'POST'){
@@ -261,18 +188,15 @@ class EditUserProfile{
           $phone = $_POST['phone'];
           $email = $_POST['email'];
           $age = $_POST['age'];
-          $genrepref = $_POST['genre'];
-          $role = $_POST['role'];
-          $seatpref = $_POST['seatpref'];
-          $loyaltypts = $_POST['loyaltypts'];
-          $result = $controller->run("adminUpdateUserProfile", $username, $phone, $email, $age, $genrepref, $loyaltypts, $role, $seatpref);
+          $admin = $_POST['admin'];
+          $date = $_POST['date'];
+          $result = $controller->run("updateStaff", $username, $phone, $email, $age, $admin, $date);
           
           if($result){
-            $result = $controller->run("retrieveUser",$username);
+            $result = $controller->run("retrieveStaff",$username);
             if($result[0]['username'] == $username && $result[0]['phoneNo'] == $phone && $result[0]['email'] == $email 
-            && $result[0]['age'] == $age && $result[0]['genrePref'] == $genrepref && $result[0]['roles'] == $role
-            && $result[0]['seatPref'] == $seatpref && $result[0]['loyaltyPts'] == $loyaltypts){
-              $message = '<meta http-equiv="refresh" content="5; url='.'UserProfile.php'.'" />';
+            && $result[0]['age'] == $age && $result[0]['aUsername'] == $admin && $result[0]['dateLastModified'] == $date){
+              $message = '<meta http-equiv="refresh" content="5; url='.'StaffPage.php'.'" />';
               $message = '<div style="border-radius:200px; height:200px; width:200px; background: #F8FAF5; margin:0 auto;">
                       <i class="checkmark">✓</i>
                     </div><h1>Success</h1>
@@ -281,14 +205,14 @@ class EditUserProfile{
           }else{
             $message = 'Update Unsuccessful';
           }
-          $message = $message.'<meta http-equiv="refresh" content="5; url='.'UserProfile.php'.'" />';
+          $message = $message.'<meta http-equiv="refresh" content="5; url='.'StaffPage.php'.'" />';
         }
         else if($_POST['submit'] == "Delete"){
           $username = $_POST['username'];
           
-          $result = $controller->run("deleteUser",$username);
+          $result = $controller->run("deleteStaff",$username);
           if($result){
-            $message = '<meta http-equiv="refresh" content="5; url='.'UserProfile.php'.'" />';
+            $message = '<meta http-equiv="refresh" content="5; url='.'StaffPage.php'.'" />';
             $message = '<div style="border-radius:200px; height:200px; width:200px; background: #F8FAF5; margin:0 auto;">
                     <i class="checkmark">✓</i>
                   </div><h1>Success</h1>
@@ -297,7 +221,7 @@ class EditUserProfile{
           else{
             $message = 'User not deleted';
           }
-          $message = $message.'<meta http-equiv="refresh" content="5; url='.'UserProfile.php'.'" />';
+          $message = $message.'<meta http-equiv="refresh" content="5; url='.'StaffPage.php'.'" />';
       }
     
     }
@@ -496,6 +420,6 @@ class EditUserProfile{
 }
 
 
-$display = new EditUserProfile();
+$display = new EditStaffProfile();
 $display->display();
 ?>

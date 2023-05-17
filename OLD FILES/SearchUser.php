@@ -22,8 +22,7 @@ class SearchUser{
             $row = $filtered_rows;
         }
         
-            if($_SESSION['roles'] == "Admin" ){
-                $message = '
+        $message = '
                 <thead>
 
 
@@ -75,11 +74,6 @@ class SearchUser{
                     $message = $message.  '</td>';
                     $message = $message.  '</tr>';
                 }
-            }
-            else{
-                
-                $message = '<h1>UNAUTHORISED. PLEASE DO NOT PROCEED</h1><br><meta http-equiv="refresh" content="5; url='.'HomePage SDB.php'.'" />';
-            }
         
         
     echo'

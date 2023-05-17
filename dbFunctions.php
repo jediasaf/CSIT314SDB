@@ -227,8 +227,20 @@ class controller{
 
 
         #Mayuri
-        else if($method == "retrieveUser"){
-            $result = $this->testDB->retrieveUser($var1);
+        else if($method == "retrieveStaff"){
+            $result = $this->testDB->retrieveStaff($var1);
+        }
+        else if($method == "retrieveManager"){
+            $result = $this->testDB->retrieveManager($var1);
+        }
+        else if($method == "updateManager"){
+            $result = $this->testDB->updateManager($var1, $var2, $var3, $var4, $var5, $var6);
+        }
+        else if($method == "updateStaff"){
+            $result = $this->testDB->updateStaff($var1, $var2, $var3, $var4, $var5, $var6);
+        }
+        else if($method == "deleteStaff"){
+            $result = $this->testDB->deleteStaff($var1);
         }
         else if($method == "updateUserInfo"){
             $result = $this->testDB->updateUserInfo($var1, $var2, $var3, $var4, $var5, $var6);
@@ -236,29 +248,17 @@ class controller{
         else if($method == "addReview"){
             $result = $this->testDB->addReview($var1, $var2, $var3);
         }
-        else if($method == "retrieveStaff"){
-            $result = $this->testDB->retrieveStaff();
+        else if($method == "retrieveStaffDB"){
+            $result = $this->testDB->retrieveStaffDB();
         }
-        else if($method == "retrieveManager"){
-            $result = $this->testDB->retrieveManager();
-        }
-        else if($method == "adminUpdateUserProfile"){
-            $result = $this->testDB->adminUpdateUserProfile($var1, $var2, $var3, $var4, $var5, $var6, $var7, $var8);
+        else if($method == "retrieveManagerDB"){
+            $result = $this->testDB->retrieveManagerDB();
         }
         else if($method == "addUser"){
             $result = $this->testDB->addUser($var1, $var2, $var3, $var4, $var5, $var6, $var7, $var8, $var9);
         }
-        elseif($method == "deleteUser"){
-            $result = $this->testDB->deleteUser($var1);
-        }
-        elseif($method == "getAllUsers"){
-            $result = $this->testDB->getAllUsers();
-        }
-        elseif($method == "searchUser"){
-            $result = $this->testDB->searchUser($var1);
-        }
-        elseif($method == "searchUserNum"){
-            $result = $this->testDB->searchUserNum($var1);
+        else if($method == "deleteManager"){
+            $result = $this->testDB->deleteManager($var1);
         }
 
 
