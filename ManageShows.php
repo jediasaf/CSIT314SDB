@@ -68,7 +68,7 @@ for($i = 0; $i < sizeof($row); $i++){
     echo '<td>'.$row[$i]['columns'].'</td>';
     echo '<td>'.$row[$i]['capacity'].'</td>';
 
-    if($_SESSION['roles'] == "Manager"){
+    if($_SESSION['roles'] == "manager"){
         echo '<td><a href="EditShow.php?action=edit&roomID='.$row[$i]['roomID'].'">Edit</a><br>
         <a href="EditShow.php?action=reset&roomID='.$row[$i]['roomID'].'">Reset</a>
         </td>';

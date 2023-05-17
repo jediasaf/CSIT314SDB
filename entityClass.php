@@ -195,18 +195,18 @@ class testDB{
     }
 
     function updatePref($username,$genrePref,$seatPref){
-        $result = $this->conn->query("UPDATE `userdb` SET `genrePref` = '$genrePref', `seatPref` = '$seatPref' WHERE `username` = '$username'");
+        $result = $this->conn->query("UPDATE `customer` SET `genrePref` = '$genrePref', `seatPref` = '$seatPref' WHERE `username` = '$username'");
         return $result;
     }
 
     function getPref($username){
-        $result = $this->conn->query("SELECT `genrePref`, `seatPref` FROM `userdb` WHERE `username` = '$username'");
+        $result = $this->conn->query("SELECT `genrePref`, `seatPref` FROM `customer` WHERE `username` = '$username'");
         $row = $result -> fetch_all(MYSQLI_BOTH);
         return $row;
     }
 
     function getCustomerList(){
-        $result = $this->conn->query("SELECT * FROM `userdb` WHERE `roles` = 'Customer'");
+        $result = $this->conn->query("SELECT * FROM `customer`");
         $row = $result -> fetch_all(MYSQLI_BOTH);
         return $row;
     }
@@ -239,8 +239,8 @@ class testDB{
         return $rowcount;
     }
 
-    function addFood ($foodName, $quantity, $foodPicName, $status){
-        $result = $this->conn->query("INSERT INTO `fooddb`(`foodName`, `quantity`, `foodPicName`, `status`) VALUES ('$foodName','$quantity','$foodPicName','$status')");
+    function addFood ($foodName, $quantity, $foodPicName, $status,$username,$date){
+        $result = $this->conn->query("INSERT INTO `fooddb`(`foodName`, `quantity`, `foodPicName`, `status`,`username`,`dateLastModified`) VALUES ('$foodName','$quantity','$foodPicName','$status','$username','$date')");
         return $result;
     }
 

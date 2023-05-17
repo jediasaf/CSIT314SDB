@@ -50,7 +50,6 @@ class ViewCustomer{
                             <th>Age</th>
                             <th>Genre Preference</th>
                             <th>Loyalty Points</th>
-                            <th>Role</th>
                             <th>Seat Preference</th>
                         </tr>
                     </thead>
@@ -64,7 +63,6 @@ class ViewCustomer{
                       <td>'.$customer['age'].'</td>
                       <td>'.$customer['genrePref'].'</td>
                       <td>'.$customer['loyaltyPts'].'</td>
-                      <td>'.$customer['roles'].'</td>
                       <td>'.$customer['seatPref'].'</td>
                   </tr>';
         }

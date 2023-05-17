@@ -121,7 +121,7 @@ class controller{
             $result = $this->testDB->confirmDeleteFood($var1);
         }
         else if($method == "addFood"){
-            $result = $this->testDB->addFood($var1,$var2,$var3,$var4);
+            $result = $this->testDB->addFood($var1,$var2,$var3,$var4,$var5,$var6);
         }
         else if($method == "countRowFood"){
             $result = $this->testDB->countRowFood($var1);
