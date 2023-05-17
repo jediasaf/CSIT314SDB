@@ -16,20 +16,20 @@ class testDB{
 
     # Bryan 
     function validateUserLogin($username, $hashedPassword,$role){
-        $result = $this->conn -> query("SELECT * from `userdb` where `username` = '$username' and `hashedPassw` = '$hashedPassword' and roles = '$role'");
+        $result = $this->conn -> query("SELECT * from `$role` where `username` = '$username' and `hashedPassw` = '$hashedPassword'");
         $rowcount = $result -> num_rows;
         return $rowcount;
     }
 
     function validateRegistration($username){
-        $result = $this->conn->query("SELECT count(*) from `userdb` where `username` = '$username'");
+        $result = $this->conn->query("SELECT count(*) from `customer` where `username` = '$username'");
         $row = $result -> fetch_all(MYSQLI_BOTH);
         return $row[0][0];
     }
 
-    function processRegistration($phoneNum,$username,$hashedPassword,$email,$age,$genre,$loyaltypts,$roles,$seat){
-        $result = $this->conn->query("INSERT INTO `userdb` (`phoneNo`, `username`, `hashedPassw`, `email`, `age`, `genrePref`, `loyaltyPts`, `roles`, `seatPref`) 
-        VALUES (".$phoneNum.",'".$username."' , '".$hashedPassword."', '".$email."', ".$age.", '".$genre."', ".$loyaltypts.", '".$roles."', '".$seat."');");
+    function processRegistration($phoneNum,$username,$hashedPassword,$email,$age,$genre,$loyaltypts,$seat){
+        $result = $this->conn->query("INSERT INTO `customer` (`phoneNo`, `username`, `hashedPassw`, `email`, `age`, `genrePref`, `loyaltyPts`, `seatPref`) 
+        VALUES (".$phoneNum.",'".$username."' , '".$hashedPassword."', '".$email."', ".$age.", '".$genre."', ".$loyaltypts.", '".$seat."');");
 
         #VALUES (".$phoneNum.",$username,$hashedPassword,'$email',$age,$genre,$loyaltypts,$roles,$seat);"
         return $result;
@@ -47,8 +47,8 @@ class testDB{
             return $row;
     }
 
-    function fetchUserDetails($username,$hashedPassword){
-        $result = $this->conn->query("SELECT * from `userdb` where `username` = '$username' and `hashedPassw` = '$hashedPassword'");
+    function fetchUserDetails($username,$hashedPassword,$role){
+        $result = $this->conn->query("SELECT * from `$role` where `username` = '$username' and `hashedPassw` = '$hashedPassword'");
         $row = $result->fetch_all(MYSQLI_BOTH); # converts $result into a key-value pair arrray stored in $row
         return $row;
     }
@@ -71,13 +71,13 @@ class testDB{
         return $rowcount;
     }
 
-    function updatePassword($username, $old, $new){
-        $result = $this->conn->query("UPDATE `userdb`set `hashedPassw` = '$new' where `username` = '$username' and `hashedPassw` = '$old'");
+    function updatePassword($username, $old, $new, $role){
+        $result = $this->conn->query("UPDATE `$role`set `hashedPassw` = '$new' where `username` = '$username' and `hashedPassw` = '$old'");
         return $result;
     }
 
-    function validatePasswordChange($username){
-        $result = $this->conn->query("SELECT `hashedPassw` from `userdb` where `username` = '$username'");
+    function validatePasswordChange($username,$role){
+        $result = $this->conn->query("SELECT `hashedPassw` from `$role` where `username` = '$username'");
         $row = $result -> fetch_all(MYSQLI_BOTH);
         return $row;
     }
@@ -223,8 +223,8 @@ class testDB{
         return $row;
     }
 
-    function updateFood($foodName, $quantity, $foodPicName, $status){
-        $result = $this->conn->query("UPDATE `fooddb` SET `quantity` = '$quantity', `foodPicName` = '$foodPicName', `status` ='$status' WHERE `foodName` = '$foodName'");
+    function updateFood($foodName, $quantity, $foodPicName, $status,$username,$date){
+        $result = $this->conn->query("UPDATE `fooddb` SET `quantity` = '$quantity', `foodPicName` = '$foodPicName', `status` ='$status',`username` = '$username',`dateLastModified` = '$date' WHERE `foodName` = '$foodName'");
         return $result;
     }
 

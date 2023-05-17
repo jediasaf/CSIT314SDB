@@ -16,7 +16,7 @@ class controller{
             $result = $this->testDB->validateRegistration($var1);
         }
         else if($method == "processRegistration"){
-            $result = $this->testDB->processRegistration($var1,$var2,$var3,$var4,$var5,$var6,$var7,$var8,$var9);
+            $result = $this->testDB->processRegistration($var1,$var2,$var3,$var4,$var5,$var6,$var7,$var8);
         }
         else if($method == "getMovie1"){
             $result = $this->testDB->getMovie1();
@@ -25,7 +25,7 @@ class controller{
             $result = $this->testDB->getMovie0();
         }
         else if($method == "fetchUserDetails"){
-            $result = $this->testDB->fetchUserDetails($var1,$var2);
+            $result = $this->testDB->fetchUserDetails($var1,$var2,$var3);
         }
         else if($method == "searchMovies"){
             $result = $this->testDB->searchMovies($var1);
@@ -37,10 +37,10 @@ class controller{
             $result = $this->testDB->searchMovies10Num($var1,$var2);
         }
         else if($method == "updatePassword"){
-            $result = $this->testDB->updatePassword($var1, $var2, $var3);
+            $result = $this->testDB->updatePassword($var1,$var2,$var3,$var4);
         }
         else if($method == "validatePasswordChange"){
-            $result = $this->testDB->validatePasswordChange($var1);
+            $result = $this->testDB->validatePasswordChange($var1,$var2);
         }
         else if($method == "getBookings"){
             $result = $this->testDB->getBookings();
@@ -112,7 +112,7 @@ class controller{
             $result = $this->testDB->getFoodFromName($var1);
         }
         else if($method == "updateFood"){
-            $result = $this->testDB->updateFood($var1,$var2,$var3,$var4);
+            $result = $this->testDB->updateFood($var1,$var2,$var3,$var4,$var5,$var6);
         }
         else if($method == "deleteFood"){
             $result = $this->testDB->deleteFood($var1);

@@ -105,7 +105,7 @@ class EditFood{
         $foodPicName = $_POST['foodPicName'];
         $status = $_POST['status'];
 
-        $result = $controller -> run("updateFood",$foodName,$quantity,$foodPicName,$status);
+        $result = $controller -> run("updateFood",$foodName,$quantity,$foodPicName,$status,$_SESSION['username'],date("Y-m-d"));
 
         if($result){
           $check = $controller -> run("getFoodFromName",$foodName);

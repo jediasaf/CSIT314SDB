@@ -33,12 +33,12 @@ class displayLogin{
 				<div class="inputs">
 					<p>What are you?</p>
 					<select name="role" id="role">
-					<option value="Admin">Admin</option>
-					<option value="Staff">Staff</option>
-					<option value="Manager">Manager</option>
-					<option value="Customer ">Customer</option>
+					<option value="admin">Admin</option>
+					<option value="staff">Staff</option>
+					<option value="manager">Manager</option>
+					<option value="customer">Customer</option>
 					</select>
-					<input name="username" type="text" placeholder="user name">
+					<input name="username" type="text" placeholder="username">
 					<br>
 					<input name="password" type="password" placeholder="password">
 				</div>

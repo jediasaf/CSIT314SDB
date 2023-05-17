@@ -10,6 +10,10 @@ class doLogin{
     $role = $_POST['role'];
     $password = $_POST['password'];
     $hashedPassword = hash("sha256",$password);
+    $role = trim($role);
+    echo $role;
+    echo $hashedPassword;
+    echo $username;
     /*
     echo $hashedPassword;
     echo "<br>";
@@ -55,7 +59,30 @@ class doLogin{
     }*/
     #echo $rowcount;
     if($rowcount == 1){
-        $row = $controller -> run("fetchUserDetails",$username,$hashedPassword);
+        $row = $controller -> run("fetchUserDetails",$username,$hashedPassword,$role);
+
+        /*
+        foreach($row as $key => $value){
+          echo $_SESSION[$key]." = ".$value;
+        }
+        */
+        $_SESSION['roles'] = $role;
+
+        if($role == "customer"){
+        $_SESSION['username'] = $row[0]['username'];
+        $_SESSION['loyaltypts'] = $row[0]['loyaltyPts'];
+        $_SESSION['genrePref'] = $row[0]['genrePref'];
+        $_SESSION['seatPref'] = $row[0]['seatPref'];
+        $_SESSION['email'] = $row[0]['email'];
+        $_SESSION['phoneNo'] = $row[0]['phoneNo'];
+        }
+        else {
+          $_SESSION['email'] = $row[0]['email'];
+          $_SESSION['phoneNo'] = $row[0]['phoneNo'];
+          $_SESSION['username'] = $row[0]['username'];
+        }
+
+        /*
         $_SESSION['username'] = $row[0]['username'];
         $_SESSION['roles'] = $row[0]['roles'];
         $_SESSION['loyaltypts'] = $row[0]['loyaltyPts'];
@@ -63,6 +90,7 @@ class doLogin{
         $_SESSION['seatPref'] = $row[0]['seatPref'];
         $_SESSION['email'] = $row[0]['email'];
         $_SESSION['phoneNo'] = $row[0]['phoneNo'];
+        */
     }
     
     if(isset($_SESSION['username'])){
@@ -80,19 +108,19 @@ class doLogin{
         <br/>Redirecting to HomePage in 5 seconds.  </p>
         </div>';
 
-        if($_SESSION['roles'] == "Manager"){
+        if($_SESSION['roles'] == "manager"){
           echo '<meta http-equiv="refresh" content="5; url='.'ManageBookings.php'.'" />';
 
         }
-        else if($_SESSION['roles'] == "Customer"){
+        else if($_SESSION['roles'] == "customer"){
           echo '<meta http-equiv="refresh" content="5; url='.'HomePage SDB.php'.'" />';
 
         }
-        else if($_SESSION['roles'] == "Staff"){
+        else if($_SESSION['roles'] == "staff"){
           echo '<meta http-equiv="refresh" content="5; url='.'ManageBookings.php'.'" />';
 
         }
-        else if($_SESSION['roles'] == "Admin"){
+        else if($_SESSION['roles'] == "admin"){
           echo '<meta http-equiv="refresh" content="5; url='.'UserProfile.php'.'" />';
 
         }

@@ -55,20 +55,20 @@ class displayNav{
 							  else{
 								echo 'Please Log In';
 							  }
-							echo' </h3>
-							  <div class="points">
-							  <h7>Loyalty Points: ';
+							echo' </h3>';
 							  
-							  if(isset($_SESSION['username'])){
+							  
+							  if(isset($_SESSION['username'])  && $_SESSION['roles'] == "customer"){
+								echo '<div class="points">
+								<h7>Loyalty Points: ';
 								echo $_SESSION["loyaltypts"];
-													  }
-							  else{
-								echo '0';
-							  }
+								echo '</h7>
+								</div>';
+								}
 							  
 							  
-							 echo ' </h7>
-							</div>
+							  
+							 echo ' 
 						  </div>
 							<hr>
 							<a href="EditProfile.php" class="sub-menu-link">
@@ -114,16 +114,16 @@ class displayNav{
 		</script>';
 
 		if(isset($_SESSION['roles'])){
-			if($_SESSION['roles'] == "Customer"){
+			if($_SESSION['roles'] == "customer"){
 				include ("CustomerNavbar.php");
 			}
-			else if($_SESSION['roles'] == "Admin"){
+			else if($_SESSION['roles'] == "admin"){
 				include ("AdminNavBar.php");
 			}
-			else if($_SESSION['roles'] == "Manager"){
+			else if($_SESSION['roles'] == "manager"){
 				include ("ManagerNavbar.php");
 			}
-			else if($_SESSION['roles'] == "Staff"){
+			else if($_SESSION['roles'] == "staff"){
 				include ("StaffNavbar.php");
 			}
 		}

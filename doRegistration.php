@@ -18,7 +18,7 @@ class displayDoRegistration{
     $seat = $_POST['seat'];
     $success = false;
     $loyaltypts = 0;
-    $roles = "Customer";
+    $roles = "customer";
     
     
     /*
@@ -58,15 +58,15 @@ class displayDoRegistration{
     else { 
         # insert query
         
-        $result = $controller->run("processRegistration",$phoneNum,$username,$hashedPassword,$email,$age,$genre,$loyaltypts,$roles,$seat);
+        $result = $controller->run("processRegistration",$phoneNum,$username,$hashedPassword,$email,$age,$genre,$loyaltypts,$seat);
         if($result){
           $redirect = '<meta http-equiv="refresh" content="5; url='.'HomePage SDB.php'.'" />';
     
     
-          $row = $controller -> run("fetchUserDetails",$username,$hashedPassword);
+          $row = $controller -> run("fetchUserDetails",$username,$hashedPassword,$roles);
       
           $_SESSION['username'] = $row[0]['username'];
-          $_SESSION['roles'] = $row[0]['roles'];
+          $_SESSION['roles'] = $roles;
           $_SESSION['loyaltypts'] = $row[0]['loyaltyPts'];
           $_SESSION['genrePref'] = $row[0]['genrePref'];
           $_SESSION['seatPref'] = $row[0]['seatPref'];
