@@ -113,8 +113,8 @@ class testDB{
         return $result -> num_rows;
     }
 
-    function claimBooking($bookingid){
-        $result = $this->conn->query("UPDATE `bookingdb` SET `isClaimed` = 1 WHERE `bookingID` = '$bookingid'");
+    function claimBooking($bookingid,$username){
+        $result = $this->conn->query("UPDATE `bookingdb` SET `isClaimed` = 1, `claimUsername` = '$username' WHERE `bookingID` = '$bookingid'");
         $test = $this->conn->query("SELECT `isClaimed` FROM `bookingdb` WHERE `bookingID` = '$bookingid'");
         $row = $test -> fetch_all(MYSQLI_BOTH);
         $isClaimed = $row[0]['isClaimed'];
@@ -172,13 +172,13 @@ class testDB{
         $row = $result -> fetch_all(MYSQLI_BOTH);
         return $row;
     }
-    function updateRoomPlan($roomID,$movieID,$rows,$columns,$capacity){
-        $result = $this->conn->query("UPDATE `roomplandb` SET `movieID` = '$movieID',`rows` = '$rows', `columns` = '$columns', `capacity` = '$capacity' WHERE `roomID` = '$roomID'");
+    function updateRoomPlan($roomID,$movieID,$rows,$columns,$capacity,$username,$date){
+        $result = $this->conn->query("UPDATE `roomplandb` SET `movieID` = '$movieID',`rows` = '$rows', `columns` = '$columns', `capacity` = '$capacity',`username`='$username',`dateModified`='$date' WHERE `roomID` = '$roomID'");
         return $result;
     }
 
-    function resetRoomPlan($roomID){
-        $result = $this->conn->query("UPDATE `roomplandb` SET `rows`='',`columns`='',`capacity`='',`movieID`='' WHERE `roomID` = '$roomID'");
+    function resetRoomPlan($roomID,$username,$date){
+        $result = $this->conn->query("UPDATE `roomplandb` SET `rows`='',`columns`='',`capacity`='',`movieID`='',`username`='$username',`dateModified`='$date' WHERE `roomID` = '$roomID'");
         return $result;
     }
 

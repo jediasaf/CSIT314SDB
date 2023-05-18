@@ -107,7 +107,7 @@ class EditShow{
         $capacity = $rows * $columns;
         $movieID = $controller -> run("escapeString",$tempmovieID);
 
-        $result = $controller -> run("updateRoomPlan",$roomID,$movieID,$rows,$columns,$capacity);
+        $result = $controller -> run("updateRoomPlan",$roomID,$movieID,$rows,$columns,$capacity,$_SESSION['username'],date("Y-m-d"));
         if($result){
           $check = $controller -> run("getRoomPlanFromID",$roomID);
 
@@ -136,8 +136,8 @@ class EditShow{
       }
       else{
         $roomID = $_POST['roomID'];
-        $result = $controller -> run("resetRoomPlan",$roomID);
-        $result1 = $controller -> run("resetRoomSpec",$roomID);
+        $result = $controller -> run("resetRoomPlan",$roomID,$_SESSION['username'],date("Y-m-d"));
+        #$result1 = $controller -> run("resetRoomSpec",$roomID);
 
         if($result){
           $check = $controller -> run("getRoomPlanFromID",$roomID);

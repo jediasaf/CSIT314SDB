@@ -58,7 +58,7 @@ class controller{
             $result = $this->testDB->confirmDeletion($var1);
         }
         else if($method == "claimBooking"){
-            $result = $this->testDB->claimBooking($var1);
+            $result = $this->testDB->claimBooking($var1,$var2);
         }
         else if($method == "getAllMovies"){
             $result = $this->testDB->getAllMovies();
@@ -85,10 +85,10 @@ class controller{
             $result = $this->testDB->getRoomPlanFromID($var1);
         }
         else if($method == "updateRoomPlan"){
-            $result = $this->testDB->updateRoomPlan($var1,$var2,$var3,$var4,$var5);
+            $result = $this->testDB->updateRoomPlan($var1,$var2,$var3,$var4,$var5,$var6,$var7);
         }
         else if($method == "resetRoomPlan"){
-            $result = $this->testDB->resetRoomPlan($var1);
+            $result = $this->testDB->resetRoomPlan($var1,$var2,$var3);
         }
         else if($method == "getMovieTitleFromID"){
             $result = $this->testDB->getMovieTitleFromID($var1);

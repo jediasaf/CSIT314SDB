@@ -10,11 +10,14 @@ class doLogin{
     $role = $_POST['role'];
     $password = $_POST['password'];
     $hashedPassword = hash("sha256",$password);
+    
     $role = trim($role);
+    
+    /*
     echo $role;
     echo $hashedPassword;
     echo $username;
-    /*
+    
     echo $hashedPassword;
     echo "<br>";
     echo "'".$hashedPassword."'";

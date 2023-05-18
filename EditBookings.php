@@ -258,7 +258,7 @@ else if($_SERVER['REQUEST_METHOD'] === 'POST'){
     echo '<h1>'.$bookingid.'</h1>';
     */
     # do the claim
-    $result = $controller->run("claimBooking",$bookingid);
+    $result = $controller->run("claimBooking",$bookingid,$_SESSION['username']);
     if($result == 1){
       $message = 'claimed successfully';
     }
