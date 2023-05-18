@@ -1,6 +1,6 @@
 <?php
 
-class ManagerPage{
+class CustomerPage{
 
     function display(){
         if(!isset($_SESSION)){
@@ -32,11 +32,10 @@ class ManagerPage{
         <th>Password Hashes</th>
         <th>Email</th>
         <th>Age</th>
-        <th>Admin Username</th>
-        <th>Date Modified</th>
+        <th>Genre Preference</th>
+        <th>Loyalty Points</th>
+        <th>Seat Preference</th>
         <th>View Profile</th>
-        <th>Edit User</th>
-        <th>Delete User</th>
         </tr>
         </thead>
         <tbody>
@@ -45,16 +44,14 @@ class ManagerPage{
         ';
         include ("dbFunctions.php");
         $controller = new controller();
-        $row = $controller ->run("retrieveManagerDB");
         $search_username = isset($_GET['name']) ? $_GET['name'] : '';
-        $row = $controller ->run("retrieveManagerDB");
+        $row = $controller ->run("retrieveCustomerDB");
         if (!empty($search_username)) {
             $filtered_rows = array_filter($row, function ($userdetails) use ($search_username) {
                 return strpos($userdetails['username'], $search_username) !== false;
             });
             $row = $filtered_rows;
         }
-
         foreach($row as $userdetails){
             $message = $message. '<tr>';
             $message = $message.  '<td>'.$userdetails['phoneNo'].'</td>';
@@ -62,11 +59,10 @@ class ManagerPage{
             $message = $message.  '<td>'.$userdetails['hashedPassw'].'</td>';
             $message = $message.  '<td>'.$userdetails['email'].'</td>';
             $message = $message.  '<td>'.$userdetails['age'].'</td>';
-            $message = $message.  '<td>'.$userdetails['aUsername'].'</td>';
-            $message = $message.  '<td>'.$userdetails['dateLastModified'].'</td>';
-            $message = $message. '<td><a href="ViewManagerProfile.php?username='.$userdetails['username'].'">View</a></td>';
-            $message = $message. '<td><a href="EditManagerProfile.php?action=edit&username='.$userdetails['username'].'">Edit</a></td>';
-            $message = $message. '<td><a href="EditManagerProfile.php?action=delete&username='.$userdetails['username'].'">Delete</a></td>';
+            $message = $message.  '<td>'.$userdetails['genrePref'].'</td>';
+            $message = $message.  '<td>'.$userdetails['loyaltyPts'].'</td>';
+            $message = $message.  '<td>'.$userdetails['seatPref'].'</td>';
+            $message = $message. '<td><a href="ViewCustomerProfile.php?username='.$userdetails['username'].'">View</a></td>';
             
 
             $message = $message.  '</td>';
@@ -106,7 +102,7 @@ class ManagerPage{
 
                 <center>
                 <div id="content">
-                <h2>Manager<span style="color:#F8F8F8;"> Profiles</span></h2>
+                <h2>Customer<span style="color:#F8F8F8;"> Profiles</span></h2>
                 </div>
                 
                 <div class="form">
@@ -133,7 +129,7 @@ class ManagerPage{
     
 }
 
-$display = new ManagerPage();
+$display = new CustomerPage();
 $display->display();
 
 

@@ -404,7 +404,7 @@ class EditStaffProfile{
     
         <center>
             <div id="content">
-        <h2>Edit <span style="color:#F8F8F8;"> User Profiles</span></h2>
+        <h2>Edit Staff<span style="color:#F8F8F8;"> Profiles</span></h2>
         </div>
     
         

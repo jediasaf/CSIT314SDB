@@ -64,27 +64,20 @@ class AddUser{
                 <input type="text" name="age" id="age" class="form-control">
               </div>
             </div>
+
+            <div class="col-sm-5">
+              <div class="input-block">
+                <label for="">Admin Name: </label>
+                <input type="text" name="admin" id="admin" class="form-control">
+              </div>
+            </div>
             
-                 <div class="col-sm-5">
-          <div class="input-block">
-            <label for="genre">Genre Preference: </label>
-            <select id="genre" name="preferences" class="form-control">
-              <option value="action">Thriller</option>
-              <option value="comedy">Adventure</option>
-              <option value="drama">Horror</option>
-              <option value="horror">Fantasy</option>
-              <option value="horror">Drama</option>
-              <option value="horror">Animation</option>
-              <option value="horror">Comedy</option>
-              <option value="horror">Crime</option>
-              <option value="horror">Mystery</option>
-              <option value="romance">Romance</option>
-              <option value="horror">Action</option>
-              <option value="horror">Sci-Fi</option>
-              <option value="horror">Musical</option>
-            </select>
-          </div>
-        </div>
+            <div class="col-sm-5">
+              <div class="input-block">
+                <label for="">Date Added: </label>
+                <input type="text" name="date" id="date" class="form-control">
+              </div>
+            </div>
             
             <div class="col-sm-5">
           <div class="input-block">
@@ -96,17 +89,6 @@ class AddUser{
           </div>
         </div>
             
-            <div class="col-sm-5">
-          <div class="input-block">
-            <label for="seatpref">Seat Preference: </label>
-            <select class="form-control" name="seatpref" id="seatpref">
-              <option value="window">Front</option>
-              <option value="aisle">Back</option>
-              <option value="middle">Center</option>
-              <option value="middle">None</option>
-            </select>
-          </div>
-        </div>
               
             <div class="col-md-12">
                 <div class="form-group">

@@ -233,6 +233,9 @@ class controller{
         else if($method == "retrieveManager"){
             $result = $this->testDB->retrieveManager($var1);
         }
+        else if($method == "retrieveCustomer"){
+            $result = $this->testDB->retrieveCustomer($var1);
+        }
         else if($method == "updateManager"){
             $result = $this->testDB->updateManager($var1, $var2, $var3, $var4, $var5, $var6);
         }
@@ -254,8 +257,14 @@ class controller{
         else if($method == "retrieveManagerDB"){
             $result = $this->testDB->retrieveManagerDB();
         }
-        else if($method == "addUser"){
-            $result = $this->testDB->addUser($var1, $var2, $var3, $var4, $var5, $var6, $var7, $var8, $var9);
+        else if($method == "retrieveCustomerDB"){
+            $result = $this->testDB->retrieveCustomerDB();
+        }
+        else if($method == "addStaff"){
+            $result = $this->testDB->addStaff($var1, $var2, $var3, $var4, $var5, $var6, $var7);
+        }
+        else if($method == "addManager"){
+            $result = $this->testDB->addManager($var1, $var2, $var3, $var4, $var5, $var6, $var7);
         }
         else if($method == "deleteManager"){
             $result = $this->testDB->deleteManager($var1);

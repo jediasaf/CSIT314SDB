@@ -79,6 +79,7 @@ class AdminNav{
         <nav>
                 <ul>
                         <li><a href="AddUser.php">Add Profile</a>
+                        <li><a href="CustomerPage.php">View Customers</a>
                         <li><a href="StaffPage.php">Manage Staff</a>
                         <li><a href="ManagerPage.php">Manage Managers</a>
                     </ul>

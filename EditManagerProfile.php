@@ -404,7 +404,7 @@ class EditManagerProfile{
     
         <center>
             <div id="content">
-        <h2>Edit <span style="color:#F8F8F8;"> User Profiles</span></h2>
+        <h2>Edit <span style="color:#F8F8F8;"> Manager Profiles</span></h2>
         </div>
     
         

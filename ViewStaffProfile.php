@@ -1,23 +1,19 @@
 <?php
 include("navbar.php");
-class ViewProfile{
+class ViewStaffProfile{
     function display(){
         include("dbFunctions.php");
         $message = "";
         $controller = new controller ();
         if($_SERVER['REQUEST_METHOD'] === 'GET'){
             $username = $_GET['username'];
-            $result = $controller->run("retrieveUser", $username);
+            $result = $controller->run("retrieveStaff", $username);
 
             $message =  '<form action="?" method="POST">';
             $message = $message.'<h4 style="text-align: left; white-space: pre;">Username                              : '.$result[0]['username'].'</h4>';
             $message = $message.'<h4 style="text-align: left; white-space: pre;">Phone Number                     : '.$result[0]['phoneNo'].'</h4>';
             $message = $message.'<h4 style="text-align: left; white-space: pre;">Email                                       : '.$result[0]['email'].'</h4>';
             $message = $message.'<h4 style="text-align: left; white-space: pre;">Age                                          : '.$result[0]['age'].'</h4>';
-            $message = $message.'<h4 style="text-align: left; white-space: pre;">Genre Preference                 : '.$result[0]['genrePref'].'</h4>';
-            $message = $message.'<h4 style="text-align: left; white-space: pre;">Loyalty Points                        : '.$result[0]['loyaltyPts'].'</h4>';
-            $message = $message.'<h4 style="text-align: left; white-space: pre;">Role                                         : '.$result[0]['roles'].'</h4>';
-            $message = $message.'<h4 style="text-align: left; white-space: pre;">Seat Preference                    : '.$result[0]['seatPref'].'</h4>';
             $message = $message.'</form>';
         }
 
@@ -214,6 +210,6 @@ class ViewProfile{
     }
 }
 
-$display = new ViewProfile();
+$display = new ViewStaffProfile();
 $display->display();
 ?>

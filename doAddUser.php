@@ -4,9 +4,9 @@ $username = $_POST['username'];
 $phone = $_POST['phone'];
 $email = $_POST['email'];
 $age = $_POST['age'];
-$genre = $_POST['preferences'];
 $role = $_POST['role'];
-$seatpref = $_POST['seatpref'];
+$admin = $_POST['admin'];
+$date = $_POST['date'];
 $hashedpw = hash("sha256","SDB@2023");
 
 include "dbFunctions.php";
@@ -23,13 +23,24 @@ if($result > 0){
           </div>';
       $redirect = '<meta http-equiv="refresh" content="5; url='.'AddUser.php'.'" />';
 }else{
-    $result = $controller->run("addUser", $phone, $username, $hashedpw, $email, $age, $genre, 0, $role, $seatpref);
-    $redirect = '<meta http-equiv="refresh" content="5; url='.'UserProfile.php'.'" />';
-    $message = '<div style="border-radius:200px; height:200px; width:200px; background: #F8FAF5; margin:0 auto;">
-            <i class="checkmark">✓</i>
-          </div><h1>Success</h1>
-          <h2>Dear '.$_SESSION['username'].'</h2>
-      <p>User successfully added,<br/>Redirecting to User Profiles Page in 5 seconds.  </p>';
+    if($role == "Staff"){
+      $result = $controller->run("addStaff", $phone,$username,$hashedpw,$email,$age,$admin,$date);
+      $redirect = '<meta http-equiv="refresh" content="5; url='.'StaffPage.php'.'" />';
+      $message = '<div style="border-radius:200px; height:200px; width:200px; background: #F8FAF5; margin:0 auto;">
+              <i class="checkmark">✓</i>
+            </div><h1>Success</h1>
+            <h2>Dear '.$_SESSION['username'].'</h2>
+        <p>Staff successfully added,<br/>Redirecting to Staff Profiles Page in 5 seconds.  </p>';
+    } else{
+      $result = $controller->run("addManager", $phone,$username,$hashedpw,$email,$age,$admin,$date);
+      $redirect = '<meta http-equiv="refresh" content="5; url='.'ManagerPage.php'.'" />';
+      $message = '<div style="border-radius:200px; height:200px; width:200px; background: #F8FAF5; margin:0 auto;">
+              <i class="checkmark">✓</i>
+            </div><h1>Success</h1>
+            <h2>Dear '.$_SESSION['username'].'</h2>
+        <p>Manager successfully added,<br/>Redirecting to Manager Profiles Page in 5 seconds.  </p>';
+    }
+    
 }
 
 echo'

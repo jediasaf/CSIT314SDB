@@ -527,7 +527,11 @@ class testDB{
         $row = $result->fetch_all(MYSQLI_BOTH);
         return $row;
     }
-
+    function retrieveCustomer($username){
+        $result = $this->conn->query("SELECT * from `customer` where `username` = '$username'");
+        $row = $result->fetch_all(MYSQLI_BOTH);
+        return $row;
+    }
     function updateUserInfo($email,  $age, $preferences, $seatpref, $phone, $username){
         $result = $this->conn->query("UPDATE `customer` SET `email` = '$email', `age` = $age, `genrePref` = '$preferences', `seatPref` = '$seatpref', `phoneNo` = $phone WHERE `username` = '$username'");
         return $result;
@@ -568,10 +572,21 @@ class testDB{
         $row = $result->fetch_all(MYSQLI_BOTH);
         return $row;
     }
+    function retrieveCustomerDB(){
+        $result = $this->conn->query("SELECT * from `customer`");
+        $row = $result->fetch_all(MYSQLI_BOTH);
+        return $row;
+    }
 
-    function addUser($phoneNum,$username,$hashedpwd,$email,$age,$genre,$loyaltypts,$roles,$seat){
-        $result = $this->conn->query("INSERT INTO `userdb` (`phoneNo`, `username`,`hashedPassw`,`email`, `age`, `genrePref`, `loyaltyPts`, `roles`, `seatPref`) 
-        VALUES (".$phoneNum.",'".$username."' , '".$hashedpwd."' , '".$email."', ".$age.", '".$genre."', ".$loyaltypts.", '".$roles."', '".$seat."');");
+    function addStaff($phoneNum,$username,$hashedpwd,$email,$age,$admin,$date){
+        $result = $this->conn->query("INSERT INTO `staff` (`phoneNo`, `username`,`hashedPassw`,`email`, `age`, `aUsername`, `dateLastModified`) 
+        VALUES (".$phoneNum.",'".$username."' , '".$hashedpwd."' , '".$email."', ".$age.", '".$admin."');");
+        return $result;
+    }
+
+    function addManager($phoneNum,$username,$hashedpwd,$email,$age,$admin,$date){
+        $result = $this->conn->query("INSERT INTO `manager` (`phoneNo`, `username`,`hashedPassw`,`email`, `age`, `aUsername`, `dateLastModified`) 
+        VALUES (".$phoneNum.",'".$username."' , '".$hashedpwd."' , '".$email."', ".$age.", '".$admin."');");
         return $result;
     }
 

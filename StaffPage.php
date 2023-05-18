@@ -20,6 +20,10 @@ class StaffPage{
         </div>
         </div>
         </div>
+        <form action="?" method="GET">
+        <input type="text" name="name" placeholder="Search username HERE">
+        <input type="submit" name="submit" value="Search">
+        </form>
         <table class="table table-bordered">
         <thead>
         <tr>
@@ -30,6 +34,7 @@ class StaffPage{
         <th>Age</th>
         <th>Admin Username</th>
         <th>Date Modified</th>
+        <th>View Profile</th>
         <th>Edit User</th>
         <th>Delete User</th>
         </tr>
@@ -40,19 +45,26 @@ class StaffPage{
         ';
         include ("dbFunctions.php");
         $controller = new controller();
+        $search_username = isset($_GET['name']) ? $_GET['name'] : '';
         $row = $controller ->run("retrieveStaffDB");
-
-        for($i = 0; $i < sizeof($row);$i++){
+        if (!empty($search_username)) {
+            $filtered_rows = array_filter($row, function ($userdetails) use ($search_username) {
+                return strpos($userdetails['username'], $search_username) !== false;
+            });
+            $row = $filtered_rows;
+        }
+        foreach($row as $userdetails){
             $message = $message. '<tr>';
-            $message = $message.  '<td>'.$row[$i]['phoneNo'].'</td>';
-            $message = $message.  '<td>'.$row[$i]['username'].'</td>';
-            $message = $message.  '<td>'.$row[$i]['hashedPassw'].'</td>';
-            $message = $message.  '<td>'.$row[$i]['email'].'</td>';
-            $message = $message.  '<td>'.$row[$i]['age'].'</td>';
-            $message = $message.  '<td>'.$row[$i]['aUsername'].'</td>';
-            $message = $message.  '<td>'.$row[$i]['dateLastModified'].'</td>';
-            $message = $message. '<td><a href="EditStaffProfile.php?action=edit&username='.$row[$i]['username'].'">Edit</a></td>';
-            $message = $message. '<td><a href="EditStaffProfile.php?action=delete&username='.$row[$i]['username'].'">Delete</a></td>';
+            $message = $message.  '<td>'.$userdetails['phoneNo'].'</td>';
+            $message = $message.  '<td>'.$userdetails['username'].'</td>';
+            $message = $message.  '<td>'.$userdetails['hashedPassw'].'</td>';
+            $message = $message.  '<td>'.$userdetails['email'].'</td>';
+            $message = $message.  '<td>'.$userdetails['age'].'</td>';
+            $message = $message.  '<td>'.$userdetails['aUsername'].'</td>';
+            $message = $message.  '<td>'.$userdetails['dateLastModified'].'</td>';
+            $message = $message. '<td><a href="ViewStaffProfile.php?username='.$userdetails['username'].'">View</a></td>';
+            $message = $message. '<td><a href="EditStaffProfile.php?action=edit&username='.$userdetails['username'].'">Edit</a></td>';
+            $message = $message. '<td><a href="EditStaffProfile.php?action=delete&username='.$userdetails['username'].'">Delete</a></td>';
             
 
             $message = $message.  '</td>';
@@ -92,7 +104,7 @@ class StaffPage{
 
                 <center>
                 <div id="content">
-                <h2>User<span style="color:#F8F8F8;"> Profiles</span></h2>
+                <h2>Staff<span style="color:#F8F8F8;"> Profiles</span></h2>
                 </div>
                 
                 <div class="form">
