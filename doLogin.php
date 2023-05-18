@@ -77,6 +77,7 @@ class doLogin{
         $_SESSION['genrePref'] = $row[0]['genrePref'];
         $_SESSION['seatPref'] = $row[0]['seatPref'];
         $_SESSION['email'] = $row[0]['email'];
+        $_SESSION['age'] = $row[0]['age'];
         $_SESSION['phoneNo'] = $row[0]['phoneNo'];
         }
         else {

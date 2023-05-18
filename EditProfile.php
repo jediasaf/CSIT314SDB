@@ -25,6 +25,7 @@ class EditProfile{
             <input
               type="text"
               placeholder="'.$_SESSION['email'].'"
+              value="'.$_SESSION['email'].'"
               name="email"
               id="email"
             />
@@ -33,6 +34,7 @@ class EditProfile{
             <input
               type="number"
               placeholder="'.$_SESSION['age'].'"
+              value="'.$_SESSION['age'].'"
               name="age"
               id="age"
             />
@@ -40,19 +42,22 @@ class EditProfile{
             <input
               type="number"
               placeholder="'.$_SESSION['phoneNo'].'"
+              value="'.$_SESSION['phoneNo'].'"
               name="phone"
               id="phone"
             />
-            <label for="seat"><b>Seat Preferences</b></label> <br>
+          <label for="seat"><b>Seat Preferences</b></label> <br>
           <select name="seatpref" id="seatpref">
-          <option value="None">Choose your preference</option>
+          <option selected value='.$_SESSION['seatPref'].'>'.$_SESSION['seatPref'].'</option>
+          <option value="None">None</option>
           <option value="front">Front</option>
           <option value="back">Back</option>
           </select>
           <br>
          <label for="Preferences"><b>Genre Preferences</b></label> <br>
           <select name="genrepref" id="genrepref">
-          <option value="None">Choose your preference</option>
+          <option selected value='.$_SESSION['genrePref'].'>'.$_SESSION['genrePref'].'</option>
+          <option value="None">None</option>
           <option value="Thriller">Thriller</option>
           <option value="Adventure">Adventure</option>
           <option value="Horror">Horror</option>
