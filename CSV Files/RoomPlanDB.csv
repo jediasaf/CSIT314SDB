@@ -1,7 +1,7 @@
-"roomID","rows","columns","capacity","movieID"
-"1","5","5","25","Belle2021"
-"2","7","7","49","Bubble2022"
-"3","10","10","100","DeepSea2023"
-"4","8","5","40","Scream2022"
-"5","0","0","0",
-"6","10","7","70","WeHaveaGhost2023"
+﻿roomID,rows,columns,capacity,movieID,username,dateModified
+1,5,5,25,Belle2021,cflewittg,2023-05-14
+2,7,7,49,Bubble2022,ndavidowsky2o,2023-05-14
+3,10,10,100,DeepSea2023,cflewittg,2023-05-14
+4,8,5,40,Scream2022,ndavidowsky2o,2023-05-14
+5,0,0,0,,cflewittg,2023-05-14
+6,10,7,70,WeHaveaGhost2023,ndavidowsky2o,2023-05-14
