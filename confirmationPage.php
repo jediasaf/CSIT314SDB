@@ -112,9 +112,10 @@
 
           $currentDate = date("Y-m-d");
           $claim = 0;
+          $claimUsername = '';
           $msg ='';
           if($_SERVER['REQUEST_METHOD'] === 'GET'){
-            $result = $controller ->run('updateBookingdb',$number,$username,$currentDate,$movieID,$totalTik,$seatsOrder,$numAdultTik,$numSeniorTik,$numStudentTik,$numChildTik,$_SESSION['numFoodCombos'],$totalBill,$claim);
+            $result = $controller ->run('updateBookingdb',$number,$username,$currentDate,$movieID,$totalTik,$seatsOrder,$numAdultTik,$numSeniorTik,$numStudentTik,$numChildTik,$_SESSION['numFoodCombos'],$totalBill,$claim,$claimUsername);
             $msg .='    <a href="" onclick="window.print()">Print Screen</a>';
           }
           include('navbar.php');
