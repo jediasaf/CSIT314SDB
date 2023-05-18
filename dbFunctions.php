@@ -272,6 +272,12 @@ class controller{
         else if($method == "deleteManager"){
             $result = $this->testDB->deleteManager($var1);
         }
+        else if($method == "validateStaff"){
+            $result = $this->testDB->validateStaff($var1);
+        }
+        else if($method == "validateManager"){
+            $result = $this->testDB->validateManager($var1);
+        }
 
 
 

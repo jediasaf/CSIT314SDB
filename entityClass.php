@@ -584,14 +584,26 @@ class testDB{
 
     function addStaff($phoneNum,$username,$hashedpwd,$email,$age,$admin,$date){
         $result = $this->conn->query("INSERT INTO `staff` (`phoneNo`, `username`,`hashedPassw`,`email`, `age`, `aUsername`, `dateLastModified`) 
-        VALUES (".$phoneNum.",'".$username."' , '".$hashedpwd."' , '".$email."', ".$age.", '".$admin.", ".$date."');");
+        VALUES ('$phoneNum','$username','$hashedpwd','$email','$age','$admin','$date');");
         return $result;
     }
 
     function addManager($phoneNum,$username,$hashedpwd,$email,$age,$admin,$date){
         $result = $this->conn->query("INSERT INTO `manager` (`phoneNo`, `username`,`hashedPassw`,`email`, `age`, `aUsername`, `dateLastModified`) 
-        VALUES (".$phoneNum.",'".$username."' , '".$hashedpwd."' , '".$email."', ".$age.", '".$admin.", ".$date."');");
+        VALUES ('$phoneNum','$username','$hashedpwd','$email','$age','$admin','$date');");
         return $result;
+    }
+
+    function validateStaff($username){
+        $result = $this->conn->query("SELECT count(*) from `staff` where `username` = '$username'");
+        $row = $result -> fetch_all(MYSQLI_BOTH);
+        return $row[0][0];
+    }
+
+    function validateManager($username){
+        $result = $this->conn->query("SELECT count(*) from `manager` where `username` = '$username'");
+        $row = $result -> fetch_all(MYSQLI_BOTH);
+        return $row[0][0];
     }
 
     

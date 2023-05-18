@@ -11,9 +11,51 @@ $hashedpw = hash("sha256","SDB@2023");
 
 include "dbFunctions.php";
 $controller = new controller();
-$result = $controller->run("validateRegistration", $username);
+$resultStaff = $controller->run("validateStaff", $username);
+$resultManager = $controller->run("validateManager", $username);
 
-if($result > 0){
+
+if($role == "Staff"){
+  if($resultStaff > 0){
+    $message = '<div class="card">
+          <div style="border-radius:200px; height:200px; width:200px; background: #F8FAF5; margin:0 auto;">
+            <strong class="checkmark"><img width="200px" src="Images/forbidden.png"></strong>
+          </div>
+            <h1>Username already exists</h1> 
+            <p>Please enter again!</p>
+          </div>';
+      $redirect = '<meta http-equiv="refresh" content="5; url='.'AddUser.php'.'" />';
+  }else{
+    $result = $controller->run("addStaff", $phone,$username,$hashedpw,$email,$age,$admin,$date);
+      $redirect = '<meta http-equiv="refresh" content="5; url='.'StaffPage.php'.'" />';
+      $message = '<div style="border-radius:200px; height:200px; width:200px; background: #F8FAF5; margin:0 auto;">
+              <i class="checkmark">✓</i>
+            </div><h1>Success</h1>
+            <h2>Dear '.$_SESSION['username'].'</h2>
+        <p>Staff successfully added,<br/>Redirecting to Staff Profiles Page in 5 seconds.  </p>';
+  }
+}else{
+  if($resultManager > 0){
+    $message = '<div class="card">
+          <div style="border-radius:200px; height:200px; width:200px; background: #F8FAF5; margin:0 auto;">
+            <strong class="checkmark"><img width="200px" src="Images/forbidden.png"></strong>
+          </div>
+            <h1>Username already exists</h1> 
+            <p>Please enter again!</p>
+          </div>';
+      $redirect = '<meta http-equiv="refresh" content="5; url='.'AddUser.php'.'" />';
+  }else{
+    $result = $controller->run("addManager", $phone,$username,$hashedpw,$email,$age,$admin,$date);
+      $redirect = '<meta http-equiv="refresh" content="5; url='.'ManagerPage.php'.'" />';
+      $message = '<div style="border-radius:200px; height:200px; width:200px; background: #F8FAF5; margin:0 auto;">
+              <i class="checkmark">✓</i>
+            </div><h1>Success</h1>
+            <h2>Dear '.$_SESSION['username'].'</h2>
+        <p>Manager successfully added,<br/>Redirecting to Manager Profiles Page in 5 seconds.  </p>';
+  }
+}
+
+/*if($result > 0){
     $message = '<div class="card">
           <div style="border-radius:200px; height:200px; width:200px; background: #F8FAF5; margin:0 auto;">
             <strong class="checkmark"><img width="200px" src="Images/forbidden.png"></strong>
@@ -41,7 +83,7 @@ if($result > 0){
         <p>Manager successfully added,<br/>Redirecting to Manager Profiles Page in 5 seconds.  </p>';
     }
     
-}
+}*/
 
 echo'
     <html>
