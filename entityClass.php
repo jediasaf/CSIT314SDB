@@ -538,7 +538,11 @@ class testDB{
     }
 
     function updateManager($username, $phone, $email, $age, $admin, $date){
-        $result = $this->conn->query("UPDATE `manager` SET `phoneNo` = '$phone', `email` = '$email', `aUsername` = '$admin', `dateLastModified` = '$date' WHERE `username` = '$username'");
+        $result = $this->conn->query("UPDATE `manager` SET `phoneNo` = '$phone', `email` = '$email', `age` = '$age', `aUsername` = '$admin', `dateLastModified` = '$date' WHERE `username` = '$username'");
+        return $result;
+    }
+    function updateCustomer($username, $phone, $email, $age, $genrepref, $seatpref){
+        $result = $this->conn->query("UPDATE `customer` SET `phoneNo` = '$phone', `email` = '$email', `age` = '$age', `genrePref` = '$genrepref',`seatPref` = '$seatpref' WHERE `username` = '$username'");
         return $result;
     }
 
@@ -548,7 +552,7 @@ class testDB{
     }
 
     function updateStaff($username, $phone, $email, $age, $admin, $date){
-        $result = $this->conn->query("UPDATE `staff` SET `phoneNo` = '$phone', `email` = '$email', `aUsername` = '$admin', `dateLastModified` = '$date' WHERE `username` = '$username'");
+        $result = $this->conn->query("UPDATE `staff` SET `phoneNo` = '$phone', `email` = '$email', `age` = '$age', `aUsername` = '$admin', `dateLastModified` = '$date' WHERE `username` = '$username'");
         return $result;
     }
 
@@ -580,13 +584,13 @@ class testDB{
 
     function addStaff($phoneNum,$username,$hashedpwd,$email,$age,$admin,$date){
         $result = $this->conn->query("INSERT INTO `staff` (`phoneNo`, `username`,`hashedPassw`,`email`, `age`, `aUsername`, `dateLastModified`) 
-        VALUES (".$phoneNum.",'".$username."' , '".$hashedpwd."' , '".$email."', ".$age.", '".$admin."');");
+        VALUES (".$phoneNum.",'".$username."' , '".$hashedpwd."' , '".$email."', ".$age.", '".$admin.", ".$date."');");
         return $result;
     }
 
     function addManager($phoneNum,$username,$hashedpwd,$email,$age,$admin,$date){
         $result = $this->conn->query("INSERT INTO `manager` (`phoneNo`, `username`,`hashedPassw`,`email`, `age`, `aUsername`, `dateLastModified`) 
-        VALUES (".$phoneNum.",'".$username."' , '".$hashedpwd."' , '".$email."', ".$age.", '".$admin."');");
+        VALUES (".$phoneNum.",'".$username."' , '".$hashedpwd."' , '".$email."', ".$age.", '".$admin.", ".$date."');");
         return $result;
     }
 

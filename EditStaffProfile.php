@@ -172,7 +172,7 @@ class EditStaffProfile{
                 
           <div class="col-md-12">
           <div class="form-group">
-          <input type="submit" name="submit" value="Edit" class="btn btn-primary">
+          <input type="submit" name="submit" value="Delete" class="btn btn-primary">
           <div class="submitting"></div>
           </div>
           </div>

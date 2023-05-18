@@ -75,7 +75,7 @@ class AddUser{
             <div class="col-sm-5">
               <div class="input-block">
                 <label for="">Date Added: </label>
-                <input type="text" name="date" id="date" class="form-control">
+                <input type="date" name="date" id="date" class="form-control">
               </div>
             </div>
             

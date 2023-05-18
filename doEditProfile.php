@@ -11,11 +11,11 @@ $phone = $_POST['phone'];
 #connect to database and select the user from database
 include "dbFunctions.php";
 $controller = new controller();
-$result = $controller->run("retrieveUser", $_SESSION['username']);
+$result = $controller->run("retrieveCustomer", $_SESSION['username']);
 
 # update the user records
 if($result){
-	$result = $controller->run("updateUserInfo", $email, $age, $preferences, $seatpref, $phone, $_SESSION['username']);
+	$result = $controller->run("updateCustomer", $_SESSION['username'], $phone, $email, $age, $preferences,$seatpref);
 	$message = '<div class="card">
         <div style="border-radius:200px; height:200px; width:200px; background: #F8FAF5; margin:0 auto;">
           <i class="checkmark">✓</i>

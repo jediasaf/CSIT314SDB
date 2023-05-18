@@ -242,6 +242,9 @@ class controller{
         else if($method == "updateStaff"){
             $result = $this->testDB->updateStaff($var1, $var2, $var3, $var4, $var5, $var6);
         }
+        else if($method == "updateCustomer"){
+            $result = $this->testDB->updateCustomer($var1, $var2, $var3, $var4, $var5, $var6);
+        }
         else if($method == "deleteStaff"){
             $result = $this->testDB->deleteStaff($var1);
         }
