@@ -70,19 +70,6 @@ class EditStaffProfile{
                     <input type="text" name="age" class="form-control" value="'.$result[0]['age'].'">
                   </div>
                 </div>
-
-              <div class="col-sm-5">
-                <div class="input-block">
-                  <label for="">Admin Name: </label>
-                  <input type="text" name="admin" class="form-control" value="'.$result[0]['aUsername'].'">
-                </div>
-              </div>
-              <div class="col-sm-5">
-              <div class="input-block">
-                <label for="">Date Modified:  </label>
-                <input type="date" name="date" class="form-control" value="'.$result[0]['dateLastModified'].'">
-              </div>
-            </div>
             <br>
                   
             <div class="col-md-12">
@@ -155,19 +142,6 @@ class EditStaffProfile{
                   <input type="text" name="age" class="form-control" value="'.$result[0]['age'].'" readonly>
                 </div>
               </div>
-
-            <div class="col-sm-5">
-              <div class="input-block">
-                <label for="">Admin Name: </label>
-                <input type="text" name="admin" class="form-control" value="'.$result[0]['aUsername'].'" readonly>
-              </div>
-            </div>
-            <div class="col-sm-5">
-            <div class="input-block">
-              <label for="">Date Modified:  </label>
-              <input type="date" name="date" class="form-control" value="'.$result[0]['dateLastModified'].'" readonly>
-            </div>
-          </div>
             <br>
                 
           <div class="col-md-12">
@@ -188,14 +162,12 @@ class EditStaffProfile{
           $phone = $_POST['phone'];
           $email = $_POST['email'];
           $age = $_POST['age'];
-          $admin = $_POST['admin'];
-          $date = $_POST['date'];
-          $result = $controller->run("updateStaff", $username, $phone, $email, $age, $admin, $date);
+          $result = $controller->run("updateStaff", $username, $phone, $email, $age, $_SESSION['username'], date("Y-m-d"));
           
           if($result){
             $result = $controller->run("retrieveStaff",$username);
             if($result[0]['username'] == $username && $result[0]['phoneNo'] == $phone && $result[0]['email'] == $email 
-            && $result[0]['age'] == $age && $result[0]['aUsername'] == $admin && $result[0]['dateLastModified'] == $date){
+            && $result[0]['age'] == $age){
               $message = '<meta http-equiv="refresh" content="5; url='.'StaffPage.php'.'" />';
               $message = '<div style="border-radius:200px; height:200px; width:200px; background: #F8FAF5; margin:0 auto;">
                       <i class="checkmark">✓</i>
