@@ -5,8 +5,6 @@ $phone = $_POST['phone'];
 $email = $_POST['email'];
 $age = $_POST['age'];
 $role = $_POST['role'];
-$admin = $_POST['admin'];
-$date = $_POST['date'];
 $hashedpw = hash("sha256","SDB@2023");
 
 include "dbFunctions.php";
@@ -26,7 +24,7 @@ if($role == "Staff"){
           </div>';
       $redirect = '<meta http-equiv="refresh" content="5; url='.'AddUser.php'.'" />';
   }else{
-    $result = $controller->run("addStaff", $phone,$username,$hashedpw,$email,$age,$admin,$date);
+    $result = $controller->run("addStaff", $phone,$username,$hashedpw,$email,$age,$_SESSION['username'], date("Y-m-d"));
       $redirect = '<meta http-equiv="refresh" content="5; url='.'StaffPage.php'.'" />';
       $message = '<div style="border-radius:200px; height:200px; width:200px; background: #F8FAF5; margin:0 auto;">
               <i class="checkmark">✓</i>
@@ -45,7 +43,7 @@ if($role == "Staff"){
           </div>';
       $redirect = '<meta http-equiv="refresh" content="5; url='.'AddUser.php'.'" />';
   }else{
-    $result = $controller->run("addManager", $phone,$username,$hashedpw,$email,$age,$admin,$date);
+    $result = $controller->run("addManager", $phone,$username,$hashedpw,$email,$age,$_SESSION['username'], date("Y-m-d"));
       $redirect = '<meta http-equiv="refresh" content="5; url='.'ManagerPage.php'.'" />';
       $message = '<div style="border-radius:200px; height:200px; width:200px; background: #F8FAF5; margin:0 auto;">
               <i class="checkmark">✓</i>

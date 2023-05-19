@@ -64,20 +64,6 @@ class AddUser{
                 <input type="text" name="age" id="age" class="form-control">
               </div>
             </div>
-
-            <div class="col-sm-5">
-              <div class="input-block">
-                <label for="">Admin Name: </label>
-                <input type="text" name="admin" id="admin" class="form-control">
-              </div>
-            </div>
-            
-            <div class="col-sm-5">
-              <div class="input-block">
-                <label for="">Date Added: </label>
-                <input type="date" name="date" id="date" class="form-control">
-              </div>
-            </div>
             
             <div class="col-sm-5">
           <div class="input-block">
