@@ -162,15 +162,12 @@ class EditManagerProfile{
           $phone = $_POST['phone'];
           $email = $_POST['email'];
           $age = $_POST['age'];
-          $admin = $_POST['admin'];
-          $date = $_POST['date'];
-          $result = $controller->run("updateManager", $username, $phone, $email, $age, $_SESSION['username'], date("Y-m-d")
-        );
+          $result = $controller->run("updateManager", $username, $phone, $email, $age, $_SESSION['username'], date("Y-m-d"));
           
           if($result){
             $result = $controller->run("retrieveManager",$username);
             if($result[0]['username'] == $username && $result[0]['phoneNo'] == $phone && $result[0]['email'] == $email 
-            && $result[0]['age'] == $age && $result[0]['aUsername'] == $admin && $result[0]['dateLastModified'] == $date){
+            && $result[0]['age'] == $age){
               $message = '<meta http-equiv="refresh" content="5; url='.'ManagerPage.php'.'" />';
               $message = '<div style="border-radius:200px; height:200px; width:200px; background: #F8FAF5; margin:0 auto;">
                       <i class="checkmark">✓</i>
