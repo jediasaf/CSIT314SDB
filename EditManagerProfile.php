@@ -70,19 +70,6 @@ class EditManagerProfile{
                     <input type="text" name="age" class="form-control" value="'.$result[0]['age'].'">
                   </div>
                 </div>
-
-              <div class="col-sm-5">
-                <div class="input-block">
-                  <label for="">Admin Name: </label>
-                  <input type="text" name="admin" class="form-control" value="'.$result[0]['aUsername'].'">
-                </div>
-              </div>
-              <div class="col-sm-5">
-              <div class="input-block">
-                <label for="">Date Modified:  </label>
-                <input type="date" name="date" class="form-control" value="'.$result[0]['dateLastModified'].'">
-              </div>
-            </div>
             <br>
                   
             <div class="col-md-12">
@@ -155,19 +142,6 @@ class EditManagerProfile{
                   <input type="text" name="age" class="form-control" value="'.$result[0]['age'].'" readonly>
                 </div>
               </div>
-
-            <div class="col-sm-5">
-              <div class="input-block">
-                <label for="">Admin Name: </label>
-                <input type="text" name="admin" class="form-control" value="'.$result[0]['aUsername'].'" readonly>
-              </div>
-            </div>
-            <div class="col-sm-5">
-            <div class="input-block">
-              <label for="">Date Modified:  </label>
-              <input type="date" name="date" class="form-control" value="'.$result[0]['dateLastModified'].'" readonly>
-            </div>
-          </div>
             <br>
                 
           <div class="col-md-12">
@@ -190,7 +164,8 @@ class EditManagerProfile{
           $age = $_POST['age'];
           $admin = $_POST['admin'];
           $date = $_POST['date'];
-          $result = $controller->run("updateManager", $username, $phone, $email, $age, $admin, $date);
+          $result = $controller->run("updateManager", $username, $phone, $email, $age, $_SESSION['username'], date("Y-m-d")
+        );
           
           if($result){
             $result = $controller->run("retrieveManager",$username);
