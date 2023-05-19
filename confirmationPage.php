@@ -110,7 +110,7 @@
             $amountSaved = substr($_SESSION['amountSaved'], 1);
           }
           
-          $totalBill = ($seniorTotal + $adultTotal + $childTotal + $studentTotal + ($_SESSION['numFoodCombos'] * 8)) - $amountSaved;
+          $totalBill = ($seniorTotal + $adultTotal + $childTotal + $studentTotal + ($_SESSION['numFoodCombos'] * 8)) - (int)$amountSaved;
 
           if ($_SESSION['roles'] == 'customer'){
             $_SESSION['loyaltypts'] = $_SESSION['loyaltypts'] + $totalBill;

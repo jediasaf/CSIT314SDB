@@ -156,7 +156,7 @@ class doPayment{
                 $pointsDeducted = floor($loyaltyPoints / 100) * 100;
                 $_SESSION['loyaltypts'] = $_SESSION['loyaltypts'] - $pointsDeducted;
                 $amountSaved = $pointsDeducted / 100;
-                $_SESSION['amountSaved'] = $amountSaved;
+                $_SESSION['amountSaved'] = '$'.$amountSaved;
                 $result = $controller -> run('redeemPoints',$_SESSION['phoneNo'],$pointsDeducted);
                 $msg .= '<meta http-equiv="refresh" content="2;url=confirmationPage.php">';
               } else {
