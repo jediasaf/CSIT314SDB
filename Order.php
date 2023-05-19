@@ -8,8 +8,12 @@ class doOrder{
       session_start();
     }
 
+    if ($_SESSION['roles'] == 'customer'){
+      $loyaltyPoints = $_SESSION['loyaltypts'];
+    } else {
 
-    $loyaltyPoints = $_SESSION['loyaltypts'];
+    }
+
     $username = $_SESSION['username'];
     #$loyaltyPoints = 100;
     #$username = 'acalafato1x';
@@ -171,7 +175,7 @@ class doOrder{
 	<div class="CartContainer">
    	   <div class="Header">
    	   	<h3 class="Heading">&nbsp;</h3><h3 class="Heading">&nbsp;</h3><h3 class="Heading">Shopping Cart</h3>';
-          if ($_SESSION['roles'] == 'Customer'){
+          if ($_SESSION['roles'] == 'customer'){
             echo'<h5 class="Action">Loyalty Points: '.$_SESSION['loyaltypts'].'</h5>';
           } else {
             

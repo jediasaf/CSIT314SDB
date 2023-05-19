@@ -15,9 +15,14 @@ class doPayment{
 
       #store relevent data from order.php to session
       # verification check
+      #if ($_SESSION['loyaltypts'])
+      if ($_SESSION['roles'] == 'customer'){
+        $loyaltyPoints = $_SESSION['loyaltypts'];
+        $seatPref = $_SESSION['seatPref'];
+      } else {
 
-      $loyaltyPoints = $_SESSION['loyaltypts'];
-      $seatPref = $_SESSION['seatPref'];
+      }
+
       #$seatPref = 'front';
       #$loyaltyPoints = 99;
 
@@ -61,7 +66,7 @@ class doPayment{
           } else {
             # seats selected and ticket count match 
           }
-        } else {
+        } else if ($_SESSION['roles'] == 'customer') {
           # seat not selected (use preference)
           if ($seatPref == 'back'){
             for($r = 1 ; $r <= $_SESSION['row']; $r++ ){
@@ -107,6 +112,8 @@ class doPayment{
             $_SESSION['seatsP'] = $string;
             $seatsP = $_SESSION['seatsP'];
           }
+          } else {
+
           }
 
         #this closes the check if request method is get
@@ -212,13 +219,17 @@ class doPayment{
                       <option value="">--Select a Payment Type--</option>
                       <option value="PayNow">PayNow</option>
                       <option value="Pay at Counter">Pay at Counter</option>
-                    </select>
-        
-<input type="checkbox" id="redeemPoints" name="redeemPoints" value="redeemPts">
-<label for="redeemPoints" style="font-size: larger;"> Redeem My Points* </label>
+                    </select>';
+        if ($_SESSION['roles'] == 'customer'){
+          echo'<input type="checkbox" id="redeemPoints" name="redeemPoints" value="redeemPts">
+          <label for="redeemPoints" style="font-size: larger;"> Redeem My Points* </label>
+          <p style="font-size: smaller;">*All points will be redeemed for 1 time use(100 Points = $1)</p>';
+        } else {
+
+        }
+
                
-                    <p style="font-size: smaller;">*All points will be redeemed for 1 time use(100 Points = $1)</p>
-                    <button type="submit" class="button">CheckOut</button>
+                    echo'<button type="submit" class="button">CheckOut</button>
                     ';
                     echo $msg;
                     echo'
