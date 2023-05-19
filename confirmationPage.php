@@ -12,9 +12,14 @@
           $controller = new controller();
 
           #get relevant info from SESSION
+
+          if ($_SESSION['roles'] == 'customer'){
+            $loyaltyPoints = $_SESSION['loyaltypts'];
+          } else {
+            
+          }
           
           $username = $_SESSION['username'];
-          $loyaltyPoints = $_SESSION['loyaltypts'];
           $number = $_SESSION['phoneNo'];
 
           #$loyaltyPoints = 100;
@@ -105,9 +110,13 @@
             $amountSaved = substr($_SESSION['amountSaved'], 1);
           }
           
-          $totalBill = ($seniorTotal + $adultTotal + $childTotal + $studentTotal + ($_SESSION['numFoodCombos'] * 8)) - $amountSaved;
+          $totalBill = ($seniorTotal + $adultTotal + $childTotal + $studentTotal + ($_SESSION['numFoodCombos'] * 8)) - (int)$amountSaved;
 
-          $_SESSION['loyaltypts'] = $_SESSION['loyaltypts'] + $totalBill;
+          if ($_SESSION['roles'] == 'customer'){
+            $_SESSION['loyaltypts'] = $_SESSION['loyaltypts'] + $totalBill;
+          } else {
+            
+          }
           $gainedPoints = $controller ->run('gainPoints',$number,$totalBill);
 
           $currentDate = date("Y-m-d");
@@ -340,7 +349,7 @@
               <div style="min-height: 1350px" class="CartContainer">
                     <div class="Header">
                       <h3 class="Heading">&nbsp;</h3><h3 class="Heading">&nbsp;</h3><h3 class="Heading">Your Booking</h3>';
-                      if ($_SESSION['roles'] == 'Customer'){
+                      if ($_SESSION['roles'] == 'customer'){
                         echo'<h5 class="Action">Loyalty Points: '.$_SESSION['loyaltypts'].'</h5>';
                       } else {
                         
